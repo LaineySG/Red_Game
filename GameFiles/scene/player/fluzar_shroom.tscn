@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dta0c78hi06v3"]
+
+[ext_resource type="Script" path="res://scene/player/fluzar_shroom.gd" id="1_goo8h"]
+[ext_resource type="Texture2D" uid="uid://blve44dqu6hv3" path="res://assets/environment/fluzal_shrooms.png" id="2_4uvq1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wms3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4uvq1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gcnh"]
+size = Vector2(15.4286, 9.57143)
+
+[node name="shrooms" type="CharacterBody2D" groups=["bullets"]]
+collision_layer = 0
+slide_on_ceiling = false
+script = ExtResource("1_goo8h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2wms3")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(3, 3)
+collision_layer = 128
+collision_mask = 95
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2.98023e-08, 1)
+scale = Vector2(0.35, 0.35)
+shape = SubResource("RectangleShape2D_1gcnh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(0.35, 0.35)
+shape = SubResource("RectangleShape2D_1gcnh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[node name="lifetimer" type="Timer" parent="."]
+wait_time = 4.5
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="lifetimer" to="." method="_on_lifetimer_timeout"]

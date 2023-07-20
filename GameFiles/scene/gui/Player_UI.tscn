@@ -1,0 +1,787 @@
+[gd_scene load_steps=57 format=3 uid="uid://cixidhrb5q1qo"]
+
+[ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
+[ext_resource type="Texture2D" uid="uid://c1u1vq2f602oe" path="res://assets/gui/pixelUIart/playerhpempty2.png" id="2_lggao"]
+[ext_resource type="Texture2D" uid="uid://ghclmqtyttj8" path="res://assets/gui/pixelUIart/playerhpbarfulltest.png" id="3_6j4el"]
+[ext_resource type="Script" path="res://scene/levels/player_health.gd" id="4_425lb"]
+[ext_resource type="PackedScene" uid="uid://ptqmw5bb63iv" path="res://scene/gui/ui.tscn" id="5_4nfeg"]
+[ext_resource type="Script" path="res://scene/gui/Save_button.gd" id="5_4od5o"]
+[ext_resource type="Script" path="res://scene/levels/pause_modulation.gd" id="5_uo8qv"]
+[ext_resource type="Texture2D" uid="uid://cbtq53fgx03s0" path="res://assets/environment/scifi/anims/bulletbar2.png" id="6_84wmi"]
+[ext_resource type="Script" path="res://scene/levels/Ammo.gd" id="7_17myl"]
+[ext_resource type="Texture2D" uid="uid://dngq5x5csq6ne" path="res://assets/gui/Button03.png" id="8_dfbcq"]
+[ext_resource type="Texture2D" uid="uid://ddei11g0ue03h" path="res://assets/environment/scifi/anims/gunicon.png" id="9_ed8w3"]
+[ext_resource type="Texture2D" uid="uid://yvaporno4brj" path="res://assets/environment/scifi/anims/toygunicon.png" id="10_0p4x4"]
+[ext_resource type="Texture2D" uid="uid://b5ng1sk2865ue" path="res://assets/environment/scifi/anims/switchgunicon.png" id="11_j0b8g"]
+[ext_resource type="Texture2D" uid="uid://f143g8bjgrk3" path="res://assets/environment/Smoke/FX001/dashtimer.png" id="12_75lvj"]
+[ext_resource type="Texture2D" uid="uid://d3os515bqnvw6" path="res://assets/environment/Smoke/FX001/camotimer.png" id="13_3pskw"]
+[ext_resource type="Texture2D" uid="uid://db6ym5wavhfco" path="res://assets/environment/Smoke/FX001/sprinttimer.png" id="14_n3jgf"]
+[ext_resource type="Texture2D" uid="uid://7s1vsh8no6dv" path="res://assets/environment/Smoke/FX001/minetimer.png" id="15_0rfue"]
+[ext_resource type="Texture2D" uid="uid://bclnlmyg5v60y" path="res://assets/environment/Smoke/FX001/balloontimer.png" id="16_2ixc8"]
+[ext_resource type="Texture2D" uid="uid://bbujjao2l5irc" path="res://assets/environment/Smoke/FX001/shieldtimer.png" id="17_mp6ip"]
+[ext_resource type="Texture2D" uid="uid://dxyfc4agyhu6l" path="res://assets/environment/Smoke/FX001/alientimer.png" id="18_iu788"]
+[ext_resource type="Texture2D" uid="uid://trkoa4n1lrju" path="res://assets/environment/Smoke/FX001/teletimer.png" id="19_u304o"]
+[ext_resource type="Script" path="res://scene/levels/Textbox.gd" id="20_lla5a"]
+[ext_resource type="Texture2D" uid="uid://cn236c5i1rtpn" path="res://assets/NPCs/grimmportrait.png" id="21_c0k3p"]
+[ext_resource type="Texture2D" uid="uid://cum3kpmp254qk" path="res://assets/gui/space_bar_anim.png" id="21_qfvdi"]
+[ext_resource type="Script" path="res://scene/gui/spacebaricon.gd" id="22_ntma1"]
+[ext_resource type="Texture2D" uid="uid://dbdb7lcximmt3" path="res://assets/environment/scifi/anims/CIA_Coin.png" id="22_oixjb"]
+[ext_resource type="Script" path="res://scene/gui/Quit.gd" id="25_ptl4u"]
+[ext_resource type="Script" path="res://scene/gui/Load.gd" id="26_rnijt"]
+[ext_resource type="Script" path="res://scene/gui/Continue.gd" id="27_2ut5b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hclwf"]
+shader = ExtResource("1_tkis7")
+shader_parameter/enable_outline = false
+shader_parameter/outline_width = 0.3
+shader_parameter/outline_color = Color(0.458824, 0.94902, 0.866667, 0.694118)
+
+[sub_resource type="FontVariation" id="FontVariation_d3d7t"]
+
+[sub_resource type="GDScript" id="GDScript_exetb"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	text = (str(floor(Game.playerhp)) + \"/\" + str(Game.playerhpmax))
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtdtv"]
+atlas = ExtResource("21_qfvdi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgb88"]
+atlas = ExtResource("21_qfvdi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x751k"]
+atlas = ExtResource("21_qfvdi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_872tf"]
+atlas = ExtResource("21_qfvdi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s81q1"]
+atlas = ExtResource("21_qfvdi")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mo13"]
+atlas = ExtResource("21_qfvdi")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vw0qo"]
+atlas = ExtResource("21_qfvdi")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4a44q"]
+animations = [{
+"frames": [{
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_vtdtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgb88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x751k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_872tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s81q1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mo13")
+}, {
+"duration": 2.5,
+"texture": SubResource("AtlasTexture_vw0qo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_sajhi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textbox/ColorRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(61, 1200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textbox/ColorRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Textbox/RichTextLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(316, 1200)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Textbox/RichTextLabel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Textbox/Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(178, 1310)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Textbox/Sprite2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gydr4"]
+resource_name = "textboxappears"
+length = 1.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Textbox/ColorRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(61, 1200), Vector2(61, 845)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Textbox/ColorRect2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Textbox/RichTextLabel:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(316, 1202), Vector2(316, 847)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Textbox/RichTextLabel:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Textbox/Sprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(178, 1310), Vector2(178, 955)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Textbox/Sprite2D:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yvunk"]
+_data = {
+"RESET": SubResource("Animation_sajhi"),
+"textboxappears": SubResource("Animation_gydr4")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oei5o"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egnxt"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y41xy"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iwgfn"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbhww"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ir8m"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mp6j"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ujnxc"]
+atlas = ExtResource("22_oixjb")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3d2eu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oei5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egnxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y41xy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iwgfn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbhww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ir8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mp6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ujnxc")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_0p6w2"]
+script/source = "extends Label
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+	text = str(Game.playergold)
+"
+
+[sub_resource type="FontVariation" id="FontVariation_kovee"]
+
+[sub_resource type="FontVariation" id="FontVariation_i2kh3"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_phh03")
+
+[node name="player_health" type="TextureProgressBar" parent="."]
+material = SubResource("ShaderMaterial_hclwf")
+offset_left = -64.0
+offset_top = -245.0
+offset_right = 41.0
+offset_bottom = -197.0
+rotation = 0.00142884
+scale = Vector2(10.3722, 12.3249)
+mouse_filter = 2
+value = 100.0
+texture_under = ExtResource("2_lggao")
+texture_progress = ExtResource("3_6j4el")
+texture_progress_offset = Vector2(8, 21)
+script = ExtResource("4_425lb")
+
+[node name="Hp" type="Label" parent="."]
+offset_left = 155.0
+offset_top = 20.0
+offset_right = 195.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_d3d7t")
+theme_override_font_sizes/font_size = 24
+text = "HP"
+script = SubResource("GDScript_exetb")
+metadata/_edit_use_anchors_ = true
+
+[node name="Inventory" parent="." instance=ExtResource("5_4nfeg")]
+
+[node name="Ammo" type="TextureProgressBar" parent="."]
+offset_left = 11.0
+offset_top = 62.0
+offset_right = 136.0
+offset_bottom = 102.0
+scale = Vector2(2.64528, 3.21776)
+max_value = 21.0
+value = 7.0
+allow_greater = true
+allow_lesser = true
+texture_progress = ExtResource("6_84wmi")
+script = ExtResource("7_17myl")
+
+[node name="equipped_gun" type="TextureRect" parent="."]
+offset_left = 343.0
+offset_top = 1.0
+offset_right = 383.0
+offset_bottom = 41.0
+scale = Vector2(1.65752, 1.63067)
+texture = ExtResource("8_dfbcq")
+
+[node name="gun" type="TextureRect" parent="equipped_gun"]
+visible = false
+layout_mode = 0
+offset_left = 2.41324
+offset_top = 3.06622
+offset_right = 42.4132
+offset_bottom = 43.0662
+scale = Vector2(1.37207, 1.36776)
+texture = ExtResource("9_ed8w3")
+expand_mode = 1
+
+[node name="toygun" type="TextureRect" parent="equipped_gun"]
+visible = false
+layout_mode = 0
+offset_left = 2.41324
+offset_top = 3.06622
+offset_right = 42.4132
+offset_bottom = 43.0662
+scale = Vector2(1.37207, 1.36776)
+texture = ExtResource("10_0p4x4")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="equipped_gun"]
+layout_mode = 0
+offset_left = 41.0252
+offset_top = 1.22649
+offset_right = 81.0252
+offset_bottom = 41.2265
+scale = Vector2(0.320289, 0.323025)
+texture = ExtResource("11_j0b8g")
+
+[node name="Label" type="Label" parent="equipped_gun"]
+layout_mode = 0
+offset_left = 34.9921
+offset_top = -0.613245
+offset_right = 74.9921
+offset_bottom = 15.3868
+theme_override_colors/font_color = Color(0.109804, 0.694118, 0.705882, 1)
+text = "Q"
+
+[node name="sidearm" type="TextureRect" parent="."]
+offset_left = 343.0
+offset_top = 1.0
+offset_right = 383.0
+offset_bottom = 41.0
+scale = Vector2(0.514608, 0.518955)
+texture = ExtResource("8_dfbcq")
+
+[node name="toygun" type="TextureRect" parent="sidearm"]
+visible = false
+layout_mode = 0
+offset_left = 3.88644
+offset_top = 3.8539
+offset_right = 43.8864
+offset_bottom = 43.8539
+scale = Vector2(1.24839, 1.22134)
+texture = ExtResource("10_0p4x4")
+expand_mode = 1
+
+[node name="gun" type="TextureRect" parent="sidearm"]
+visible = false
+layout_mode = 0
+offset_left = 3.88644
+offset_top = 3.8539
+offset_right = 43.8864
+offset_bottom = 43.8539
+scale = Vector2(1.24839, 1.22134)
+texture = ExtResource("9_ed8w3")
+expand_mode = 1
+
+[node name="cooldowns" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1837.0
+offset_top = 3.0
+offset_right = 2137.0
+offset_bottom = 43.0
+scale = Vector2(1.90861, 1.79196)
+
+[node name="dashCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("12_75lvj")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/dashCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="camoCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("13_3pskw")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/camoCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="sprintCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("14_n3jgf")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/sprintCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="mineCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("15_0rfue")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/mineCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="balloonCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("16_2ixc8")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/balloonCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="shieldCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("17_mp6ip")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/shieldCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="greenalienCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("18_iu788")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/greenalienCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="teleCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("19_u304o")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/teleCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+scale = Vector2(1.18366, 0.991019)
+text = "1"
+
+[node name="Textbox" type="CanvasLayer" parent="."]
+script = ExtResource("20_lla5a")
+
+[node name="ColorRect2" type="ColorRect" parent="Textbox"]
+offset_left = 61.0
+offset_top = 1200.0
+offset_right = 98.0
+offset_bottom = 1238.0
+scale = Vector2(47.889, 5.83293)
+color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="spacebaricon" type="AnimatedSprite2D" parent="Textbox/ColorRect2"]
+modulate = Color(1, 1, 1, 0.521569)
+position = Vector2(18.7726, 33.088)
+scale = Vector2(0.104408, 0.514321)
+sprite_frames = SubResource("SpriteFrames_4a44q")
+frame_progress = 0.880174
+script = ExtResource("22_ntma1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Textbox"]
+offset_left = 316.0
+offset_top = 1200.0
+offset_right = 1841.0
+offset_bottom = 1430.0
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/italics_font_size = 32
+bbcode_enabled = true
+fit_content = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Textbox"]
+position = Vector2(178, 1310)
+scale = Vector2(15, 15)
+texture = ExtResource("21_c0k3p")
+region_rect = Rect2(0, 0, 1000, 950)
+
+[node name="textscrolltimer" type="Timer" parent="Textbox"]
+wait_time = 0.05
+autostart = true
+
+[node name="spacetimer" type="Timer" parent="Textbox"]
+wait_time = 0.25
+one_shot = true
+
+[node name="Textboxanims" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yvunk")
+}
+
+[node name="gold" type="AnimatedSprite2D" parent="."]
+process_mode = 3
+position = Vector2(35, 1044)
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_3d2eu")
+frame = 7
+frame_progress = 1.0
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 1024.0
+offset_right = 58.0
+offset_bottom = 1053.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Gold"
+horizontal_alignment = 1
+script = SubResource("GDScript_0p6w2")
+metadata/_edit_use_anchors_ = true
+
+[node name="pause_modulation" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 3
+visible = false
+script = ExtResource("5_uo8qv")
+
+[node name="Quit" type="Button" parent="pause_modulation"]
+process_mode = 2
+offset_left = 685.0
+offset_top = 834.0
+offset_right = 1235.0
+offset_bottom = 984.0
+theme_override_fonts/font = SubResource("FontVariation_kovee")
+theme_override_font_sizes/font_size = 77
+text = "Quit"
+script = ExtResource("25_ptl4u")
+
+[node name="Save" type="Button" parent="pause_modulation"]
+process_mode = 2
+offset_left = 685.0
+offset_top = 342.0
+offset_right = 1235.0
+offset_bottom = 492.0
+theme_override_fonts/font = SubResource("FontVariation_i2kh3")
+theme_override_font_sizes/font_size = 77
+text = "Save"
+script = ExtResource("5_4od5o")
+
+[node name="Load" type="Button" parent="pause_modulation"]
+process_mode = 2
+offset_left = 685.0
+offset_top = 588.0
+offset_right = 1235.0
+offset_bottom = 738.0
+theme_override_fonts/font = SubResource("FontVariation_i2kh3")
+theme_override_font_sizes/font_size = 77
+text = "Load"
+script = ExtResource("26_rnijt")
+
+[node name="Continue" type="Button" parent="pause_modulation"]
+process_mode = 2
+offset_left = 685.0
+offset_top = 96.0
+offset_right = 1235.0
+offset_bottom = 246.0
+theme_override_fonts/font = SubResource("FontVariation_i2kh3")
+theme_override_font_sizes/font_size = 77
+text = "Continue"
+script = ExtResource("27_2ut5b")
+
+[connection signal="timeout" from="Textbox/textscrolltimer" to="Textbox" method="_on_textscrolltimer_timeout"]

@@ -1,0 +1,534 @@
+[gd_scene load_steps=7 format=3 uid="uid://0tg5l1qf8lgx"]
+
+[ext_resource type="Texture2D" uid="uid://vf0wdyyiv8x" path="res://assets/environment/Smoke/FX001/FX001_02.png" id="1_6iia8"]
+[ext_resource type="Script" path="res://scene/item/web.gd" id="1_vrylp"]
+[ext_resource type="PackedScene" uid="uid://ckpem8n1ugb8s" path="res://scene/item/fixed_joint_2d.tscn" id="2_fjfri"]
+[ext_resource type="PackedScene" uid="uid://dald5apl77h5p" path="res://scene/item/wiresegment.tscn" id="3_yqk82"]
+[ext_resource type="Texture2D" uid="uid://bt4wurrnq6hb4" path="res://assets/player/weapon/websegment.png" id="4_rkxjh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhh80"]
+
+[node name="wire" type="Node2D"]
+visibility_layer = 3
+z_index = 2
+script = ExtResource("1_vrylp")
+metadata/_edit_vertical_guides_ = []
+
+[node name="wireholder" type="StaticBody2D" parent="."]
+self_modulate = Color(1, 0.588235, 0.270588, 1)
+rotation = -0.0294654
+scale = Vector2(1.5, 1.5)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wireholder"]
+scale = Vector2(0.0680554, 0.0583522)
+shape = SubResource("CircleShape2D_hhh80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wireholder/CollisionShape2D"]
+texture = ExtResource("1_6iia8")
+
+[node name="wireholder2" type="StaticBody2D" parent="."]
+self_modulate = Color(1, 0.588235, 0.270588, 1)
+position = Vector2(20, 2)
+rotation = -0.0294654
+scale = Vector2(1.5, 1.5)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wireholder2"]
+scale = Vector2(0.0680554, 0.0583522)
+shape = SubResource("CircleShape2D_hhh80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wireholder2/CollisionShape2D"]
+texture = ExtResource("1_6iia8")
+
+[node name="wireholder3" type="StaticBody2D" parent="."]
+self_modulate = Color(1, 0.588235, 0.270588, 1)
+position = Vector2(8, 15)
+rotation = -0.0294654
+scale = Vector2(1.5, 1.5)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wireholder3"]
+scale = Vector2(0.0680554, 0.0583522)
+shape = SubResource("CircleShape2D_hhh80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wireholder3/CollisionShape2D"]
+texture = ExtResource("1_6iia8")
+
+[node name="wireholder4" type="StaticBody2D" parent="."]
+self_modulate = Color(1, 0.588235, 0.270588, 1)
+position = Vector2(23, 23)
+rotation = -0.0294654
+scale = Vector2(1.5, 1.5)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wireholder4"]
+scale = Vector2(0.0680554, 0.0583522)
+shape = SubResource("CircleShape2D_hhh80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wireholder4/CollisionShape2D"]
+texture = ExtResource("1_6iia8")
+
+[node name="FixedJoint2D" parent="." instance=ExtResource("2_fjfri")]
+visible = false
+position = Vector2(0, 1)
+scale = Vector2(1, 1)
+node_a = NodePath("../wireholder")
+node_b = NodePath("../wiresegment")
+
+[node name="FixedJoint2D2" parent="." instance=ExtResource("2_fjfri")]
+visible = false
+position = Vector2(0, 4)
+scale = Vector2(1, 1)
+node_a = NodePath("../wiresegment")
+node_b = NodePath("../wiresegment2")
+
+[node name="FixedJoint2D3" parent="." instance=ExtResource("2_fjfri")]
+visible = false
+position = Vector2(0, 8)
+scale = Vector2(1, 1)
+node_a = NodePath("../wiresegment2")
+node_b = NodePath("../wiresegment3")
+
+[node name="FixedJoint2D4" parent="." instance=ExtResource("2_fjfri")]
+visible = false
+position = Vector2(0, 12)
+scale = Vector2(1, 1)
+node_a = NodePath("../wiresegment3")
+node_b = NodePath("../wiresegment4")
+
+[node name="FixedJoint2D5" parent="." instance=ExtResource("2_fjfri")]
+visible = false
+position = Vector2(0, 16)
+scale = Vector2(1, 1)
+node_a = NodePath("../wiresegment4")
+node_b = NodePath("../wiresegment5")
+
+[node name="FixedJoint2D6" parent="." instance=ExtResource("2_fjfri")]
+visible = false
+position = Vector2(0, 20)
+scale = Vector2(1, 1)
+node_a = NodePath("../wiresegment5")
+node_b = NodePath("../wiresegment6")
+
+[node name="wiresegment" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(0, 2)
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="wiresegment2" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(0, 6)
+
+[node name="Sprite2D" parent="wiresegment2" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="wiresegment3" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(0, 10)
+
+[node name="Sprite2D" parent="wiresegment3" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="wiresegment4" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(0, 14)
+
+[node name="Sprite2D" parent="wiresegment4" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="wiresegment5" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(0, 18)
+
+[node name="Sprite2D" parent="wiresegment5" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="wiresegment6" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(0, 22)
+
+[node name="Sprite2D" parent="wiresegment6" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D7" parent="." instance=ExtResource("2_fjfri")]
+rotation = -0.952669
+node_a = NodePath("../wireholder")
+node_b = NodePath("../wiresegment7")
+
+[node name="wiresegment7" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(2, 2)
+rotation = -0.802658
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment7" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D8" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(3, 3)
+rotation = -0.759866
+node_a = NodePath("../wiresegment7")
+node_b = NodePath("../wiresegment8")
+
+[node name="wiresegment8" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(5, 5)
+rotation = -0.802658
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment8" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D9" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(6, 6)
+rotation = -1.03632
+node_a = NodePath("../wiresegment8")
+node_b = NodePath("../wiresegment9")
+
+[node name="wiresegment9" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(8, 6)
+rotation = -1.51927
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment9" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D10" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(10, 6)
+rotation = -2.00698
+node_a = NodePath("../wiresegment9")
+node_b = NodePath("../wiresegment10")
+
+[node name="wiresegment10" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(11, 5)
+rotation = -2.00392
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment10" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D11" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(13, 4)
+rotation = -1.79468
+node_a = NodePath("../wiresegment10")
+node_b = NodePath("../wiresegment11")
+
+[node name="wiresegment11" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(14, 4)
+rotation = -1.75276
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment11" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D12" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(16, 4)
+rotation = -1.79605
+node_a = NodePath("../wiresegment11")
+node_b = NodePath("../wiresegment12")
+
+[node name="wiresegment12" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(18, 3)
+rotation = -1.94039
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment12" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D13" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(19, 3)
+rotation = -2.14426
+node_a = NodePath("../wiresegment12")
+node_b = NodePath("../wireholder2")
+
+[node name="wiresegment13" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(2, 16)
+rotation = -1.94039
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment13" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D14" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(0.41269, 16.7122)
+rotation = -2.01667
+node_a = NodePath("../wiresegment5")
+node_b = NodePath("../wiresegment13")
+
+[node name="wiresegment14" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(6, 15)
+rotation = -1.69263
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment14" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D15" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(3.99765, 15.47)
+rotation = -1.82719
+node_a = NodePath("../wiresegment14")
+node_b = NodePath("../wiresegment15")
+
+[node name="FixedJoint2D16" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(7.56124, 14.9967)
+rotation = -1.45155
+node_a = NodePath("../wireholder3")
+node_b = NodePath("../wiresegment14")
+
+[node name="wiresegment15" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(9, 13)
+rotation = -2.55641
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment15" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D17" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(8.22942, 14.5512)
+rotation = -2.68155
+node_a = NodePath("../wireholder3")
+node_b = NodePath("../wiresegment15")
+
+[node name="wiresegment16" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(11, 10)
+rotation = -2.49872
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment16" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D18" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(10.1783, 11.5723)
+rotation = 0.446182
+node_a = NodePath("../wiresegment16")
+node_b = NodePath("../wiresegment15")
+
+[node name="FixedJoint2D19" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(12.3878, 8.53973)
+rotation = 0.681188
+node_a = NodePath("../wiresegment16")
+node_b = NodePath("../wiresegment17")
+
+[node name="wiresegment17" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(13.705, 7.23597)
+rotation = -2.24024
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment17" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D20" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(15.2898, 6.13382)
+rotation = 0.807326
+node_a = NodePath("../wiresegment17")
+node_b = NodePath("../wiresegment18")
+
+[node name="wiresegment18" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(16.7136, 4.64031)
+rotation = -2.32422
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment18" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D22" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(18.2413, 3.23186)
+rotation = 0.524925
+node_a = NodePath("../wiresegment12")
+node_b = NodePath("../wiresegment18")
+
+[node name="wiresegment19" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(9.69357, 7.94387)
+rotation = -3.82757
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment19" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D23" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(10.9304, 9.39265)
+rotation = -0.632451
+node_a = NodePath("../wiresegment19")
+node_b = NodePath("../wiresegment16")
+
+[node name="FixedJoint2D24" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(8.61528, 6.36841)
+rotation = -0.491569
+node_a = NodePath("../wiresegment9")
+node_b = NodePath("../wiresegment19")
+
+[node name="wiresegment20" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(9.51659, 16.6747)
+rotation = -3.82757
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment20" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D25" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(8.29867, 15.1316)
+rotation = -0.612722
+node_a = NodePath("../wireholder3")
+node_b = NodePath("../wiresegment20")
+
+[node name="FixedJoint2D26" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(10.8593, 18.0781)
+rotation = -0.793663
+node_a = NodePath("../wiresegment20")
+node_b = NodePath("../wiresegment21")
+
+[node name="wiresegment21" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(12.5252, 19.0934)
+rotation = -4.2518
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment21" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D27" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(14.4547, 19.9547)
+rotation = -1.12
+node_a = NodePath("../wiresegment21")
+node_b = NodePath("../wiresegment22")
+
+[node name="wiresegment22" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(16.3007, 20.6862)
+rotation = -4.38609
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment22" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D28" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(17.9098, 21.1999)
+rotation = -1.57015
+node_a = NodePath("../wiresegment22")
+node_b = NodePath("../wiresegment23")
+
+[node name="wiresegment23" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(19.8402, 20.5092)
+rotation = -5.09725
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment23" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D29" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(21.2596, 20.0599)
+node_a = NodePath("../wiresegment23")
+node_b = NodePath("../wiresegment24")
+
+[node name="wiresegment24" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(22.3769, 21.2171)
+rotation = -3.79403
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment24" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D30" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(23.1187, 22.4451)
+rotation = -0.607424
+node_a = NodePath("../wireholder4")
+node_b = NodePath("../wiresegment24")
+
+[node name="wiresegment25" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(15.9154, 7.82598)
+rotation = -3.45488
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment25" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D21" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(15.4634, 6.23304)
+rotation = -0.291345
+node_a = NodePath("../wiresegment17")
+node_b = NodePath("../wiresegment25")
+
+[node name="wiresegment26" parent="." instance=ExtResource("3_yqk82")]
+position = Vector2(19.8371, 4.12371)
+rotation = -3.14691
+linear_damp = 2.0
+angular_damp = 2.0
+
+[node name="Sprite2D" parent="wiresegment26" index="1"]
+self_modulate = Color(1, 1, 1, 1)
+texture = ExtResource("4_rkxjh")
+
+[node name="FixedJoint2D31" parent="." instance=ExtResource("2_fjfri")]
+position = Vector2(20.0898, 2.54231)
+node_a = NodePath("../wireholder2")
+node_b = NodePath("../wiresegment26")
+
+[editable path="wiresegment"]
+[editable path="wiresegment2"]
+[editable path="wiresegment3"]
+[editable path="wiresegment4"]
+[editable path="wiresegment5"]
+[editable path="wiresegment6"]
+[editable path="wiresegment7"]
+[editable path="wiresegment8"]
+[editable path="wiresegment9"]
+[editable path="wiresegment10"]
+[editable path="wiresegment11"]
+[editable path="wiresegment12"]
+[editable path="wiresegment13"]
+[editable path="wiresegment14"]
+[editable path="wiresegment15"]
+[editable path="wiresegment16"]
+[editable path="wiresegment17"]
+[editable path="wiresegment18"]
+[editable path="wiresegment19"]
+[editable path="wiresegment20"]
+[editable path="wiresegment21"]
+[editable path="wiresegment22"]
+[editable path="wiresegment23"]
+[editable path="wiresegment24"]
+[editable path="wiresegment25"]
+[editable path="wiresegment26"]

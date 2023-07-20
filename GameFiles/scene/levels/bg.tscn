@@ -1,0 +1,131 @@
+[gd_scene load_steps=10 format=3 uid="uid://dsikh7q0r3npb"]
+
+[ext_resource type="Script" path="res://script/bg.gd" id="1_fygjf"]
+[ext_resource type="Texture2D" uid="uid://bogi5y5ocl1q3" path="res://assets/environment/sunnyland/sunny-land/assets/environment/back.png" id="2_s3p70"]
+[ext_resource type="Texture2D" uid="uid://btylt2b654lms" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/environment/props/tree.png" id="3_elcer"]
+[ext_resource type="Texture2D" uid="uid://b0l3g4xdh4qfl" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/environment/props/shrooms.png" id="4_qyj5i"]
+[ext_resource type="Texture2D" uid="uid://c031mfsgbsdeb" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/sprites/opossum/opossum-1.png" id="5_skvj5"]
+[ext_resource type="Texture2D" uid="uid://81cfkbofqiuq" path="res://assets/environment/sunnyland/Sunnyland Trees/Sprites/Sliced Trees/palm.png" id="6_su775"]
+[ext_resource type="Texture2D" uid="uid://bvmcy5kok61ix" path="res://assets/environment/sunnyland/sunny-land/assets/environment/middle.png" id="7_qfw2d"]
+[ext_resource type="Texture2D" uid="uid://b4ywa7s28ty2e" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/environment/layers/middle.png" id="8_fn7l8"]
+[ext_resource type="Texture2D" uid="uid://csodh50jhqy13" path="res://assets/environment/sunnyland/Sunnyland Trees/Sprites/Sliced Trees/tree.png" id="9_a3x2m"]
+
+[node name="BG" type="ParallaxBackground"]
+script = ExtResource("1_fygjf")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(1152, 0)
+metadata/_edit_lock_ = true
+
+[node name="Back" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(576.5, 323.5)
+scale = Vector2(3.00781, 2.69583)
+texture = ExtResource("2_s3p70")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Tree" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(321, 355)
+texture = ExtResource("3_elcer")
+
+[node name="Tree2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(549, 390)
+texture = ExtResource("3_elcer")
+
+[node name="Tree3" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(466, 285)
+texture = ExtResource("3_elcer")
+
+[node name="Tree4" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(22, 268)
+texture = ExtResource("3_elcer")
+
+[node name="Tree5" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(783, 327)
+texture = ExtResource("3_elcer")
+
+[node name="Shrooms" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(420, 351)
+texture = ExtResource("4_qyj5i")
+
+[node name="Shrooms2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(767, 363)
+texture = ExtResource("4_qyj5i")
+
+[node name="Opossum-1" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(44, 296)
+rotation = 1.5708
+texture = ExtResource("5_skvj5")
+
+[node name="Palm" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(113, 301)
+texture = ExtResource("6_su775")
+
+[node name="Palm2" type="Sprite2D" parent="ParallaxLayer3"]
+position = Vector2(700, 425)
+texture = ExtResource("6_su775")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(20, 111)
+motion_mirroring = Vector2(1152, 0)
+metadata/_edit_lock_ = true
+
+[node name="Middle" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(7, 361)
+texture = ExtResource("7_qfw2d")
+
+[node name="Middle2" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(262, 409)
+texture = ExtResource("8_fn7l8")
+
+[node name="Tree" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(119, 208)
+texture = ExtResource("9_a3x2m")
+
+[node name="Middle3" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(400, 409)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle4" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(451, 371)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle5" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(584, 421)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle6" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(760, 421)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle7" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(841, 351)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle8" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(901, 291)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle9" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1075, 291)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle10" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(124, 421)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle11" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(908, 401)
+texture = ExtResource("8_fn7l8")
+
+[node name="Middle12" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(541.065, 646.786)
+rotation = -3.14159
+scale = Vector2(7.10301, 1.07182)
+texture = ExtResource("8_fn7l8")
+
+[node name="Palm" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(963, 195)
+texture = ExtResource("6_su775")

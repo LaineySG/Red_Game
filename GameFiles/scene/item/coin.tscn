@@ -1,0 +1,138 @@
+[gd_scene load_steps=19 format=3 uid="uid://dy45sj0l5kv0n"]
+
+[ext_resource type="Script" path="res://scene/item/coin.gd" id="1_3ccxs"]
+[ext_resource type="Script" path="res://scene/item/coinrigidbody.gd" id="1_85rsl"]
+[ext_resource type="Texture2D" uid="uid://q1x5nyvye1mk" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/sprites/item-feedback/item-feedback-1.png" id="3_2u6av"]
+[ext_resource type="Texture2D" uid="uid://dbdb7lcximmt3" path="res://assets/environment/scifi/anims/CIA_Coin.png" id="3_6mfqj"]
+[ext_resource type="Texture2D" uid="uid://b40rhhkgha8f6" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/sprites/item-feedback/item-feedback-2.png" id="4_gplkt"]
+[ext_resource type="Texture2D" uid="uid://cvt38nsg76axx" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/sprites/item-feedback/item-feedback-3.png" id="5_yncxy"]
+[ext_resource type="Texture2D" uid="uid://csmcakmpjacnx" path="res://assets/environment/sunnyland/Sunny-land-assets-files/PNG/sprites/item-feedback/item-feedback-4.png" id="6_q0fta"]
+[ext_resource type="Script" path="res://scene/item/coinanimation.gd" id="8_bsxd3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2grmr"]
+radius = 9.12062
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e35mo"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqohi"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q10w"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lmhg"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_scdg1"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qn4t"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvrb6"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8y7a4"]
+atlas = ExtResource("3_6mfqj")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0qni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqohi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q10w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lmhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_scdg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qn4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvrb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8y7a4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e35mo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2u6av")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gplkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yncxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q0fta")
+}],
+"loop": false,
+"name": &"poof",
+"speed": 10.0
+}]
+
+[node name="coin" type="Node2D"]
+script = ExtResource("1_85rsl")
+
+[node name="coin" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_3ccxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coin"]
+position = Vector2(0, -1)
+scale = Vector2(1.3157, 1.38338)
+shape = SubResource("CircleShape2D_2grmr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="coin"]
+position = Vector2(0, -2.84217e-14)
+scale = Vector2(0.40542, 0.405548)
+sprite_frames = SubResource("SpriteFrames_v0qni")
+animation = &"idle"
+script = ExtResource("8_bsxd3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="coin" to="." method="_on_coin_body_entered"]
+[connection signal="animation_finished" from="coin/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

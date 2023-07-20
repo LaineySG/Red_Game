@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfcffkal85pjm"]
+
+[ext_resource type="Script" path="res://script/main.gd" id="1_ur567"]
+[ext_resource type="PackedScene" uid="uid://dot576bx54462" path="res://scene/levels/new_bg_test.tscn" id="3_josv8"]
+
+[node name="Main" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_ur567")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 560.0
+offset_top = 130.0
+offset_right = 960.0
+offset_bottom = 230.0
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 77
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 560.0
+offset_top = 490.0
+offset_right = 960.0
+offset_bottom = 590.0
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 77
+text = "Quit
+"
+
+[node name="Load" type="Button" parent="."]
+offset_left = 560.0
+offset_top = 850.0
+offset_right = 960.0
+offset_bottom = 950.0
+scale = Vector2(2, 2)
+theme_override_font_sizes/font_size = 77
+text = "Load"
+clip_text = true
+
+[node name="new_BG_Test" parent="." instance=ExtResource("3_josv8")]
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 852.0
+offset_top = 137.0
+offset_right = 892.0
+offset_bottom = 153.0
+scale = Vector2(7.27955, 7.27456)
+text = "Play"
+
+[node name="Label2" type="Label" parent="."]
+visible = false
+offset_left = 859.0
+offset_top = 429.0
+offset_right = 899.0
+offset_bottom = 445.0
+scale = Vector2(7.27955, 7.27456)
+text = "Quit"
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]

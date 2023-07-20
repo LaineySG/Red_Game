@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://q3gf76rase8m"]
+
+[ext_resource type="Script" path="res://Mobgenerator.gd" id="1_quksf"]
+
+[node name="Mobgenerator" type="Node2D"]
+script = ExtResource("1_quksf")

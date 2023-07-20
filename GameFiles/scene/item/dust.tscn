@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://chworrvoj0xnb"]
+
+[ext_resource type="Texture2D" uid="uid://cp6e1p22q5hq4" path="res://assets/environment/Smoke/FX002/FX002_04.png" id="1_1o3f5"]
+[ext_resource type="Script" path="res://scene/item/dust.gd" id="1_00478"]
+[ext_resource type="Texture2D" uid="uid://brk6ma1ffp6tw" path="res://assets/environment/Smoke/FX002/FX002_05.png" id="2_wxom7"]
+[ext_resource type="Texture2D" uid="uid://d0e2rulldipmu" path="res://assets/environment/Smoke/FX002/FX002_06.png" id="3_4amd3"]
+[ext_resource type="Texture2D" uid="uid://ckp4qunm5flew" path="res://assets/environment/Smoke/FX002/FX002_07.png" id="4_05ljs"]
+[ext_resource type="Texture2D" uid="uid://ds8uh44c0vkia" path="res://assets/environment/Smoke/FX002/FX002_08.png" id="5_wljh6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3im2i"]
+atlas = ExtResource("2_wxom7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvp7y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1o3f5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3im2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4amd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_05ljs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wljh6")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="dust" type="Node2D"]
+script = ExtResource("1_00478")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.431373)
+sprite_frames = SubResource("SpriteFrames_lvp7y")
+frame = 1
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

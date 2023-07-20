@@ -1,0 +1,77 @@
+[gd_scene load_steps=13 format=3 uid="uid://cb22fgnxtslwo"]
+
+[ext_resource type="Script" path="res://scene/item/shop_idea.gd" id="1_3yfnd"]
+[ext_resource type="Texture2D" uid="uid://bgtvn1w0n4pa3" path="res://assets/item/idea.png" id="2_adbk5"]
+[ext_resource type="PackedScene" uid="uid://up4ihseinsod" path="res://scene/item/item_generator.tscn" id="3_y6pii"]
+[ext_resource type="Texture2D" uid="uid://bb0gra7lqdmer" path="res://assets/environment/Smoke/FX001/FX001_01.png" id="4_g3hal"]
+[ext_resource type="Texture2D" uid="uid://vf0wdyyiv8x" path="res://assets/environment/Smoke/FX001/FX001_02.png" id="5_6jrxn"]
+[ext_resource type="Texture2D" uid="uid://cqxtgk7wruqvs" path="res://assets/environment/Smoke/FX001/FX001_03.png" id="6_7w80a"]
+[ext_resource type="Texture2D" uid="uid://gg7dnap5ctqf" path="res://assets/environment/Smoke/FX001/FX001_04.png" id="7_v6s30"]
+[ext_resource type="Texture2D" uid="uid://ojdhwpldoh03" path="res://assets/environment/Smoke/FX001/FX001_05.png" id="8_v0203"]
+[ext_resource type="Script" path="res://scene/item/ideapoof.gd" id="9_lo5go"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k57ey"]
+size = Vector2(18.7744, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7mwp"]
+atlas = ExtResource("4_g3hal")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0qni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_g3hal")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7mwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6jrxn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7w80a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_v6s30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v0203")
+}],
+"loop": false,
+"name": &"poof",
+"speed": 10.0
+}]
+
+[node name="Idea" type="Area2D" groups=["interact"]]
+collision_mask = 16
+script = ExtResource("1_3yfnd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["interact"]]
+position = Vector2(-1, -4)
+scale = Vector2(3.83501, 3.34362)
+shape = SubResource("RectangleShape2D_k57ey")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.866667)
+texture = ExtResource("2_adbk5")
+
+[node name="item_generator" parent="." instance=ExtResource("3_y6pii")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+scale = Vector2(1.64239, 2.13263)
+sprite_frames = SubResource("SpriteFrames_v0qni")
+animation = &"poof"
+frame = 4
+frame_progress = 1.0
+script = ExtResource("9_lo5go")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

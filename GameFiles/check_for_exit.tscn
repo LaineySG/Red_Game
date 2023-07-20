@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk6hcdxo683yh"]
+
+[ext_resource type="Script" path="res://scene/levels/exitdoorchecker.gd" id="1_fq7vk"]
+
+[node name="check_for_exit" type="Node2D"]
+script = ExtResource("1_fq7vk")

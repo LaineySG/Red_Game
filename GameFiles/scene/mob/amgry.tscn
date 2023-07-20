@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw4hrmvqccwb"]
+
+[ext_resource type="Script" path="res://scene/mob/wtf.gd" id="1_e1x65"]
+[ext_resource type="Texture2D" uid="uid://b7e4dyi8jd0ic" path="res://assets/mob/anger.png" id="2_yyqhp"]
+
+[node name="amgry" type="Area2D"]
+collision_layer = 256
+collision_mask = 0
+script = ExtResource("1_e1x65")
+
+[node name="Anger" type="Sprite2D" parent="."]
+position = Vector2(3, 7)
+scale = Vector2(0.0875, 0.0875)
+texture = ExtResource("2_yyqhp")

@@ -1,0 +1,462 @@
+[gd_scene load_steps=26 format=3 uid="uid://cbg6p7r86fwkt"]
+
+[ext_resource type="Script" path="res://scene/item/green_alien.gd" id="1_8c5yd"]
+[ext_resource type="Texture2D" uid="uid://cruax1s7yvck3" path="res://assets/mob/green_alium.png" id="2_bfj3b"]
+[ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="3_mj5wa"]
+[ext_resource type="Texture2D" uid="uid://dqvmneppxg0o3" path="res://assets/environment/scifi/anims/confettitestparticle.png" id="7_ax8fq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eflmb"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb4ki"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n23sg"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vml1"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6n7y"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kx68"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1j4f"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqh1y"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(480, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hugk"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(560, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rxa0r"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(640, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwiak"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(720, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2543"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(800, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77r6g"]
+atlas = ExtResource("2_bfj3b")
+region = Rect2(880, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4j4ib"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bb4ki")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n23sg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vml1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6n7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kx68")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1j4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqh1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hugk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rxa0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwiak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u2543")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77r6g")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5qps"]
+
+[sub_resource type="Gradient" id="Gradient_x7iox"]
+offsets = PackedFloat32Array(0, 0.116162, 0.368687, 0.621212, 0.727273, 0.868687, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.133333, 0.0431373, 1, 1, 0.0431373, 0.980392, 0.411765, 1, 0.945098, 0.890196, 0.0666667, 1, 0.858824, 0.502841, 0.17583, 1, 0.752941, 0.027451, 0.309804, 1, 0.454902, 0.105882, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_05hbh"]
+gradient = SubResource("Gradient_x7iox")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lq2av"]
+lifetime_randomness = 0.03
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 75.0
+angular_velocity_min = 15.0
+angular_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(1, 0.831373, 1, 1)
+color_ramp = SubResource("GradientTexture1D_05hbh")
+
+[sub_resource type="Animation" id="Animation_ic115"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hover"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.875, 0.1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_sgw8o"]
+resource_name = "hover"
+length = 2.4
+loop_mode = 1
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hover"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.875, 0.1), Vector2(-4.76837e-07, -1), Vector2(-2, -1), Vector2(-1, -2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedSprite2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.2, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0582856, 0.0670492, -0.0495942]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7bb3p"]
+_data = {
+"RESET": SubResource("Animation_ic115"),
+"hover": SubResource("Animation_sgw8o")
+}
+
+[node name="green_alien" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_8c5yd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.34486, 0.972525)
+shape = SubResource("CircleShape2D_eflmb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.875, 0.1)
+scale = Vector2(0.97619, 1)
+sprite_frames = SubResource("SpriteFrames_4j4ib")
+animation = &"hover"
+
+[node name="UFOlights" type="Node2D" parent="AnimatedSprite2D"]
+z_index = 1
+position = Vector2(-965, 104)
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D/UFOlights"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D"]
+position = Vector2(953.86, -98.1)
+color = Color(1, 0, 0, 1)
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D"]
+position = Vector2(953.697, -98.5016)
+color = Color(1, 0, 0, 1)
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Node2D2" type="Node2D" parent="AnimatedSprite2D/UFOlights"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D2"]
+position = Vector2(958.783, -97.341)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D2"]
+position = Vector2(958.783, -97.341)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Node2D3" type="Node2D" parent="AnimatedSprite2D/UFOlights"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D3"]
+position = Vector2(963.902, -97.1799)
+color = Color(0, 1, 0, 1)
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D3"]
+position = Vector2(963.902, -97.1799)
+color = Color(0, 1, 0, 1)
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Node2D7" type="Node2D" parent="AnimatedSprite2D/UFOlights"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D7"]
+position = Vector2(963.079, -107.1)
+color = Color(1, 0, 0.898039, 1)
+energy = 3.0
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D7"]
+position = Vector2(964.104, -108.1)
+color = Color(0.92549, 0, 1, 1)
+energy = 3.0
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Node2D4" type="Node2D" parent="AnimatedSprite2D/UFOlights"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D4"]
+position = Vector2(969.022, -97.0188)
+color = Color(0, 0.501961, 1, 1)
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D4"]
+position = Vector2(969.022, -97.0188)
+color = Color(0, 0.415686, 1, 1)
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Node2D5" type="Node2D" parent="AnimatedSprite2D/UFOlights"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D5"]
+position = Vector2(974.174, -97.8571)
+color = Color(1, 0, 0, 1)
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D5"]
+position = Vector2(974.174, -97.8571)
+color = Color(1, 0, 0, 1)
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Node2D6" type="Node2D" parent="AnimatedSprite2D/UFOlights"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D6"]
+position = Vector2(979.326, -98.6955)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/UFOlights/Node2D6"]
+position = Vector2(979.326, -98.6955)
+color = Color(1, 1, 0, 1)
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_mj5wa")
+texture_scale = 0.02
+
+[node name="target_area" type="Area2D" parent="."]
+scale = Vector2(1.91406, 2.00709)
+collision_mask = 81
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="target_area"]
+scale = Vector2(20.1702, 10.4754)
+shape = SubResource("CircleShape2D_b5qps")
+
+[node name="confetti" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_lq2av")
+texture = ExtResource("7_ax8fq")
+one_shot = true
+explosiveness = 0.5
+randomness = 0.3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7bb3p")
+}
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="navtimer" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[node name="zap_timer" type="Timer" parent="."]
+wait_time = 1.3
+autostart = true
+
+[node name="lifetime" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+
+[connection signal="body_entered" from="target_area" to="." method="_on_target_area_body_entered"]
+[connection signal="body_exited" from="target_area" to="." method="_on_target_area_body_exited"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_target_reached"]
+[connection signal="timeout" from="navtimer" to="." method="_on_navtimer_timeout"]
+[connection signal="timeout" from="zap_timer" to="." method="_on_zap_timer_timeout"]
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]

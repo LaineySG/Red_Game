@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr8r120cjw6oq"]
+
+[ext_resource type="Texture2D" uid="uid://bb0gra7lqdmer" path="res://assets/environment/Smoke/FX001/FX001_01.png" id="1_4mbcm"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6vlt"]
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, -25, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 35.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color = Color(1, 1, 1, 0.486275)
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+position = Vector2(2, 0)
+emitting = false
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_l6vlt")
+texture = ExtResource("1_4mbcm")
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.85
+randomness = 0.13

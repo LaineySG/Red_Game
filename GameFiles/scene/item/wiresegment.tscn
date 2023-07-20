@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dald5apl77h5p"]
+
+[ext_resource type="Texture2D" uid="uid://4e32to2buh6v" path="res://assets/gui/bullet.png" id="1_adywc"]
+[ext_resource type="Script" path="res://scene/item/wiresegment.gd" id="1_sdixi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_15uqm"]
+size = Vector2(1, 4)
+
+[node name="wiresegment" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 208
+linear_damp = 4.0
+angular_damp = 4.0
+script = ExtResource("1_sdixi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_15uqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0, 0, 0, 1)
+rotation = 1.5708
+scale = Vector2(0.524513, -0.486554)
+texture = ExtResource("1_adywc")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://drccmp3a2oj0s"]
+
+[ext_resource type="Script" path="res://scene/player/Area2D.gd" id="1_734r0"]
+[ext_resource type="Texture2D" uid="uid://c45xxbjr4np0h" path="res://assets/environment/scifi/anims/colorbubble.png" id="2_grnre"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6r06"]
+radius = 39.86
+
+[node name="rainbubble" type="Area2D"]
+top_level = true
+z_index = 5
+collision_layer = 0
+collision_mask = 65
+script = ExtResource("1_734r0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 5
+shape = SubResource("CircleShape2D_k6r06")
+
+[node name="lifetime" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="damageticker" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.596078)
+texture = ExtResource("2_grnre")
+region_rect = Rect2(0, 0, 89, 200)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="lifetime" to="." method="_on_lifetime_timeout"]
+[connection signal="timeout" from="damageticker" to="." method="_on_damageticker_timeout"]

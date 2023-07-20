@@ -1,0 +1,105 @@
+[gd_scene load_steps=5 format=3 uid="uid://pfhdu57xrkil"]
+
+[ext_resource type="Script" path="res://scene/levels/death_screen.gd" id="1_m5pc7"]
+
+[sub_resource type="Animation" id="Animation_8ingx"]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(0.6, 0, 0.0117647, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Play:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tkefm"]
+resource_name = "fade"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_owuag"]
+_data = {
+"fade_to_black": SubResource("Animation_8ingx"),
+"fade_to_normal": SubResource("Animation_tkefm")
+}
+
+[node name="death_screen" type="CanvasLayer"]
+process_mode = 2
+visible = false
+script = ExtResource("1_m5pc7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(50.6122, 28.9063)
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_owuag")
+}
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = 212.0
+offset_right = 1920.0
+offset_bottom = 426.0
+theme_override_colors/font_color = Color(0.611765, 0, 0, 1)
+theme_override_font_sizes/font_size = 128
+text = "Last sound, the world going out without a breath."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Play" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 583.0
+offset_top = 481.0
+offset_right = 1083.0
+offset_bottom = 607.0
+scale = Vector2(1.5, 1.5)
+theme_override_font_sizes/font_size = 77
+text = "Don't give up."
+
+[connection signal="button_down" from="Play" to="." method="_on_play_button_down"]

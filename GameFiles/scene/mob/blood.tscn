@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://cjjhy7wu6kwe4"]
+
+[ext_resource type="Script" path="res://script/blood.gd" id="1_056df"]
+[ext_resource type="Texture2D" uid="uid://dlcigoe1chin1" path="res://assets/player/weapon/casing.png" id="2_8rtnm"]
+[ext_resource type="Texture2D" uid="uid://cae3prbisqxmm" path="res://assets/player/weapon/spark.png" id="3_c7ocn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk7ln"]
+atlas = ExtResource("2_8rtnm")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aveel"]
+atlas = ExtResource("2_8rtnm")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ptx"]
+atlas = ExtResource("2_8rtnm")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abgun"]
+atlas = ExtResource("3_c7ocn")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge533"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk7ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aveel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ptx")
+}],
+"loop": false,
+"name": &"init",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abgun")
+}],
+"loop": true,
+"name": &"settled",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hp3b"]
+size = Vector2(2, 2)
+
+[node name="blood" type="RigidBody2D"]
+collision_layer = 256
+collision_mask = 7
+script = ExtResource("1_056df")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 129
+visibility_layer = 129
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ge533")
+animation = &"settled"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_2hp3b")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

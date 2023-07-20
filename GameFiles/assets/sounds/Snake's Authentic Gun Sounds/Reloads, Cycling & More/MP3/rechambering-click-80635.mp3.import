@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c5a83ff682ikm"
+path="res://.godot/imported/rechambering-click-80635.mp3-aaa74bd4b661af184b36a017ad181a21.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Snake's Authentic Gun Sounds/Reloads, Cycling & More/MP3/rechambering-click-80635.mp3"
+dest_files=["res://.godot/imported/rechambering-click-80635.mp3-aaa74bd4b661af184b36a017ad181a21.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

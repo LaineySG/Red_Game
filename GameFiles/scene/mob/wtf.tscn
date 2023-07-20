@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://c67pc6k07u1j1"]
+
+[ext_resource type="Script" path="res://scene/mob/wtf.gd" id="1_lnn6t"]
+
+[node name="wtf" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_lnn6t")
+
+[node name="Label" type="RichTextLabel" parent="."]
+modulate = Color(100, 100, 100, 1)
+z_index = 4096
+offset_right = 40.0
+offset_bottom = 16.0
+bbcode_enabled = true
+text = "?"
+fit_content = true
+autowrap_mode = 0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

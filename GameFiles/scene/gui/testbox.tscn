@@ -1,0 +1,330 @@
+[gd_scene load_steps=7 format=3 uid="uid://bv0luvd065wg1"]
+
+[ext_resource type="Texture2D" uid="uid://drbd01cisenu3" path="res://assets/gui/Button12.png" id="1_vfxxu"]
+[ext_resource type="Script" path="res://scene/gui/testbox.gd" id="2_judda"]
+[ext_resource type="Script" path="res://scene/gui/Stats1.gd" id="2_us7ia"]
+[ext_resource type="Script" path="res://scene/gui/Stats2.gd" id="3_bt3yq"]
+[ext_resource type="Script" path="res://scene/gui/effects.gd" id="4_4hy7r"]
+[ext_resource type="Script" path="res://scene/gui/Stats3.gd" id="4_b70hg"]
+
+[node name="testbox" type="CanvasLayer"]
+visible = false
+scale = Vector2(6.88806, 3.49991)
+transform = Transform2D(6.88806, 0, 0, 3.49991, 0, 0)
+script = ExtResource("2_judda")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 32.8104
+offset_top = 34.858
+offset_right = 247.81
+offset_bottom = 272.858
+texture = ExtResource("1_vfxxu")
+expand_mode = 1
+
+[node name="OptionButton" type="OptionButton" parent="."]
+offset_left = 38.6175
+offset_top = 52.0013
+offset_right = 237.618
+offset_bottom = 106.001
+scale = Vector2(0.115494, 0.317522)
+theme_override_font_sizes/font_size = 64
+alignment = 1
+item_count = 13
+selected = 0
+popup/item_0/text = "Shot Speed"
+popup/item_0/id = 0
+popup/item_1/text = "Shot Weight"
+popup/item_1/id = 1
+popup/item_2/text = "Punch"
+popup/item_2/id = 2
+popup/item_3/text = "Magazine Size"
+popup/item_3/id = 3
+popup/item_4/text = "Reload Speed"
+popup/item_4/id = 4
+popup/item_5/text = "Fire Rate"
+popup/item_5/id = 5
+popup/item_6/text = "Bullet Size"
+popup/item_6/id = 6
+popup/item_7/text = "Scope"
+popup/item_7/id = 7
+popup/item_8/text = "HP"
+popup/item_8/id = 8
+popup/item_9/text = "ALL"
+popup/item_9/id = 9
+popup/item_10/text = "Regeneration"
+popup/item_10/id = 10
+popup/item_11/text = "Alacrity"
+popup/item_11/id = 11
+popup/item_12/text = "Luck"
+popup/item_12/id = 12
+
+[node name="Effect_name" type="OptionButton" parent="."]
+offset_left = 37.1658
+offset_top = 82.2878
+offset_right = 728.166
+offset_bottom = 142.288
+scale = Vector2(0.115494, 0.317522)
+theme_override_font_sizes/font_size = 64
+alignment = 1
+item_count = 22
+selected = 0
+popup/item_0/text = "Burn Shot (Gun)"
+popup/item_0/id = 0
+popup/item_1/text = "Flame Shot (Gun)"
+popup/item_1/id = 1
+popup/item_2/text = "Berserk (Gun)"
+popup/item_2/id = 2
+popup/item_3/text = "Frenzy (Gun)"
+popup/item_3/id = 3
+popup/item_4/text = "Vampire (Gun)"
+popup/item_4/id = 4
+popup/item_5/text = "Flintlock (Gun)"
+popup/item_5/id = 5
+popup/item_6/text = "Ricochet (Gun)"
+popup/item_6/id = 6
+popup/item_7/text = "Piercing Shot (Gun)"
+popup/item_7/id = 7
+popup/item_8/text = "Split Shot (Gun)"
+popup/item_8/id = 8
+popup/item_9/text = "Duo-Shot"
+popup/item_9/id = 9
+popup/item_10/text = "Tri-Shot"
+popup/item_10/id = 10
+popup/item_11/text = "Quad-Shot"
+popup/item_11/id = 11
+popup/item_12/text = "Big-Shot"
+popup/item_12/id = 12
+popup/item_13/text = "Freeze-Ray (Toygun)"
+popup/item_13/id = 13
+popup/item_14/text = "Shrink-Ray (Toygun)"
+popup/item_14/id = 14
+popup/item_15/text = "Confetti Cannon (Toygun)"
+popup/item_15/id = 15
+popup/item_16/text = "Web Shot (Toygun)"
+popup/item_16/id = 16
+popup/item_17/text = "Pump-action (Toygun)"
+popup/item_17/id = 17
+popup/item_18/text = "Hypno-Ray (Toygun)"
+popup/item_18/id = 18
+popup/item_19/text = "Heart-Shot (Toygun)"
+popup/item_19/id = 19
+popup/item_20/text = "Rainbubble Blaster (Toygun)"
+popup/item_20/id = 20
+popup/item_21/text = "Bounce Blaster (Toygun)"
+popup/item_21/id = 21
+
+[node name="ability_name" type="OptionButton" parent="."]
+offset_left = 37.4561
+offset_top = 110.289
+offset_right = 584.456
+offset_bottom = 170.289
+scale = Vector2(0.115494, 0.317522)
+theme_override_font_sizes/font_size = 64
+item_count = 8
+selected = 0
+popup/item_0/text = "Dash"
+popup/item_0/id = 0
+popup/item_1/text = "Teleport"
+popup/item_1/id = 1
+popup/item_2/text = "Camoflague"
+popup/item_2/id = 2
+popup/item_3/text = "Sprint"
+popup/item_3/id = 3
+popup/item_4/text = "Summon (Green Aliens)"
+popup/item_4/id = 4
+popup/item_5/text = "Shield"
+popup/item_5/id = 5
+popup/item_6/text = "Land Mine"
+popup/item_6/id = 6
+popup/item_7/text = "Balloon"
+popup/item_7/id = 7
+
+[node name="ability_key" type="OptionButton" parent="."]
+offset_left = 106.271
+offset_top = 111.431
+offset_right = 206.271
+offset_bottom = 171.431
+scale = Vector2(0.115494, 0.317522)
+theme_override_font_sizes/font_size = 64
+item_count = 9
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "1"
+popup/item_0/id = 0
+popup/item_1/text = "2"
+popup/item_1/id = 1
+popup/item_2/text = "3"
+popup/item_2/id = 2
+popup/item_3/text = "4"
+popup/item_3/id = 3
+popup/item_4/text = "5"
+popup/item_4/id = 4
+popup/item_5/text = "6"
+popup/item_5/id = 5
+popup/item_6/text = "R"
+popup/item_6/id = 6
+popup/item_7/text = "F"
+popup/item_7/id = 7
+popup/item_8/text = "S"
+popup/item_8/id = 8
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 84.9296
+offset_top = 51.7156
+offset_right = 188.93
+offset_bottom = 111.716
+scale = Vector2(0.238296, 0.31545)
+theme_override_font_sizes/font_size = 64
+text = "0"
+max_length = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Effect_bool" type="LineEdit" parent="."]
+offset_left = 122.531
+offset_top = 80.5735
+offset_right = 226.531
+offset_bottom = 140.574
+scale = Vector2(0.238296, 0.31545)
+theme_override_font_sizes/font_size = 64
+text = "0"
+max_length = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="ability_bool" type="LineEdit" parent="."]
+offset_left = 123.402
+offset_top = 111.431
+offset_right = 227.402
+offset_bottom = 171.431
+scale = Vector2(0.238296, 0.31545)
+theme_override_font_sizes/font_size = 64
+text = "0"
+max_length = 2
+caret_blink = true
+caret_blink_interval = 0.5
+
+[node name="Button" type="Button" parent="."]
+offset_left = 112.223
+offset_top = 51.7156
+offset_right = 192.223
+offset_bottom = 111.716
+scale = Vector2(0.176379, 0.303077)
+theme_override_font_sizes/font_size = 64
+text = "set"
+
+[node name="Effect_Set" type="Button" parent="."]
+offset_left = 154.615
+offset_top = 81.7164
+offset_right = 234.615
+offset_bottom = 141.716
+scale = Vector2(0.176379, 0.303077)
+theme_override_font_sizes/font_size = 64
+text = "set"
+
+[node name="ability_set" type="Button" parent="."]
+offset_left = 155.196
+offset_top = 112.003
+offset_right = 235.196
+offset_bottom = 172.003
+scale = Vector2(0.176379, 0.303077)
+theme_override_font_sizes/font_size = 64
+text = "set"
+
+[node name="Stats1" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 37.7465
+offset_top = 219.148
+offset_right = 513.746
+offset_bottom = 515.148
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 64
+text = "Shot Speed:
+Shot Weight:
+Punch:
+Magazine Size:
+"
+script = ExtResource("2_us7ia")
+
+[node name="effects" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 35.714
+offset_top = 162.004
+offset_right = 511.714
+offset_bottom = 458.004
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 64
+text = "List of effects"
+fit_content = true
+script = ExtResource("4_4hy7r")
+
+[node name="ability" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 144.017
+offset_top = 158.29
+offset_right = 620.017
+offset_bottom = 454.29
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 64
+text = "List of effects"
+fit_content = true
+script = ExtResource("4_4hy7r")
+
+[node name="Stats2" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 103.81
+offset_top = 221.858
+offset_right = 569.81
+offset_bottom = 576.858
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 64
+text = "Fire Rate:
+Bullet Size:
+Scope:
+HP:"
+script = ExtResource("3_bt3yq")
+
+[node name="Stats3" type="RichTextLabel" parent="."]
+custom_minimum_size = Vector2(100, 0)
+offset_left = 162.81
+offset_top = 220.858
+offset_right = 596.81
+offset_bottom = 489.858
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 64
+text = "Reload Speed:"
+script = ExtResource("4_b70hg")
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 128.774
+offset_top = 52.0013
+offset_right = 256.774
+offset_bottom = 112.001
+scale = Vector2(0.138954, 0.282865)
+theme_override_font_sizes/font_size = 64
+text = "reset"
+
+[node name="Effect_Reset" type="Button" parent="."]
+offset_left = 175.666
+offset_top = 81.4307
+offset_right = 303.666
+offset_bottom = 141.431
+scale = Vector2(0.138954, 0.282865)
+theme_override_font_sizes/font_size = 64
+text = "reset"
+
+[node name="ability_reset" type="Button" parent="."]
+offset_left = 174.069
+offset_top = 111.717
+offset_right = 302.069
+offset_bottom = 171.717
+scale = Vector2(0.138954, 0.282865)
+theme_override_font_sizes/font_size = 64
+text = "reset"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Effect_Set" to="." method="_on_effect_set_pressed"]
+[connection signal="pressed" from="ability_set" to="." method="_on_ability_set_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Effect_Reset" to="." method="_on_effect_reset_pressed"]
+[connection signal="pressed" from="ability_reset" to="." method="_on_ability_reset_pressed"]

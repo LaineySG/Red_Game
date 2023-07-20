@@ -1,0 +1,695 @@
+[gd_scene load_steps=30 format=3 uid="uid://ptqmw5bb63iv"]
+
+[ext_resource type="Script" path="res://script/ui.gd" id="1_hftp1"]
+[ext_resource type="Texture2D" uid="uid://dd364yc3aikjo" path="res://assets/gui/MainPanel02.png" id="1_vwbhd"]
+[ext_resource type="Texture2D" uid="uid://cu3p1wgt36bab" path="res://assets/gui/TitlePanel02.png" id="2_qyw68"]
+[ext_resource type="Texture2D" uid="uid://dngq5x5csq6ne" path="res://assets/gui/Button03.png" id="3_46fcn"]
+[ext_resource type="Texture2D" uid="uid://c5ucllox2bgqj" path="res://assets/gui/SelectPanel01.png" id="3_vjg2k"]
+[ext_resource type="Texture2D" uid="uid://c7lppdl0yb47x" path="res://assets/gui/Button07.png" id="4_npywe"]
+[ext_resource type="Texture2D" uid="uid://ddei11g0ue03h" path="res://assets/environment/scifi/anims/gunicon.png" id="6_87i40"]
+[ext_resource type="Texture2D" uid="uid://bbwy3j8u5oyxf" path="res://assets/gui/Button06.png" id="6_m2g0c"]
+[ext_resource type="Texture2D" uid="uid://cnlx1jpx3v0qs" path="res://assets/gui/Button02.png" id="7_qfqi4"]
+[ext_resource type="Script" path="res://scene/gui/candrop.gd" id="8_3mx1p"]
+[ext_resource type="Script" path="res://scene/gui/Stats1.gd" id="9_efjy7"]
+[ext_resource type="Script" path="res://scene/gui/dragdroplayer.gd" id="9_fxlh5"]
+[ext_resource type="Script" path="res://scene/gui/Stats2.gd" id="10_4dp36"]
+[ext_resource type="Script" path="res://script/ItemsList.gd" id="10_5ttkc"]
+[ext_resource type="Texture2D" uid="uid://ccwjn7a7uad1t" path="res://assets/gui/SelectPanel02.png" id="10_ioh2k"]
+[ext_resource type="Script" path="res://scene/gui/Stats3.gd" id="11_ldjfj"]
+[ext_resource type="Script" path="res://scene/gui/RichTextLabel.gd" id="11_mp03j"]
+[ext_resource type="Script" path="res://script/TextureRect.gd" id="11_via7w"]
+[ext_resource type="Script" path="res://script/Matrix.gd" id="12_o3kya"]
+[ext_resource type="Script" path="res://script/Text_BB_Extras.gd" id="12_pyku5"]
+[ext_resource type="Script" path="res://script/Pulse.gd" id="13_t3m6n"]
+[ext_resource type="Texture2D" uid="uid://lqhxpan1ongp" path="res://assets/gui/abilityicon.png" id="21_1v2pq"]
+[ext_resource type="Texture2D" uid="uid://yvaporno4brj" path="res://assets/environment/scifi/anims/toygunicon.png" id="22_6we44"]
+
+[sub_resource type="FontVariation" id="FontVariation_s6278"]
+
+[sub_resource type="FontVariation" id="FontVariation_7qdjf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7lgjs"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_wwmag"]
+script = ExtResource("12_pyku5")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_fyi5h"]
+script = ExtResource("12_o3kya")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_7y05c"]
+script = ExtResource("13_t3m6n")
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_hftp1")
+
+[node name="Tutorial UI" type="CanvasLayer" parent="."]
+
+[node name="GUI" type="Control" parent="Tutorial UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="background" type="NinePatchRect" parent="Tutorial UI/GUI"]
+modulate = Color(1, 1, 1, 0.760784)
+self_modulate = Color(1, 1, 1, 0.666667)
+layout_mode = 0
+offset_left = 332.0
+offset_top = 117.0
+offset_right = 422.0
+offset_bottom = 199.0
+scale = Vector2(11.48, 10.68)
+texture = ExtResource("1_vwbhd")
+
+[node name="VBoxContainer" type="Control" parent="Tutorial UI/GUI/background"]
+layout_mode = 1
+anchor_left = 0.03
+anchor_top = 0.03
+anchor_right = 0.97
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial UI/GUI/background/VBoxContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Tutorial UI/GUI/background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Tutorial UI/GUI/background/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.9
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial UI/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("3_vjg2k")
+expand_mode = 1
+
+[node name="equipped_gun" type="TextureRect" parent="Tutorial UI/GUI/background/VBoxContainer"]
+layout_mode = 2
+offset_left = -2.0
+offset_top = 12.0
+offset_right = 9.0
+offset_bottom = 24.0
+size_flags_horizontal = 3
+texture = ExtResource("3_46fcn")
+expand_mode = 1
+
+[node name="toygun" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/equipped_gun"]
+visible = false
+z_index = 4096
+position = Vector2(6.6764, 6.70105)
+scale = Vector2(0.299769, 0.341915)
+texture = ExtResource("22_6we44")
+
+[node name="gun" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/equipped_gun"]
+visible = false
+position = Vector2(6.00732, 6.70105)
+scale = Vector2(0.29788, 0.349239)
+texture = ExtResource("6_87i40")
+
+[node name="sidearm" type="TextureRect" parent="Tutorial UI/GUI/background/VBoxContainer"]
+layout_mode = 2
+offset_left = -1.5723
+offset_top = 11.5844
+offset_right = 2.4277
+offset_bottom = 15.5844
+size_flags_horizontal = 3
+texture = ExtResource("3_46fcn")
+expand_mode = 1
+
+[node name="toygun" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/sidearm"]
+visible = false
+z_index = 4096
+position = Vector2(2.09058, 2.29987)
+scale = Vector2(0.0983809, 0.103248)
+texture = ExtResource("22_6we44")
+
+[node name="gun" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/sidearm"]
+visible = false
+position = Vector2(2.13672, 2.20067)
+scale = Vector2(0.0932102, 0.102572)
+texture = ExtResource("6_87i40")
+
+[node name="Title" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer"]
+position = Vector2(19.8719, 5.12427)
+scale = Vector2(0.233121, 0.561798)
+texture = ExtResource("2_qyw68")
+
+[node name="Abilities" type="Node2D" parent="Tutorial UI/GUI/background/VBoxContainer"]
+
+[node name="Button07" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(35.3662, 71.2291)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button08" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(5.31393, 71.791)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button09" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(20.1223, 71.5101)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button10" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(35.3662, 58.0737)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button11" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(5.31393, 58.6356)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button12" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(20.1223, 58.3547)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button13" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(35.3662, 44.4969)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button14" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(5.31393, 45.0588)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="Button15" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
+position = Vector2(20.1223, 44.7779)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("4_npywe")
+
+[node name="labels" type="Node2D" parent="Tutorial UI/GUI/background"]
+position = Vector2(2.7, 2.46)
+
+[node name="Label" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 4.09443
+offset_top = 73.2891
+offset_right = 16.0944
+offset_bottom = 89.2891
+scale = Vector2(0.258279, 0.320094)
+theme_override_font_sizes/font_size = 16
+text = "->"
+
+[node name="Label2" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 19.5126
+offset_top = 73.0082
+offset_right = 31.5126
+offset_bottom = 89.0082
+scale = Vector2(0.244342, 0.271405)
+theme_override_font_sizes/font_size = 16
+text = "R"
+
+[node name="Label3" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 34.6693
+offset_top = 72.9145
+offset_right = 46.6693
+offset_bottom = 88.9145
+scale = Vector2(0.244342, 0.245188)
+theme_override_font_sizes/font_size = 16
+text = "F"
+
+[node name="Label4" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 4.61707
+offset_top = 59.1505
+offset_right = 16.6171
+offset_bottom = 75.1505
+scale = Vector2(0.258279, 0.365037)
+theme_override_font_sizes/font_size = 16
+text = "1"
+
+[node name="Label5" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 19.5997
+offset_top = 58.8696
+offset_right = 31.5997
+offset_bottom = 74.8696
+scale = Vector2(0.244342, 0.342565)
+theme_override_font_sizes/font_size = 16
+text = "2"
+
+[node name="Label6" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 34.7564
+offset_top = 58.8696
+offset_right = 46.7564
+offset_bottom = 74.8696
+scale = Vector2(0.244342, 0.320094)
+theme_override_font_sizes/font_size = 16
+text = "3"
+
+[node name="Label7" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 4.70418
+offset_top = 46.3228
+offset_right = 16.7042
+offset_bottom = 62.3228
+scale = Vector2(0.258279, 0.320094)
+theme_override_font_sizes/font_size = 16
+text = "4"
+
+[node name="Label8" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 19.6868
+offset_top = 46.0419
+offset_right = 31.6868
+offset_bottom = 62.0419
+scale = Vector2(0.244342, 0.286386)
+theme_override_font_sizes/font_size = 16
+text = "5"
+
+[node name="Label9" type="Label" parent="Tutorial UI/GUI/background/labels"]
+modulate = Color(1, 1, 1, 0.352941)
+offset_left = 34.7564
+offset_top = 45.9482
+offset_right = 46.7564
+offset_bottom = 61.9482
+scale = Vector2(0.244342, 0.263915)
+theme_override_font_sizes/font_size = 16
+text = "6"
+
+[node name="Gun_mods" type="Node2D" parent="Tutorial UI/GUI/background"]
+
+[node name="major1" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(16.0929, 17.2282)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("6_m2g0c")
+
+[node name="major2" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(22.1028, 17.2282)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("6_m2g0c")
+
+[node name="major3" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(29.1591, 17.1032)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("6_m2g0c")
+
+[node name="major4" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(35.0527, 17.2282)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("6_m2g0c")
+
+[node name="major5" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(42.0508, 17.1657)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("6_m2g0c")
+
+[node name="minor1" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(16.0929, 24.0634)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("7_qfqi4")
+
+[node name="minor2" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(22.1028, 24.0634)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("7_qfqi4")
+
+[node name="minor3" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(29.0428, 24.0634)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("7_qfqi4")
+
+[node name="minor4" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(35.0527, 24.0634)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("7_qfqi4")
+
+[node name="minor5" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
+position = Vector2(42.0508, 24.0634)
+scale = Vector2(0.087108, 0.093633)
+texture = ExtResource("7_qfqi4")
+
+[node name="Stats" type="TextureRect" parent="Tutorial UI/GUI/background"]
+layout_mode = 0
+offset_left = 1.56795
+offset_top = 27.6217
+offset_right = 45.5679
+offset_bottom = 39.6217
+texture = ExtResource("3_vjg2k")
+expand_mode = 1
+
+[node name="Stats1" type="RichTextLabel" parent="Tutorial UI/GUI/background"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 29.0
+offset_right = 120.0
+offset_bottom = 100.0
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 16
+text = "Shot Speed:
+Shot Weight:
+Punch:
+Magazine Size:
+"
+script = ExtResource("9_efjy7")
+
+[node name="Stats2" type="RichTextLabel" parent="Tutorial UI/GUI/background"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 18.1185
+offset_top = 29.1198
+offset_right = 134.118
+offset_bottom = 100.12
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 16
+text = "Fire Rate:
+Bullet Size:
+Scope:
+HP:"
+script = ExtResource("10_4dp36")
+
+[node name="Stats3" type="RichTextLabel" parent="Tutorial UI/GUI/background"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 0
+offset_left = 31.0
+offset_top = 29.0
+offset_right = 148.0
+offset_bottom = 100.0
+scale = Vector2(0.133851, 0.17294)
+theme_override_font_sizes/normal_font_size = 16
+text = "HP: 
+Regeneration: 
+Luck: 
+Alacrity: "
+script = ExtResource("11_ldjfj")
+
+[node name="Name" type="Label" parent="Tutorial UI/GUI"]
+layout_mode = 0
+offset_left = 343.321
+offset_top = 144.33
+offset_right = 822.321
+offset_bottom = 245.33
+theme_override_fonts/font = SubResource("FontVariation_s6278")
+theme_override_font_sizes/font_size = 86
+text = "\"Red\" - #0811"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="dragdroplayer" type="Control" parent="Tutorial UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_fxlh5")
+
+[node name="Major1" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 487.337
+offset_top = 271.0
+offset_right = 545.337
+offset_bottom = 326.0
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Major2" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 556.998
+offset_top = 271.0
+offset_right = 614.998
+offset_bottom = 326.0
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Major3" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 637.337
+offset_top = 271.0
+offset_right = 695.337
+offset_bottom = 326.0
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Major4" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 706.33
+offset_top = 271.0
+offset_right = 764.33
+offset_bottom = 326.0
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Major5" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 786.002
+offset_top = 271.0
+offset_right = 844.002
+offset_bottom = 326.0
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Minor1" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 488.005
+offset_top = 344.667
+offset_right = 546.005
+offset_bottom = 399.667
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Minor2" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 558.333
+offset_top = 344.0
+offset_right = 616.333
+offset_bottom = 399.0
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Minor3" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 637.929
+offset_top = 345.122
+offset_right = 695.929
+offset_bottom = 400.122
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Minor4" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 706.194
+offset_top = 344.0
+offset_right = 764.194
+offset_bottom = 399.0
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Minor5" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 785.684
+offset_top = 344.561
+offset_right = 843.684
+offset_bottom = 399.561
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Abili4" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 561.0
+offset_right = 415.0
+offset_bottom = 616.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Abili5" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 557.0
+offset_right = 586.0
+offset_bottom = 612.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Abili6" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 701.0
+offset_top = 555.0
+offset_right = 759.0
+offset_bottom = 610.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Abili1" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 360.0
+offset_top = 707.0
+offset_right = 418.0
+offset_bottom = 762.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Abili2" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 528.0
+offset_top = 703.0
+offset_right = 586.0
+offset_bottom = 758.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="Abili3" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 704.0
+offset_top = 700.0
+offset_right = 762.0
+offset_bottom = 755.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="AbiliS" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 359.0
+offset_top = 845.0
+offset_right = 417.0
+offset_bottom = 900.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="AbiliR" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 843.0
+offset_right = 587.0
+offset_bottom = 898.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="AbiliF" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 0
+offset_left = 703.0
+offset_top = 839.0
+offset_right = 761.0
+offset_bottom = 894.0
+scale = Vector2(2.37209, 2.16667)
+expand_mode = 1
+script = ExtResource("8_3mx1p")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Tutorial UI/dragdroplayer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 890.0
+offset_top = 160.0
+offset_right = -610.0
+offset_bottom = -240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ItemList" type="ItemList" parent="Tutorial UI/dragdroplayer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontVariation_7qdjf")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7lgjs")
+auto_height = true
+max_columns = 5
+same_column_width = true
+fixed_icon_size = Vector2i(75, 80)
+script = ExtResource("10_5ttkc")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+self_modulate = Color(1, 0.898039, 0.709804, 1)
+offset_left = 1387.0
+offset_top = 234.0
+offset_right = 1585.0
+offset_bottom = 501.0
+scale = Vector2(1.50943, 1.56402)
+mouse_filter = 2
+texture = ExtResource("10_ioh2k")
+expand_mode = 1
+script = ExtResource("11_via7w")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/TextureRect"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/TextureRect/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][table=1][cell border=NAVAJO_WHITE] [font_size=32][color=NAVAJO_WHITE][ghost freq=3.0 span=3.0]Death's Embrace[/ghost]
+[/color][/font_size][/cell][cell border=NAVAJO_WHITE][color=papaya_whip]Confetti Cannon (Toygun)
+[/color][/cell][cell border=NAVAJO_WHITE][color=LIGHT_GRAY]Punch++[/color]
+[color=light_slate_gray]Increases damage foasd ads ads d as dads r gun or annoyance for toy gun.[/color]
+[cell"
+fit_content = true
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_wwmag"), SubResource("RichTextEffect_fyi5h"), SubResource("RichTextEffect_7y05c")]
+script = ExtResource("11_mp03j")
+
+[node name="Ability" type="Sprite2D" parent="CanvasLayer/TextureRect/MarginContainer/RichTextLabel2"]
+modulate = Color(1, 1, 1, 0.137255)
+position = Vector2(87.6918, 190.125)
+scale = Vector2(0.864986, 0.784266)
+texture = ExtResource("21_1v2pq")
+
+[connection signal="mouse_entered" from="Tutorial UI/dragdroplayer" to="." method="_on_dragdroplayer_mouse_entered"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Major1" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Major2" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Major3" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Major4" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Major5" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Minor1" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Minor2" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Minor3" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Minor4" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Minor5" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Abili4" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Abili5" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Abili6" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Abili1" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Abili2" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/Abili3" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/AbiliS" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/AbiliR" to="." method="_on_texture_rect_on_hover"]
+[connection signal="on_hover" from="Tutorial UI/dragdroplayer/AbiliF" to="." method="_on_texture_rect_on_hover"]
+[connection signal="gui_input" from="Tutorial UI/dragdroplayer/ScrollContainer/ItemList" to="Tutorial UI/dragdroplayer/ScrollContainer/ItemList" method="_on_gui_input"]

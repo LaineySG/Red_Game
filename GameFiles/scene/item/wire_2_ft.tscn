@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1lguigufeltw"]
+
+[ext_resource type="PackedScene" uid="uid://dald5apl77h5p" path="res://scene/item/wiresegment.tscn" id="1_n86bu"]
+
+[node name="wire_2ft" type="Node"]
+
+[node name="PinJoint2D8" type="PinJoint2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.1, 0.1)
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment" parent="." instance=ExtResource("1_n86bu")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(0.1, 0.1)
+node_a = NodePath("../wiresegment")
+node_b = NodePath("../wiresegment2")
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment2" parent="." instance=ExtResource("1_n86bu")]
+position = Vector2(0, 3)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(0.1, 0.1)
+node_a = NodePath("../wiresegment2")
+node_b = NodePath("../wiresegment3")
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment3" parent="." instance=ExtResource("1_n86bu")]
+position = Vector2(0, 6)
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, 7)
+scale = Vector2(0.1, 0.1)
+node_a = NodePath("../wiresegment3")
+node_b = NodePath("../wiresegment4")
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment4" parent="." instance=ExtResource("1_n86bu")]
+position = Vector2(0, 9)
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(0.1, 0.1)
+node_a = NodePath("../wiresegment4")
+node_b = NodePath("../wiresegment5")
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment5" parent="." instance=ExtResource("1_n86bu")]
+position = Vector2(0, 12)
+
+[node name="PinJoint2D5" type="PinJoint2D" parent="."]
+position = Vector2(0, 13)
+scale = Vector2(0.1, 0.1)
+node_a = NodePath("../wiresegment5")
+node_b = NodePath("../wiresegment6")
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment6" parent="." instance=ExtResource("1_n86bu")]
+position = Vector2(0, 15)
+
+[node name="PinJoint2D6" type="PinJoint2D" parent="."]
+position = Vector2(0, 16)
+scale = Vector2(0.1, 0.1)
+node_a = NodePath("../wiresegment6")
+node_b = NodePath("../wiresegment7")
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment7" parent="." instance=ExtResource("1_n86bu")]
+position = Vector2(0, 18)
+
+[node name="PinJoint2D7" type="PinJoint2D" parent="."]
+position = Vector2(0, 19)
+scale = Vector2(0.1, 0.1)
+node_a = NodePath("../wiresegment7")
+node_b = NodePath("../wiresegment8")
+bias = 0.9
+disable_collision = false
+
+[node name="wiresegment8" parent="." instance=ExtResource("1_n86bu")]
+position = Vector2(0, 21)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6iuxfdlf3ld4"]
+
+[ext_resource type="Script" path="res://script/bullet.gd" id="1_bku36"]
+[ext_resource type="Texture2D" uid="uid://c0tuob6facuav" path="res://assets/player/weapon/bullet.png" id="2_fmc6n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khsgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fmc6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gcnh"]
+size = Vector2(8, 2)
+
+[node name="bullet" type="CharacterBody2D" groups=["bullets"]]
+collision_layer = 128
+collision_mask = 591
+script = ExtResource("1_bku36")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_khsgg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 95
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.35, 0.35)
+shape = SubResource("RectangleShape2D_1gcnh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+scale = Vector2(0.35, 0.35)
+shape = SubResource("RectangleShape2D_1gcnh")

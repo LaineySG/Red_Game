@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjr4tk4bbl0la"]
+
+[ext_resource type="Texture2D" uid="uid://vf0wdyyiv8x" path="res://assets/environment/Smoke/FX001/FX001_02.png" id="1_c56as"]
+[ext_resource type="PackedScene" uid="uid://ckpem8n1ugb8s" path="res://scene/item/fixed_joint_2d.tscn" id="2_tofn0"]
+[ext_resource type="PackedScene" uid="uid://7vg45rafcmgj" path="res://scene/item/wiresegmentXL.tscn" id="3_5lmd1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhh80"]
+
+[node name="wire" type="Node2D"]
+metadata/_edit_vertical_guides_ = []
+
+[node name="wireholder" type="StaticBody2D" parent="."]
+scale = Vector2(1.5, 1.5)
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wireholder"]
+scale = Vector2(0.0680554, 0.0583522)
+shape = SubResource("CircleShape2D_hhh80")
+
+[node name="Sprite2D" type="Sprite2D" parent="wireholder/CollisionShape2D"]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("1_c56as")
+
+[node name="FixedJoint2D2" parent="." instance=ExtResource("2_tofn0")]
+position = Vector2(0, 1)
+node_a = NodePath("../wireholder")
+node_b = NodePath("../wiresegment")
+
+[node name="wiresegment" parent="." instance=ExtResource("3_5lmd1")]
+position = Vector2(0, 5)
+
+[node name="FixedJoint2D3" parent="." instance=ExtResource("2_tofn0")]
+position = Vector2(0, 9)
+node_a = NodePath("../wiresegment")
+node_b = NodePath("../wiresegment2")
+
+[node name="wiresegment2" parent="." instance=ExtResource("3_5lmd1")]
+position = Vector2(0, 14)
+
+[node name="FixedJoint2D4" parent="." instance=ExtResource("2_tofn0")]
+position = Vector2(0, 18)
+node_a = NodePath("../wiresegment2")
+node_b = NodePath("../wiresegment3")
+
+[node name="wiresegment3" parent="." instance=ExtResource("3_5lmd1")]
+position = Vector2(0, 23)
+
+[node name="FixedJoint2D" parent="." instance=ExtResource("2_tofn0")]
+position = Vector2(0, 27)
+node_a = NodePath("../wiresegment3")
+node_b = NodePath("../wiresegment4")
+
+[node name="wiresegment4" parent="." instance=ExtResource("3_5lmd1")]
+position = Vector2(0, 32)
+
+[node name="FixedJoint2D5" parent="." instance=ExtResource("2_tofn0")]
+position = Vector2(0, 36)
+node_a = NodePath("../wiresegment4")
+node_b = NodePath("../wiresegment5")
+
+[node name="wiresegment5" parent="." instance=ExtResource("3_5lmd1")]
+position = Vector2(0, 41)
+
+[node name="FixedJoint2D6" parent="." instance=ExtResource("2_tofn0")]
+position = Vector2(0, 45)
+node_a = NodePath("../wiresegment5")
+node_b = NodePath("../wiresegment6")
+
+[node name="wiresegment6" parent="." instance=ExtResource("3_5lmd1")]
+position = Vector2(0, 50)

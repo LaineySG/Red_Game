@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxokhe0hkp0pt"]
+
+[ext_resource type="Script" path="res://scene/item/smokepoof.gd" id="1_c8ek1"]
+[ext_resource type="Texture2D" uid="uid://bb0gra7lqdmer" path="res://assets/environment/Smoke/FX001/FX001_01.png" id="4_ce4co"]
+[ext_resource type="Texture2D" uid="uid://vf0wdyyiv8x" path="res://assets/environment/Smoke/FX001/FX001_02.png" id="5_xdl4m"]
+[ext_resource type="Texture2D" uid="uid://cqxtgk7wruqvs" path="res://assets/environment/Smoke/FX001/FX001_03.png" id="6_fwked"]
+[ext_resource type="Texture2D" uid="uid://gg7dnap5ctqf" path="res://assets/environment/Smoke/FX001/FX001_04.png" id="7_w7xjm"]
+[ext_resource type="Texture2D" uid="uid://ojdhwpldoh03" path="res://assets/environment/Smoke/FX001/FX001_05.png" id="8_ximsp"]
+[ext_resource type="Script" path="res://scene/item/ideapoof.gd" id="9_1hg6y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2grmr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7mwp"]
+atlas = ExtResource("4_ce4co")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v0qni"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7mwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xdl4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fwked")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w7xjm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ximsp")
+}],
+"loop": false,
+"name": &"poof",
+"speed": 10.0
+}]
+
+[node name="smokepoof" type="Area2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_c8ek1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+scale = Vector2(2.92, 2.56)
+shape = SubResource("CircleShape2D_2grmr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(1.64239, 2.13263)
+sprite_frames = SubResource("SpriteFrames_v0qni")
+animation = &"poof"
+autoplay = "poof"
+script = ExtResource("9_1hg6y")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

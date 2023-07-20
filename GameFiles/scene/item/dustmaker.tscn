@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://csf6qic1perf4"]
+
+[ext_resource type="Texture2D" uid="uid://bb0gra7lqdmer" path="res://assets/environment/Smoke/FX001/FX001_01.png" id="1_pua8p"]
+[ext_resource type="Script" path="res://scene/item/dustmaker.gd" id="1_tqdlu"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iorxf"]
+lifetime_randomness = 0.77
+emission_shape = 3
+emission_box_extents = Vector3(2, 15, 1)
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 1.0
+damping_max = 2.5
+scale_min = 0.2
+scale_max = 0.6
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_tqdlu")
+
+[node name="dustmaker" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.384314)
+emitting = false
+amount = 20
+sub_emitter = NodePath(".")
+process_material = SubResource("ParticleProcessMaterial_iorxf")
+texture = ExtResource("1_pua8p")
+lifetime = 2.0
+randomness = 0.1

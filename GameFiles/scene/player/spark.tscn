@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://cheovq2ml7i2y"]
+
+[ext_resource type="Script" path="res://script/spark.gd" id="1_18h2j"]
+[ext_resource type="Texture2D" uid="uid://dlcigoe1chin1" path="res://assets/player/weapon/casing.png" id="2_yki3g"]
+[ext_resource type="Texture2D" uid="uid://cae3prbisqxmm" path="res://assets/player/weapon/spark.png" id="3_at0qd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk7ln"]
+atlas = ExtResource("2_yki3g")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aveel"]
+atlas = ExtResource("2_yki3g")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6ptx"]
+atlas = ExtResource("2_yki3g")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_abgun"]
+atlas = ExtResource("3_at0qd")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ge533"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk7ln")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aveel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6ptx")
+}],
+"loop": false,
+"name": &"init",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_abgun")
+}],
+"loop": true,
+"name": &"settled",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hp3b"]
+size = Vector2(2, 2)
+
+[node name="Spark" type="RigidBody2D"]
+z_index = 200
+collision_layer = 256
+collision_mask = 7
+script = ExtResource("1_18h2j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_ge533")
+animation = &"settled"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_2hp3b")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

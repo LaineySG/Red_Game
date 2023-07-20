@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=3 uid="uid://b5bo1xheclvee"]
+
+[ext_resource type="Script" path="res://scene/player/laser.gd" id="1_e6x3g"]
+[ext_resource type="Texture2D" uid="uid://c0tuob6facuav" path="res://assets/player/weapon/bullet.png" id="2_hdbre"]
+[ext_resource type="Shader" path="res://assets/shaders/glow.gdshader" id="2_rxfi8"]
+[ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="3_ldc6k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_65e1j"]
+shader = ExtResource("2_rxfi8")
+shader_parameter/radius = 3.0
+shader_parameter/amount = 0.2
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_khsgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_hdbre")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1gcnh"]
+size = Vector2(8, 2)
+
+[node name="laser" type="CharacterBody2D" groups=["bullets"]]
+collision_layer = 128
+collision_mask = 576
+motion_mode = 1
+script = ExtResource("1_e6x3g")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0, 100, 1)
+material = SubResource("ShaderMaterial_65e1j")
+scale = Vector2(0.35, 0.35)
+sprite_frames = SubResource("SpriteFrames_khsgg")
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D"]
+
+[node name="TextureLight" type="PointLight2D" parent="AnimatedSprite2D/Node2D"]
+color = Color(0.23, 0.42, 100, 1)
+energy = 4.0
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_ldc6k")
+texture_scale = 0.02
+
+[node name="Shadow" type="PointLight2D" parent="AnimatedSprite2D/Node2D"]
+color = Color(0, 0, 100, 1)
+energy = 4.0
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("3_ldc6k")
+texture_scale = 0.02
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+collision_layer = 128
+collision_mask = 95
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.35, 0.35)
+shape = SubResource("RectangleShape2D_1gcnh")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+visible = false
+scale = Vector2(0.35, 0.35)
+shape = SubResource("RectangleShape2D_1gcnh")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true
