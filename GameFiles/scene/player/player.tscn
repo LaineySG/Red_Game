@@ -5291,7 +5291,7 @@ sprite_frames = SubResource("SpriteFrames_jx8pn")
 centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.754, 2.754)
+zoom = Vector2(1.5, 1.5)
 process_callback = 0
 limit_smoothed = true
 position_smoothing_enabled = true

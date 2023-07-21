@@ -21,9 +21,9 @@ func _process(_delta):
 	if get_node("MarginContainer/RichTextLabel2").rarity == "Perfect":
 		self_modulate = Color8(255,229,181,255)
 		
-	var sizediff = (get_node("MarginContainer").size.y - 260) * 2
-	if global_position.y > (630 - sizediff):
-		global_position.y = (630 - sizediff)
+	var sizediff = (get_node("MarginContainer").size.y - 260)
+	if global_position.y > (230 - sizediff):
+		global_position.y = (230 - sizediff)
 		
-	if get_node("MarginContainer").size.y > 60 and get_node("MarginContainer").size.y < 1000:
+	if get_node("MarginContainer").size.y > 60 and get_node("MarginContainer").size.y < 500:
 		size.y = get_node("MarginContainer").size.y + 20

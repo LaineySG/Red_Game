@@ -9,8 +9,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var output = ""
-	output += "Reload Speed: " + str(Game.playerstats["Reload Speed"]) + "\n"
+	output += "Shot Speed: " + str(Game.playerstats["Shot Speed"]) + "\n"
 	output += "Fire Rate: " + str(Game.playerstats["Fire Rate"]) + "\n"
 	output += "Bullet Size: " + str(Game.playerstats["Bullet Size"]) + "\n"
-	output += "Scope: " + str(Game.playerstats["Scope"]) + "\n"
+	output += "Alacrity: " + str(Game.playerstats["Alacrity"]) + "\n"
 	text = output

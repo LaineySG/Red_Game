@@ -80,7 +80,7 @@ func _input(_event):
 				parent.velocity.x = 1500
 				parent.velocity.y = -25
 			elif state == states.gun or state == states.fire or state == states.reload:
-				parent.velocity.x = 2500 * parent.currentdir
+				parent.velocity.x = 1500 * parent.currentdir
 				parent.velocity.y = -30
 			else:
 				parent.velocity.x = 1250 * parent.currentdir

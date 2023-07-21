@@ -8,53 +8,32 @@ process_mode = 3
 script = ExtResource("1_ur567")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 560.0
-offset_top = 130.0
-offset_right = 960.0
-offset_bottom = 230.0
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 77
+offset_left = 300.0
+offset_top = 60.0
+offset_right = 700.0
+offset_bottom = 160.0
+theme_override_font_sizes/font_size = 96
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 560.0
-offset_top = 490.0
-offset_right = 960.0
-offset_bottom = 590.0
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 77
+offset_left = 300.0
+offset_top = 220.0
+offset_right = 700.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 96
 text = "Quit
 "
 
 [node name="Load" type="Button" parent="."]
-offset_left = 560.0
-offset_top = 850.0
-offset_right = 960.0
-offset_bottom = 950.0
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 77
+offset_left = 300.0
+offset_top = 380.0
+offset_right = 700.0
+offset_bottom = 480.0
+theme_override_font_sizes/font_size = 96
 text = "Load"
 clip_text = true
 
 [node name="new_BG_Test" parent="." instance=ExtResource("3_josv8")]
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = 852.0
-offset_top = 137.0
-offset_right = 892.0
-offset_bottom = 153.0
-scale = Vector2(7.27955, 7.27456)
-text = "Play"
-
-[node name="Label2" type="Label" parent="."]
-visible = false
-offset_left = 859.0
-offset_top = 429.0
-offset_right = 899.0
-offset_bottom = 445.0
-scale = Vector2(7.27955, 7.27456)
-text = "Quit"
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

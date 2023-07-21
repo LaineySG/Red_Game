@@ -64,36 +64,36 @@ func _process(_delta):
 		get_node("UI").visible = true
 		if introstep == 0:
 			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(147, 99), 1)
+			tween.tween_property(tutpic1, "position", Vector2(125, 25), 1)
 			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(2400, 125), 1)
+			tween2.tween_property(tutpic2, "position", Vector2(1200, 25), 1)
 			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(2400, 125), 1)
+			tween3.tween_property(tutpic3, "position", Vector2(1200, 25), 1)
 			#get_node("CanvasLayer/TextureRect").visible = true
 			#get_node("CanvasLayer/TextureRect2").visible = false
 			#get_node("CanvasLayer/TextureRect3").visible = false
 		elif introstep == 1:
 			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(-2400, 99), 1)
+			tween.tween_property(tutpic1, "position", Vector2(-1200, 25), 1)
 			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(200, 125), 1)
+			tween2.tween_property(tutpic2, "position", Vector2(100, 25), 1)
 			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(2400, 125), 1)
+			tween3.tween_property(tutpic3, "position", Vector2(1200, 25), 1)
 		elif introstep == 2:
 			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(-2400, 99), 1)
+			tween.tween_property(tutpic1, "position", Vector2(-1200, 25), 1)
 			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(-2400, 125), 1)
+			tween2.tween_property(tutpic2, "position", Vector2(-1200, 25), 1)
 			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(200, 125), 1)
+			tween3.tween_property(tutpic3, "position", Vector2(100, 25), 1)
 		elif introstep >= 3:
 			Variables.inputIsDisabled = false
 			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(-2400, 99), 1)
+			tween.tween_property(tutpic1, "position", Vector2(-1200, 99), 1)
 			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(-2400, 125), 1)
+			tween2.tween_property(tutpic2, "position", Vector2(-1200, 25), 1)
 			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(-2400, 125), 1)
+			tween3.tween_property(tutpic3, "position", Vector2(-1200, 25), 1)
 			await get_tree().create_timer(0.5).timeout
 			get_node("CanvasLayer").visible = false
 			Variables.tutorial_tooltip_1 = false

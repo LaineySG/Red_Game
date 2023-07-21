@@ -20,7 +20,7 @@ func _get_drag_data(_pos):
 	drag_texture.expand = true
 	slotdata["item_texture"] = texture
 	drag_texture.texture = texture
-	drag_texture.set_size(Vector2(100,100))
+	drag_texture.set_size(Vector2(50,50))
 	texture = null
 	
 	var ctrl = Control.new()

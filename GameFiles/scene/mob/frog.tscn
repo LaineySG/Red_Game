@@ -293,7 +293,6 @@ position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_a3e81")
 
 [node name="dead_shape" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(7, -1.5)
 shape = SubResource("RectangleShape2D_8mdso")
 disabled = true
@@ -302,7 +301,7 @@ disabled = true
 material = SubResource("ShaderMaterial_slhg2")
 position = Vector2(1, -22)
 sprite_frames = SubResource("SpriteFrames_an24v")
-animation = &"frozen"
+animation = &"dead"
 
 [node name="playerdetection" type="Area2D" parent="." groups=["mob"]]
 visible = false

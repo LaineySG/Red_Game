@@ -43,6 +43,7 @@ script = ExtResource("13_t3m6n")
 script = ExtResource("1_hftp1")
 
 [node name="Tutorial UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GUI" type="Control" parent="Tutorial UI"]
 layout_mode = 3
@@ -51,16 +52,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="background" type="NinePatchRect" parent="Tutorial UI/GUI"]
 modulate = Color(1, 1, 1, 0.760784)
 self_modulate = Color(1, 1, 1, 0.666667)
 layout_mode = 0
-offset_left = 332.0
-offset_top = 117.0
-offset_right = 422.0
-offset_bottom = 199.0
-scale = Vector2(11.48, 10.68)
+offset_left = 233.0
+offset_top = 36.0
+offset_right = 323.0
+offset_bottom = 118.0
+scale = Vector2(6.285, 5.847)
 texture = ExtResource("1_vwbhd")
 
 [node name="VBoxContainer" type="Control" parent="Tutorial UI/GUI/background"]
@@ -100,10 +102,10 @@ expand_mode = 1
 
 [node name="equipped_gun" type="TextureRect" parent="Tutorial UI/GUI/background/VBoxContainer"]
 layout_mode = 2
-offset_left = -2.0
-offset_top = 12.0
-offset_right = 9.0
-offset_bottom = 24.0
+offset_left = -1.7
+offset_top = 12.8963
+offset_right = 8.3
+offset_bottom = 22.8963
 size_flags_horizontal = 3
 texture = ExtResource("3_46fcn")
 expand_mode = 1
@@ -111,22 +113,22 @@ expand_mode = 1
 [node name="toygun" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/equipped_gun"]
 visible = false
 z_index = 4096
-position = Vector2(6.6764, 6.70105)
-scale = Vector2(0.299769, 0.341915)
+position = Vector2(6.88629, 6.29968)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("22_6we44")
 
 [node name="gun" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/equipped_gun"]
 visible = false
-position = Vector2(6.00732, 6.70105)
-scale = Vector2(0.29788, 0.349239)
+position = Vector2(6.21721, 6.29968)
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("6_87i40")
 
 [node name="sidearm" type="TextureRect" parent="Tutorial UI/GUI/background/VBoxContainer"]
 layout_mode = 2
-offset_left = -1.5723
-offset_top = 11.5844
-offset_right = 2.4277
-offset_bottom = 15.5844
+offset_left = -1.57523
+offset_top = 12.8963
+offset_right = 2.42477
+offset_bottom = 16.8963
 size_flags_horizontal = 3
 texture = ExtResource("3_46fcn")
 expand_mode = 1
@@ -167,32 +169,32 @@ scale = Vector2(0.087108, 0.093633)
 texture = ExtResource("4_npywe")
 
 [node name="Button10" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
-position = Vector2(35.3662, 58.0737)
+position = Vector2(35.416, 58.0579)
 scale = Vector2(0.087108, 0.093633)
 texture = ExtResource("4_npywe")
 
 [node name="Button11" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
-position = Vector2(5.31393, 58.6356)
+position = Vector2(5.36377, 58.6198)
 scale = Vector2(0.087108, 0.093633)
 texture = ExtResource("4_npywe")
 
 [node name="Button12" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
-position = Vector2(20.1223, 58.3547)
+position = Vector2(20.1722, 58.339)
 scale = Vector2(0.087108, 0.093633)
 texture = ExtResource("4_npywe")
 
 [node name="Button13" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
-position = Vector2(35.3662, 44.4969)
+position = Vector2(35.416, 45.2308)
 scale = Vector2(0.087108, 0.093633)
 texture = ExtResource("4_npywe")
 
 [node name="Button14" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
-position = Vector2(5.31393, 45.0588)
+position = Vector2(5.36377, 45.7928)
 scale = Vector2(0.087108, 0.093633)
 texture = ExtResource("4_npywe")
 
 [node name="Button15" type="Sprite2D" parent="Tutorial UI/GUI/background/VBoxContainer/Abilities"]
-position = Vector2(20.1223, 44.7779)
+position = Vector2(20.1722, 45.5118)
 scale = Vector2(0.087108, 0.093633)
 texture = ExtResource("4_npywe")
 
@@ -205,7 +207,7 @@ offset_left = 4.09443
 offset_top = 73.2891
 offset_right = 16.0944
 offset_bottom = 89.2891
-scale = Vector2(0.258279, 0.320094)
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "->"
 
@@ -215,7 +217,7 @@ offset_left = 19.5126
 offset_top = 73.0082
 offset_right = 31.5126
 offset_bottom = 89.0082
-scale = Vector2(0.244342, 0.271405)
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "R"
 
@@ -225,185 +227,182 @@ offset_left = 34.6693
 offset_top = 72.9145
 offset_right = 46.6693
 offset_bottom = 88.9145
-scale = Vector2(0.244342, 0.245188)
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "F"
 
 [node name="Label4" type="Label" parent="Tutorial UI/GUI/background/labels"]
 modulate = Color(1, 1, 1, 0.352941)
-offset_left = 4.61707
-offset_top = 59.1505
-offset_right = 16.6171
-offset_bottom = 75.1505
-scale = Vector2(0.258279, 0.365037)
+offset_left = 4.77813
+offset_top = 60.0751
+offset_right = 16.7782
+offset_bottom = 76.0751
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "1"
 
 [node name="Label5" type="Label" parent="Tutorial UI/GUI/background/labels"]
 modulate = Color(1, 1, 1, 0.352941)
-offset_left = 19.5997
-offset_top = 58.8696
-offset_right = 31.5997
-offset_bottom = 74.8696
-scale = Vector2(0.244342, 0.342565)
+offset_left = 19.7608
+offset_top = 59.7942
+offset_right = 31.7608
+offset_bottom = 75.7942
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "2"
 
 [node name="Label6" type="Label" parent="Tutorial UI/GUI/background/labels"]
 modulate = Color(1, 1, 1, 0.352941)
-offset_left = 34.7564
-offset_top = 58.8696
-offset_right = 46.7564
-offset_bottom = 74.8696
-scale = Vector2(0.244342, 0.320094)
+offset_left = 34.9174
+offset_top = 59.7942
+offset_right = 46.9174
+offset_bottom = 75.7942
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "3"
 
 [node name="Label7" type="Label" parent="Tutorial UI/GUI/background/labels"]
 modulate = Color(1, 1, 1, 0.352941)
-offset_left = 4.70418
-offset_top = 46.3228
-offset_right = 16.7042
-offset_bottom = 62.3228
-scale = Vector2(0.258279, 0.320094)
+offset_left = 4.77812
+offset_top = 46.9996
+offset_right = 16.7781
+offset_bottom = 62.9996
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "4"
 
 [node name="Label8" type="Label" parent="Tutorial UI/GUI/background/labels"]
 modulate = Color(1, 1, 1, 0.352941)
-offset_left = 19.6868
-offset_top = 46.0419
-offset_right = 31.6868
-offset_bottom = 62.0419
-scale = Vector2(0.244342, 0.286386)
+offset_left = 19.7607
+offset_top = 46.7187
+offset_right = 31.7607
+offset_bottom = 62.7187
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "5"
 
 [node name="Label9" type="Label" parent="Tutorial UI/GUI/background/labels"]
 modulate = Color(1, 1, 1, 0.352941)
-offset_left = 34.7564
-offset_top = 45.9482
-offset_right = 46.7564
-offset_bottom = 61.9482
-scale = Vector2(0.244342, 0.263915)
+offset_left = 34.8303
+offset_top = 46.625
+offset_right = 46.8303
+offset_bottom = 62.625
+scale = Vector2(0.25, 0.25)
 theme_override_font_sizes/font_size = 16
 text = "6"
 
 [node name="Gun_mods" type="Node2D" parent="Tutorial UI/GUI/background"]
 
 [node name="major1" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(16.0929, 17.2282)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(15.5991, 17.1457)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_m2g0c")
 
 [node name="major2" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(22.1028, 17.2282)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(22.8657, 17.1457)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_m2g0c")
 
 [node name="major3" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(29.1591, 17.1032)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(29.7731, 17)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_m2g0c")
 
 [node name="major4" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(35.0527, 17.2282)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(36.8508, 17.1457)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_m2g0c")
 
 [node name="major5" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(42.0508, 17.1657)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(43.4175, 17.4374)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_m2g0c")
 
 [node name="minor1" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(16.0929, 24.0634)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(15.692, 24.2091)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_qfqi4")
 
 [node name="minor2" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(22.1028, 24.0634)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(22.6886, 24.1665)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_qfqi4")
 
 [node name="minor3" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(29.0428, 24.0634)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(29.5303, 24.0634)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_qfqi4")
 
 [node name="minor4" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(35.0527, 24.0634)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(36.282, 24.2091)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_qfqi4")
 
 [node name="minor5" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
-position = Vector2(42.0508, 24.0634)
-scale = Vector2(0.087108, 0.093633)
+position = Vector2(43.7018, 24.1164)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_qfqi4")
 
 [node name="Stats" type="TextureRect" parent="Tutorial UI/GUI/background"]
 layout_mode = 0
-offset_left = 1.56795
-offset_top = 27.6217
-offset_right = 45.5679
-offset_bottom = 39.6217
+offset_left = 1.0
+offset_top = 28.0
+offset_right = 46.0
+offset_bottom = 40.0
 texture = ExtResource("3_vjg2k")
 expand_mode = 1
 
-[node name="Stats1" type="RichTextLabel" parent="Tutorial UI/GUI/background"]
+[node name="statlayer" type="CanvasLayer" parent="Tutorial UI/GUI/background"]
+visible = false
+
+[node name="Stats1" type="RichTextLabel" parent="Tutorial UI/GUI/background/statlayer"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 0
-offset_left = 3.0
-offset_top = 29.0
-offset_right = 120.0
-offset_bottom = 100.0
-scale = Vector2(0.133851, 0.17294)
+offset_left = 246.0
+offset_top = 203.0
+offset_right = 371.0
+offset_bottom = 303.0
 theme_override_font_sizes/normal_font_size = 16
-text = "Shot Speed:
-Shot Weight:
-Punch:
-Magazine Size:
+text = "Reload Speed: 20
+Shot Weight: 20
+Regeneration: 20
+Magazine Size: 20
 "
 script = ExtResource("9_efjy7")
 
-[node name="Stats2" type="RichTextLabel" parent="Tutorial UI/GUI/background"]
+[node name="Stats2" type="RichTextLabel" parent="Tutorial UI/GUI/background/statlayer"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 0
-offset_left = 18.1185
-offset_top = 29.1198
-offset_right = 134.118
-offset_bottom = 100.12
-scale = Vector2(0.133851, 0.17294)
+offset_left = 360.0
+offset_top = 204.0
+offset_right = 485.0
+offset_bottom = 304.0
 theme_override_font_sizes/normal_font_size = 16
-text = "Fire Rate:
-Bullet Size:
-Scope:
-HP:"
+text = "Shot Speed: 20
+Fire Rate: 20
+Bullet Size: 20
+Alacrity: 20"
 script = ExtResource("10_4dp36")
 
-[node name="Stats3" type="RichTextLabel" parent="Tutorial UI/GUI/background"]
+[node name="Stats3" type="RichTextLabel" parent="Tutorial UI/GUI/background/statlayer"]
 custom_minimum_size = Vector2(100, 0)
-layout_mode = 0
-offset_left = 31.0
-offset_top = 29.0
-offset_right = 148.0
-offset_bottom = 100.0
-scale = Vector2(0.133851, 0.17294)
+offset_left = 460.0
+offset_top = 204.0
+offset_right = 585.0
+offset_bottom = 304.0
 theme_override_font_sizes/normal_font_size = 16
-text = "HP: 
-Regeneration: 
-Luck: 
-Alacrity: "
+text = "HP: 20
+Punch: 20
+Luck: 20
+Scope: 20"
 script = ExtResource("11_ldjfj")
 
 [node name="Name" type="Label" parent="Tutorial UI/GUI"]
 layout_mode = 0
-offset_left = 343.321
-offset_top = 144.33
-offset_right = 822.321
-offset_bottom = 245.33
+offset_left = 132.0
+offset_top = 27.0
+offset_right = 611.0
+offset_bottom = 128.0
 theme_override_fonts/font = SubResource("FontVariation_s6278")
-theme_override_font_sizes/font_size = 86
+theme_override_font_sizes/font_size = 48
 text = "\"Red\" - #0811"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -420,184 +419,176 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_fxlh5")
+metadata/_edit_use_anchors_ = true
 
 [node name="Major1" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 487.337
-offset_top = 271.0
-offset_right = 545.337
-offset_bottom = 326.0
+offset_left = 311.225
+offset_top = 116.183
+offset_right = 346.225
+offset_bottom = 151.183
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Major2" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 556.998
-offset_top = 271.0
-offset_right = 614.998
-offset_bottom = 326.0
+offset_left = 355.33
+offset_top = 116.535
+offset_right = 390.33
+offset_bottom = 151.535
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Major3" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 637.337
-offset_top = 271.0
-offset_right = 695.337
-offset_bottom = 326.0
+offset_left = 398.795
+offset_top = 116.22
+offset_right = 433.795
+offset_bottom = 151.22
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Major4" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 706.33
-offset_top = 271.0
-offset_right = 764.33
-offset_bottom = 326.0
+offset_left = 442.835
+offset_top = 116.59
+offset_right = 477.835
+offset_bottom = 151.59
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Major5" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 786.002
-offset_top = 271.0
-offset_right = 844.002
-offset_bottom = 326.0
+offset_left = 487.15
+offset_top = 116.59
+offset_right = 522.15
+offset_bottom = 151.59
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Minor1" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 488.005
-offset_top = 344.667
-offset_right = 546.005
-offset_bottom = 399.667
+offset_left = 311.181
+offset_top = 157.85
+offset_right = 346.181
+offset_bottom = 192.85
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Minor2" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 558.333
-offset_top = 344.0
-offset_right = 616.333
-offset_bottom = 399.0
+offset_left = 354.905
+offset_top = 157.535
+offset_right = 389.905
+offset_bottom = 192.535
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Minor3" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 637.929
-offset_top = 345.122
-offset_right = 695.929
-offset_bottom = 400.122
+offset_left = 398.85
+offset_top = 157.22
+offset_right = 433.85
+offset_bottom = 192.22
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Minor4" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 706.194
-offset_top = 344.0
-offset_right = 764.194
-offset_bottom = 399.0
+offset_left = 443.15
+offset_top = 157.22
+offset_right = 478.15
+offset_bottom = 192.22
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Minor5" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 785.684
-offset_top = 344.561
-offset_right = 843.684
-offset_bottom = 399.561
+offset_left = 487.725
+offset_top = 157.275
+offset_right = 522.725
+offset_bottom = 192.275
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Abili4" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 357.0
-offset_top = 561.0
-offset_right = 415.0
-offset_bottom = 616.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 252.5
+offset_top = 276.5
+offset_right = 317.5
+offset_bottom = 341.5
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Abili5" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 557.0
-offset_right = 586.0
-offset_bottom = 612.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 346.5
+offset_top = 277.5
+offset_right = 411.5
+offset_bottom = 342.5
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Abili6" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 701.0
-offset_top = 555.0
-offset_right = 759.0
-offset_bottom = 610.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 441.0
+offset_top = 276.5
+offset_right = 506.0
+offset_bottom = 341.5
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Abili1" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 360.0
-offset_top = 707.0
-offset_right = 418.0
-offset_bottom = 762.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 252.0
+offset_top = 354.0
+offset_right = 317.0
+offset_bottom = 419.0
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Abili2" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 528.0
-offset_top = 703.0
-offset_right = 586.0
-offset_bottom = 758.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 345.5
+offset_top = 353.5
+offset_right = 410.5
+offset_bottom = 418.5
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="Abili3" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 704.0
-offset_top = 700.0
-offset_right = 762.0
-offset_bottom = 755.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 440.5
+offset_top = 353.5
+offset_right = 505.5
+offset_bottom = 418.5
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="AbiliS" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 359.0
-offset_top = 845.0
-offset_right = 417.0
-offset_bottom = 900.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 252.0
+offset_top = 429.0
+offset_right = 317.0
+offset_bottom = 494.0
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="AbiliR" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 529.0
-offset_top = 843.0
-offset_right = 587.0
-offset_bottom = 898.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 346.5
+offset_top = 428.5
+offset_right = 411.5
+offset_bottom = 493.5
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
 [node name="AbiliF" type="TextureRect" parent="Tutorial UI/dragdroplayer"]
 layout_mode = 0
-offset_left = 703.0
-offset_top = 839.0
-offset_right = 761.0
-offset_bottom = 894.0
-scale = Vector2(2.37209, 2.16667)
+offset_left = 441.0
+offset_top = 429.0
+offset_right = 506.0
+offset_bottom = 494.0
 expand_mode = 1
 script = ExtResource("8_3mx1p")
 
@@ -606,10 +597,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 890.0
-offset_top = 160.0
-offset_right = -610.0
-offset_bottom = -240.0
+offset_left = 540.0
+offset_top = 58.0
+offset_right = -190.0
+offset_bottom = -102.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -622,19 +613,19 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_7lgjs")
 auto_height = true
 max_columns = 5
 same_column_width = true
-fixed_icon_size = Vector2i(75, 80)
+fixed_icon_size = Vector2i(37, 40)
 script = ExtResource("10_5ttkc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
 visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 self_modulate = Color(1, 0.898039, 0.709804, 1)
-offset_left = 1387.0
-offset_top = 234.0
-offset_right = 1585.0
-offset_bottom = 501.0
-scale = Vector2(1.50943, 1.56402)
+offset_left = 789.0
+offset_top = 147.0
+offset_right = 987.0
+offset_bottom = 414.0
 mouse_filter = 2
 texture = ExtResource("10_ioh2k")
 expand_mode = 1

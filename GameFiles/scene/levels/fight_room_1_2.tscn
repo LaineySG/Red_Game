@@ -2995,6 +2995,17 @@ layer_0/tile_data = PackedInt32Array(-393219, 3, 0, -327683, 3, 0, -262147, 3, 0
 [node name="UI" parent="." instance=ExtResource("32_kgam0")]
 visible = false
 
+[node name="ColorRect2" parent="UI/Textbox" index="0"]
+offset_left = 84.0
+offset_right = 121.0
+
+[node name="RichTextLabel" parent="UI/Textbox" index="1"]
+offset_left = 339.0
+offset_right = 1864.0
+
+[node name="Sprite2D" parent="UI/Textbox" index="2"]
+position = Vector2(201, 1310)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vk62y")
 

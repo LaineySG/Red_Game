@@ -3133,43 +3133,43 @@ layer = 7
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1926.0
-offset_bottom = 1086.0
+offset_right = 960.0
+offset_bottom = 540.0
 color = Color(0.207843, 0.207843, 0.207843, 0.560784)
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 54.0
-offset_top = 528.0
-offset_right = 94.0
-offset_bottom = 582.0
-theme_override_font_sizes/font_size = 64
+offset_left = 15.0
+offset_top = 248.0
+offset_right = 55.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 48
 text = "A"
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 1854.0
-offset_top = 526.0
-offset_right = 1894.0
-offset_bottom = 580.0
-theme_override_font_sizes/font_size = 64
+offset_left = 925.0
+offset_top = 248.0
+offset_right = 965.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 48
 text = "D"
 
 [node name="Dashtimer" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1854, 556)
-scale = Vector2(3, 3)
+position = Vector2(926, 270)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("27_rxisy")
 
 [node name="Dashtimer2" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(75, 556)
+position = Vector2(27, 270)
 rotation = 3.14159
-scale = Vector2(3, 3)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("27_rxisy")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 147.0
-offset_top = 99.0
-offset_right = 1367.0
-offset_bottom = 925.0
-scale = Vector2(1.34652, 1.09026)
+offset_left = 97.0
+offset_top = 14.0
+offset_right = 1317.0
+offset_bottom = 840.0
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("41_83g11")
 expand_mode = 1
 stretch_mode = 2
@@ -3193,10 +3193,11 @@ text = "Press \"I\" to open your inventory. There are 3 item types. The item sho
 autowrap_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
-offset_left = 2400.0
-offset_top = 125.0
-offset_right = 3620.0
-offset_bottom = 957.0
+offset_left = 1200.0
+offset_top = 25.0
+offset_right = 2420.0
+offset_bottom = 857.0
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("42_a441a")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect2"]
@@ -3235,10 +3236,11 @@ theme_override_font_sizes/normal_font_size = 32
 text = "for the effect to be applied to the gun. If an item with an effect is equipped in a white slot, the stat modifications will be applied but the effect will be ignored. "
 
 [node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
-offset_left = 2400.0
-offset_top = 125.0
-offset_right = 3620.0
-offset_bottom = 951.0
+offset_left = 1200.0
+offset_top = 25.0
+offset_right = 2420.0
+offset_bottom = 851.0
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("43_j883j")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect3"]

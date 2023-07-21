@@ -97,13 +97,19 @@ func check_inventory():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
+	if get_node("Tutorial UI").visible:
+		get_node("Tutorial UI/GUI/background/statlayer").visible = true
+	else:
+		get_node("Tutorial UI/GUI/background/statlayer").visible = false
+	
 	if Input.is_action_just_pressed("ui_I"):
 		check_inventory()
 	if itemlist.is_anything_selected(): #if something is hovered
 			get_node("CanvasLayer").visible = true
 			get_node("CanvasLayer/TextureRect").position = get_global_mouse_position() + Vector2(15,15)
 			get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(itemlist.get_item_metadata(itemlist.get_selected_items()[0]))
-		
+			
 	if Game.items_list.size() != inventory_size:
 		check_inventory()
 		

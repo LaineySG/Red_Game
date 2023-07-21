@@ -325,7 +325,7 @@ func get_effect_desc(effect_name):
 	elif effect_name == "Heart-Shot (Toygun)":
 		return "Shoots out a large red heart that sticks to enemies, causing mischief over time."
 	elif effect_name == "Rainbubble Blaster (Toygun)":
-		return "Chancee to create a large rainbow bubble on impact, causing mischief to any who pass through it."
+		return "Chance to create a large rainbow bubble on impact, causing mischief to any who pass through it."
 	elif effect_name == "Bounce Blaster (Toygun)":
 		return "Adds an extra bounce to bullets."
 	

@@ -111,6 +111,8 @@ func setcombatinteractions(x):
 	if x == false:
 		set_collision_layer_value(10,x)
 		set_collision_layer_value(7,x)
+	else:
+		set_collision_layer_value(7,x)
 #	get_node("Attackbox").set_collision_layer_value(7,x)
 #	get_node("Hitbox").set_collision_layer_value(7,x)
 #	get_node("Hitbox").set_collision_mask_value(7,x)
@@ -178,14 +180,15 @@ func _on_playerdetection_body_exited(body): # on player leaving detection sphere
 		chase = false
 	if body.is_in_group("mob") and hypnotized:
 		chase = false
-
+		
 func interactions(on):
-	if on:
+	if on: # eg. if shot after nopatience
 		set_collision_layer_value(7,true) # makes it interactible withable.
 		set_collision_layer_value(10,false) # makes it interactible withable.
-	elif !on:
+	elif !on: # false = no interactions
 		set_collision_layer_value(7,false) # makes it uninteractible withable.
 		set_collision_layer_value(10,true) # makes it interactible withable.
+
 
 func _love():
 	if !berserk and !frozen:

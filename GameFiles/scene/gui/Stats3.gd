@@ -10,7 +10,7 @@ func _ready():
 func _process(_delta):
 	var output = ""
 	output += "HP: " + str(Game.playerstats["HP"]) + "\n"
-	output += "Regeneration: " + str(Game.playerstats["Regeneration"]) + "\n"
+	output += "Punch: " + str(Game.playerstats["Punch"]) + "\n"
 	output += "Luck: " + str(Game.playerstats["Luck"]) + "\n"
-	output += "Alacrity: " + str(Game.playerstats["Alacrity"]) + "\n"
+	output += "Scope: " + str(Game.playerstats["Scope"]) + "\n"
 	text = output

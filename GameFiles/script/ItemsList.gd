@@ -14,7 +14,7 @@ func _get_drag_data(_pos):
 	var data = {}
 	var drag_texture = TextureRect.new()
 	drag_texture.expand = true
-	drag_texture.set_size(Vector2(100,100))
+	drag_texture.set_size(Vector2(50,50))
 	if is_anything_selected():
 		data = get_item_metadata(get_selected_items()[0])
 		drag_texture.texture = get_item_icon(get_selected_items()[0])

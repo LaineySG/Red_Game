@@ -65,13 +65,11 @@ _data = {
 
 [node name="death_screen" type="CanvasLayer"]
 process_mode = 2
-visible = false
 script = ExtResource("1_m5pc7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(50.6122, 28.9063)
+offset_right = 960.0
+offset_bottom = 540.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
@@ -82,11 +80,11 @@ libraries = {
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_top = 212.0
-offset_right = 1920.0
-offset_bottom = 426.0
+offset_top = 106.0
+offset_right = 960.0
+offset_bottom = 214.0
 theme_override_colors/font_color = Color(0.611765, 0, 0, 1)
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 64
 text = "Last sound, the world going out without a breath."
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -94,12 +92,12 @@ autowrap_mode = 2
 
 [node name="Play" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 583.0
-offset_top = 481.0
-offset_right = 1083.0
-offset_bottom = 607.0
-scale = Vector2(1.5, 1.5)
-theme_override_font_sizes/font_size = 77
+offset_left = 330.0
+offset_top = 240.0
+offset_right = 730.0
+offset_bottom = 340.0
+scale = Vector2(0.75, 0.75)
+theme_override_font_sizes/font_size = 64
 text = "Don't give up."
 
 [connection signal="button_down" from="Play" to="." method="_on_play_button_down"]
