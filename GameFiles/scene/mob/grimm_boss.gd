@@ -277,7 +277,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 				frosted += 1
 			if Game.current_effects.has("Shrink-Ray (Toygun)"):
 				var randchance = rng.randf() +  (0.01 * Game.playerstats["Luck"])
-				if scale.x >= 0.6 and randchance > 0.95:
+				if (scale.x >= 0.6 or (nopatience or dead or frozen)) and randchance > 0.95:
 					scale.x *= 0.95
 					scale.y *= 0.95
 				if damage > 1 and randchance > 0.95:

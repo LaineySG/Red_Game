@@ -293,7 +293,7 @@ func _on_idea_hideitem(_item):
 
 func _on_idea_viewitem(_item, itemstats):
 		get_node("UI/Inventory/CanvasLayer").visible = true
-		get_node("UI/Inventory/CanvasLayer/TextureRect").global_position = Vector2(100,250)
+		get_node("UI/Inventory/CanvasLayer/TextureRect").global_position = Vector2(50,125)
 		get_node("UI/Inventory/CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(itemstats)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=58 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -28,6 +28,7 @@
 [ext_resource type="Script" path="res://scene/gui/spacebaricon.gd" id="22_ntma1"]
 [ext_resource type="Texture2D" uid="uid://dbdb7lcximmt3" path="res://assets/environment/scifi/anims/CIA_Coin.png" id="22_oixjb"]
 [ext_resource type="Script" path="res://scene/gui/Quit.gd" id="25_ptl4u"]
+[ext_resource type="Script" path="res://scene/gui/goldsprite.gd" id="26_ppo4d"]
 [ext_resource type="Script" path="res://scene/gui/Load.gd" id="26_rnijt"]
 [ext_resource type="Script" path="res://scene/gui/Continue.gd" id="27_2ut5b"]
 
@@ -722,12 +723,14 @@ scale = Vector2(1.6, 1.6)
 sprite_frames = SubResource("SpriteFrames_3d2eu")
 frame = 7
 frame_progress = 1.0
+script = ExtResource("26_ppo4d")
 
 [node name="Gold" type="Label" parent="."]
-offset_left = -15.0
-offset_top = 491.0
-offset_right = 57.0
-offset_bottom = 545.0
+offset_left = -6.0
+offset_top = 499.0
+offset_right = 66.0
+offset_bottom = 553.0
+scale = Vector2(0.75, 0.75)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
 text = "125"

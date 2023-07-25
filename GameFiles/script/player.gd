@@ -76,6 +76,7 @@ func _apply_gravity(delta):
 	velocity.y += gravity * delta #gravity
 	
 func _ready():
+	SaveAndLoad.savegame(get_tree().current_scene)
 	update_ammo.emit()
 	update_gun.emit()
 	update_health.emit()
@@ -83,6 +84,7 @@ func _ready():
 	get_node("Gunarms/GunarmR/gun/GunFlashR").visible = false
 	await get_tree().create_timer(0.2).timeout
 	jumps = maxjumps
+	resetshaders()
 
 func _process(_delta):
 	if !iframes:
@@ -701,3 +703,11 @@ func _on_iframes_timeout():
 	get_node("shoot_body_torso").material.set_shader_parameter("enable_sil",0)
 	get_node("Gunarms/GunarmL/gun").material.set_shader_parameter("enable_sil",0)
 	get_node("Gunarms/GunarmR/gun").material.set_shader_parameter("enable_sil",0)
+
+
+func resetshaders():
+	var parameters = ["enable_disintegrate", "enable_offset_shadow", "enable_blur", "enable_outline", "enable_sil"]
+	var nodes = ["AnimatedSprite2D", "shoot_body_torso", "Gunarms/GunarmL/gun", "Gunarms/GunarmR/gun"]
+	for i in nodes:
+		for j in parameters:
+			get_node(i).material.set_shader_parameter(j,0)

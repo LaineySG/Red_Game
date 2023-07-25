@@ -380,14 +380,7 @@ func _enter_state(new, previous):
 					Game.berserkshotcount +=1
 					parent.berserktimer.start()
 				if Game.current_effects.has("Frenzy (Gun)"):
-					if Game.playerhp <= 100:
-						shotspeed += 0.2
-					elif Game.playerhp <= 75:
-						shotspeed += 0.4
-					elif Game.playerhp <= 50:
-						shotspeed += 0.6
-					elif Game.playerhp <= 25:
-						shotspeed += 0.8
+					shotspeed += (1.15 * (Game.playerhpmax - Game.playerhp) / Game.playerhpmax)
 				if Game.current_effects.has("Flintlock (Gun)"):
 					if shotspeed > 1.25:
 						shotspeed *= 0.75

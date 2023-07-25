@@ -270,7 +270,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 					froststack -=1
 				frosted += 1
 			if Game.current_effects.has("Shrink-Ray (Toygun)"):
-				if scale.x >= 0.6:
+				if scale.x >= 0.6 or nopatience or dead or frozen:
 					scale.x *= 0.95
 					scale.y *= 0.95
 					speed *= 0.90

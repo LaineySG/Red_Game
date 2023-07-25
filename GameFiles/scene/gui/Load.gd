@@ -13,11 +13,11 @@ func _process(_delta):
 func _pressed():
 	if SaveAndLoad.loadgame() == null:
 		text = "No save file found!"
-		get_node("Load").modulate = Color(1,0,0,1)
+		modulate = Color(1,0,0,1)
 		
 		await get_tree().create_timer(1.0).timeout
-		get_node("Load").text = "Load"
-		get_node("Load").modulate = Color(1,1,1,1)
+		text = "Load"
+		modulate = Color(1,1,1,1)
 	else:
 		SaveAndLoad.loadgame()
 		get_tree().change_scene_to_packed(SaveAndLoad.loadgame())

@@ -1,8 +1,11 @@
 extends Node
 var save_path = "user://saves/"
-var scene_name = "scenedata.tscn"
-var save_name = "savegamedata.tres"
+var scene_name = "scenedata"
+var scene_name_postfix = ".tscn"
+var save_name = "savegamedata"
+var save_name_postfix = ".tres"
 var gamedata = ResourceDataVariables.new()
+var savecountmax = 10000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,19 +19,34 @@ func _process(_delta):
 	pass
 #
 func savegame(current_scene):
-	var packed_scene = PackedScene.new()
-	packed_scene.pack(current_scene)
-	ResourceSaver.save(packed_scene,save_path+scene_name)
-	gamedata.denitialize()
-	var gamedata_save = ResourceSaver.save(gamedata, save_path+save_name)
-	assert(gamedata_save == OK)
-	
+	var breakloop = false
+	for i in savecountmax:
+		if !breakloop:
+			if ResourceLoader.exists(save_path+save_name+str(i)+save_name_postfix):
+				#do nothing - save file exists
+				pass
+			else:
+				var packed_scene = PackedScene.new()
+				packed_scene.pack(current_scene)
+				ResourceSaver.save(packed_scene,save_path+scene_name+str(i)+scene_name_postfix)
+				gamedata.denitialize()
+				var gamedata_save = ResourceSaver.save(gamedata, save_path+save_name+str(i)+save_name_postfix)
+				assert(gamedata_save == OK)
+				breakloop = true
+				break
+		else:
+			break
+			
 func loadgame() -> PackedScene:
-	if ResourceLoader.exists(save_path+save_name) and ResourceLoader.exists(save_path+scene_name):
-		gamedata = ResourceLoader.load(save_path+save_name)
-		gamedata.initialize()
-		return ResourceLoader.load(save_path + scene_name)
-	else:
-		return null
+	for i in range(savecountmax,0,-1): #counting down
+		if ResourceLoader.exists(save_path+save_name+str(i)+save_name_postfix) and ResourceLoader.exists(save_path+scene_name+str(i)+scene_name_postfix):
+			gamedata = ResourceLoader.load(save_path+save_name+str(i)+save_name_postfix)
+			gamedata.initialize()
+			return ResourceLoader.load(save_path + scene_name+str(i)+scene_name_postfix)
+		else:
+			pass
+			#do nothing
+	#if no return = no save file
+	return null
 		
 		

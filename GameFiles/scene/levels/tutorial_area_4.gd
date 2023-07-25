@@ -53,7 +53,7 @@ func _process(_delta):
 		bang.position = player.global_position
 		bang.position.x += locationmodx
 		bang.position.y -= 15
-		bang.settext("So [i]that's[/i] why humans call it a problem solver!")
+		bang.settext("So [i]that's[/i] why they call it a problem solver!")
 		bang.modulate = Color(1,0,0,1)
 		get_parent().add_child(bang)
 		get_node("doorlocked").visible = false
