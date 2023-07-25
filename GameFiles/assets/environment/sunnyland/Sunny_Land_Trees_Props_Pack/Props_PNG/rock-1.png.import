@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmoimkvrocno7"
-path="res://.godot/imported/rock-2.png-f508b452dd8d98d9a6de88fbc2839cd8.ctex"
+uid="uid://bdl5fvrdfbhgx"
+path="res://.godot/imported/rock-1.png-eab6850017792c1e5729f42123407a09.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/sunnyland/Sunny Land Trees Props Pack /Props PNG/rock-2.png"
-dest_files=["res://.godot/imported/rock-2.png-f508b452dd8d98d9a6de88fbc2839cd8.ctex"]
+source_file="res://assets/environment/sunnyland/Sunny_Land_Trees_Props_Pack/Props_PNG/rock-1.png"
+dest_files=["res://.godot/imported/rock-1.png-eab6850017792c1e5729f42123407a09.ctex"]
 
 [params]
 

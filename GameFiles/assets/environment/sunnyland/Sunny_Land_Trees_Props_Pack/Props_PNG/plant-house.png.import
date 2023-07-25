@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://o38k0upa47ib"
-path="res://.godot/imported/plant-house.png-a584f21f183e1569de77bfb19d5f9f68.ctex"
+path="res://.godot/imported/plant-house.png-58c07fa41d07a7ae5f7a509a862eb55a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/sunnyland/Sunny Land Trees Props Pack /Props PNG/plant-house.png"
-dest_files=["res://.godot/imported/plant-house.png-a584f21f183e1569de77bfb19d5f9f68.ctex"]
+source_file="res://assets/environment/sunnyland/Sunny_Land_Trees_Props_Pack/Props_PNG/plant-house.png"
+dest_files=["res://.godot/imported/plant-house.png-58c07fa41d07a7ae5f7a509a862eb55a.ctex"]
 
 [params]
 

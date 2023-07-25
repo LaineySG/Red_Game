@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx03xprrqy2ib"
-path="res://.godot/imported/trees.png-91893d4ef42632d250f0fbe8a6a88407.ctex"
+uid="uid://csodh50jhqy13"
+path="res://.godot/imported/tree.png-df98c6ca540ec04a2e381465b06e25df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environment/sunnyland/Sunnyland Trees/Previews/trees.png"
-dest_files=["res://.godot/imported/trees.png-91893d4ef42632d250f0fbe8a6a88407.ctex"]
+source_file="res://assets/environment/sunnyland/Sunnyland_Trees/Sprites/Sliced Trees/tree.png"
+dest_files=["res://.godot/imported/tree.png-df98c6ca540ec04a2e381465b06e25df.ctex"]
 
 [params]
 
