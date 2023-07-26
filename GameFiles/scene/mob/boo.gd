@@ -10,6 +10,7 @@ var rng = RandomNumberGenerator.new()
 @onready var dead_collision = $dead_shape
 var chase = false
 var dying = false
+var currentDoTs = 0
 var frozen = false
 var currentpos
 var froststack = 0
@@ -83,7 +84,17 @@ func _process(delta):
 	else:
 		speed = speedbase
 	get_node("AnimatedSprite2D").modulate = Color(0.7,0.7,0.7,0.8)
+	
 		
+	
+	if !$dot_timer.is_stopped(): # if dot timer running
+		$hp/DoTTimer.visible = true
+		var percent = $dot_timer.time_left / $dot_timer.wait_time
+		$hp/DoTTimer.value = (percent * 100)
+		if currentDoTs > 1:
+			$hp/DoTTimer/Label.text = str(currentDoTs)
+	else:
+		$hp/DoTTimer.visible = false
 			
 func get_nav_path():
 	if chase and !dying and !dead and !hypnotized:
@@ -337,6 +348,8 @@ func hypno():
 		get_node("AnimatedSprite2D").material.set_shader_parameter("new", Color.BLUE_VIOLET)
 
 func afflictDoT(DoT, MoT):
+	$dot_timer.start()
+	currentDoTs += 1
 	await get_tree().create_timer(1.0).timeout
 	var ouchie = get_tree().create_tween()
 	ouchie.tween_property(self,"modulate", Color.RED, 0.2)
@@ -358,6 +371,7 @@ func afflictDoT(DoT, MoT):
 	var returner3 = get_tree().create_tween()
 	returner3.tween_property(self,"modulate", Color.WHITE, 0.2)
 	hurt(DoT,MoT,0,0)
+	currentDoTs -= 1
 		
 func attack():
 	if !hypnotized:

@@ -1,10 +1,11 @@
-[gd_scene load_steps=70 format=3 uid="uid://cpoegrnujb5w5"]
+[gd_scene load_steps=71 format=3 uid="uid://cpoegrnujb5w5"]
 
 [ext_resource type="Script" path="res://scene/mob/grimm_boss.gd" id="1_1x84i"]
 [ext_resource type="Shader" path="res://scene/mob/frog.gdshader" id="2_wohef"]
 [ext_resource type="Texture2D" uid="uid://larkt0jdy3s7" path="res://assets/Grimm/grimm_cast.png" id="8_bw1ne"]
 [ext_resource type="Texture2D" uid="uid://d2cu2gj4jnrqj" path="res://assets/Grimm/werewolf-Sheet.png" id="8_oicoe"]
 [ext_resource type="Texture2D" uid="uid://cnckbvgvut5qo" path="res://assets/gui/pixelUIart/enemytier1bar.png" id="10_7a6u0"]
+[ext_resource type="Texture2D" uid="uid://dqxjfugpy5d87" path="res://assets/environment/Smoke/FX001/shroomclockDoT.png" id="12_mw721"]
 [ext_resource type="Texture2D" uid="uid://bso71ba5k7rm0" path="res://assets/environment/scifi/anims/alien_frozen.png" id="20_3qxic"]
 [ext_resource type="Texture2D" uid="uid://rdoxkictme73" path="res://assets/environment/scifi/anims/scifi_alien_happy_1.png" id="21_74hxo"]
 [ext_resource type="Texture2D" uid="uid://c6cfllrxrtlb0" path="res://assets/environment/scifi/anims/scifi_alien_happy_2.png" id="22_beokl"]
@@ -548,6 +549,29 @@ texture_under = ExtResource("24_wo0y8")
 texture_over = ExtResource("10_7a6u0")
 texture_progress = ExtResource("25_hejrc")
 
+[node name="DoTTimer" type="TextureProgressBar" parent="hp"]
+offset_left = 39.2467
+offset_top = 2.29189
+offset_right = 71.2467
+offset_bottom = 34.2919
+scale = Vector2(0.25, 0.4)
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("12_mw721")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="hp/DoTTimer"]
+modulate = Color(1, 1, 1, 0.803922)
+layout_mode = 0
+offset_left = 8.96336
+offset_top = -33.8649
+offset_right = 32.9634
+offset_bottom = 20.1351
+theme_override_font_sizes/font_size = 32
+text = "8"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="patience" type="TextureProgressBar" parent="."]
 self_modulate = Color(1, 1, 1, 0.588235)
 z_index = 6
@@ -607,6 +631,10 @@ one_shot = true
 [node name="cast_timer" type="Timer" parent="."]
 wait_time = 7.0
 autostart = true
+
+[node name="dot_timer" type="Timer" parent="."]
+wait_time = 4.2
+one_shot = true
 
 [connection signal="body_entered" from="playerdetection" to="." method="_on_playerdetection_body_entered"]
 [connection signal="body_exited" from="playerdetection" to="." method="_on_playerdetection_body_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://by5044dj0p77v"]
+[gd_scene load_steps=57 format=3 uid="uid://by5044dj0p77v"]
 
 [ext_resource type="Script" path="res://script/frog.gd" id="1_vhlij"]
 [ext_resource type="Texture2D" uid="uid://rj7piqxalu2q" path="res://assets/environment/scifi/anims/scifi_alien_die_1.png" id="2_rvkh4"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dkgn6a61bmodd" path="res://assets/gui/pixelUIart/enemyhpfull.png" id="22_oexcf"]
 [ext_resource type="Texture2D" uid="uid://33derdmhojkb" path="res://assets/gui/pixelUIart/enemymischieffull.png" id="23_csngt"]
 [ext_resource type="Script" path="res://scene/mob/hp_hitbox.gd" id="24_kmgcj"]
+[ext_resource type="Texture2D" uid="uid://dqxjfugpy5d87" path="res://assets/environment/Smoke/FX001/shroomclockDoT.png" id="27_rkc0t"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="29_o24bu"]
 [ext_resource type="Script" path="res://scene/mob/Label.gd" id="30_qxd3y"]
 
@@ -301,7 +302,7 @@ disabled = true
 material = SubResource("ShaderMaterial_slhg2")
 position = Vector2(1, -22)
 sprite_frames = SubResource("SpriteFrames_an24v")
-animation = &"dead"
+animation = &"Idle"
 
 [node name="playerdetection" type="Area2D" parent="." groups=["mob"]]
 visible = false
@@ -344,6 +345,7 @@ position = Vector2(0, -11.25)
 shape = SubResource("RectangleShape2D_572kn")
 
 [node name="hp_hitbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(-23, -66)
 collision_layer = 1024
 collision_mask = 1024
@@ -364,6 +366,28 @@ step = 0.1
 value = 100.0
 texture_under = ExtResource("21_a0urv")
 texture_progress = ExtResource("22_oexcf")
+
+[node name="DoTTimer" type="TextureProgressBar" parent="hp"]
+offset_left = 38.0
+offset_top = 12.0
+offset_right = 70.0
+offset_bottom = 44.0
+scale = Vector2(0.2, 0.2)
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("27_rkc0t")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="hp/DoTTimer"]
+modulate = Color(1, 1, 1, 0.803922)
+layout_mode = 0
+offset_left = 10.0
+offset_top = -20.0
+offset_right = 34.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
 
 [node name="patience" type="TextureProgressBar" parent="."]
 self_modulate = Color(1, 1, 1, 0.588235)
@@ -443,6 +467,10 @@ one_shot = true
 
 [node name="ally_timer" type="Timer" parent="."]
 wait_time = 8.0
+one_shot = true
+
+[node name="dot_timer" type="Timer" parent="."]
+wait_time = 4.2
 one_shot = true
 
 [connection signal="body_entered" from="playerdetection" to="." method="_on_playerdetection_body_entered"]

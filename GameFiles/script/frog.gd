@@ -11,6 +11,7 @@ var rng = RandomNumberGenerator.new()
 var chase = false
 var dying = false
 var coindrops = true
+var currentDoTs = 0
 var frozen = false
 var frogtarget
 var webstuck = false
@@ -63,6 +64,16 @@ func _process(_delta):
 		speed = speedbase * pow(0.8,froststack)
 	if webstuck:
 		pass
+		
+	
+	if !$dot_timer.is_stopped(): # if dot timer running
+		$hp/DoTTimer.visible = true
+		var percent = $dot_timer.time_left / $dot_timer.wait_time
+		$hp/DoTTimer.value = (percent * 100)
+		if currentDoTs > 1:
+			$hp/DoTTimer/Label.text = str(currentDoTs)
+	else:
+		$hp/DoTTimer.visible = false
 	
 func _ready():
 	speedbase = speed
@@ -320,6 +331,8 @@ func hypno():
 		get_node("Head/eyelight/TextureLight").color = Color.HOT_PINK
 
 func afflictDoT(DoT, MoT):
+	$dot_timer.start()
+	currentDoTs += 1
 	await get_tree().create_timer(1.0).timeout
 	var ouchie = get_tree().create_tween()
 	ouchie.tween_property(self,"modulate", Color.RED, 0.2)
@@ -341,6 +354,7 @@ func afflictDoT(DoT, MoT):
 	var returner3 = get_tree().create_tween()
 	returner3.tween_property(self,"modulate", Color.WHITE, 0.2)
 	hurt(DoT,MoT,0,0)
+	currentDoTs -= 1
 		
 func attack():
 	if !hypnotized:

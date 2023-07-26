@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dt58it6tefknc"]
+[gd_scene load_steps=80 format=3 uid="uid://dt58it6tefknc"]
 
 [ext_resource type="Script" path="res://scene/mob/fluzar.gd" id="1_jrggg"]
 [ext_resource type="Shader" path="res://scene/mob/frog.gdshader" id="2_u20l5"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bd32bs3pmr1tk" path="res://assets/environment/scifi/anims/scifi_alien_bite_3.png" id="17_nebpy"]
 [ext_resource type="Texture2D" uid="uid://b36owicapyp61" path="res://assets/environment/scifi/anims/scifi_alien_bite_4.png" id="18_ep1pe"]
 [ext_resource type="Texture2D" uid="uid://cn2vtm64igjwo" path="res://assets/environment/scifi/anims/scifi_alien_bite_5.png" id="19_56u5k"]
+[ext_resource type="Texture2D" uid="uid://dqxjfugpy5d87" path="res://assets/environment/Smoke/FX001/shroomclockDoT.png" id="19_e1vvd"]
 [ext_resource type="Texture2D" uid="uid://j76kbvymmq5w" path="res://assets/gui/pixelUIart/enemyhpempty.png" id="24_74qwk"]
 [ext_resource type="Texture2D" uid="uid://dkgn6a61bmodd" path="res://assets/gui/pixelUIart/enemyhpfull.png" id="25_5udrx"]
 [ext_resource type="Texture2D" uid="uid://33derdmhojkb" path="res://assets/gui/pixelUIart/enemymischieffull.png" id="26_72r52"]
@@ -553,6 +554,28 @@ value = 140.0
 texture_under = ExtResource("24_74qwk")
 texture_progress = ExtResource("25_5udrx")
 
+[node name="DoTTimer" type="TextureProgressBar" parent="hp"]
+offset_left = 38.0
+offset_top = 12.0
+offset_right = 70.0
+offset_bottom = 44.0
+scale = Vector2(0.2, 0.2)
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("19_e1vvd")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="hp/DoTTimer"]
+modulate = Color(1, 1, 1, 0.803922)
+layout_mode = 0
+offset_left = 10.0
+offset_top = -20.0
+offset_right = 34.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
+
 [node name="patience" type="TextureProgressBar" parent="."]
 self_modulate = Color(1, 1, 1, 0.588235)
 z_index = 5
@@ -637,6 +660,10 @@ position = Vector2(0, 5)
 scale = Vector2(3.375, 1.63356)
 target_position = Vector2(0, 25)
 hit_from_inside = true
+
+[node name="dot_timer" type="Timer" parent="."]
+wait_time = 4.2
+one_shot = true
 
 [connection signal="body_entered" from="playerdetection" to="." method="_on_playerdetection_body_entered"]
 [connection signal="body_exited" from="playerdetection" to="." method="_on_playerdetection_body_exited"]
