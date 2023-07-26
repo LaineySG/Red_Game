@@ -36,6 +36,8 @@ func savegame(current_scene):
 				break
 		else:
 			break
+	if !breakloop: # if all file numbers are taken
+		savecountmax += 1000
 			
 func loadgame() -> PackedScene:
 	for i in range(savecountmax,0,-1): #counting down

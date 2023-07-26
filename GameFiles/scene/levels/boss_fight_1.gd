@@ -51,6 +51,7 @@ func _ready():
 		await get_tree().create_timer(0.05).timeout
 		get_node("UI/Textboxanims").stop()
 		get_node("mobs/grimm_boss").is_in_cutscene = false
+		Variables.inputIsDisabled = false
 	
 	
 	if Game.weapon_equipped == "gun":
@@ -435,6 +436,9 @@ func _on_transition_screen_transitioned():
 		Game.playerDied = false
 		Game._gamereset()
 	else:
+		for children in get_node("mobs").get_children():
+			if children.is_in_group("coins"):
+				children.add_on_exit()
 		doorchosen.changeroom()
 	
 

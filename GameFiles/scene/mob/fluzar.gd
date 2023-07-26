@@ -136,6 +136,8 @@ func apply_gravity(delta):
 		velocity.y = 0
 	
 func _apply_movement(delta, nomove = false):
+	if navi.is_navigation_finished():
+		return
 	velocity.y += gravity * delta
 	if chase or hypnotized:
 		navi.get_next_path_position()
@@ -487,11 +489,11 @@ func _on_jumptimer_timeout():
 
 
 func _on_repathtimer_timeout():
-#	var newpos = self.global_position
-#	if abs((newpos.x - currentpos.x)) < 10 and !dead and !dying and !player.camo and chase:
-#		navi.target_position = Vector2(global_position.x + (-direction.x * 50),global_position.y + (-direction.y * 50))
-#		velocity *= 5
-#	currentpos = newpos
+	var newpos = self.global_position
+	if abs((newpos.x - currentpos.x)) < 10 and !dead and !dying and !player.camo and chase and direction != null:
+		navi.target_position = Vector2(global_position.x + (-direction.x * 50),global_position.y + (-direction.y * 50))
+		velocity *= 5
+	currentpos = newpos
 	pass
 		
 	

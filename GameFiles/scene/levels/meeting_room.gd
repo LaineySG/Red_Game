@@ -48,6 +48,8 @@ func _ready():
 		get_node("UI/Textboxanims").play("textboxappears")
 		await get_tree().create_timer(0.05).timeout
 		get_node("UI/Textboxanims").stop()
+		Variables.inputIsDisabled = false
+		get_node("Grimm").visible = false
 	
 	
 	if Game.weapon_equipped == "gun":

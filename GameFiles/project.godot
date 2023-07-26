@@ -166,7 +166,7 @@ ui_6={
 
 [navigation]
 
-2d/default_cell_size=16
+2d/default_edge_connection_margin=10
 2d/size/viewport_height=1080
 2d/size/viewport_width=1920
 2d/size/mode=0

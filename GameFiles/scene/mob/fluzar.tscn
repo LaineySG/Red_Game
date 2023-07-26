@@ -611,7 +611,6 @@ horizontal_alignment = 1
 script = ExtResource("30_4n2by")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_max_distance = 65.0
 path_postprocessing = 1
 
 [node name="Timer" type="Timer" parent="NavigationAgent2D"]

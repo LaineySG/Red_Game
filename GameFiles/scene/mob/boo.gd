@@ -68,6 +68,9 @@ func _ready():
 	var waittime = 3.2 - (speed / 91.0)
 	if waittime < 1.2:
 		waittime = 1.2
+			
+	var randtime = rng.randf_range(-1.0,1.0)
+	waittime += randtime
 	get_node("NavigationAgent2D/repathtimer").wait_time = waittime
 	
 func _process(delta):
@@ -465,6 +468,15 @@ func _on_repathtimer_timeout():
 			get_parent().call_deferred("add_child", smokespawn)
 			
 			self.global_position = navi.target_position
+			
+			
+			var waittime = 3.2 - (speed / 91.0)
+			if waittime < 1.2:
+				waittime = 1.2
+			repathtimer.wait_time = waittime
+			
+			var randtime = rng.randf_range(-1.0,1.0)
+			repathtimer.wait_time += randtime
 			repathtimer.start()
 			teleported = true
 		

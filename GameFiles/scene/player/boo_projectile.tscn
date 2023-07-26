@@ -89,7 +89,7 @@ radius = 21.1403
 
 [node name="boollet" type="CharacterBody2D" groups=["bullets"]]
 collision_layer = 0
-collision_mask = 721
+collision_mask = 729
 slide_on_ceiling = false
 script = ExtResource("1_jqywi")
 

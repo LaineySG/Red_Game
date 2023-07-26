@@ -19,6 +19,7 @@ size = Vector2(15.4286, 9.57143)
 
 [node name="shrooms" type="CharacterBody2D" groups=["bullets"]]
 collision_layer = 0
+collision_mask = 9
 slide_on_ceiling = false
 script = ExtResource("1_goo8h")
 

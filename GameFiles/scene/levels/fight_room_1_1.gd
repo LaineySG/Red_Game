@@ -315,7 +315,7 @@ func _on_textbox_changetext():
 
 func _on_transition_screen_transitioned():
 	for children in get_node("mobs").get_children():
-		if children.name.left(4) == "coin" or children.name.left(5) == "@coin":
+		if children.is_in_group("coins"):
 			children.add_on_exit()
 	doorchosen.changeroom()
 		
