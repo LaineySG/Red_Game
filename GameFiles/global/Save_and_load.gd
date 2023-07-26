@@ -5,7 +5,7 @@ var scene_name_postfix = ".tscn"
 var save_name = "savegamedata"
 var save_name_postfix = ".tres"
 var gamedata = ResourceDataVariables.new()
-var savecountmax = 10000
+var savecountmax = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,7 +37,8 @@ func savegame(current_scene):
 		else:
 			break
 	if !breakloop: # if all file numbers are taken
-		savecountmax += 1000
+		savecountmax += 5 # increase max by 5
+		savegame(current_scene) #and do it all over again
 			
 func loadgame() -> PackedScene:
 	for i in range(savecountmax,0,-1): #counting down
