@@ -69,7 +69,7 @@ func _ready():
 	if waittime < 1.2:
 		waittime = 1.2
 			
-	var randtime = rng.randf_range(-1.0,1.0)
+	var randtime = rng.randf_range(-.25,0.75)
 	waittime += randtime
 	get_node("NavigationAgent2D/repathtimer").wait_time = waittime
 	

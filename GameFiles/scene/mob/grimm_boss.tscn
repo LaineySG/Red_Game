@@ -605,7 +605,7 @@ wait_time = 8.0
 one_shot = true
 
 [node name="cast_timer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 7.0
 autostart = true
 
 [connection signal="body_entered" from="playerdetection" to="." method="_on_playerdetection_body_entered"]

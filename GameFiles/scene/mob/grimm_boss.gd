@@ -8,6 +8,7 @@ var bullet = preload("res://scene/player/grimm_projectile.tscn")
 var coin = preload("res://scene/item/coin.tscn")
 var boo = preload("res://scene/mob/boo.tscn")
 var fluzar = preload("res://scene/mob/fluzar.tscn")
+var frog = preload("res://scene/mob/frog.tscn")
 var rng = RandomNumberGenerator.new()
 @onready var alive_collision = $alive_shape
 @onready var dead_collision = $dead_shape
@@ -510,13 +511,27 @@ func _on_cast_timer_timeout():
 		pass
 	else:
 		casting = true
+		var casttimerrand = rng.randf_range(-2.5,2.5)
+		casttimer.wait_time += casttimerrand
 		casttimer.start()
 		await get_tree().create_timer(1.0).timeout
 		var enemychance = randf() - (Game.playerstats["Luck"] * 0.01)
-		if enemychance > 0.6:
+		if enemychance > 0.80:
 			var boospawn = boo.instantiate()
-			var randposmod = Vector2(rng.randi_range(-250,250), rng.randi_range(-250,250))
-			boospawn.global_position = self.global_position + randposmod
+			#var randposmod = Vector2(rng.randi_range(-250,250), rng.randi_range(-250,250))
+			boospawn.global_position = self.global_position
+			boospawn.coindrops = false
+			get_parent().call_deferred("add_child", boospawn)
+		elif enemychance > 0.60:
+			var boospawn = fluzar.instantiate()
+			#var randposmod = Vector2(rng.randi_range(-250,250), rng.randi_range(-250,250))
+			boospawn.global_position = self.global_position
+			boospawn.coindrops = false
+			get_parent().call_deferred("add_child", boospawn)
+		elif enemychance > 0.50:
+			var boospawn = frog.instantiate()
+			#var randposmod = Vector2(rng.randi_range(-250,250), rng.randi_range(-250,250))
+			boospawn.global_position = self.global_position
 			boospawn.coindrops = false
 			get_parent().call_deferred("add_child", boospawn)
 		

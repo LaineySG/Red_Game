@@ -12,6 +12,7 @@ var rng = RandomNumberGenerator.new()
 @onready var dead_collision = $dead_shape
 var chase = false
 var dying = false
+var coindrops = true
 var frozen = false
 var currentpos
 var frogtarget
@@ -424,6 +425,8 @@ func _on_hp_value_changed(value):
 		Game.gun_kill_counter += 1
 		var luckgoldmod = 0 + (floor(Game.playerstats["Luck"] / 2.0))
 		var coincount = rng.randi_range(1,4+luckgoldmod)
+		if !coindrops:
+			coincount = 0
 		for i in coincount:
 			var coinspawn = coin.instantiate()
 			var randxpos = rng.randi_range(-30,30)
