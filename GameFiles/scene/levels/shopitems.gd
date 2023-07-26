@@ -41,5 +41,9 @@ func fivefingerdiscountset():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if get_node("Idea") == null or !get_node("Idea").visible:
+	var nodecheck = get_node_or_null("Idea")
+	if nodecheck != null:
+		if !get_node("Idea").visible:
+			queue_free()
+	else:
 		queue_free()

@@ -43,7 +43,7 @@ var level = 1 # level 2 and 3 will unlock new "berserk mode" abilities later
 
 
 var hypno_nearby_enemies = []
-var direction
+var direction = Vector2(0,0)
 var attack_ready = false
 @onready var attacktimer = get_node("Attackbox/AttackTimer")
 @onready var hpbar = get_node("hp")

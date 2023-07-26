@@ -17,7 +17,7 @@ func _ready():
 func instantiate(level,floornum):
 	if floornum == 1:
 		if level == 1:
-			var mobspawnnummax = Game.roomcount / 2.0
+			var mobspawnnummax = min(ceil(Game.roomcount / 3.0), 8.0)
 			if mobspawnnummax > get_child_count():
 				mobspawnnummax = get_child_count()
 			var spawn_position

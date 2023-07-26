@@ -257,7 +257,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 		get_parent().add_child(dmgnumspawn)
 	
 	
-	if !dying and !dead:	
+	if !dying and !dead and direction != null:	
 		if dmg > 0:
 			hpbar.value -= dmg
 			berserk = true
@@ -308,7 +308,8 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 				var angerspawn = anger.instantiate()
 				angerspawn.position = get_node("Head").global_position
 				get_parent().add_child(angerspawn)
-			velocity.x = -direction.x * 750 * (Game.playerstats["Shot Weight"] * 1/20)
+			if direction != null:
+				velocity.x = -direction.x * 750 * (Game.playerstats["Shot Weight"] * 1/20)
 			if Game.current_effects.has("Freeze-Ray (Toygun)"):
 				if froststack <= 4:
 					froststack += 1
