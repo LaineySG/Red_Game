@@ -77,6 +77,9 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
+	if get_node("item_room/exitdoor").roomtype == "meeting":
+		get_node("item_room/exitdoor").roomtype = "item"
+		get_node("item_room/exitdoor").img_refresh()
 	
 	var hasmobs=false
 	for i in get_node("mobs").get_children():

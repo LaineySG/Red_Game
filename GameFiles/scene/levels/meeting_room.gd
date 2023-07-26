@@ -75,6 +75,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if get_node("item_room/exitdoor").roomtype == "meeting":
+		get_node("item_room/exitdoor").roomtype = "item"
+		get_node("item_room/exitdoor").img_refresh()
+		
+		
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:
 		$UI/pause_modulation.visible = true
 		Utils.pausegame()
