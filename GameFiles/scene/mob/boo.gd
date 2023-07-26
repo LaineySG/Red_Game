@@ -327,7 +327,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is sho
 			
 		
 		if Game.current_effects.has("Vampire (Gun)"):
-			player.heal(0.1 * dmg)
+			player.heal(ceil(0.1 * dmg))
 		
 func hypno():
 	if !hypnoimmune:
@@ -390,6 +390,7 @@ func _on_hp_value_changed(value):
 		Game.gun_kill_counter += 1		
 		var luckgoldmod = 0 + (floor(Game.playerstats["Luck"] / 2.0))
 		var coincount = rng.randi_range(1,4+luckgoldmod)
+		player.heal(ceil((Game.playerstats["Regeneration"] / 4.0 * Game.playerhpmax * 0.02))) # heal 1% of player health * 1-5 depending on regeneration stat
 		if !coindrops:
 			coincount = 0
 		for i in coincount:
@@ -418,6 +419,7 @@ func _on_patience_value_changed(value):
 		Game.toy_kill_counter += 1
 		var luckgoldmod = 0 + (floor(Game.playerstats["Luck"] / 2.0))
 		var coincount = rng.randi_range(1,4+luckgoldmod)
+		player.heal(ceil((Game.playerstats["Regeneration"] / 4.0 * Game.playerhpmax * 0.02))) # heal 1% of player health * 1-5 depending on regeneration stat
 		if !coindrops:
 			coincount = 0
 		for i in coincount:

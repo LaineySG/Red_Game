@@ -61,7 +61,7 @@ sprite_frames = SubResource("SpriteFrames_ge533")
 animation = &"settled"
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 12.0
 one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=59 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scene/gui/Save_button.gd" id="5_4od5o"]
 [ext_resource type="Script" path="res://scene/levels/pause_modulation.gd" id="5_uo8qv"]
 [ext_resource type="Texture2D" uid="uid://cbtq53fgx03s0" path="res://assets/environment/scifi/anims/bulletbar2.png" id="6_84wmi"]
+[ext_resource type="Texture2D" uid="uid://dqxjfugpy5d87" path="res://assets/environment/Smoke/FX001/shroomclockDoT.png" id="6_pc1p2"]
 [ext_resource type="Script" path="res://scene/levels/Ammo.gd" id="7_17myl"]
 [ext_resource type="Texture2D" uid="uid://dngq5x5csq6ne" path="res://assets/gui/Button03.png" id="8_dfbcq"]
 [ext_resource type="Texture2D" uid="uid://ddei11g0ue03h" path="res://assets/environment/scifi/anims/gunicon.png" id="9_ed8w3"]
@@ -379,6 +380,33 @@ theme_override_font_sizes/font_size = 16
 text = "HP"
 script = SubResource("GDScript_exetb")
 metadata/_edit_use_anchors_ = true
+
+[node name="DoTtimers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 74.0
+offset_right = 40.0
+offset_bottom = 114.0
+
+[node name="DoTTimer" type="TextureProgressBar" parent="DoTtimers"]
+layout_mode = 1
+offset_right = 32.0
+offset_bottom = 32.0
+value = 100.0
+fill_mode = 4
+texture_progress = ExtResource("6_pc1p2")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="DoTtimers/DoTTimer"]
+modulate = Color(1, 1, 1, 0.839216)
+layout_mode = 0
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 41.0
+offset_bottom = 34.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+horizontal_alignment = 1
 
 [node name="Inventory" parent="." instance=ExtResource("5_4nfeg")]
 

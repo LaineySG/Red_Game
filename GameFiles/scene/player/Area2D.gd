@@ -23,8 +23,8 @@ func _ready():
 		DoT *= 1.75
 	
 func Chargemod(chargetime):
-	mischief *=  0.15 * chargetime
-	MoT *=  0.15 * chargetime
+	mischief *=  1.0 + ( 0.1 * chargetime)
+	MoT *=  1.0 + ( 0.1 * chargetime)
 	chargetime = 0.0
 
 func init(init_position):

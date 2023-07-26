@@ -9,6 +9,7 @@ var brokemessage = false
 var introstep = 0
 var hasmobs=false
 var helpcounter = 0
+var hpregenerated = false
 var conversation_step = 1
 var tutorial_finished = false
 var doorchosen
@@ -71,6 +72,9 @@ func _process(_delta):
 		for i in get_node("mobs").get_children():
 			if i.is_in_group("mob"):
 				i.setcombatinteractions(true)
+		if !hpregenerated:
+			hpregenerated = true
+			player.heal(ceil((Game.playerstats["Regeneration"] / 4.0 * Game.playerhpmax * 0.04))) # heal 2% of player health * 1-5 depending on regeneration stat
 	else: # if enemies 
 		for j in get_node("fight_room").get_children():
 			if j.name.left(4) == "exit":
@@ -214,7 +218,16 @@ func _process(_delta):
 		get_node("UI/cooldowns/mineCD").visible = false
 		
 		
-		
+				
+	if !get_node("Player/timers/dottimer").is_stopped():
+		get_node("UI/DoTtimers/DoTTimer").visible = true
+		var percent = get_node("Player/timers/dottimer").time_left / get_node("Player/timers/dottimer").wait_time
+		get_node("UI/DoTtimers/DoTTimer").value = (percent * 100)
+		if player.currentDoTs > 1:
+			get_node("UI/DoTtimers/DoTTimer/Label").text = str(player.currentDoTs)
+	else:
+		get_node("UI/DoTtimers/DoTTimer").visible = false
+	
 		
 	if !get_node("Player/timers/dash_CD").is_stopped():
 		var percent = get_node("Player/timers/dash_CD").time_left / get_node("Player/timers/dash_CD").wait_time

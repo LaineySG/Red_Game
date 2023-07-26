@@ -18,6 +18,7 @@ func _process(_delta):
 func setdamage(_input_dmg, input_DoT):
 	dmg = 0
 	DoT = input_DoT / 6.0
+	
 func hypnoset():
 	hypno = true
 	modulate = Color.FOREST_GREEN

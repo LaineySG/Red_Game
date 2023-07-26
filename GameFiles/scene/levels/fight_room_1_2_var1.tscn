@@ -269,7 +269,6 @@ texture = ExtResource("11_mp45t")
 [node name="TileMap" parent="." instance=ExtResource("14_c0htp")]
 
 [node name="UI" parent="." instance=ExtResource("23_omo0j")]
-visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vk62y")

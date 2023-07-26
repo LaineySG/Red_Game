@@ -5625,7 +5625,6 @@ script = ExtResource("16_f7ex8")
 
 [node name="regenerationtimer" type="Timer" parent="timers"]
 wait_time = 5.0
-autostart = true
 
 [node name="berserktimer" type="Timer" parent="timers"]
 wait_time = 0.7
@@ -5663,6 +5662,10 @@ wait_time = 180.0
 
 [node name="iframes" type="Timer" parent="timers"]
 wait_time = 0.35
+one_shot = true
+
+[node name="dottimer" type="Timer" parent="timers"]
+wait_time = 4.2
 one_shot = true
 
 [node name="dustmaker_R" parent="." instance=ExtResource("27_kgcxb")]
@@ -5731,7 +5734,6 @@ texture_scale = 0.2
 [connection signal="timeout" from="Gunarms/GunarmL/gun/confetti_dmg/damageticker" to="Gunarms/GunarmL/gun/confetti_dmg" method="_on_damageticker_timeout"]
 [connection signal="timeout" from="Gunarms/chargetimer" to="." method="_on_chargetimer_timeout"]
 [connection signal="timeout" from="timers/Coyotetime" to="." method="_on_coyotetime_timeout"]
-[connection signal="timeout" from="timers/regenerationtimer" to="." method="_on_regenerationtimer_timeout"]
 [connection signal="timeout" from="timers/berserktimer" to="." method="_on_berserktimer_timeout"]
 [connection signal="timeout" from="timers/iframes" to="." method="_on_iframes_timeout"]
 [connection signal="area_shape_entered" from="doordetector" to="." method="_on_doordetector_area_shape_entered"]

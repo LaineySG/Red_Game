@@ -15,6 +15,7 @@ var coyotetime = true
 var turning = false
 var prev_wall_dir
 var shotsfired = false
+var currentDoTs = 0
 var accuracy = 100 # out of 200 
 var dashing = false
 var tping = false
@@ -383,6 +384,8 @@ func hurt(x,DoT):
 		afflictDoT(DoT)
 	
 func afflictDoT(DoT):
+	currentDoTs += 1
+	$timers/dottimer.start()
 	await get_tree().create_timer(1.0).timeout
 	var ouchie = get_tree().create_tween()
 	ouchie.tween_property(self,"modulate", Color.RED, 0.2)
@@ -404,6 +407,7 @@ func afflictDoT(DoT):
 	var returner3 = get_tree().create_tween()
 	returner3.tween_property(self,"modulate", Color.WHITE, 0.2)
 	hurt(DoT,0)
+	currentDoTs -= 1
 	
 func bounce():
 	velocity.y = JUMP_VELOCITY
@@ -674,9 +678,10 @@ func _on_animation_player_animation_finished(anim_name):
 		iframes = false
 
 
-func _on_regenerationtimer_timeout():
-	heal(round(Game.playerhpmax * (0.02 + (Game.playerstats["Regeneration"] * 0.01))))
-	get_node("timers/regenerationtimer").wait_time = 5 - (4 * Game.playerstats["Regeneration"]/20)
+#reconnect if add back in 
+#func _on_regenerationtimer_timeout():
+#	heal(round(Game.playerhpmax * (0.02 + (Game.playerstats["Regeneration"] * 0.01))))
+#	get_node("timers/regenerationtimer").wait_time = 5 - (4 * Game.playerstats["Regeneration"]/20)
 
 func cancelreloadaudio():
 	get_node("Gunarms/reload_clip_in").playing = false

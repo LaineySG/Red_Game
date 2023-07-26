@@ -274,7 +274,7 @@ func get_mod_desc(mod_name):
 	elif mod_name.left(2) == "HP":
 		return "Increases health."
 	elif mod_name.left(12) == "Regeneration":
-		return "Increases health regeneration."
+		return "Increases health regeneration on kills and on room completion."
 	elif mod_name.left(8) == "Alacrity":
 		return "Increases movement and decreases ability cooldowns."
 	elif mod_name.left(4) == "Luck":

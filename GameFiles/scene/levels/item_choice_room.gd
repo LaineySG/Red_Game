@@ -173,6 +173,14 @@ func _process(_delta):
 		
 		
 		
+	if !get_node("Player/timers/dottimer").is_stopped():
+		get_node("UI/DoTtimers/DoTTimer").visible = true
+		var percent = get_node("Player/timers/dottimer").time_left / get_node("Player/timers/dottimer").wait_time
+		get_node("UI/DoTtimers/DoTTimer").value = (percent * 100)
+		if player.currentDoTs > 1:
+			get_node("UI/DoTtimers/DoTTimer/Label").text = str(player.currentDoTs)
+	else:
+		get_node("UI/DoTtimers/DoTTimer").visible = false
 		
 	if !get_node("Player/timers/dash_CD").is_stopped():
 		var percent = get_node("Player/timers/dash_CD").time_left / get_node("Player/timers/dash_CD").wait_time
