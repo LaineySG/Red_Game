@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dvvpplnd7mhlk"]
+[gd_scene load_steps=85 format=3 uid="uid://dvvpplnd7mhlk"]
 
 [ext_resource type="Script" path="res://scene/levels/TEST_ROOM.gd" id="1_i5cwm"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_6hcm7"]
@@ -19,10 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://chtf1tf3vjph3" path="res://scene/item/idea.tscn" id="18_kemys"]
 [ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="19_tx5dt"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="20_agrq8"]
-[ext_resource type="Texture2D" uid="uid://f143g8bjgrk3" path="res://assets/environment/Smoke/FX001/dashtimer.png" id="21_uy17m"]
-[ext_resource type="Texture2D" uid="uid://gxyhyolneq31" path="res://assets/gui/itemtutorial/pic1.png" id="22_svuke"]
-[ext_resource type="Texture2D" uid="uid://buhtg3ma63hq5" path="res://assets/gui/itemtutorial/pic2.png" id="23_cmsf3"]
-[ext_resource type="Texture2D" uid="uid://d0s3y7h284w3s" path="res://assets/gui/itemtutorial/pic3.png" id="24_biqn7"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6bcbv"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -3365,136 +3361,6 @@ visible = false
 
 [node name="UI" parent="." instance=ExtResource("20_agrq8")]
 visible = false
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 7
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1926.0
-offset_bottom = 1086.0
-color = Color(0.207843, 0.207843, 0.207843, 0.560784)
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 54.0
-offset_top = 528.0
-offset_right = 94.0
-offset_bottom = 582.0
-theme_override_font_sizes/font_size = 64
-text = "A"
-
-[node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 1854.0
-offset_top = 526.0
-offset_right = 1894.0
-offset_bottom = 580.0
-theme_override_font_sizes/font_size = 64
-text = "D"
-
-[node name="Dashtimer" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1854, 556)
-scale = Vector2(3, 3)
-texture = ExtResource("21_uy17m")
-
-[node name="Dashtimer2" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(75, 556)
-rotation = 3.14159
-scale = Vector2(3, 3)
-texture = ExtResource("21_uy17m")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 147.0
-offset_top = 99.0
-offset_right = 1367.0
-offset_bottom = 925.0
-scale = Vector2(1.34652, 1.09026)
-texture = ExtResource("22_svuke")
-expand_mode = 1
-stretch_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 596.0
-offset_top = 227.0
-offset_right = 910.0
-offset_bottom = 506.0
-color = Color(0.258824, 0.454902, 0.447059, 1)
-
-[node name="RichTextLabel" type="Label" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 605.0
-offset_top = 235.0
-offset_right = 912.0
-offset_bottom = 496.0
-theme_override_font_sizes/font_size = 32
-text = "Press \"I\" to open your inventory. There are 3 item types. The item shown on the right offers only stat improvements. It can be equipped in any of the 10 gun modification slots shown on the left."
-autowrap_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
-offset_left = 2400.0
-offset_top = 125.0
-offset_right = 3620.0
-offset_bottom = 957.0
-texture = ExtResource("23_cmsf3")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect2"]
-layout_mode = 0
-offset_left = 570.0
-offset_top = 234.0
-offset_right = 890.0
-offset_bottom = 689.0
-color = Color(0.258824, 0.454902, 0.447059, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/TextureRect2"]
-layout_mode = 0
-offset_left = 1205.0
-offset_top = 584.0
-offset_right = 1333.0
-offset_bottom = 1219.0
-rotation = 1.5708
-color = Color(0.258824, 0.454902, 0.447059, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect2"]
-layout_mode = 0
-offset_left = 574.0
-offset_top = 238.0
-offset_right = 893.0
-offset_bottom = 582.0
-theme_override_font_sizes/normal_font_size = 32
-text = "This item offers a stat improvement as well as an effect - \"pump-action\" This effect only works with the toygun equipped. If a gun type is not specified in parentheses, it will work on either. Items with effects can be equipped in any of the 10 slots on the left, only the green \"Major\" slots at the top will allow"
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/TextureRect2"]
-layout_mode = 0
-offset_left = 577.0
-offset_top = 590.0
-offset_right = 1197.0
-offset_bottom = 890.0
-theme_override_font_sizes/normal_font_size = 32
-text = "for the effect to be applied to the gun. If an item with an effect is equipped in a white slot, the stat modifications will be applied but the effect will be ignored. "
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
-offset_left = 2400.0
-offset_top = 125.0
-offset_right = 3620.0
-offset_bottom = 951.0
-texture = ExtResource("24_biqn7")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect3"]
-layout_mode = 0
-offset_left = 331.0
-offset_top = 195.0
-offset_right = 836.0
-offset_bottom = 411.0
-color = Color(0.258824, 0.454902, 0.447059, 1)
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect3"]
-layout_mode = 0
-offset_left = 345.0
-offset_top = 200.0
-offset_right = 843.0
-offset_bottom = 557.0
-theme_override_font_sizes/normal_font_size = 32
-text = "The item on the right gives an ability. It can be equipped in any of the hexagonal slots, and can be used by pressing the number or key corresponding to the slot it is equipped in. The \"->\" slot will assign the item to the shift key. These items can be used repeatedly but have an associated cooldown."
 
 [connection signal="which_door_opened" from="item_room/check_for_exit" to="." method="_on_check_for_exit_which_door_opened"]
 [connection signal="open_door" from="item_room/exitdoor" to="item_room/check_for_exit" method="_on_exitdoor_open_door"]

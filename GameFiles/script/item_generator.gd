@@ -1,6 +1,6 @@
 extends Node
 
-var effects = ["Burn Shot (Gun)", "Flame Shot (Gun)", "Berserk (Gun)", "Frenzy (Gun)", "Vampire (Gun)", "Flintlock (Gun)", "Ricochet (Gun)", "Piercing Shot (Gun)", "Split Shot (Gun)", "Duo-Shot", "Tri-Shot", "Quad-Shot", "Big Shot", "Freeze-Ray (Toygun)", "Shrink-Ray (Toygun)", "Confetti Cannon (Toygun)", "Web Shot (Toygun)", "Pump-action (Toygun)", "Hypno-Ray (Toygun)", "Heart-Shot (Toygun)", "Rainbubble Blaster (Toygun)", "Bounce Blaster (Toygun)"]
+var effects = ["Burn Shot (Gun)", "Flame Shot (Gun)", "Berserk (Gun)", "Frenzy (Gun)", "Vampire (Gun)", "Flintlock (Gun)", "Ricochet (Gun)", "Piercing Shot (Gun)", "Split Shot (Gun)", "Duo-Shot", "Tri-Shot", "Quad-Shot", "Big Shot", "Freeze-Ray (Toygun)", "Shrink-Ray (Toygun)", "Confetti Cannon (Toygun)", "Web Shot (Toygun)", "Pump-action (Toygun)", "Hypno-Ray (Toygun)", "Heart-Shot (Toygun)", "Rainbubble Blaster (Toygun)", "Bounce Blaster (Toygun)", "Poison Spray (Gun)"]
 var modifications = ["Shot Speed", "Shot Weight", "Punch", "Magazine Size", "Reload Speed", "Fire Rate", "Bullet Size", "Scope", "HP", "Regeneration", "Luck", "Alacrity"]
 var abilities = ["Dash", "Teleport", "Camoflague", "Sprint", "Summon", "Shield", "Land Mine", "Balloon"]
 var summons = ["Green Aliens"]
@@ -308,6 +308,13 @@ func get_item_name(rolleditemname,rarity):
 			output += "Bouncer"
 		else:
 			output += "Elasticator"
+	elif effect == effects[22]: #"Poison Spray (Gun)"
+		if nameseed < 0.33:
+			output += "Serpent"
+		elif nameseed < 0.66:
+			output += "Toxicity"
+		else:
+			output += "Fang"
 	elif effect == null and ability == null: #no effect or ability only mods
 		if nameseed < 0.2:
 			output += "Enigma"

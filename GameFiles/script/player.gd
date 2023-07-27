@@ -491,10 +491,20 @@ func _shoot(_shootoverride=false):
 					get_node("Camera2D").add_trauma(0.1 + (knockbackmod / -2000 * 0.3))
 					velocity.x = knockbackmod
 					move_and_slide()
-					for i in numShots:
-						var spawn = bullet.instantiate()
-						get_parent().add_child(spawn)
-						spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
+					var randchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
+					if Game.current_effects.has("Poison Spray (Gun)") and randchance > 0.85:
+						for i in numShots:
+							get_node("Gunarms/poison_spray").emitall(self.global_position)
+							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
+							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.8 + (Game.playerstats["Punch"] * 0.1)),0)
+							get_node("Gunarms/Confettichildren").add_child(fetti)
+							fetti.init(self.global_position)
+							fetti.visible = true
+					else:
+						for i in numShots:
+							var spawn = bullet.instantiate()
+							get_parent().add_child(spawn)
+							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					var shellspawn = shell.instantiate()
 					shellspawn.position = get_node("Gunarms/GunarmR/gun/RShellSpawn").global_position
 					var rand = rng.randi_range(-75,75)
@@ -526,6 +536,7 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
+							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.5 + (Game.playerstats["Punch"] * 0.2)))
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								fetti.Chargemod(chargetime)
@@ -574,10 +585,20 @@ func _shoot(_shootoverride=false):
 					get_node("Camera2D").add_trauma(0.1 + (knockbackmod / 2000 * 0.3))
 					velocity.x = knockbackmod
 					move_and_slide()
-					for i in numShots:
-						var spawn = bullet.instantiate()
-						get_parent().add_child(spawn)
-						spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
+					var randchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
+					if Game.current_effects.has("Poison Spray (Gun)") and randchance > 0.85:
+						for i in numShots:
+							get_node("Gunarms/poison_spray").emitall(self.global_position)
+							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
+							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.8 + (Game.playerstats["Punch"] * 0.1)),0)
+							get_node("Gunarms/Confettichildren").add_child(fetti)
+							fetti.init(self.global_position)
+							fetti.visible = true
+					else:
+						for i in numShots:
+							var spawn = bullet.instantiate()
+							get_parent().add_child(spawn)
+							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
 					var shellspawn = shell.instantiate()
 					shellspawn.position = get_node("Gunarms/GunarmL/gun/LShellSpawn").global_position
 					var rand = rng.randi_range(-75,75)
@@ -609,6 +630,7 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
+							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.5 + (Game.playerstats["Punch"] * 0.2)))
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								fetti.Chargemod(chargetime)

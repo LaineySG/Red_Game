@@ -328,7 +328,7 @@ func get_effect_desc(effect_name):
 	elif effect_name == "Shrink-Ray (Toygun)":
 		return "Shrinks the target to eventual harmlessness."
 	elif effect_name == "Confetti Cannon (Toygun)":
-		return "Chance to shoot out confetti that stays around,causing mischief to any who pass through it."
+		return "Chance to shoot out confetti that stays around, causing mischief to any who pass through it."
 	elif effect_name == "Web Shot (Toygun)":
 		return "Chance to stick enemies to the floor temporarily."
 	elif effect_name == "Pump-action (Toygun)":
@@ -341,6 +341,8 @@ func get_effect_desc(effect_name):
 		return "Chance to create a large rainbow bubble on impact, causing mischief to any who pass through it."
 	elif effect_name == "Bounce Blaster (Toygun)":
 		return "Adds an extra bounce to bullets."
+	elif effect_name == "Poison Spray (Gun)":
+		return "Chance to shoot out poison cloud that stays around, causing damage to any who pass through it."
 	
 	
 func get_ability_desc(ability_name):

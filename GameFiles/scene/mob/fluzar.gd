@@ -450,11 +450,11 @@ func _on_hp_value_changed(value):
 			
 		hpbar.visible = false
 		patbar.visible = false
-		alive_collision.disabled = true
-		dead_collision.disabled = false
+		alive_collision.set_deferred("disabled", true)
+		dead_collision.set_deferred("disabled", false)
 		get_node("Head/eyelight").visible = false
-		get_node("Hitbox/CollisionShape2D").disabled = true
-		get_node("Hitbox").monitoring = false
+		get_node("Hitbox/CollisionShape2D").set_deferred("disabled", true)
+		get_node("Hitbox").set_deferred("monitoring", false)
 		
 	else:
 		frozen = false

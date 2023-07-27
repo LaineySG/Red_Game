@@ -1,4 +1,4 @@
-[gd_scene load_steps=408 format=3 uid="uid://dk8edw251qj3"]
+[gd_scene load_steps=409 format=3 uid="uid://dk8edw251qj3"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_4cvrk"]
 [ext_resource type="Texture2D" uid="uid://bp1hhgod73e7n" path="res://assets/environment/scifi/anims/shootbodyidleupperlayer_sweat.png" id="2_i6r7d"]
@@ -45,6 +45,7 @@
 [ext_resource type="Script" path="res://scene/player/Area2D.gd" id="28_4wcda"]
 [ext_resource type="PackedScene" uid="uid://di1b5l4xopo4t" path="res://scene/player/confetti_cannon.tscn" id="28_gymwx"]
 [ext_resource type="Texture2D" uid="uid://cg4rs8l57it5b" path="res://assets/gui/Button13.png" id="29_s6ipw"]
+[ext_resource type="PackedScene" uid="uid://lji5jd3xg87j" path="res://scene/player/Poison_spray.tscn" id="43_hf38b"]
 [ext_resource type="Texture2D" uid="uid://bbwy3j8u5oyxf" path="res://assets/gui/Button06.png" id="45_3p42c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvyfe"]
@@ -5590,6 +5591,8 @@ stream = ExtResource("26_hl6j3")
 [node name="toygunshot" type="AudioStreamPlayer2D" parent="Gunarms"]
 position = Vector2(-1, 2)
 stream = ExtResource("19_us7sl")
+
+[node name="poison_spray" parent="Gunarms" instance=ExtResource("43_hf38b")]
 
 [node name="confetti_cannon" parent="Gunarms" instance=ExtResource("28_gymwx")]
 
