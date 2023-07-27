@@ -20,20 +20,20 @@ func setdmg(input_mischief,input_dmg,input_DoT,input_MoT):
 	DoT = input_DoT
 	MoT = input_MoT
 	if Game.current_effects.has("Duo-Shot"):
+		mischief *= 1.15
+		DoT *= 1.15
+		dmg *= 1.15
+		MoT *= 1.15
+	if Game.current_effects.has("Tri-Shot"):
 		mischief *= 1.25
 		DoT *= 1.25
 		dmg *= 1.25
 		MoT *= 1.25
-	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 1.40
-		DoT *= 1.40
-		dmg *= 1.40
-		MoT *= 1.40
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 1.75
-		DoT *= 1.75
-		dmg *= 1.75
-		MoT *= 1.75
+		mischief *= 1.4
+		DoT *= 1.4
+		dmg *= 1.4
+		MoT *= 1.4
 	
 func Chargemod(chargetime):
 	mischief *=  1.0 + ( 0.1 * chargetime)

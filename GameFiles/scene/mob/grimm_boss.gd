@@ -530,7 +530,7 @@ func _on_cast_timer_timeout():
 	else:
 		casting = true
 		var casttimerrand = rng.randf_range(-2.5,2.5)
-		casttimer.wait_time += casttimerrand
+		casttimer.wait_time = 7.0 + casttimerrand
 		casttimer.start()
 		await get_tree().create_timer(1.0).timeout
 		var enemychance = randf() - (Game.playerstats["Luck"] * 0.01)

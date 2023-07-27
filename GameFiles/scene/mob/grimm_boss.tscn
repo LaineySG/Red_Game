@@ -550,6 +550,7 @@ texture_over = ExtResource("10_7a6u0")
 texture_progress = ExtResource("25_hejrc")
 
 [node name="DoTTimer" type="TextureProgressBar" parent="hp"]
+layout_mode = 0
 offset_left = 39.2467
 offset_top = 2.29189
 offset_right = 71.2467
