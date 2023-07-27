@@ -503,7 +503,7 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/poison_spray").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
-							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.8 + (Game.playerstats["Punch"] * 0.1)),0)
+							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.4 + (Game.playerstats["Punch"] * 0.1)),0)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							fetti.init(self.global_position)
 							fetti.visible = true
@@ -543,7 +543,7 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
-							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.5 + (Game.playerstats["Punch"] * 0.2)))
+							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.20 + (Game.playerstats["Punch"] * 0.2)))
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								fetti.Chargemod(chargetime)
@@ -597,7 +597,7 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/poison_spray").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
-							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.8 + (Game.playerstats["Punch"] * 0.1)),0)
+							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.4 + (Game.playerstats["Punch"] * 0.1)),0)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							fetti.init(self.global_position)
 							fetti.visible = true
@@ -637,7 +637,7 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
-							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.5 + (Game.playerstats["Punch"] * 0.2)))
+							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.20 + (Game.playerstats["Punch"] * 0.2)))
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								fetti.Chargemod(chargetime)

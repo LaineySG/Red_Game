@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://drccmp3a2oj0s"]
 
-[ext_resource type="Script" path="res://scene/player/Area2D.gd" id="1_734r0"]
+[ext_resource type="Script" path="res://scene/player/rainbubble.gd" id="1_fa5cv"]
 [ext_resource type="Texture2D" uid="uid://c45xxbjr4np0h" path="res://assets/environment/scifi/anims/colorbubble.png" id="2_grnre"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k6r06"]
@@ -11,7 +11,7 @@ top_level = true
 z_index = 5
 collision_layer = 0
 collision_mask = 65
-script = ExtResource("1_734r0")
+script = ExtResource("1_fa5cv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 5

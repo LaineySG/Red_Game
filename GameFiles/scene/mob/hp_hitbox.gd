@@ -12,13 +12,15 @@ func _process(_delta):
 	pass
 
 func _on_area_entered(area):
-	if self.get_rid() > area.get_rid():
-		bodies.append(area)
-		overlapping.emit(bodies.size())
+	if area != null:
+		if self.get_rid() > area.get_rid():
+			bodies.append(area)
+			overlapping.emit(bodies.size())
 
 
 func _on_area_exited(area):
-	if self.get_rid() > area.get_rid():
-		if bodies.has(area):
-			bodies.erase(area)
-		overlapping.emit(bodies.size())
+	if area != null:
+		if self.get_rid() > area.get_rid():
+			if bodies.has(area):
+				bodies.erase(area)
+			overlapping.emit(bodies.size())
