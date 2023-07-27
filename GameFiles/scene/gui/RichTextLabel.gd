@@ -12,7 +12,7 @@ func item_info_parser(x: Dictionary):
 		var itemname = x["Name"] if (x.get("Name") != null) else null
 		rarity = x["Rarity"] if (x.get("Rarity") != null) else null
 		var effect = x["Effect"] if (x.get("Effect") != null) else null
-		var RarityNum = x["RarityNum"] if (x.get("RarityNum") != null) else null
+		var _RarityNum = x["RarityNum"] if (x.get("RarityNum") != null) else null
 		var ability = x["Ability"] if (x.get("Ability") != null) else null
 		var slot = x["EquipSlot"] if (x.get("EquipSlot") != null) else null
 		if ability != null:
@@ -24,7 +24,7 @@ func item_info_parser(x: Dictionary):
 		var mod1 = x["Mod_1"] if (x.get("Mod_1") != null) else null
 		var mod2 = x["Mod_2"] if (x.get("Mod_2") != null) else null
 		var mod3 = x["Mod_3"] if (x.get("Mod_3") != null) else null
-		var id = x["ID"] if (x.get("ID") != null) else null
+		var _id = x["ID"] if (x.get("ID") != null) else null
 		
 		if rarity == "Common":
 			var title_color = "LIGHT_GRAY"
@@ -36,9 +36,9 @@ func item_info_parser(x: Dictionary):
 			if slot != null:
 				if slot.left(5) == "Major":
 					accent_color = "gold"
-			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell][cell border=" + border_color + "][color=" + accent_color + "]"
-			output += ability if ability != null else ""
-			output += effect if effect != null else ""
+			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -60,7 +60,10 @@ func item_info_parser(x: Dictionary):
 				output += get_mod_desc(mod3) + "[/color]" + "\n"
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
-			output += "[/table][/center]"
+				
+			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Uncommon":
 			var title_color = "cornflower_blue"
@@ -72,9 +75,9 @@ func item_info_parser(x: Dictionary):
 			if slot != null:
 				if slot.left(5) == "Major":
 					accent_color = "gold"
-			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell][cell border=" + border_color + "][color=" + accent_color + "]"
-			output += ability if ability != null else ""
-			output += effect if effect != null else ""
+			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -96,8 +99,10 @@ func item_info_parser(x: Dictionary):
 				output += get_mod_desc(mod3) + "[/color]" + "\n"
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
-			output += "[/table][/center]"
 #
+			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 #
 #
 
@@ -111,9 +116,9 @@ func item_info_parser(x: Dictionary):
 			if slot != null:
 				if slot.left(5) == "Major":
 					accent_color = "gold"
-			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell][cell border=" + border_color + "][color=" + accent_color + "]"
-			output += ability if ability != null else ""
-			output += effect if effect != null else ""
+			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -135,8 +140,10 @@ func item_info_parser(x: Dictionary):
 				output += get_mod_desc(mod3) + "[/color]" + "\n"
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
-			output += "[/table][/center]"
 		
+			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Epic":
 			var title_color = "peru"
@@ -148,9 +155,9 @@ func item_info_parser(x: Dictionary):
 			if slot != null:
 				if slot.left(5) == "Major":
 					accent_color = "gold"
-			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell][cell border=" + border_color + "][color=" + accent_color + "]"
-			output += ability if ability != null else ""
-			output += effect if effect != null else ""
+			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -172,8 +179,11 @@ func item_info_parser(x: Dictionary):
 				output += get_mod_desc(mod3) + "[/color]" + "\n"
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
-			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nCreme de la Creme.\n " + "[/color][/cell][/table]" + "[/center]"
+			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nCreme de la Creme.\n " + "[/color][/cell]"
 			
+			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Insane":
 			var title_color = "PALE_VIOLET_RED"
@@ -185,9 +195,9 @@ func item_info_parser(x: Dictionary):
 			if slot != null:
 				if slot.left(5) == "Major":
 					accent_color = "gold"
-			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "][pulse color=DEEP_PINK freq=1.0 ease=-2.0 height=0]" + itemname + "[/pulse][/color][/font_size][/cell][cell border=" + border_color + "][color=" + accent_color + "]"
-			output += ability if ability != null else ""
-			output += effect if effect != null else ""
+			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "][pulse color=DEEP_PINK freq=1.0 ease=-2.0 height=0]" + itemname + "[/pulse][/color][/font_size][/cell]"
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -209,8 +219,11 @@ func item_info_parser(x: Dictionary):
 				output += get_mod_desc(mod3) + "[/color]" + "\n"
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
-			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nOne in a hundred.\n " + "[/color][/cell][/table]" + "[/center]"
+			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nOne in a hundred.\n " + "[/color][/cell]"
 			
+			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Perfect":
 			var title_color = "NAVAJO_WHITE"
@@ -222,9 +235,9 @@ func item_info_parser(x: Dictionary):
 			if slot != null:
 				if slot.left(5) == "Major":
 					accent_color = "gold"
-			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "][ghost freq=3.0 span=3.0]" + itemname + "[/ghost][/color][/font_size][/cell][cell border=" + border_color + "][color=" + accent_color + "]"
-			output += ability if ability != null else ""
-			output += effect if effect != null else ""
+			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "][ghost freq=3.0 span=3.0]" + itemname + "[/ghost][/color][/font_size][/cell]"
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -246,12 +259,12 @@ func item_info_parser(x: Dictionary):
 				output += get_mod_desc(mod3) + "[/color]" + "\n"
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
-			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nOne in a million.\n " + "[/color][/cell][/table]" + "[/center]"
+			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nOne in a million.\n " + "[/color][/cell]"
 			
-			
+			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 				
-		output += "\n" + "[center][color=light_slate_gray" + "]" 	
-		output += "Rarity: " + str(rarity) + ", ID: " + str(RarityNum) + "-" + str(id) + "[/color][/center]"	# for troubleshooting 
 		text = output
 
 func get_mod_desc(mod_name):
@@ -293,7 +306,7 @@ func get_effect_desc(effect_name):
 	elif effect_name == "Frenzy (Gun)":
 		return "Fire rate increases based on percentage of HP missing."
 	elif effect_name == "Vampire (Gun)":
-		return "Heals a portion of damage dealt."
+		return "Heals for a portion of damage dealt."
 	elif effect_name == "Flintlock (Gun)":
 		return "Fire rate decreases, punch and shot size sharply increases."
 	elif effect_name == "Ricochet (Gun)":

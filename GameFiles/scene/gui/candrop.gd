@@ -2,10 +2,12 @@ extends TextureRect
 
 signal on_hover(slotdata)
 var slotdata = {"ID": 0}
+var mouse_is_in = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	self.mouse_entered.connect(_on_mouse_entered)
+	self.mouse_exited.connect(_on_mouse_exited)
 
 func _gui_input(event):
 	if event is InputEventMouseMotion:
@@ -13,7 +15,12 @@ func _gui_input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("ui_left_click") and mouse_is_in and (Input.is_action_pressed("ui_shift") or Input.is_action_pressed("ui_ctrl")) :
+		get_node("../../dragdroplayer")._drop_data(1,slotdata)
+		slotdata = {"ID": 0}
+		texture = null
+		
+	
 	
 func _get_drag_data(_pos):
 	var drag_texture = TextureRect.new()
@@ -71,3 +78,10 @@ func _drop_data(_pos, data):
 #	for i in Game.items_list:
 #		print("Inventory:" + str(i["ID"]))
 #	print("}")
+
+func _on_mouse_entered():
+	mouse_is_in = true
+
+
+func _on_mouse_exited():
+	mouse_is_in = false

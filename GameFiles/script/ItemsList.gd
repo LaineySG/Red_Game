@@ -21,6 +21,9 @@ func _get_drag_data(_pos):
 		remove_item(get_selected_items()[0])
 	data["item_texture"] = drag_texture.texture
 	
+	
+		
+	
 	var ctrl = Control.new()
 	ctrl.add_child(drag_texture)
 	drag_texture.position = -0.5 * drag_texture.size
@@ -58,6 +61,87 @@ func _process(_delta):
 		deselect_all()
 	if Input.is_action_just_pressed("ui_I"):
 		get_node("../../../../CanvasLayer").visible = false
+		
+	if is_anything_selected():
+		if Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_shift"):
+			var breakout = false
+			for slots in get_node("../../../dragdroplayer").get_children():
+				if slots.name.left(5) == "Major" and !breakout:
+					if slots.slotdata["ID"] == 0:
+						breakout = true
+						var data = get_item_metadata(get_selected_items()[0])
+						if data.get("Ability") == null: # make sure it's not ability
+							data["item_texture"] = get_item_icon(get_selected_items()[0])
+							slots._drop_data(1,data)
+					
+		if Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_ctrl"):
+			var breakout = false
+			for slots in get_node("../../../dragdroplayer").get_children():
+				if slots.name.left(5) == "Minor" and !breakout:
+					if slots.slotdata["ID"] == 0:
+						breakout = true
+						var data = get_item_metadata(get_selected_items()[0])
+						if data.get("Ability") == null: # make sure it's not an ability
+							data["item_texture"] = get_item_icon(get_selected_items()[0])
+							slots._drop_data(1,data)
+		if Input.is_action_just_pressed("ui_left_click") and get_item_metadata(get_selected_items()[0]).get("Ability") != null:
+			# if an ability and left click and hotkey pressed
+			if Input.is_action_pressed("ui_1"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "Abili1" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_2"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "Abili2" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_3"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "Abili3" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_4"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "Abili4" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_5"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "Abili5" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_6"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "Abili6" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_shift"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "AbiliS" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_R"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "AbiliR" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+			if Input.is_action_pressed("ui_F"):
+				for slots in get_node("../../../dragdroplayer").get_children():
+					if slots.name.left(6) == "AbiliF" and slots.slotdata["ID"] == 0: # if empty
+						var data = get_item_metadata(get_selected_items()[0]) 
+						data["item_texture"] = get_item_icon(get_selected_items()[0])
+						slots._drop_data(1,data)
+				
+			
 	
 func _on_ItemList_gui_input(event: InputEvent) -> void:
 	item = get_item_at_position(get_local_mouse_position(), true)
