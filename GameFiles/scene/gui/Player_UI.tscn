@@ -390,6 +390,7 @@ offset_right = 40.0
 offset_bottom = 114.0
 
 [node name="DoTTimer" type="TextureProgressBar" parent="DoTtimers"]
+visible = false
 layout_mode = 1
 offset_right = 32.0
 offset_bottom = 32.0
