@@ -214,6 +214,18 @@ func _process(_delta):
 	else:
 		get_node("UI/cooldowns/greenalienCD").visible = false
 		
+		
+	if Game.current_abilities.has("Summon(CIA Drone)"):
+		get_node("UI/cooldowns/droneCD").visible = true
+		get_node("UI/cooldowns/droneCD").position.x = (-36 * cursor)
+		cursor += 1
+		var output = Game.current_abilities["Summon(CIA Drone)"]
+		if output == "S":
+			output = "->"
+		get_node("UI/cooldowns/droneCD/Label").text = output
+	else:
+		get_node("UI/cooldowns/droneCD").visible = false
+		
 	if Game.current_abilities.has("Land Mine"):
 		get_node("UI/cooldowns/mineCD").visible = true
 		get_node("UI/cooldowns/mineCD").position.x = (-36 * cursor)
@@ -226,7 +238,8 @@ func _process(_delta):
 		get_node("UI/cooldowns/mineCD").visible = false
 		
 		
-
+		
+				
 	if !get_node("Player/timers/dottimer").is_stopped():
 		get_node("UI/DoTtimers/DoTTimer").visible = true
 		var percent = get_node("Player/timers/dottimer").time_left / get_node("Player/timers/dottimer").wait_time
@@ -236,7 +249,6 @@ func _process(_delta):
 	else:
 		get_node("UI/DoTtimers/DoTTimer").visible = false
 	
-			
 		
 	if !get_node("Player/timers/dash_CD").is_stopped():
 		var percent = get_node("Player/timers/dash_CD").time_left / get_node("Player/timers/dash_CD").wait_time
@@ -286,8 +298,11 @@ func _process(_delta):
 	else:
 		get_node("UI/cooldowns/balloonCD").value = 100
 		
-		
-		
+	if !get_node("Player/timers/drone_CD").is_stopped():
+		var percent = get_node("Player/timers/drone_CD").time_left / get_node("Player/timers/drone_CD").wait_time
+		get_node("UI/cooldowns/droneCD").value = 100 - (percent * 100)
+	else:
+		get_node("UI/cooldowns/droneCD").value = 100
 		
 	if get_node("Player").shielded:
 		get_node("UI/player_health").material.set_shader_parameter("enable_outline",1)

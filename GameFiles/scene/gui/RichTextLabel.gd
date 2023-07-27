@@ -351,17 +351,19 @@ func get_ability_desc(ability_name):
 	if ability_name == "Teleport":
 		return "Allows Red to teleport a short distance, gaining invulnerability during the dash."
 	if ability_name == "Camoflague":
-		return "Allows red to camoflague, turning invisible temporarily to avoid detection."
+		return "Allows Red to camoflague, turning invisible temporarily to avoid detection."
 	if ability_name == "Sprint":
-		return "Allows red to sprint, increasing her speed."
+		return "Allows Red to sprint, increasing her speed."
 	if ability_name == "Summon(Green Aliens)":
-		return "Allows red to summon mischievous green aliens to aid in combat."
+		return "Allows Red to summon mischievous green aliens to aid in combat."
+	if ability_name == "Summon(CIA Drone)":
+		return "Allows Red to summon a dangerous CIA drone to aid in combat."
 	if ability_name == "Shield":
-		return "Allows red to gain a small temporary shield."
+		return "Allows Red to gain a small temporary shield."
 	if ability_name == "Land Mine":
-		return "Allows red to place a landmine, exploding on enemy contact for a large amount of damage."
+		return "Allows Red to place a landmine, exploding on enemy contact for a large amount of damage."
 	if ability_name == "Balloon":
-		return "Allows red to place a balloon, popping on enemy contact for a large amount of mischief."
+		return "Allows Red to place a balloon, popping on enemy contact for a large amount of mischief."
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

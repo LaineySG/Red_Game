@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=60 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://scene/levels/Textbox.gd" id="20_lla5a"]
 [ext_resource type="Texture2D" uid="uid://cn236c5i1rtpn" path="res://assets/NPCs/grimmportrait.png" id="21_c0k3p"]
 [ext_resource type="Texture2D" uid="uid://cum3kpmp254qk" path="res://assets/gui/space_bar_anim.png" id="21_qfvdi"]
+[ext_resource type="Texture2D" uid="uid://bdr4aapcu26q1" path="res://assets/environment/Smoke/FX001/dronetimer.png" id="22_8e8ug"]
 [ext_resource type="Script" path="res://scene/gui/spacebaricon.gd" id="22_ntma1"]
 [ext_resource type="Texture2D" uid="uid://dbdb7lcximmt3" path="res://assets/environment/scifi/anims/CIA_Coin.png" id="22_oixjb"]
 [ext_resource type="Script" path="res://scene/gui/Quit.gd" id="25_ptl4u"]
@@ -683,6 +684,29 @@ texture_progress = ExtResource("19_u304o")
 texture_progress_offset = Vector2(4, 4)
 
 [node name="Label" type="Label" parent="cooldowns/teleCD"]
+modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
+z_index = 1
+layout_mode = 0
+offset_left = 16.7661
+offset_top = 32.9248
+offset_right = 56.7661
+offset_bottom = 48.9248
+theme_override_font_sizes/font_size = 24
+text = "1"
+
+[node name="droneCD" type="TextureProgressBar" parent="cooldowns"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+texture_progress = ExtResource("22_8e8ug")
+texture_progress_offset = Vector2(4, 4)
+
+[node name="Label" type="Label" parent="cooldowns/droneCD"]
 modulate = Color(0.513726, 0.513726, 0.513726, 0.52549)
 z_index = 1
 layout_mode = 0

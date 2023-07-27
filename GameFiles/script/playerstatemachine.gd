@@ -115,6 +115,9 @@ func _input(_event):
 		if ability_pressed == "Summon(Green Aliens)" and parent.greenalien_CD.is_stopped():
 			parent.greenalienspawn()
 			parent.greenalien_CD.start()
+		if ability_pressed == "Summon(CIA Drone)" and parent.drone_CD.is_stopped():
+			parent.dronespawn()
+			parent.drone_CD.start()
 		
 
 func _state_logic(delta):

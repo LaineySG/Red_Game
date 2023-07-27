@@ -32,6 +32,7 @@ var bullet = preload("res://scene/player/bullet.tscn")
 var dust = preload("res://scene/item/dust.tscn")
 var toybullet = preload("res://scene/player/toybullet.tscn")
 var greenalien = preload("res://scene/item/green_alien.tscn")
+var drone = preload("res://scene/item/govt_drone.tscn")
 var balloon = preload("res://scene/item/balloon.tscn")
 var mine = preload("res://scene/item/mine.tscn")
 var heartshot = preload("res://scene/player/heartshot.tscn")
@@ -53,6 +54,7 @@ signal update_gun
 @onready var sprint_CD = $timers/sprint_CD
 @onready var camo_CD = $timers/camo_CD
 @onready var greenalien_CD = $timers/greenalien_CD
+@onready var drone_CD = $timers/drone_CD
 @onready var wall_stick_cooldown = $timers/Wallsticktimer
 @onready var coyote_time = $timers/Coyotetime
 @onready var item_reset_cooldown = $timers/Itemresettimer
@@ -206,6 +208,11 @@ func balloonspawn():
 	
 func greenalienspawn():
 	var spawn = greenalien.instantiate()
+	get_parent().add_child(spawn)
+	spawn.global_position = self.global_position
+	
+func dronespawn():
+	var spawn = drone.instantiate()
 	get_parent().add_child(spawn)
 	spawn.global_position = self.global_position
 	

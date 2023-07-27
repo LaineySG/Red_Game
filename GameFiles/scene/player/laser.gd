@@ -9,6 +9,7 @@ var bubble = preload("res://scene/player/rainbubble.tscn")
 var first = true
 var mischief = 8 + (Game.playerstats["Punch"] * 6)
 var damage = true
+var dmg = 0
 var bubble_emitted = false
 var DoT = 0
 var MoT = 0
@@ -29,15 +30,22 @@ func _ready():
 	
 func shoot_at_target(start_pos,accuracy,target):
 	
+
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 0.75
-		DoT *= 0.50
+		mischief *= 1.25
+		DoT *= 1.25
+		MoT *= 1.25
+		dmg *= 1.25
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 0.6
-		DoT *= 0.40
+		mischief *= 1.40
+		DoT *= 1.40
+		MoT *= 1.40
+		dmg *= 1.40
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 0.4
-		DoT *= 0.30
+		mischief *= 1.65
+		MoT *= 1.65
+		DoT *= 1.65
+		dmg *= 1.65
 	
 	
 	self.global_position = start_pos
