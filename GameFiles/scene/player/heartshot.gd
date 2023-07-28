@@ -7,6 +7,8 @@ var frequency = 30
 var amplitude = 40
 var time = 0
 var direction
+var bubble = preload("res://scene/player/rainbubble.tscn")
+var bubble_emitted = false
 var first = true
 var mischief = 15 + (Game.playerstats["Punch"] * 5)
 var damage = true
@@ -24,21 +26,25 @@ func _ready():
 	scale.y = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
 	damage = true
 	if Game.current_effects.has("Big Shot"):
-		scale.x *= 2
-		scale.y *= 2
+		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
+		scale.x *= 2 *levelmodtest
+		scale.y *= 2*levelmodtest
 	
 func shoot_at_mouse(start_pos,accuracy):
 	
 	
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 0.75
-		DoT *= 0.50
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		damage *= 0.75 * levelmodtest
+		DoT *= 0.50 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 0.6
-		DoT *= 0.40
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		damage *= 0.6 * levelmodtest
+		DoT *= 0.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 0.4
-		DoT *= 0.30
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		damage *= 0.4 * levelmodtest
+		DoT *= 0.30 * levelmodtest
 	
 	self.global_position = start_pos
 	direction = (get_global_mouse_position() - start_pos).normalized()
@@ -77,6 +83,8 @@ func _process(delta):
 			velocitymod = 0.5
 		velocity = velocity.bounce(collision.get_normal()) * velocitymod
 		move_and_collide(reflect)
+		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
+			spawnbubble()
 		damage = true
 	elif collision and second and !collision.get_collider().is_in_group("bullets") and !collision.get_collider().is_in_group("mob"):
 		#If it collides a second time
@@ -85,6 +93,8 @@ func _process(delta):
 		velocity.x = 0
 		velocity.y = 0
 		get_node("sticktimer").start()
+		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
+			spawnbubble()
 		damage = false
 	if collision and collision.get_collider().is_in_group("bullets"):
 		#If it hits another bullet
@@ -92,6 +102,8 @@ func _process(delta):
 		second = false
 		var reflect = collision.get_remainder().bounce(collision.get_normal())
 		velocity = velocity.bounce(collision.get_normal()) * 0.1
+		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
+			spawnbubble()
 		move_and_collide(reflect)
 		damage = false
 	if collision and collision.get_collider().is_in_group("mob"):
@@ -103,13 +115,25 @@ func _process(delta):
 		velocity.x = 0
 		velocity.y = 0
 		get_node("sticktimer").start()
+		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
+			spawnbubble()
 		if damage:
 			collision.get_collider().hurt(0,mischief, DoT, MoT)
 			damage = false
 		#queue_free()
 
 
-
+func spawnbubble():
+	var rng = RandomNumberGenerator.new()
+	var levelmodtest = Game.current_effects_levels["Rainbubble Blaster (Toygun)"] / 12.0
+	var bubblerand = rng.randf() + levelmodtest
+	if bubblerand > 0.9 and !bubble_emitted:
+		var bubblespawn = bubble.instantiate()
+		bubblespawn.position = self.global_position
+		get_parent().add_child(bubblespawn)
+		bubble_emitted = true
+	elif bubblerand <= 0.9:
+		bubble_emitted = true
 
 func _on_timer_timeout():
 	var fade = get_tree().create_tween()

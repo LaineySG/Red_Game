@@ -1,6 +1,10 @@
 extends RichTextLabel
 
 var rarity
+var gun_icon = "res://assets/environment/scifi/anims/gunicon.png"
+var toygun_icon = "res://assets/environment/scifi/anims/toygunicon.png"
+var both_icon = "res://assets/environment/scifi/anims/switchgunicon.png"
+var ability_icon = "res://assets/gui/abilityicon.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,11 +18,18 @@ func item_info_parser(x: Dictionary):
 		var effect = x["Effect"] if (x.get("Effect") != null) else null
 		var _RarityNum = x["RarityNum"] if (x.get("RarityNum") != null) else null
 		var ability = x["Ability"] if (x.get("Ability") != null) else null
+		var level = x["Level"] if (x.get("Level") != null) else null
 		var slot = x["EquipSlot"] if (x.get("EquipSlot") != null) else null
-		if ability != null:
-			get_node("Ability").visible = true
-		else:
-			get_node("Ability").visible = false
+		var toygun_img = false
+		var gun_img = false
+		
+		if effect != null:
+			if effect.right(8) == "(Toygun)":
+				toygun_img = true
+				effect = effect.left(-9)
+			elif effect.right(5) == "(Gun)":
+				gun_img = true
+				effect = effect.left(-6)
 			
 		var mod0 = x["Mod_0"] if (x.get("Mod_0") != null) else null
 		var mod1 = x["Mod_1"] if (x.get("Mod_1") != null) else null
@@ -37,8 +48,19 @@ func item_info_parser(x: Dictionary):
 				if slot.left(5) == "Major":
 					accent_color = "gold"
 			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability + " " + level if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect + " " + level if effect != null else ""
+			
+			if effect != null:
+				if toygun_img:
+					output += "  [img=15x15]" + toygun_icon + "[/img]"
+				elif gun_img:
+					output  += "  [img=15x15]" + gun_icon + "[/img]"
+				else:
+					output  += "  [img=15x15]" + both_icon + "[/img]"
+			elif ability != null:
+				output += "  [img=15x15]" + ability_icon + "[/img]"		
+			
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -76,8 +98,17 @@ func item_info_parser(x: Dictionary):
 				if slot.left(5) == "Major":
 					accent_color = "gold"
 			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability + " " + level if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect + " " + level if effect != null else ""
+			if effect != null:
+				if toygun_img:
+					output += "  [img=15x15]" + toygun_icon + "[/img]"
+				elif gun_img:
+					output  += "  [img=15x15]" + gun_icon + "[/img]"
+				else:
+					output  += "  [img=15x15]" + both_icon + "[/img]"
+			elif ability != null:
+				output += "  [img=15x15]" + ability_icon + "[/img]"
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -117,8 +148,19 @@ func item_info_parser(x: Dictionary):
 				if slot.left(5) == "Major":
 					accent_color = "gold"
 			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability + " " + level if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect + " " + level if effect != null else ""
+			
+			if effect != null:
+				if toygun_img:
+					output += "  [img=15x15]" + toygun_icon + "[/img]"
+				elif gun_img:
+					output  += "  [img=15x15]" + gun_icon + "[/img]"
+				else:
+					output  += "  [img=15x15]" + both_icon + "[/img]"
+			elif ability != null:
+				output += "  [img=15x15]" + ability_icon + "[/img]"				
+			
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -156,8 +198,19 @@ func item_info_parser(x: Dictionary):
 				if slot.left(5) == "Major":
 					accent_color = "gold"
 			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "]" + itemname + "[/color][/font_size][/cell]"
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability + " " + level if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect + " " + level if effect != null else ""
+			
+			if effect != null:
+				if toygun_img:
+					output += "  [img=15x15]" + toygun_icon + "[/img]"
+				elif gun_img:
+					output  += "  [img=15x15]" + gun_icon + "[/img]"
+				else:
+					output  += "  [img=15x15]" + both_icon + "[/img]"
+			elif ability != null:
+				output += "  [img=15x15]" + ability_icon + "[/img]"				
+			
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -196,8 +249,19 @@ func item_info_parser(x: Dictionary):
 				if slot.left(5) == "Major":
 					accent_color = "gold"
 			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "][pulse color=DEEP_PINK freq=1.0 ease=-2.0 height=0]" + itemname + "[/pulse][/color][/font_size][/cell]"
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability + " " + level if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect + " " + level if effect != null else ""
+			
+			if effect != null:
+				if toygun_img:
+					output += "  [img=15x15]" + toygun_icon + "[/img]"
+				elif gun_img:
+					output  += "  [img=15x15]" + gun_icon + "[/img]"
+				else:
+					output  += "  [img=15x15]" + both_icon + "[/img]"
+			elif ability != null:
+				output += "  [img=15x15]" + ability_icon + "[/img]"				
+			
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -236,8 +300,19 @@ func item_info_parser(x: Dictionary):
 				if slot.left(5) == "Major":
 					accent_color = "gold"
 			output = "[center][table=1][cell border=" + border_color + "] [font_size=32][color=" + title_color + "][ghost freq=3.0 span=3.0]" + itemname + "[/ghost][/color][/font_size][/cell]"
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability if ability != null else ""
-			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect if effect != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + ability + " " + level if ability != null else ""
+			output += "[cell border=" + border_color + "][color=" + accent_color + "]" + effect + " " + level if effect != null else ""
+			
+			if effect != null:
+				if toygun_img:
+					output += "  [img=15x15]" + toygun_icon + "[/img]"
+				elif gun_img:
+					output  += "  [img=15x15]" + gun_icon + "[/img]"
+				else:
+					output  += "  [img=15x15]" + both_icon + "[/img]"
+			elif ability != null:
+				output += "  [img=15x15]" + ability_icon + "[/img]"				
+			
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_ability_desc(ability))) if ability != null else ""
 			output += ("[/color][/cell][cell border=" + border_color + "][color=" + accent_desc_color + "]" + str(get_effect_desc(effect))) if effect != null else ""
 			output += "[/color][/cell]"
@@ -297,23 +372,23 @@ func get_mod_desc(mod_name):
 		
 		
 func get_effect_desc(effect_name):
-	if effect_name == "Burn Shot (Gun)":
+	if effect_name == "Burn Shot":
 		return "Burns the target for damage over time."
-	elif effect_name == "Flame Shot (Gun)":
+	elif effect_name == "Flame Shot":
 		return "Leaves a small flame that burns anything it touches."
-	elif effect_name == "Berserk (Gun)":
+	elif effect_name == "Berserk":
 		return "Fire rate increases with consecutive shots."
-	elif effect_name == "Frenzy (Gun)":
+	elif effect_name == "Frenzy":
 		return "Fire rate increases based on percentage of HP missing."
-	elif effect_name == "Vampire (Gun)":
+	elif effect_name == "Vampire":
 		return "Heals for a portion of damage dealt."
-	elif effect_name == "Flintlock (Gun)":
+	elif effect_name == "Flintlock":
 		return "Fire rate decreases, punch and shot size sharply increases."
-	elif effect_name == "Ricochet (Gun)":
+	elif effect_name == "Ricochet":
 		return "Bullets richochet off surfaces."
-	elif effect_name == "Piercing Shot (Gun)":
+	elif effect_name == "Piercing Shot":
 		return "Bullets pierce through the first enemy hit."
-	elif effect_name == "Split Shot (Gun)":
+	elif effect_name == "Split Shot":
 		return "Bullet pierces through the first enemy hit and splits into two."
 	elif effect_name == "Duo-Shot":
 		return "Shoots two bullets."
@@ -323,25 +398,25 @@ func get_effect_desc(effect_name):
 		return "Shoots four bullets."
 	elif effect_name == "Big Shot":
 		return "Sharply increases bullet size."
-	elif effect_name == "Freeze-Ray (Toygun)":
+	elif effect_name == "Freeze-Ray":
 		return "Slows the target, eventually freezing them in place until thawed."
-	elif effect_name == "Shrink-Ray (Toygun)":
+	elif effect_name == "Shrink-Ray":
 		return "Shrinks the target to eventual harmlessness."
-	elif effect_name == "Confetti Cannon (Toygun)":
+	elif effect_name == "Confetti Cannon":
 		return "Chance to shoot out confetti that stays around, causing mischief to any who pass through it."
-	elif effect_name == "Web Shot (Toygun)":
+	elif effect_name == "Web Shot":
 		return "Chance to stick enemies to the floor temporarily."
-	elif effect_name == "Pump-action (Toygun)":
+	elif effect_name == "Pump-action":
 		return "Hold fire to charge shot, increasing mischief at the cost of higher ammunition."
-	elif effect_name == "Hypno-Ray (Toygun)":
+	elif effect_name == "Hypno-Ray":
 		return "Chance of enemies fighting for you temporarily."
-	elif effect_name == "Heart-Shot (Toygun)":
+	elif effect_name == "Heart-Shot":
 		return "Shoots out a large red heart that sticks to enemies, causing mischief over time."
-	elif effect_name == "Rainbubble Blaster (Toygun)":
+	elif effect_name == "Rainbubble Blaster":
 		return "Chance to create a large rainbow bubble on impact, causing mischief to any who pass through it."
-	elif effect_name == "Bounce Blaster (Toygun)":
+	elif effect_name == "Bounce Blaster":
 		return "Adds an extra bounce to bullets."
-	elif effect_name == "Poison Spray (Gun)":
+	elif effect_name == "Poison Spray":
 		return "Chance to shoot out poison cloud that stays around, causing damage to any who pass through it."
 	
 	

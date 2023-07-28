@@ -68,7 +68,9 @@ func _process(_delta):
 	if dead or dying:
 		velocity.x = 0
 	if froststack > 0:
-		speed = speedbase * pow(0.9,froststack)
+		var levelmodtest = (Game.current_effects_levels["Freeze-Ray (Toygun)"] / 5.0) + 0.4
+		var frostbase = froststack * levelmodtest
+		speed = speedbase * pow(0.9,frostbase)
 	if frozen:
 		get_node("AnimatedSprite2D").modulate = Color(0.7,0.7,0.7,0.8)
 	
@@ -292,16 +294,22 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 			if Game.current_effects.has("Shrink-Ray (Toygun)"):
 				var randchance = rng.randf() +  (0.01 * Game.playerstats["Luck"])
 				if (scale.x >= 0.6 or (nopatience or dead or frozen)) and randchance > 0.95:
-					scale.x *= 0.95
-					scale.y *= 0.95
+					var levelmodtest = Game.current_effects_levels["Shrink-Ray (Toygun)"] / 3.0 * 0.05
+					scale.x *= (0.95 - levelmodtest)
+					scale.y *= (0.95 - levelmodtest)
 				if damage > 1 and randchance > 0.95:
-					damage -= (0.10 * damage)
+					var levelmodtest = Game.current_effects_levels["Shrink-Ray (Toygun)"] / 3.0 * 0.05
+					damage -= ((0.05 + levelmodtest) * damage)
 				else:
 					damage = 1
+					
+					
 			var randchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
 			if Game.current_effects.has("Web Shot (Toygun)") and randchance > 0.99:
 				# -33 to +33 x ; -33 to +10 y
 				self.velocity.x = 0
+				var levelmodtest = (Game.current_effects_levels["Web Shot (Toygun)"] / 5.0) + 0.4
+				webstucktimer.wait_time = 1.5 * levelmodtest
 				webstucktimer.start()
 				webstuck = true
 				var webx = rng.randi_range(-33,33)
@@ -327,7 +335,8 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 			speed = 150 + 125
 		
 		if Game.current_effects.has("Vampire (Gun)"):
-			player.heal(ceil(0.1 * dmg))
+			var levelmodtest = (Game.current_effects_levels["Vampire (Gun)"] / 5.0) + 0.4
+			player.heal(ceil(0.1 * dmg * levelmodtest))
 		
 func hypno():
 	if !hypnoimmune:

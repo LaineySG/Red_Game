@@ -25,21 +25,25 @@ func _ready():
 	scale.y = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)	
 	damage = true
 	if Game.current_effects.has("Big Shot"):
-		scale.x *= 2
-		scale.y *= 2
+		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
+		scale.x *= 2 * levelmodtest
+		scale.y *= 2 * levelmodtest
 	
 func shoot_at_mouse(start_pos,accuracy):
 	
 	
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 0.75
-		DoT *= 0.50
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		damage *= 0.75 * levelmodtest
+		DoT *= 0.50 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 0.6
-		DoT *= 0.40
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		damage *= 0.6 * levelmodtest
+		DoT *= 0.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 0.4
-		DoT *= 0.30
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		damage *= 0.4 * levelmodtest
+		DoT *= 0.30 * levelmodtest
 	
 	self.global_position = start_pos
 	direction = (get_global_mouse_position() - start_pos).normalized()

@@ -42,6 +42,8 @@ class_name ResourceDataVariables
 @export var eqptracker = 0
 @export var eqptracker2 = []
 @export var abilityCDs = {}
+@export var current_effects_levels = {}
+@export var current_abilities_levels = {}
 
 @export var inputIsDisabled = false
 @export var tutorial_tooltip_1 = true
@@ -94,6 +96,8 @@ func denitialize():
 	eqptracker = Game.eqptracker
 	eqptracker2 = Game.eqptracker2
 	abilityCDs = Game.abilityCDs
+	current_effects_levels = Game.current_effects_levels
+	current_abilities_levels = Game.current_abilities_levels
 
 func initialize():
 	Variables.inputIsDisabled= inputIsDisabled
@@ -136,6 +140,9 @@ func initialize():
 	Game.eqptracker=eqptracker
 	Game.eqptracker2=eqptracker2
 	Game.abilityCDs=abilityCDs
+	Game.current_effects_levels=current_effects_levels
+	Game.current_abilities_levels=current_abilities_levels
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

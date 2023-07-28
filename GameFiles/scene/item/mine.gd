@@ -32,7 +32,16 @@ func _ready():
 		damage *= 1.5
 		get_node("confetti").process_material.initial_velocity_max = 250
 		get_node("confetti").amount = 400
+		
+		
+		
+		var levelmodtest = (Game.current_abilities_levels["Land Mine"] / 5.0) + 0.4
 
+		dot *= levelmodtest
+		scale*= levelmodtest
+		damage *= levelmodtest
+		get_node("confetti").process_material.initial_velocity_max *= levelmodtest
+		get_node("confetti").amount *= levelmodtest
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

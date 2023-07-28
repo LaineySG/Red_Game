@@ -8,6 +8,10 @@ var frequency = 3
 var amplitude = 0.3
 var time = 0
 
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$lifetime.start()
@@ -20,20 +24,23 @@ func setdmg(input_mischief,input_dmg,input_DoT,input_MoT):
 	DoT = input_DoT
 	MoT = input_MoT
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 1.15
-		DoT *= 1.15
-		dmg *= 1.15
-		MoT *= 1.15
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		mischief *= 1.15 * levelmodtest
+		DoT *= 1.15 * levelmodtest
+		dmg *= 1.15 * levelmodtest
+		MoT *= 1.15 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 1.25
-		DoT *= 1.25
-		dmg *= 1.25
-		MoT *= 1.25
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		mischief *= 1.25 * levelmodtest
+		DoT *= 1.25 * levelmodtest
+		dmg *= 1.25 * levelmodtest
+		MoT *= 1.25 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 1.4
-		DoT *= 1.4
-		dmg *= 1.4
-		MoT *= 1.4
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		mischief *= 1.4 * levelmodtest
+		DoT *= 1.4 * levelmodtest
+		dmg *= 1.4 * levelmodtest
+		MoT *= 1.4 * levelmodtest
 	
 func Chargemod(chargetime):
 	mischief *=  1.0 + ( 0.1 * chargetime)

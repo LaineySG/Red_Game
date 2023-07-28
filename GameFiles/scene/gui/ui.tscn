@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ptqmw5bb63iv"]
+[gd_scene load_steps=29 format=3 uid="uid://ptqmw5bb63iv"]
 
 [ext_resource type="Script" path="res://script/ui.gd" id="1_hftp1"]
 [ext_resource type="Texture2D" uid="uid://dd364yc3aikjo" path="res://assets/gui/MainPanel02.png" id="1_vwbhd"]
@@ -21,7 +21,6 @@
 [ext_resource type="Script" path="res://script/Matrix.gd" id="12_o3kya"]
 [ext_resource type="Script" path="res://script/Text_BB_Extras.gd" id="12_pyku5"]
 [ext_resource type="Script" path="res://script/Pulse.gd" id="13_t3m6n"]
-[ext_resource type="Texture2D" uid="uid://lqhxpan1ongp" path="res://assets/gui/abilityicon.png" id="21_1v2pq"]
 [ext_resource type="Texture2D" uid="uid://yvaporno4brj" path="res://assets/environment/scifi/anims/toygunicon.png" id="22_6we44"]
 
 [sub_resource type="FontVariation" id="FontVariation_s6278"]
@@ -43,7 +42,6 @@ script = ExtResource("13_t3m6n")
 script = ExtResource("1_hftp1")
 
 [node name="Tutorial UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GUI" type="Control" parent="Tutorial UI"]
 layout_mode = 3
@@ -616,6 +614,19 @@ same_column_width = true
 fixed_icon_size = Vector2i(37, 40)
 script = ExtResource("10_5ttkc")
 
+[node name="LineEdit" type="LineEdit" parent="Tutorial UI"]
+offset_left = 592.0
+offset_top = 456.0
+offset_right = 709.0
+offset_bottom = 477.0
+mouse_filter = 1
+placeholder_text = "Search"
+alignment = 1
+max_length = 50
+expand_to_text_length = true
+select_all_on_focus = true
+caret_blink = true
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
 visible = false
@@ -647,21 +658,26 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 mouse_filter = 2
 bbcode_enabled = true
-text = "[center][table=1][cell border=NAVAJO_WHITE] [font_size=32][color=NAVAJO_WHITE][ghost freq=3.0 span=3.0]Death's Embrace[/ghost]
-[/color][/font_size][/cell][cell border=NAVAJO_WHITE][color=papaya_whip]Confetti Cannon (Toygun)
-[/color][/cell][cell border=NAVAJO_WHITE][color=LIGHT_GRAY]Punch++[/color]
-[color=light_slate_gray]Increases damage foasd ads ads d as dads r gun or annoyance for toy gun.[/color]
-[cell"
+text = "[center][table=1][cell border=NAVAJO_WHITE] [font_size=32][color=NAVAJO_WHITE][ghost freq=3.0 span=3.0]Death's Blaster[/ghost][/color][/font_size][/cell][cell border=NAVAJO_WHITE][color=pale_goldenrod]Flintlock (Gun) V[/color][/cell][cell border=NAVAJO_WHITE][color=papaya_whip]Fire rate decreases, punch and shot size sharply increases.[/color][/cell][cell border=NAVAJO_WHITE][color=LIGHT_GRAY]Shot Weight++++[/color]
+[color=light_slate_gray]Adds knockback to each shot.[/color]
+[color=LIGHT_GRAY]Luck+[/color]
+[color=light_slate_gray]Increases luck, proc chances, and adds critical hit chance.[/color]
+[color=LIGHT_GRAY]Alacrity+++[/color]
+[color=light_slate_gray]Increases movement and decreases ability cooldowns.[/color]
+[color=LIGHT_GRAY]Magazine Size++++[/color]
+[color=light_slate_gray]Shoot more before needing to reload.[/color]
+[/cell][cell border=NAVAJO_WHITE][color=light_slate_gray]
+One in a million.
+ [/color][/cell]
+
+[cell border=NAVAJO_WHITE][color=light_slate_gray][font_size=16][SHIFT] click: Equip to major
+[CTRL] click: Equip to minor
+
+Perfect[/font_size][/color][/cell][/table][/center]"
 fit_content = true
 scroll_active = false
 custom_effects = [SubResource("RichTextEffect_wwmag"), SubResource("RichTextEffect_fyi5h"), SubResource("RichTextEffect_7y05c")]
 script = ExtResource("11_mp03j")
-
-[node name="Ability" type="Sprite2D" parent="CanvasLayer/TextureRect/MarginContainer/RichTextLabel2"]
-modulate = Color(1, 1, 1, 0.137255)
-position = Vector2(87.6918, 190.125)
-scale = Vector2(0.864986, 0.784266)
-texture = ExtResource("21_1v2pq")
 
 [connection signal="mouse_entered" from="Tutorial UI/dragdroplayer" to="." method="_on_dragdroplayer_mouse_entered"]
 [connection signal="on_hover" from="Tutorial UI/dragdroplayer/Major1" to="." method="_on_texture_rect_on_hover"]
@@ -684,3 +700,4 @@ texture = ExtResource("21_1v2pq")
 [connection signal="on_hover" from="Tutorial UI/dragdroplayer/AbiliR" to="." method="_on_texture_rect_on_hover"]
 [connection signal="on_hover" from="Tutorial UI/dragdroplayer/AbiliF" to="." method="_on_texture_rect_on_hover"]
 [connection signal="gui_input" from="Tutorial UI/dragdroplayer/ScrollContainer/ItemList" to="Tutorial UI/dragdroplayer/ScrollContainer/ItemList" method="_on_gui_input"]
+[connection signal="text_changed" from="Tutorial UI/LineEdit" to="." method="_on_line_edit_text_changed"]

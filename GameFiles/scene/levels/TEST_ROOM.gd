@@ -14,7 +14,7 @@ var tutorial_finished = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Game.roomcount = 20
+	#Game.roomcount = 20
 	
 	
 	

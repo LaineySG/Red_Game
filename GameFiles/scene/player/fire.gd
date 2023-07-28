@@ -21,7 +21,9 @@ func _on_paintimer_timeout():
 
 
 func _on_rigid_body_2d_body_entered(body):
-	var DoT = 3 +  (int(round(Game.playerstats["Punch"] * 0.4)))
+	var levelmodtest = (Game.current_effects_levels["Flame Shot (Gun)"] / 5.0) + 0.4
+	var DoT = 5.0 +  (int(round(Game.playerstats["Punch"] * 0.4)))
+	DoT *=levelmodtest
 	if body.is_in_group("mob"):
 		body.hurt(0,0,DoT,0)
 		pain = false

@@ -253,7 +253,9 @@ func camoflague():
 	get_node("shoot_body_torso").modulate = Color(0.5,1.0,0.5,0.5)
 	get_node("Gunarms/GunarmL/gun").modulate = Color(0.5,1.0,0.5,0.5)
 	get_node("Gunarms/GunarmR/gun").modulate = Color(0.5,1.0,0.5,0.5)
-	await get_tree().create_timer(5).timeout
+	var levelmodtest = (Game.current_abilities_levels["Camoflague"] / 5.0) + 0.6
+	var time = 5.0 * levelmodtest	
+	await get_tree().create_timer(time).timeout
 	if camo:
 		uncamoflague()
 	#set_collision_layer_value(5,true) # makes it uninteractible withable
@@ -284,7 +286,9 @@ func shield():
 	get_node("shoot_body_torso").material.set_shader_parameter("outline_color",Color8(22,125,230,140))
 	get_node("Gunarms/GunarmL/gun").material.set_shader_parameter("outline_color",Color8(22,125,230,140))
 	get_node("Gunarms/GunarmR/gun").material.set_shader_parameter("outline_color",Color8(22,125,230,140))
-	await get_tree().create_timer(5).timeout
+	var levelmodtest = (Game.current_abilities_levels["Shield"] / 5.0) + 0.6
+	var time = 5.0 * levelmodtest	
+	await get_tree().create_timer(time).timeout
 	get_node("AnimatedSprite2D").material.set_shader_parameter("enable_outline",0)
 	get_node("shoot_body_torso").material.set_shader_parameter("enable_outline",0)
 	get_node("Gunarms/GunarmL/gun").material.set_shader_parameter("enable_outline",0)
@@ -296,8 +300,9 @@ func shield():
 func sprint():
 	sprinting = true
 	#get_node("AnimatedSprite2D").material.set_shader_parameter("enable_blur",1)
-	SPEED += 200.0
-	JUMP_VELOCITY -= 100.0
+	var levelmodtest = (Game.current_abilities_levels["Sprint"] / 5.0) + 0.6
+	SPEED += (200.0 * levelmodtest)
+	JUMP_VELOCITY -= (100.0 * levelmodtest)
 	if anim.current_animation == "run":
 		anim.play("run", 0.0, 1.5)
 		
@@ -336,8 +341,8 @@ func sprint():
 	
 	if anim.current_animation == "run":
 		anim.play("run", 0.0, 1.0)
-	SPEED -= 200.0
-	JUMP_VELOCITY += 100.0
+	SPEED -= (200.0 * levelmodtest)
+	JUMP_VELOCITY += (100.0 * levelmodtest)
 	#get_node("AnimatedSprite2D").material.set_shader_parameter("enable_blur",0)
 	sprinting = false
 	
@@ -391,9 +396,9 @@ func _gun_movement(_delta):
 		currentdir = 1
 	#Movement
 	if direction:
-		velocity.x = move_toward(velocity.x, (direction * SPEED * 0.05), _delta * SPEED*10)
+		velocity.x = direction * SPEED * 0.05
 	else:
-		velocity.x = move_toward(velocity.x, 0, _delta * SPEED*10)
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 func hurt(x,DoT):
 	if !shielded and !iframes:
@@ -511,8 +516,12 @@ func _shoot(_shootoverride=false):
 					knockbackmod = -350
 					knockbackmod += (Game.playerstats["Bullet Size"] / 20 * -150)
 					knockbackmod += (Game.playerstats["Shot Weight"] / 20 * -150)
-					knockbackmod += ((1 if Game.current_effects.has("Big-Shot") else 0) * -250)
-					knockbackmod += ((1 if Game.current_effects.has("Flintlock (Gun)") else 0) * -200)
+					if Game.current_effects.has("Big-Shot"):
+						var levelmodtest = (Game.current_effects_levels["Big-Shot"] / 5.0) + 0.4
+						knockbackmod += -250 * levelmodtest
+					if Game.current_effects.has("Flintlock (Gun)"):
+						var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
+						knockbackmod += -200 * levelmodtest
 					knockbackmod += (numShots - 1) * -50
 					get_node("Camera2D").add_trauma(0.1 + (knockbackmod / -2000 * 0.3))
 					velocity.x = knockbackmod
@@ -522,7 +531,8 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/poison_spray").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
-							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.4 + (Game.playerstats["Punch"] * 0.1)),0)
+							var levelmodtest = (Game.current_effects_levels["Poison Spray (Gun)"] / 5.0) + 0.4
+							fetti.setdmg(0,( (5 + (Game.playerstats["Punch"] * 2)) * levelmodtest),(( 0.4 + (Game.playerstats["Punch"] * 0.1) * levelmodtest)),0)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							fetti.init(self.global_position)
 							fetti.visible = true
@@ -544,7 +554,9 @@ func _shoot(_shootoverride=false):
 					knockbackmod = 0
 					knockbackmod += (Game.playerstats["Bullet Size"] / 20 * -25)
 					knockbackmod += (Game.playerstats["Shot Weight"] / 20 * -25)
-					knockbackmod += ((1 if Game.current_effects.has("Big-Shot") else 0) * -100)
+					if Game.current_effects.has("Big-Shot"):
+						var levelmodtest = (Game.current_effects_levels["Big-Shot"] / 5.0) + 0.4
+						knockbackmod += -100 * levelmodtest
 					knockbackmod += (numShots - 1) * -10
 					get_node("Camera2D").add_trauma(0.15 * knockbackmod / 270)
 					velocity.x = knockbackmod
@@ -562,10 +574,14 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
-							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.20 + (Game.playerstats["Punch"] * 0.2)))
+							var levelmodtest = (Game.current_effects_levels["Confetti Cannon (Toygun)"] / 5.0) + 0.4
+							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3)) * levelmodtest
+							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest
+							fetti.setdmg(fettidmg,0,0,fettidot)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								fetti.Chargemod(chargetime)
+								levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								fetti.Chargemod(chargetime * levelmodtest)
 								chargetime = 0.0
 							fetti.init(self.global_position)
 							fetti.visible = true
@@ -574,8 +590,9 @@ func _shoot(_shootoverride=false):
 							var spawn = hypnoray.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
-								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
+								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 								chargetime = 0.0
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					elif Game.current_effects.has("Heart-Shot (Toygun)"):
@@ -583,16 +600,18 @@ func _shoot(_shootoverride=false):
 							var spawn = heartshot.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
-								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
+								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					else:
 						for i in numShots:
 							var spawn = toybullet.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
-								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
+								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					chargetime = 0.0
 					await anim.animation_finished
@@ -604,8 +623,12 @@ func _shoot(_shootoverride=false):
 					knockbackmod = 350
 					knockbackmod += (Game.playerstats["Bullet Size"] / 20 * 150)
 					knockbackmod += (Game.playerstats["Shot Weight"] / 20 * 150)
-					knockbackmod += ((1 if Game.current_effects.has("Big-Shot") else 0) * 250)
-					knockbackmod += ((1 if Game.current_effects.has("Flintlock (Gun)") else 0) * 200)
+					if Game.current_effects.has("Big-Shot"):
+						var levelmodtest = (Game.current_effects_levels["Big-Shot"] / 5.0) + 0.4
+						knockbackmod += 250 * levelmodtest
+					if Game.current_effects.has("Flintlock (Gun)"):
+						var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
+						knockbackmod += 200 * levelmodtest
 					knockbackmod += (numShots - 1) * 50
 					get_node("Camera2D").add_trauma(0.1 + (knockbackmod / 2000 * 0.3))
 					velocity.x = knockbackmod
@@ -615,7 +638,8 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/poison_spray").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
-							fetti.setdmg(0,( 5 + (Game.playerstats["Punch"] * 2)),( 0.4 + (Game.playerstats["Punch"] * 0.1)),0)
+							var levelmodtest = (Game.current_effects_levels["Poison Spray (Gun)"] / 5.0) + 0.4
+							fetti.setdmg(0,( (5 + (Game.playerstats["Punch"] * 2)) * levelmodtest),(( 0.4 + (Game.playerstats["Punch"] * 0.1) * levelmodtest)),0)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							fetti.init(self.global_position)
 							fetti.visible = true
@@ -637,7 +661,9 @@ func _shoot(_shootoverride=false):
 					knockbackmod = 0
 					knockbackmod += (Game.playerstats["Bullet Size"] / 20 * 25)
 					knockbackmod += (Game.playerstats["Shot Weight"] / 20 * 25)
-					knockbackmod += ((1 if Game.current_effects.has("Big-Shot") else 0) * 100)
+					if Game.current_effects.has("Big-Shot"):
+						var levelmodtest = (Game.current_effects_levels["Big-Shot"] / 5.0) + 0.4
+						knockbackmod += 100 * levelmodtest
 					knockbackmod += (numShots - 1) * 10
 					velocity.x = knockbackmod
 					get_node("Camera2D").add_trauma(0.15 * knockbackmod / 270)
@@ -646,7 +672,7 @@ func _shoot(_shootoverride=false):
 					var cutoff2
 					var cutoff
 					if Game.current_effects.has("Confetti Cannon (Toygun)") and Game.current_effects.has("Hypno-Ray (Toygun)"):
-						cutoff2 = 0.70
+						cutoff2 = 0.70 
 						cutoff = 0.85
 					else:
 						cutoff2 = 0.85
@@ -655,10 +681,14 @@ func _shoot(_shootoverride=false):
 						for i in numShots:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
-							fetti.setdmg((2 + (Game.playerstats["Punch"] * 3)),0,0,(0.20 + (Game.playerstats["Punch"] * 0.2)))
+							var levelmodtest = (Game.current_effects_levels["Confetti Cannon (Toygun)"] / 5.0) + 0.4
+							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3)) * levelmodtest
+							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest
+							fetti.setdmg(fettidmg,0,0,fettidot)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								fetti.Chargemod(chargetime)
+								levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								fetti.Chargemod(chargetime * levelmodtest)
 							fetti.init(self.global_position)
 							fetti.visible = true
 					elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
@@ -666,24 +696,27 @@ func _shoot(_shootoverride=false):
 							var spawn = hypnoray.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
-								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
+								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
 					elif Game.current_effects.has("Heart-Shot (Toygun)"):
 						for i in numShots:
 							var spawn = heartshot.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
-								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
+								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					else:
 						for i in numShots:
 							var spawn = toybullet.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
-								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
+								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
 					chargetime = 0.0
 					await anim.animation_finished

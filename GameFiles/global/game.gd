@@ -40,6 +40,11 @@ var weapon_equipped = gun_list[0] # gun or toygun
 var items_list = []
 var equipped_items = []
 var current_effects = []
+
+
+var current_effects_levels = {}
+var current_abilities_levels = {}
+
 var eqptracker = 0
 var abilityCDs = {}
 var eqptracker2 = []
@@ -113,15 +118,42 @@ func newRoom():
 	
 func refreshEffects():
 		current_effects = []
+		current_effects_levels = {}
 		current_abilities = {}
+		current_abilities_levels = {}
 		for i in equipped_items: # for each equipped item
 			var inspect = str(i["EquipSlot"])
 			if inspect.left(5) == "Major":
 				if i.get("Effect") != null:
+					var level
+					if i.get("Level") == "I":
+						level = 1
+					elif i.get("Level") == "II":
+						level = 2
+					elif i.get("Level") == "III":
+						level = 3
+					elif i.get("Level") == "IV":
+						level = 4
+					elif i.get("Level") == "V":
+						level = 5
+						
 					current_effects.append(i.get("Effect"))
+					current_effects_levels[str(i.get("Effect"))] = level
 			if inspect.left(5) == "Abili":
 				if i.get("Ability") != null:
+					var level
+					if i.get("Level") == "I":
+						level = 1
+					elif i.get("Level") == "II":
+						level = 2
+					elif i.get("Level") == "III":
+						level = 3
+					elif i.get("Level") == "IV":
+						level = 4
+					elif i.get("Level") == "V":
+						level = 5
 					current_abilities[str(i.get("Ability"))] = inspect.left(6).right(1)
+					current_abilities_levels[str(i.get("Ability"))] = level
 					#eg balloon : 1-6, S = shift, R and F
 	
 	

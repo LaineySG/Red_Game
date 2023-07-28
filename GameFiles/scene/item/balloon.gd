@@ -15,18 +15,27 @@ func _ready():
 	elif color < 0.5:
 		mischief *= 1
 		anim.play("blue_balloon")
+		get_node("confetti").amount = 300
 	elif color < 0.7:
 		mischief *= 1.4
 		anim.play("green_balloon")
+		get_node("confetti").amount = 350
 	elif color < 0.9:
 		mischief *= 1.8
 		anim.play("yellow_balloon")
+		get_node("confetti").amount = 425
 	else:
 		mischief *= 2.0
 		anim.play("heart_balloon")
+		get_node("confetti").amount = 475
 
 
-	
+		var levelmodtest = (Game.current_abilities_levels["Balloon"] / 5.0) + 0.4
+
+		mischief *= levelmodtest
+		MoT*= levelmodtest
+		get_node("confetti").process_material.initial_velocity_max *= levelmodtest
+		get_node("confetti").amount *= levelmodtest
 	
 
 func _on_pop_damage_body_entered(body):

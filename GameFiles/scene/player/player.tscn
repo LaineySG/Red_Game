@@ -5666,9 +5666,11 @@ one_shot = true
 
 [node name="greenalien_CD" type="Timer" parent="timers"]
 wait_time = 180.0
+one_shot = true
 
 [node name="drone_CD" type="Timer" parent="timers"]
 wait_time = 165.0
+one_shot = true
 
 [node name="iframes" type="Timer" parent="timers"]
 wait_time = 0.35

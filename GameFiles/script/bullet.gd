@@ -17,11 +17,13 @@ func _ready():
 	if Game.current_effects.has("Burn Shot (Gun)"):
 		get_node("AnimatedSprite2D").modulate = Color8(255,47,15,255)
 	if Game.current_effects.has("Flintlock (Gun)"):
-		damage += (5 + (Game.playerstats["Punch"] * 1)) #Around a 30% increase
+		var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
+		damage += ((5 + (Game.playerstats["Punch"] * 1)) * levelmodtest) #Around a 30% increase
 
 func shoot_at_mouse(start_pos,accuracy):
 	if Game.current_effects.has("Burn Shot (Gun)"):
-		DoT = 3 +  (int(round(Game.playerstats["Punch"] * 0.4)))
+		var levelmodtest = (Game.current_effects_levels["Burn Shot (Gun)"] / 5.0) + 0.4
+		DoT = (3 +  (int(round(Game.playerstats["Punch"] * 0.4)))) * levelmodtest
 	else:
 		DoT = 0
 	self.global_position = start_pos
@@ -30,33 +32,38 @@ func shoot_at_mouse(start_pos,accuracy):
 	
 	
 	if Game.current_effects.has("Duo-Shot"):
-		damage *= 0.75
-		DoT *= 0.50
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		damage *= 0.75 * levelmodtest
+		DoT *= 0.50 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
-		damage *= 0.6
-		DoT *= 0.40
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		damage *= 0.6 * levelmodtest
+		DoT *= 0.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		damage *= 0.4
-		DoT *= 0.30
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		damage *= 0.4 * levelmodtest
+		DoT *= 0.30 * levelmodtest
 	
 	
 	direction = (get_global_mouse_position() - start_pos).normalized()
 	scale.x = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)
 	scale.y = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)
 	if Game.current_effects.has("Flintlock (Gun)"):
-		scale.x += 1.5
-		scale.y += 1.5
+		var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
+		scale.x += (1.5 * levelmodtest)
+		scale.y += (1.5 * levelmodtest)
 	if scale.x > 5:
 		scale.x = 5
 	if scale.y > 5:
 		scale.y = 5
 	if Game.current_effects.has("Big Shot"):
+		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
 		if scale.x < 1.5:
-			scale.x = 4
-			scale.y = 4
+			scale.x = (4 * levelmodtest)
+			scale.y = (4 * levelmodtest)
 		else:
-			scale.x *= 3
-			scale.y *= 3
+			scale.x *= (3 * levelmodtest)
+			scale.y *= (3 * levelmodtest)
 		
 			
 	
@@ -71,7 +78,9 @@ func shoot_at_mouse(start_pos,accuracy):
 
 func split_shot(start_pos, accuracy,dir):
 	if Game.current_effects.has("Burn Shot (Gun)"):
+		var levelmodtest = (Game.current_effects_levels["Burn Shot (Gun)"] / 5.0) + 0.4
 		DoT = 3 +  (int(round(Game.playerstats["Punch"] * 0.4)))
+		DoT *= levelmodtest	
 	else:
 		DoT = 0
 	damage *= 1.0 / 3.0
@@ -82,8 +91,9 @@ func split_shot(start_pos, accuracy,dir):
 	scale.x = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
 	scale.y = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
 	if Game.current_effects.has("Flintlock (Gun)"):
-		scale.x += 1.5
-		scale.y += 1.5
+		var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
+		scale.x += (1.5 * levelmodtest)
+		scale.y += (1.5 * levelmodtest)
 	if scale.x > 5:
 		scale.x = 5
 	if scale.y > 5:
@@ -124,7 +134,13 @@ func _process(delta):
 				var flamespawn = flame.instantiate()
 				flamespawn.position = self.global_position
 				get_parent().add_child(flamespawn)
-			first = false
+			
+			var levelmodtest = Game.current_effects_levels["Ricochet (Gun)"] / 6.0
+			var randchance = rng.randf() + levelmodtest
+			if randchance > 0.95:
+				pass
+			else:
+				first = false
 		
 		elif !collision.get_collider().is_in_group("mob"):
 			reflect = collision.get_remainder().bounce(collision.get_normal())
@@ -166,10 +182,23 @@ func _process(delta):
 				collision.get_collider().hurt(damage,0,DoT,0)
 				self.add_collision_exception_with(collision.get_collider())
 				pierced = true
-				damage = damage / 2
-				DoT = DoT / 2
+				var levelmodtest = (Game.current_effects_levels["Piercing Shot (Gun)"] / 5.0) + 0.4
+				damage = damage / 2 * levelmodtest
+				DoT = DoT / 2 * levelmodtest
 			elif Game.current_effects.has("Split Shot (Gun)") and !pierced:
+				var levelmodtest = (Game.current_effects_levels["Split Shot (Gun)"] / 12.0)
+				var randchance = rng.randf() + levelmodtest
 				var spawn = bullet.instantiate()
+				if randchance > 0.5: # chance to spawn split 3
+					var spawn2 = bullet.instantiate()
+					get_parent().add_child(spawn2)
+					var accuracy =  100
+					spawn2.split_shot(self.global_position,accuracy,self.direction)
+				if randchance > 0.95: # chance to spawn split 4
+					var spawn3 = bullet.instantiate()
+					get_parent().add_child(spawn3)
+					var accuracy =  100
+					spawn3.split_shot(self.global_position,accuracy,self.direction)
 				get_parent().add_child(spawn)
 				var accuracy =  100
 				spawn.split_shot(self.global_position,accuracy,self.direction)

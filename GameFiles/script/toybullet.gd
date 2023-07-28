@@ -9,6 +9,7 @@ var bubble = preload("res://scene/player/rainbubble.tscn")
 var first = true
 var mischief = 15 + (Game.playerstats["Punch"] * 5)
 var damage = true
+var rng = RandomNumberGenerator.new()
 var bubble_emitted = false
 var DoT = 0
 var MoT = 0
@@ -23,31 +24,37 @@ func _ready():
 	scale.x = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
 	scale.y = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
 	damage = true
+	
+	
 	if Game.current_effects.has("Big Shot"):
+		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
 		if scale.x < 1.5:
-			scale.x = 4
-			scale.y = 4
+			scale.x = (4 * levelmodtest)
+			scale.y = (4 * levelmodtest)
 		else:
-			scale.x *= 3
-			scale.y *= 3
+			scale.x *= (3 * levelmodtest)
+			scale.y *= (3 * levelmodtest)
+	
 func shoot_at_mouse(start_pos,accuracy):
 	
-	
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 0.75
-		DoT *= 0.50
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		mischief *= 0.75 * levelmodtest
+		DoT *= 0.50 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 0.6
-		DoT *= 0.40
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		mischief *= 0.6 * levelmodtest
+		DoT *= 0.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 0.4
-		DoT *= 0.30
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		mischief *= 0.4 * levelmodtest
+		DoT *= 0.30 * levelmodtest
+		
 	
 	
 	self.global_position = start_pos
 	direction = (get_global_mouse_position() - start_pos).normalized()
 	
-	var rng = RandomNumberGenerator.new()
 	var offshoot = 200 - accuracy
 	var randoffshoot = rng.randi_range(-offshoot, offshoot)
 	
@@ -56,12 +63,14 @@ func shoot_at_mouse(start_pos,accuracy):
 	look_at(get_global_mouse_position())
 
 func spawnbubble():
-	var rng = RandomNumberGenerator.new()
-	var bubblerand = rng.randf()
-	if bubblerand > 0.92 and !bubble_emitted:
+	var levelmodtest = Game.current_effects_levels["Rainbubble Blaster (Toygun)"] / 12.0
+	var bubblerand = rng.randf() + levelmodtest
+	if bubblerand > 0.9 and !bubble_emitted:
 		var bubblespawn = bubble.instantiate()
 		bubblespawn.position = self.global_position
 		get_parent().add_child(bubblespawn)
+		bubble_emitted = true
+	elif bubblerand <= 0.9:
 		bubble_emitted = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

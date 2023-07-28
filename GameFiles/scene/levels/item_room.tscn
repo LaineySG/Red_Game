@@ -3189,7 +3189,7 @@ offset_top = 235.0
 offset_right = 912.0
 offset_bottom = 496.0
 theme_override_font_sizes/font_size = 32
-text = "Press \"I\" to open your inventory. There are 3 item types. The item shown on the right offers only stat improvements. It can be equipped in any of the 10 gun modification slots shown on the left."
+text = "Press [TAB] to open your inventory. There are 3 item types. The item shown on the right offers only stat improvements. It can be equipped in any of the 10 gun modification slots shown on the left."
 autowrap_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]

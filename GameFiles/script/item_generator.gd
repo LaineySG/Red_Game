@@ -4,6 +4,7 @@ var effects = ["Burn Shot (Gun)", "Flame Shot (Gun)", "Berserk (Gun)", "Frenzy (
 var modifications = ["Shot Speed", "Shot Weight", "Punch", "Magazine Size", "Reload Speed", "Fire Rate", "Bullet Size", "Scope", "HP", "Regeneration", "Luck", "Alacrity"]
 var abilities = ["Dash", "Teleport", "Camoflague", "Sprint", "Summon", "Shield", "Land Mine", "Balloon"]
 var summons = ["Green Aliens", "CIA Drone"]
+var effectmod = ["I", "II", "III", "IV", "V"]
 var rolleditem: Dictionary = {}
 # Called when the node enters the scene tree for the first time.
 var rarecount = []
@@ -22,6 +23,22 @@ func _itemgen(x):
 				var randeffect = rng.randi_range(0, len(effects) - 1)
 				rolleditem["Effect"] = str(effects[randeffect])
 				rarity += 4
+				var effectlvlnum = rng.randf() + (Game.playerstats["Luck"] * 0.01)
+				if effectlvlnum > 0.95: # 5% chance
+					rolleditem["Level"] = "V"
+					rarity += 4
+				elif effectlvlnum > 0.85: # 10% chance
+					rolleditem["Level"] = "IV"
+					rarity += 3
+				elif effectlvlnum > 0.65: #35% chance
+					rolleditem["Level"] = "III"
+					rarity += 2
+				elif effectlvlnum > 0.40: # 25% chance
+					rolleditem["Level"] = "II"
+					rarity += 1
+				else: # 40% chance
+					rolleditem["Level"] = "I"
+					
 			else:
 				pass #do nothing (No effect only modifications)
 				
@@ -86,6 +103,24 @@ func _itemgen(x):
 				rolleditem["Ability"] = str(abilities[abilitynum]) + "(" + str(summons[summontype]) + ")"
 			else:
 				rolleditem["Ability"] = str(abilities[abilitynum])
+			
+			
+			var effectlvlnum = rng.randf() + (Game.playerstats["Luck"] * 0.01)
+			if effectlvlnum > 0.95: # 5% chance
+				rolleditem["Level"] = "V"
+				rarity += 4
+			elif effectlvlnum > 0.85: # 10% chance
+				rolleditem["Level"] = "IV"
+				rarity += 3
+			elif effectlvlnum > 0.65: #35% chance
+				rolleditem["Level"] = "III"
+				rarity += 2
+			elif effectlvlnum > 0.40: # 25% chance
+				rolleditem["Level"] = "II"
+				rarity += 1
+			else: # 40% chance
+				rolleditem["Level"] = "I"	
+			
 			rolleditem["RarityNum"] = rarity
 			rolleditem["Rarity"] = get_rarity(rarity)
 			rolleditem["Name"] = get_item_name(rolleditem,rarity)
@@ -103,7 +138,7 @@ func get_rarity(rarity):
 		return "Epic"
 	elif rarity <= 23:
 		return "Insane"
-	elif rarity == 24:
+	elif rarity >= 24:
 		return "Perfect"
 		
 func get_item_name(rolleditemname,rarity):

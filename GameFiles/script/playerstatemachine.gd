@@ -73,29 +73,31 @@ func _input(_event):
 		if ability_pressed == "Dash" and parent.dash_CD.is_stopped():
 			parent.dash()
 			parent.dash_CD.start()
+			var levelmodtest = (Game.current_abilities_levels["Dash"] / 5.0) + 0.4
 			if Input.is_action_pressed("ui_left"):
-				parent.velocity.x = -1500
+				parent.velocity.x = -1500 * levelmodtest
 				parent.velocity.y = -25
 			elif Input.is_action_pressed("ui_right"):
-				parent.velocity.x = 1500
+				parent.velocity.x = 1500 * levelmodtest
 				parent.velocity.y = -25
 			elif state == states.gun or state == states.fire or state == states.reload:
-				parent.velocity.x = 1500 * parent.currentdir
+				parent.velocity.x = 1500 * parent.currentdir * levelmodtest
 				parent.velocity.y = -30
 			else:
-				parent.velocity.x = 1250 * parent.currentdir
+				parent.velocity.x = 1250 * parent.currentdir * levelmodtest
 				parent.velocity.y = -25
 		if ability_pressed == "Teleport" and parent.tele_CD.is_stopped():
 			parent.teleport()
 			parent.tele_CD.start()
+			var levelmodtest = (Game.current_abilities_levels["Teleport"] / 5.0) + 0.4
 			if Input.is_action_pressed("ui_left"):
-				parent.velocity.x = -1750
+				parent.velocity.x = -1750 * levelmodtest
 				parent.velocity.y = -25
 			elif Input.is_action_pressed("ui_right"):
-				parent.velocity.x = 1750
+				parent.velocity.x = 1750 * levelmodtest
 				parent.velocity.y = -25
 			else:
-				parent.velocity.x = 1500 * parent.currentdir
+				parent.velocity.x = 1500 * parent.currentdir * levelmodtest
 				parent.velocity.y = -25
 		if ability_pressed == "Camoflague" and parent.camo_CD.is_stopped():
 			parent.camoflague()
@@ -379,14 +381,17 @@ func _enter_state(new, previous):
 			if Game.weapon_equipped == "gun" and !Game.inventorylock:
 				var shotspeed = (1.0 + (Game.playerstats["Fire Rate"] * 0.8 / 20.0))
 				if Game.current_effects.has("Berserk (Gun)"):
-					shotspeed += Game.berserkshotcount * 0.1
+					var levelmodtest = (Game.current_effects_levels["Berserk (Gun)"] / 5.0) + 0.4
+					shotspeed += Game.berserkshotcount * 0.1 * levelmodtest
 					Game.berserkshotcount +=1
 					parent.berserktimer.start()
 				if Game.current_effects.has("Frenzy (Gun)"):
-					shotspeed += (1.15 * (Game.playerhpmax - Game.playerhp) / Game.playerhpmax)
+					var levelmodtest = (Game.current_effects_levels["Frenzy (Gun)"] / 5.0) + 0.4
+					shotspeed += ((1.15 * (Game.playerhpmax - Game.playerhp) / Game.playerhpmax) * levelmodtest)
 				if Game.current_effects.has("Flintlock (Gun)"):
-					if shotspeed > 1.25:
-						shotspeed *= 0.75
+					var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
+					if shotspeed > 1.05:
+						shotspeed *= 0.85 * levelmodtest
 				parent.anim.play("shoot_recoil",0,shotspeed)
 			elif Game.weapon_equipped == "toygun" and !Game.inventorylock:
 				parent.anim.play("shoot_toy",0,(1.0 + (Game.playerstats["Fire Rate"] * 0.8 / 20.0)))

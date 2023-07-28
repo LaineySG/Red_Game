@@ -24,28 +24,32 @@ func _ready():
 	scale.x = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)
 	scale.y = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)	
 	damage = true
-	if Game.current_effects.has("Big-Shot"):
-		scale.x *= 2
-		scale.y *= 2
+	if Game.current_effects.has("Big Shot"):
+		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
+		scale.x *= 2 * levelmodtest
+		scale.y *= 2 * levelmodtest
 	
 func shoot_at_target(start_pos,accuracy,target):
 	
 
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 1.25
-		DoT *= 1.25
-		MoT *= 1.25
-		dmg *= 1.25
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		mischief *= 1.25 * levelmodtest
+		DoT *= 1.25 * levelmodtest
+		MoT *= 1.25 * levelmodtest
+		dmg *= 1.25 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 1.40
-		DoT *= 1.40
-		MoT *= 1.40
-		dmg *= 1.40
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		mischief *= 1.40 * levelmodtest
+		DoT *= 1.40 * levelmodtest
+		MoT *= 1.40 * levelmodtest
+		dmg *= 1.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 1.65
-		MoT *= 1.65
-		DoT *= 1.65
-		dmg *= 1.65
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		mischief *= 1.65 * levelmodtest
+		MoT *= 1.65 * levelmodtest
+		DoT *= 1.65 * levelmodtest
+		dmg *= 1.65 * levelmodtest
 	
 	
 	self.global_position = start_pos
@@ -66,6 +70,8 @@ func spawnbubble():
 		var bubblespawn = bubble.instantiate()
 		bubblespawn.position = self.global_position
 		get_parent().add_child(bubblespawn)
+		bubble_emitted = true
+	else:
 		bubble_emitted = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

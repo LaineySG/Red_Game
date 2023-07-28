@@ -120,15 +120,6 @@ func _process(_delta):
 		get_node("UI/Inventory/Tutorial UI").visible = false
 		Game.inventorylock = false
 		ammobar.value = Game.currentammo
-		
-		#remove later - testing purposes
-	if Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == false:
-		get_node("testbox").visible = true
-		Game.inventorylock = true
-	elif Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == true:
-		get_node("testbox").visible = false
-		Game.inventorylock = false
-		#remove later - testing purposes 
 	
 	var mouse_offset = (get_viewport().get_mouse_position() - Vector2(get_viewport().size / 2))
 	$Player/Camera2D.position = lerp(Vector2(), mouse_offset.normalized() * 50, mouse_offset.length() / 1000)

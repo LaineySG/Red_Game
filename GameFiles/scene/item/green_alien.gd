@@ -57,7 +57,8 @@ func _on_navtimer_timeout():
 		if abs(global_position.x - player.global_position.x) > 450:
 			speed = 500
 		else:
-			speed = 130
+			var levelmodtest = (Game.current_abilities_levels["Summon(Green Aliens)"] / 5.0) + 0.4
+			speed = 130 * levelmodtest
 				
 	get_nav_path()
 
@@ -86,7 +87,14 @@ func _on_zap_timer_timeout():
 		spawn.shoot_at_target(self.global_position,player.accuracy,current_target)
 		
 		var rng = RandomNumberGenerator.new()
+		var levelmodtest = (Game.current_abilities_levels["Summon(Green Aliens)"] / 5.0) + 0.4
 		var zaptime = rng.randf_range(-1.0,0.5)
+		if zaptime > 0:
+			zaptime -= 0.1 * levelmodtest
+		else:
+			zaptime *= levelmodtest
+		if zaptime < 0.1:
+			zaptime = 0.1
 		get_node("zap_timer").wait_time = 1.3 + zaptime
 	
 	

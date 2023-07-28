@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 
 
-var speed = 600.0
+var speed = 750.0
 var direction
 var bubble = preload("res://scene/player/rainbubble.tscn")
 var first = true
@@ -24,27 +24,31 @@ func _ready():
 	scale.x = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)
 	scale.y = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)	
 	damage = true
-	if Game.current_effects.has("Big-Shot"):
-		scale.x *= 2
-		scale.y *= 2
+	if Game.current_effects.has("Big Shot"):
+		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
+		scale.x *= 2 * levelmodtest
+		scale.y *= 2 * levelmodtest
 	
 func shoot_at_target(start_pos,accuracy,target):
 	
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 1.25
-		DoT *= 1.25
-		MoT *= 1.25
-		dmg *= 1.25
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		mischief *= 1.25 * levelmodtest
+		DoT *= 1.25 * levelmodtest
+		MoT *= 1.25 * levelmodtest
+		dmg *= 1.25 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 1.40
-		DoT *= 1.40
-		MoT *= 1.40
-		dmg *= 1.40
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		mischief *= 1.40 * levelmodtest
+		DoT *= 1.40 * levelmodtest
+		MoT *= 1.40 * levelmodtest
+		dmg *= 1.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 1.65
-		MoT *= 1.65
-		DoT *= 1.65
-		dmg *= 1.65
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		mischief *= 1.65 * levelmodtest
+		MoT *= 1.65 * levelmodtest
+		DoT *= 1.65 * levelmodtest
+		dmg *= 1.65 * levelmodtest
 	
 	
 	self.global_position = start_pos
@@ -58,14 +62,6 @@ func shoot_at_target(start_pos,accuracy,target):
 	velocity.y += randoffshoot
 	look_at(target.global_position)
 
-func spawnbubble():
-	var rng = RandomNumberGenerator.new()
-	var bubblerand = rng.randf()
-	if bubblerand > 0.92 and !bubble_emitted:
-		var bubblespawn = bubble.instantiate()
-		bubblespawn.position = self.global_position
-		get_parent().add_child(bubblespawn)
-		bubble_emitted = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -75,24 +71,17 @@ func _process(delta):
 		#bounce condition
 		var reflect = collision.get_remainder().bounce(collision.get_normal())
 		var velocitymod
-		if Game.current_effects.has("Bounce Blaster (Toygun)"):
-			velocitymod = 0.9
-		else:
-			first = false
-			velocitymod = 0.5
+		first = false
+		velocitymod = 0.5
 		velocity = velocity.bounce(collision.get_normal()) * velocitymod
 		rotation = velocity.angle();
 		move_and_collide(reflect)
-		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
-			spawnbubble()
 		damage = true
 	elif collision and second and !collision.get_collider().is_in_group("bullets") and !collision.get_collider().is_in_group("mob"):
 		#If it collides a second time
 		first = false
 		second = false
 		velocity.x = 0
-		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
-			spawnbubble()
 		velocity.y = 0
 		damage = false
 	if collision and collision.get_collider().is_in_group("bullets"):
@@ -106,8 +95,6 @@ func _process(delta):
 	if collision and collision.get_collider().is_in_group("mob"):
 		first = false
 		second = false
-		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
-			spawnbubble()
 		velocity.x = 0
 		velocity.y = 0
 		if damage:

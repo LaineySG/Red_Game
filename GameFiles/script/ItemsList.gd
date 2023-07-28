@@ -8,7 +8,30 @@ var slotdata = {"ID":0}
 func _ready():
 	pass
 
-
+func searchtext(searchquery):
+	#reset each time
+	
+	for items in self.item_count: # resets items
+		set_item_icon_modulate(items,Color(1.0,1.0,1.0,0.25))
+		#set_item_disabled(items,true)
+		
+	searchquery = str(searchquery).to_lower()
+	if searchquery == "":
+		for items in self.item_count: # resets items
+			set_item_icon_modulate(items,Color(1.0,1.0,1.0,1.0))
+		
+	
+	for items in self.item_count: # for items in list
+		var contained = false # reset contained
+		var itemdict = get_item_metadata(items) # set dictionary 
+		for datavalues in itemdict: # for keys in dictionary
+			if !contained: #if search query hasn't been found yet
+				var data = str(itemdict[datavalues]).to_lower() #find value, get lowercase
+				if data.contains(searchquery): #if contains query
+					#set_item_disabled(items,false)
+					set_item_icon_modulate(items,Color(1.0,1.0,1.0,1.0))
+					move_item(items,0)
+					contained = true
 
 func _get_drag_data(_pos):
 	var data = {}

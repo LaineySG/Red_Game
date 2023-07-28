@@ -112,6 +112,9 @@ func _process(_delta):
 			
 	if Game.items_list.size() != inventory_size:
 		check_inventory()
+		if get_node("Tutorial UI/LineEdit").text != "":
+			get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList").searchtext(get_node("Tutorial UI/LineEdit").text)
+			
 		
 	if Input.is_action_just_pressed("ui_I"):
 		get_node("CanvasLayer").visible = false
@@ -139,3 +142,7 @@ func _on_dragdroplayer_mouse_entered():
 
 
 
+
+
+func _on_line_edit_text_changed(search_query):
+	get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList").searchtext(search_query)
