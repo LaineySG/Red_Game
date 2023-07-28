@@ -77,6 +77,8 @@ var wall_direction = 1
 ################################################################################
 func _apply_gravity(delta):
 	velocity.y += gravity * delta #gravity
+	if !Input.is_action_pressed("ui_left") and !Input.is_action_pressed("ui_right"):
+		velocity.x = move_toward(velocity.x,0,delta * SPEED)
 	
 func _ready():
 	SaveAndLoad.savegame(get_tree().current_scene)
@@ -117,8 +119,8 @@ func _process(_delta):
 		SPEED = 300.0 + (Game.playerstats["Alacrity"] * 5)
 		JUMP_VELOCITY = -300.0 + (Game.playerstats["Alacrity"] * -5)
 		
-	dash_CD.wait_time = 2.5 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
-	tele_CD.wait_time = 12.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
+	dash_CD.wait_time = 2.5 - (Game.playerstats["Alacrity"] * 2.5 * 0.03)
+	tele_CD.wait_time = 12.0 - (Game.playerstats["Alacrity"] * 12.0 * 0.03)
 	sprint_CD.wait_time = 30.0 - (Game.playerstats["Alacrity"] * 30.0 * 0.03)
 	shield_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
 	camo_CD.wait_time = 60.0 - (Game.playerstats["Alacrity"] * 60.0 * 0.03)
@@ -190,9 +192,9 @@ func _apply_movement(_delta, speed_mod):
 		currentdir = 1
 	#Movement
 	if direction:
-		velocity.x = move_toward(velocity.x, direction * SPEED * speed_mod, SPEED/6)
+		velocity.x = move_toward(velocity.x, direction * SPEED * speed_mod, _delta * SPEED*10)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED/6)
+		velocity.x = move_toward(velocity.x, 0, _delta * SPEED*10)
 	move_and_slide()
 	
 func teleport():
@@ -389,9 +391,9 @@ func _gun_movement(_delta):
 		currentdir = 1
 	#Movement
 	if direction:
-		velocity.x = direction * SPEED * 0.05
+		velocity.x = move_toward(velocity.x, (direction * SPEED * 0.05), _delta * SPEED*10)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, _delta * SPEED*10)
 	
 func hurt(x,DoT):
 	if !shielded and !iframes:
