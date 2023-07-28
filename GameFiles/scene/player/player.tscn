@@ -5327,28 +5327,32 @@ horizontal_alignment = 1
 [node name="LeftWallRayCast" type="RayCast2D" parent="WallRayCasts/LeftWallRayCasts"]
 position = Vector2(0, -10)
 rotation = 1.5708
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
 target_position = Vector2(0, 18)
+collision_mask = 9
 
 [node name="LeftWallRayCast2" type="RayCast2D" parent="WallRayCasts/LeftWallRayCasts"]
 position = Vector2(0, 10)
 rotation = 1.5708
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
 target_position = Vector2(0, 18)
+collision_mask = 9
 
 [node name="RightWallRayCasts" type="Node2D" parent="WallRayCasts"]
 
 [node name="RightWallRayCast" type="RayCast2D" parent="WallRayCasts/RightWallRayCasts"]
 position = Vector2(0, -10)
 rotation = -1.5708
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
 target_position = Vector2(0, 21)
+collision_mask = 9
 
 [node name="RightWallRayCast2" type="RayCast2D" parent="WallRayCasts/RightWallRayCasts"]
 position = Vector2(0, 10)
 rotation = -1.5708
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.8, 0.8)
 target_position = Vector2(0, 21)
+collision_mask = 9
 
 [node name="Gunarms" type="Node2D" parent="."]
 script = ExtResource("25_16d7k")

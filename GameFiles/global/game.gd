@@ -41,6 +41,7 @@ var items_list = []
 var equipped_items = []
 var current_effects = []
 var eqptracker = 0
+var abilityCDs = {}
 var eqptracker2 = []
 
 

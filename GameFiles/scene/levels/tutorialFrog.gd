@@ -60,8 +60,9 @@ func get_nav_path():
 						frogtarget = children
 						cursor = currentdist
 			#get closets child
-		if get_node("Attackbox").overlaps_body(frogtarget):
-			attack()
+		for bodies in get_node("Attackbox").get_overlapping_bodies:
+			if bodies == frogtarget:
+				attack()
 				
 		navi.target_position = frogtarget.global_position
 	

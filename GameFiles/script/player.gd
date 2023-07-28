@@ -88,6 +88,12 @@ func _ready():
 	await get_tree().create_timer(0.2).timeout
 	jumps = maxjumps
 	resetshaders()
+	
+	for children in get_node("timers").get_children():
+		if children.name.right(3) == "_CD":
+			if Game.abilityCDs.has(children.name):
+				children.start(Game.abilityCDs[children.name])
+				
 
 func _process(_delta):
 	if !iframes:
@@ -121,6 +127,11 @@ func _process(_delta):
 	greenalien_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
 	drone_CD.wait_time = 165.0 - (Game.playerstats["Alacrity"] * 165.0 * 0.03)
 	iframetimer.wait_time = 0.35 + (Game.playerstats["Alacrity"] * 0.01)
+	
+	for children in get_node("timers").get_children():
+		if children.name.right(3) == "_CD" and children.time_left >= 1.0:
+			Game.abilityCDs[children.name] = children.time_left
+			
 
 func abilitykeys(key_pressed):
 	for ability in Game.current_abilities:

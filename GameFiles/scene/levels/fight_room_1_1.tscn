@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cxounw8qahnah"]
+[gd_scene load_steps=43 format=3 uid="uid://cxounw8qahnah"]
 
 [ext_resource type="Script" path="res://scene/levels/fight_room_1_1.gd" id="1_wxa2m"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_i06fv"]
@@ -88,6 +88,16 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(7, 91, 7, 124, 23, 124,
 vertices = PackedVector2Array(71, 92, 71, 109, 7, 109, 7, 92)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(7, 92, 7, 109, 71, 109, 71, 92)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3i3uc"]
+vertices = PackedVector2Array(55, 93, 55, 109, 7, 109, 7, 93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 93, 7, 109, 55, 109, 55, 93)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ivjod"]
+vertices = PackedVector2Array(71, 93, 71, 108, 7, 108, 7, 93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 93, 7, 108, 71, 108, 71, 93)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_rru2i"]
 vertices = PackedVector2Array(55, 92, 55, 106, 7, 106, 7, 92)
@@ -1299,6 +1309,14 @@ navigation_polygon = SubResource("NavigationPolygon_q6kht")
 [node name="half_tile_upper3" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -125)
 navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper10" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(938, -62)
+navigation_polygon = SubResource("NavigationPolygon_3i3uc")
+
+[node name="half_tile_upper11" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -141)
+navigation_polygon = SubResource("NavigationPolygon_ivjod")
 
 [node name="half_tile_upper4" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -125)

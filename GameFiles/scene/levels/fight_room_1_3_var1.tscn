@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dwwejyrb4nxgo"]
+[gd_scene load_steps=42 format=3 uid="uid://dwwejyrb4nxgo"]
 
 [ext_resource type="Script" path="res://scene/levels/fight_room_1_1.gd" id="1_2ul5s"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_u4a84"]
@@ -60,12 +60,37 @@ glow_blend_mode = 1
 glow_hdr_threshold = 0.9
 adjustment_enabled = true
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_jue1d"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ocsxf"]
 vertices = PackedVector2Array(39, 92, 39, 124, 7, 124, 7, 92)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(7, 92, 7, 124, 39, 124, 39, 92)])
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ytk4v"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_1714j"]
+vertices = PackedVector2Array(103, 108, 103, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 103, 124, 103, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_fk4k6"]
+vertices = PackedVector2Array(55, 108, 55, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 55, 124, 55, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dqddo"]
+vertices = PackedVector2Array(183, 108, 183, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 183, 124, 183, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dao3d"]
+vertices = PackedVector2Array(151, 108, 151, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 151, 124, 151, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_xt3m5"]
+vertices = PackedVector2Array(71, 108, 71, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 71, 124, 71, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_x2lol"]
 vertices = PackedVector2Array(23, 92, 23, 124, 7, 124, 7, 92)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(7, 92, 7, 124, 23, 124, 23, 92)])
@@ -737,1127 +762,1155 @@ visible = false
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D2" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D3" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D4" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D5" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D6" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D7" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D8" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D9" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D10" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D11" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D12" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D14" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D17" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D15" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D16" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D19" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D20" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D24" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D28" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
+
+[node name="NavigationRegion2D145" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -77)
+navigation_polygon = SubResource("NavigationPolygon_1714j")
+
+[node name="NavigationRegion2D192" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -173)
+navigation_polygon = SubResource("NavigationPolygon_fk4k6")
+
+[node name="NavigationRegion2D189" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(362, -141)
+navigation_polygon = SubResource("NavigationPolygon_dqddo")
+
+[node name="NavigationRegion2D193" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -205)
+navigation_polygon = SubResource("NavigationPolygon_dao3d")
+
+[node name="NavigationRegion2D195" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -205)
+navigation_polygon = SubResource("NavigationPolygon_xt3m5")
 
 [node name="NavigationRegion2D32" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D21" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D22" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D25" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D26" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D29" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D30" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D137" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D138" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D33" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D34" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D35" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D36" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D37" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D38" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D39" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D40" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D41" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D42" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D43" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D44" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D45" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D46" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D47" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D48" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D49" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D50" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D51" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D52" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D53" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D54" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D55" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D56" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D57" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D58" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D59" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D60" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D61" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D62" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D63" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D64" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D65" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D66" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D67" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D68" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D69" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D70" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D71" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D72" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D73" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D74" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D75" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D76" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D77" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D78" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D79" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D80" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D81" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D82" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D83" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D84" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D85" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D86" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D87" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D88" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D89" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D90" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D91" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D92" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D93" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D94" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D95" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D96" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D97" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D98" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D99" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D100" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D101" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D102" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D103" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D104" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D105" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D106" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D107" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D108" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D13" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D18" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D23" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D27" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D31" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D139" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D140" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D141" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D142" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D143" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D144" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D151" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D152" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D153" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D154" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D155" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D156" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D157" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D158" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D159" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D160" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -125)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D161" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D162" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D163" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D164" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D165" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D166" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D167" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D168" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D169" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D170" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D171" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D172" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D173" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D174" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D175" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D176" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D177" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D178" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D179" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D180" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D183" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D184" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -157)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D190" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D191" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D197" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D200" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D201" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D202" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D203" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D204" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D205" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D206" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D207" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D208" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D209" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D210" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D211" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D212" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D213" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D214" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -189)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D215" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D216" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D217" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D218" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D219" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D220" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D221" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D222" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D223" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D224" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D227" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
+
+[node name="NavigationRegion2D256" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -221)
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D228" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D229" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D230" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D231" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D232" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D233" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D234" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D235" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D236" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D237" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D238" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D239" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D240" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D241" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -221)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D242" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D243" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D244" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D245" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D246" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D247" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D248" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D249" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D250" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D251" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D252" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D253" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D254" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D255" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D259" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D260" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D261" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D262" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D263" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D264" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D265" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D266" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D267" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D268" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -253)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D269" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(-6, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D270" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(26, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D271" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(58, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D272" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(90, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D273" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(122, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D274" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(154, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D275" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(186, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D276" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D277" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(250, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D278" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(282, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D279" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D280" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D281" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(378, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D282" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D283" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(442, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D284" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(474, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D285" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(506, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D286" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(538, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D287" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(570, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D288" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(602, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D289" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(634, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D290" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(666, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D291" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(698, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D292" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(730, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D293" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(762, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D294" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(794, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D295" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(826, -285)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D109" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D110" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D111" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D112" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D146" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -125)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D147" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -189)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D148" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -221)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D181" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(682, -157)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D182" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(522, -253)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D185" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(346, -125)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D186" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -189)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D187" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -221)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
+
+[node name="NavigationRegion2D194" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(330, -221)
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D188" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(266, -189)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D149" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -253)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D150" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(858, -285)
-navigation_polygon = SubResource("NavigationPolygon_ytk4v")
+navigation_polygon = SubResource("NavigationPolygon_x2lol")
 
 [node name="NavigationRegion2D113" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(890, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D114" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(890, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D115" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(890, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D116" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(890, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D117" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(922, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D118" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(922, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D119" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(922, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D120" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(922, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D121" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(954, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D122" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(954, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D123" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(954, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D124" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(954, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D125" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(986, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D126" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(986, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D127" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(986, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D128" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(986, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D129" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1018, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D130" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1018, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D131" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1018, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D132" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1018, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D133" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1050, 3)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D134" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1050, -29)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D135" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1050, -61)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [node name="NavigationRegion2D136" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(1050, -93)
-navigation_polygon = SubResource("NavigationPolygon_jue1d")
+navigation_polygon = SubResource("NavigationPolygon_ocsxf")
 
 [connection signal="open_door" from="fight_room/exitdoor" to="fight_room/check_for_exit" method="_on_exitdoor_open_door"]
 [connection signal="open_door" from="fight_room/exitdoor2" to="fight_room/check_for_exit" method="_on_exitdoor_2_open_door"]

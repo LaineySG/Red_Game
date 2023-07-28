@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c2qahwhwvx3st"]
+[gd_scene load_steps=42 format=3 uid="uid://c2qahwhwvx3st"]
 
 [ext_resource type="Script" path="res://scene/levels/fight_room_1_1.gd" id="1_npike"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_htr4o"]
@@ -64,6 +64,31 @@ adjustment_enabled = true
 vertices = PackedVector2Array(39, 92, 39, 124, 7, 124, 7, 92)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(7, 92, 7, 124, 39, 124, 39, 92)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_d70qb"]
+vertices = PackedVector2Array(103, 108, 103, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 103, 124, 103, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bdmwb"]
+vertices = PackedVector2Array(55, 108, 55, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 55, 124, 55, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cn1dc"]
+vertices = PackedVector2Array(183, 108, 183, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 183, 124, 183, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_0s70f"]
+vertices = PackedVector2Array(151, 108, 151, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 151, 124, 151, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_pee4n"]
+vertices = PackedVector2Array(71, 108, 71, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 71, 124, 71, 108)])
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ydsgr"]
 vertices = PackedVector2Array(23, 92, 23, 124, 7, 124, 7, 92)
@@ -809,6 +834,26 @@ navigation_polygon = SubResource("NavigationPolygon_j6egl")
 position = Vector2(186, -93)
 navigation_polygon = SubResource("NavigationPolygon_j6egl")
 
+[node name="NavigationRegion2D145" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -77)
+navigation_polygon = SubResource("NavigationPolygon_d70qb")
+
+[node name="NavigationRegion2D192" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -173)
+navigation_polygon = SubResource("NavigationPolygon_bdmwb")
+
+[node name="NavigationRegion2D189" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(362, -141)
+navigation_polygon = SubResource("NavigationPolygon_cn1dc")
+
+[node name="NavigationRegion2D193" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -205)
+navigation_polygon = SubResource("NavigationPolygon_0s70f")
+
+[node name="NavigationRegion2D195" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -205)
+navigation_polygon = SubResource("NavigationPolygon_pee4n")
+
 [node name="NavigationRegion2D32" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(218, -93)
 navigation_polygon = SubResource("NavigationPolygon_j6egl")
@@ -1437,6 +1482,10 @@ navigation_polygon = SubResource("NavigationPolygon_j6egl")
 position = Vector2(378, -221)
 navigation_polygon = SubResource("NavigationPolygon_j6egl")
 
+[node name="NavigationRegion2D256" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -221)
+navigation_polygon = SubResource("NavigationPolygon_j6egl")
+
 [node name="NavigationRegion2D228" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(410, -221)
 navigation_polygon = SubResource("NavigationPolygon_j6egl")
@@ -1743,6 +1792,10 @@ navigation_polygon = SubResource("NavigationPolygon_ydsgr")
 
 [node name="NavigationRegion2D187" type="NavigationRegion2D" parent="navigation_areas"]
 position = Vector2(314, -221)
+navigation_polygon = SubResource("NavigationPolygon_ydsgr")
+
+[node name="NavigationRegion2D194" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(330, -221)
 navigation_polygon = SubResource("NavigationPolygon_ydsgr")
 
 [node name="NavigationRegion2D188" type="NavigationRegion2D" parent="navigation_areas"]
