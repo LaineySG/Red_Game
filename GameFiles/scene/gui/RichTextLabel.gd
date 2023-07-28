@@ -5,17 +5,19 @@ var gun_icon = "res://assets/environment/scifi/anims/gunicon.png"
 var toygun_icon = "res://assets/environment/scifi/anims/toygunicon.png"
 var both_icon = "res://assets/environment/scifi/anims/switchgunicon.png"
 var ability_icon = "res://assets/gui/abilityicon.png"
+var can_sell = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
 
-func item_info_parser(x: Dictionary):
+func item_info_parser(x: Dictionary, is_shop_bool):
 	if str(x.get("Name")) != null:
 		var output = ""
 		var itemname = x["Name"] if (x.get("Name") != null) else null
 		rarity = x["Rarity"] if (x.get("Rarity") != null) else null
 		var effect = x["Effect"] if (x.get("Effect") != null) else null
+		var Cost = str(x["Cost"]) if (x.get("Cost") != null) else ""
 		var _RarityNum = x["RarityNum"] if (x.get("RarityNum") != null) else null
 		var ability = x["Ability"] if (x.get("Ability") != null) else null
 		var level = x["Level"] if (x.get("Level") != null) else null
@@ -82,10 +84,17 @@ func item_info_parser(x: Dictionary):
 				output += get_mod_desc(mod3) + "[/color]" + "\n"
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
-				
-			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
-			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
-			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+	
+			if !is_shop_bool:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+				if can_sell:
+					output += "\n" + "[X] click: Sell item (unequipped only) - " + Cost + " Coins"
+				output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+			else:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]"
+				output += str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Uncommon":
 			var title_color = "cornflower_blue"
@@ -131,9 +140,17 @@ func item_info_parser(x: Dictionary):
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
 #
-			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
-			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
-			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+	
+			if !is_shop_bool:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+				if can_sell:
+					output += "\n" + "[X] click: Sell item (unequipped only) - " + Cost + " Coins"
+				output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+			else:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]"
+				output += str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 #
 #
 
@@ -183,9 +200,17 @@ func item_info_parser(x: Dictionary):
 			if mod1 != null or mod0 != null or mod2 != null or mod3!=null:
 				output += "[/cell]"
 		
-			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
-			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
-			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+	
+			if !is_shop_bool:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+				if can_sell:
+					output += "\n" + "[X] click: Sell item (unequipped only) - " + Cost + " Coins"
+				output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+			else:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]"
+				output += str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Epic":
 			var title_color = "peru"
@@ -234,9 +259,17 @@ func item_info_parser(x: Dictionary):
 				output += "[/cell]"
 			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nCreme de la Creme.\n " + "[/color][/cell]"
 			
-			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
-			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
-			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+	
+			if !is_shop_bool:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+				if can_sell:
+					output += "\n" + "[X] click: Sell item (unequipped only) - " + Cost + " Coins"
+				output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+			else:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]"
+				output += str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Insane":
 			var title_color = "PALE_VIOLET_RED"
@@ -285,9 +318,17 @@ func item_info_parser(x: Dictionary):
 				output += "[/cell]"
 			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nOne in a hundred.\n " + "[/color][/cell]"
 			
-			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
-			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
-			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+	
+			if !is_shop_bool:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+				if can_sell:
+					output += "\n" + "[X] click: Sell item (unequipped only) - " + Cost + " Coins"
+				output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+			else:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]"
+				output += str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 			
 		elif rarity == "Perfect":
 			var title_color = "NAVAJO_WHITE"
@@ -336,10 +377,16 @@ func item_info_parser(x: Dictionary):
 				output += "[/cell]"
 			output += "[cell border=" + border_color + "][color=" + desc_color + "]" + "\nOne in a million.\n " + "[/color][/cell]"
 			
-			output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
-			output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
-			output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
-				
+			if !is_shop_bool:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]" + "[KEY] click: Equip to [KEY]" if ability != null else "[font_size=16]" + "[SHIFT] click: Equip to major" + "\n" + "[CTRL] click: Equip to minor"
+				if can_sell:
+					output += "\n" + "[X] click: Sell item (unequipped only) - " + Cost + " Coins"
+				output += "\n\n" + str(rarity) + "[/font_size][/color][/cell][/table][/center]"
+			else:
+				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
+				output += "[font_size=16]"
+				output += str(rarity) + "[/font_size][/color][/cell][/table][/center]"
 		text = output
 
 func get_mod_desc(mod_name):

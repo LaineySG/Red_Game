@@ -42,6 +42,7 @@ script = ExtResource("13_t3m6n")
 script = ExtResource("1_hftp1")
 
 [node name="Tutorial UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GUI" type="Control" parent="Tutorial UI"]
 layout_mode = 3

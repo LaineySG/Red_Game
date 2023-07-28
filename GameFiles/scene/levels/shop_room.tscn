@@ -3269,7 +3269,7 @@ visible = false
 [node name="UI" parent="." instance=ExtResource("23_o56ml")]
 visible = false
 
-[node name="gold" parent="UI" index="9"]
+[node name="gold" parent="UI" index="10"]
 script = ExtResource("23_330ip")
 
 [node name="shop_owner" type="AnimatedSprite2D" parent="."]

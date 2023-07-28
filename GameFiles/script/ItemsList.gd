@@ -2,7 +2,9 @@ extends ItemList
 
 var item
 var interact = false
+var can_sell = false
 var slotdata = {"ID":0}
+var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -78,6 +80,7 @@ func _drop_data(_pos, data):
 		#print("Inventory:" + str(i["ID"]))
 	#print("}")
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if !interact and is_anything_selected():
@@ -86,7 +89,21 @@ func _process(_delta):
 		get_node("../../../../CanvasLayer").visible = false
 		
 	if is_anything_selected():
-		if Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_shift"):
+		if Input.is_action_just_pressed("ui_left_click") and can_sell and Input.is_action_pressed("ui_X"):
+			var data = get_item_metadata(get_selected_items()[0])
+			var removed = false
+			for i in range(0,Game.items_list.size()): # for each index in the item list ( 0 to size-1)
+				if !removed:
+					if Game.items_list[i].get("ID") != null and !removed: # if that index has an ID
+						#print("data: " + str(data["ID"]) + " equipped item: " + str(Game.equipped_items[i]["ID"]))
+						if Game.items_list[i]["ID"] == data.get("ID") and !removed:
+							Game.playergold += data["Cost"]
+							Game.items_list.remove_at(i) # And remove the original from the item list
+							removed = true
+				#remove_item(get_selected_items()[0])
+			
+			
+		elif Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_shift") and get_item_metadata(get_selected_items()[0]).get("Ability") == null:
 			var breakout = false
 			for slots in get_node("../../../dragdroplayer").get_children():
 				if slots.name.left(5) == "Major" and !breakout:
@@ -107,7 +124,7 @@ func _process(_delta):
 						if data.get("Ability") == null: # make sure it's not an ability
 							data["item_texture"] = get_item_icon(get_selected_items()[0])
 							slots._drop_data(1,data)
-		if Input.is_action_just_pressed("ui_left_click") and get_item_metadata(get_selected_items()[0]).get("Ability") != null:
+		elif Input.is_action_just_pressed("ui_left_click") and get_item_metadata(get_selected_items()[0]).get("Ability") != null:
 			# if an ability and left click and hotkey pressed
 			if Input.is_action_pressed("ui_1"):
 				for slots in get_node("../../../dragdroplayer").get_children():
@@ -163,7 +180,6 @@ func _process(_delta):
 						var data = get_item_metadata(get_selected_items()[0]) 
 						data["item_texture"] = get_item_icon(get_selected_items()[0])
 						slots._drop_data(1,data)
-				
 			
 	
 func _on_ItemList_gui_input(event: InputEvent) -> void:

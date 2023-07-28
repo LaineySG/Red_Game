@@ -1,5 +1,6 @@
 extends Node2D
 var Items = []
+var can_sell = false
 var inventory_size = 0
 @onready var itemlist = get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList")
 @onready var icon_common = preload("res://assets/item/idea_common.png")
@@ -97,7 +98,13 @@ func check_inventory():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	
+	if can_sell:
+		get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList").can_sell = true
+		get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").can_sell = true
+	else:
+		get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList").can_sell = false
+		get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").can_sell = false
+		
 	if get_node("Tutorial UI").visible:
 		get_node("Tutorial UI/GUI/background/statlayer").visible = true
 	else:
@@ -108,7 +115,7 @@ func _process(_delta):
 	if itemlist.is_anything_selected(): #if something is hovered
 			get_node("CanvasLayer").visible = true
 			get_node("CanvasLayer/TextureRect").position = get_global_mouse_position() + Vector2(15,15)
-			get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(itemlist.get_item_metadata(itemlist.get_selected_items()[0]))
+			get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(itemlist.get_item_metadata(itemlist.get_selected_items()[0]),false)
 			
 	if Game.items_list.size() != inventory_size:
 		check_inventory()
@@ -130,7 +137,7 @@ func _on_texture_rect_on_hover(slotdata):
 	if slotdata.get("Name") != null:
 		get_node("CanvasLayer").visible = true
 		get_node("CanvasLayer/TextureRect").position = get_global_mouse_position() + Vector2(15,15)
-		get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(slotdata)
+		get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(slotdata,false)
 	#else: 
 		#pass #do nothing
 

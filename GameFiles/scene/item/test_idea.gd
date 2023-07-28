@@ -14,7 +14,7 @@ func _process(_delta):
 
 func _on_body_entered(_body):
 	if !given:
-		for i in range (0,25):
+		for i in range (0,150):
 			itemstats = itemgen._itemgen(1)
 			Game.items_list.append(itemstats)
 		given = true

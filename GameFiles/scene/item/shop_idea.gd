@@ -36,6 +36,7 @@ func _process(_delta):
 			if Input.is_action_just_pressed("ui_E") and Game.playergold >= cost and !given:
 				Game.playergold -= cost
 				given = true
+				itemstats["Cost"] = floor(cost / 2.0)
 				Game.items_list.append(itemstats)
 				get_node("Sprite2D").visible = false
 				get_node("AnimatedSprite2D").visible = true

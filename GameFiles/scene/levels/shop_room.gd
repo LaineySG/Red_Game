@@ -26,6 +26,7 @@ func _ready():
 	get_node("items_for_sale/item2/Idea").cantafford.connect(_on_cant_afford)
 	get_node("items_for_sale/item3/Idea").cantafford.connect(_on_cant_afford)
 	Utils.unpausegame()
+	get_node("UI/Inventory").can_sell = true
 	
 		
 	_on_player_update_ammo()
@@ -408,6 +409,7 @@ func _on_textbox_changetext():
 			
 			
 func _on_transition_screen_transitioned():
+	get_node("UI/Inventory").can_sell = false
 	doorchosen.changeroom()
 		
 	#get_tree().change_scene_to_file("res://scene/levels/spaceship_hub.tscn")
@@ -435,6 +437,6 @@ func _on_idea_hideitem(_item):
 func _on_idea_viewitem(_item, itemstats):
 		get_node("UI/Inventory/CanvasLayer").visible = true
 		get_node("UI/Inventory/CanvasLayer/TextureRect").global_position = Vector2(50,125)
-		get_node("UI/Inventory/CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(itemstats)
+		get_node("UI/Inventory/CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").item_info_parser(itemstats,true) #is shop = true
 
 

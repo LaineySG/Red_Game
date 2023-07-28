@@ -83,6 +83,7 @@ func _itemgen(x):
 				rolleditem["mod" + str(i) + "raw"] =  str(modifications[randmod])
 			rolleditem["RarityNum"] = rarity
 			rolleditem["Rarity"] = get_rarity(rarity)
+			rolleditem["Cost"] = getsellcost(rolleditem["Rarity"])
 			rolleditem["Name"] = get_item_name(rolleditem,rarity)
 			rolleditem["ID"] = rng.randi() + rng.randi()
 			return rolleditem
@@ -123,9 +124,33 @@ func _itemgen(x):
 			
 			rolleditem["RarityNum"] = rarity
 			rolleditem["Rarity"] = get_rarity(rarity)
+			rolleditem["Cost"] = getsellcost(rolleditem["Rarity"])
 			rolleditem["Name"] = get_item_name(rolleditem,rarity)
 			rolleditem["ID"] = rng.randi() + rng.randi() 
 			return rolleditem
+		
+		
+
+func getsellcost(rarity):
+	var cost
+	if rarity == "Common":
+		cost = 20
+	if rarity == "Uncommon":
+		cost = 30
+	if rarity == "Rare":
+		cost = 60
+	if rarity == "Epic":
+		cost = 100
+	if rarity == "Insane":
+		cost = 160
+	if rarity == "Perfect":
+		cost = 500
+	var rng = RandomNumberGenerator.new()
+	var randcostmod = rng.randf_range(0.25,0.75)
+	cost *= randcostmod
+		
+	cost = int(round(cost))
+	return cost
 		
 func get_rarity(rarity):
 	if rarity <= 6:

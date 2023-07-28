@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b6iuxfdlf3ld4"]
 
-[ext_resource type="Script" path="res://script/bullet.gd" id="1_bku36"]
+[ext_resource type="Script" path="res://script/bullet.gd" id="1_8saah"]
 [ext_resource type="Texture2D" uid="uid://c0tuob6facuav" path="res://assets/player/weapon/bullet.png" id="2_fmc6n"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_khsgg"]
@@ -20,7 +20,7 @@ size = Vector2(8, 2)
 [node name="bullet" type="CharacterBody2D" groups=["bullets"]]
 collision_layer = 128
 collision_mask = 591
-script = ExtResource("1_bku36")
+script = ExtResource("1_8saah")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.35, 0.35)

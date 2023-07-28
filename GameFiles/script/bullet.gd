@@ -18,7 +18,7 @@ func _ready():
 		get_node("AnimatedSprite2D").modulate = Color8(255,47,15,255)
 	if Game.current_effects.has("Flintlock (Gun)"):
 		var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
-		damage += ((5 + (Game.playerstats["Punch"] * 1)) * levelmodtest) #Around a 30% increase
+		damage += ((5 + (Game.playerstats["Punch"] * 1.25)) * levelmodtest) #Around a 30% increase
 
 func shoot_at_mouse(start_pos,accuracy):
 	if Game.current_effects.has("Burn Shot (Gun)"):
@@ -40,7 +40,7 @@ func shoot_at_mouse(start_pos,accuracy):
 		damage *= 0.6 * levelmodtest
 		DoT *= 0.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
-		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
 		damage *= 0.4 * levelmodtest
 		DoT *= 0.30 * levelmodtest
 	
