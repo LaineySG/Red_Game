@@ -2,7 +2,7 @@ extends Area2D
 var mischief = 15 + (Game.playerstats["Punch"] * 5)
 var DoT = 0
 var dmg = 0
-var MoT = 0.50 + (Game.playerstats["Punch"] * 0.15)
+var MoT = 0.25 + (Game.playerstats["Punch"] * 0.15)
 var targetedbodies = []
 var frequency = 3
 var amplitude = 0.3

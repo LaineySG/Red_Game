@@ -111,9 +111,15 @@ func _process(_delta):
 		SPEED = 300.0 + (Game.playerstats["Alacrity"] * 5)
 		JUMP_VELOCITY = -300.0 + (Game.playerstats["Alacrity"] * -5)
 		
-	dash_CD.wait_time = 2.5 - (Game.playerstats["Alacrity"] * 0.1)
-	tele_CD.wait_time = 12.0 - (Game.playerstats["Alacrity"] * 0.25)
-	sprint_CD.wait_time = 30.0 -  (floor(Game.playerstats["Alacrity"] / 2.0))
+	dash_CD.wait_time = 2.5 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
+	tele_CD.wait_time = 12.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
+	sprint_CD.wait_time = 30.0 - (Game.playerstats["Alacrity"] * 30.0 * 0.03)
+	shield_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
+	camo_CD.wait_time = 60.0 - (Game.playerstats["Alacrity"] * 60.0 * 0.03)
+	mine_CD.wait_time = 45.0 - (Game.playerstats["Alacrity"] * 45.0 * 0.03)
+	balloon_CD.wait_time = 45.0 - (Game.playerstats["Alacrity"] * 45.0 * 0.03)
+	greenalien_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
+	drone_CD.wait_time = 165.0 - (Game.playerstats["Alacrity"] * 165.0 * 0.03)
 	iframetimer.wait_time = 0.35 + (Game.playerstats["Alacrity"] * 0.01)
 
 func abilitykeys(key_pressed):
@@ -555,8 +561,8 @@ func _shoot(_shootoverride=false):
 							var spawn = hypnoray.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  1.0 + ( 0.1 * chargetime)
-								spawn.MoT *=  1.0 + ( 0.1 * chargetime)
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
 								chargetime = 0.0
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					elif Game.current_effects.has("Heart-Shot (Toygun)"):
@@ -564,19 +570,18 @@ func _shoot(_shootoverride=false):
 							var spawn = heartshot.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  1.0 + ( 0.1 * chargetime)
-								spawn.MoT *=  1.0 + ( 0.1 * chargetime)
-								chargetime = 0.0
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					else:
 						for i in numShots:
 							var spawn = toybullet.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  1.0 + ( 0.1 * chargetime)
-								spawn.MoT *=  1.0 + ( 0.1 * chargetime)
-								chargetime = 0.0
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
+					chargetime = 0.0
 					await anim.animation_finished
 					anim.play("toygun_idle")
 		
@@ -641,7 +646,6 @@ func _shoot(_shootoverride=false):
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								fetti.Chargemod(chargetime)
-								chargetime = 0.0
 							fetti.init(self.global_position)
 							fetti.visible = true
 					elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
@@ -649,28 +653,26 @@ func _shoot(_shootoverride=false):
 							var spawn = hypnoray.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  1.0 + ( 0.1 * chargetime)
-								spawn.MoT *=  1.0 + ( 0.1 * chargetime)
-								chargetime = 0.0
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
 					elif Game.current_effects.has("Heart-Shot (Toygun)"):
 						for i in numShots:
 							var spawn = heartshot.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  1.0 + ( 0.1 * chargetime)
-								spawn.MoT *=  1.0 + ( 0.1 * chargetime)
-								chargetime = 0.0
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 					else:
 						for i in numShots:
 							var spawn = toybullet.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
-								spawn.mischief *=  1.0 + ( 0.1 * chargetime)
-								spawn.MoT *=  1.0 + ( 0.1 * chargetime)
-								chargetime = 0.0
+								spawn.mischief *=  (1.0 + ( 0.12 * chargetime))
+								spawn.MoT *=  (1.0 + ( 0.12 * chargetime))
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
+					chargetime = 0.0
 					await anim.animation_finished
 					anim.play("toygun_idle")
 			

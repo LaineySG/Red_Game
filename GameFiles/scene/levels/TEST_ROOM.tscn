@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dvvpplnd7mhlk"]
+[gd_scene load_steps=86 format=3 uid="uid://dvvpplnd7mhlk"]
 
 [ext_resource type="Script" path="res://scene/levels/TEST_ROOM.gd" id="1_i5cwm"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_6hcm7"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dk8edw251qj3" path="res://scene/player/player.tscn" id="16_pyb07"]
 [ext_resource type="Shader" path="res://scene/player/player.gdshader" id="17_ofbqt"]
 [ext_resource type="PackedScene" uid="uid://chtf1tf3vjph3" path="res://scene/item/idea.tscn" id="18_kemys"]
+[ext_resource type="PackedScene" uid="uid://bqdw2t26crriy" path="res://scene/mob/boo.tscn" id="18_s0xk8"]
 [ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="19_tx5dt"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="20_agrq8"]
 
@@ -3352,6 +3353,10 @@ position = Vector2(237, 99)
 
 [node name="Idea100" parent="." instance=ExtResource("18_kemys")]
 position = Vector2(237, 99)
+
+[node name="mobs" type="Node2D" parent="."]
+
+[node name="boo" parent="mobs" instance=ExtResource("18_s0xk8")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vk62y")

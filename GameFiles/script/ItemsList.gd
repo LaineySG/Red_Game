@@ -74,7 +74,7 @@ func _process(_delta):
 							data["item_texture"] = get_item_icon(get_selected_items()[0])
 							slots._drop_data(1,data)
 					
-		if Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_ctrl"):
+		elif Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_ctrl"):
 			var breakout = false
 			for slots in get_node("../../../dragdroplayer").get_children():
 				if slots.name.left(5) == "Minor" and !breakout:
