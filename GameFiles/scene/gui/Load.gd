@@ -11,7 +11,7 @@ func _process(_delta):
 	pass
 
 func _pressed():
-	if SaveAndLoad.loadgame() == null:
+	if SaveAndLoad.loadgame(1) == null:
 		text = "No save file found!"
 		modulate = Color(1,0,0,1)
 		
@@ -19,5 +19,5 @@ func _pressed():
 		text = "Load"
 		modulate = Color(1,1,1,1)
 	else:
-		SaveAndLoad.loadgame()
-		get_tree().change_scene_to_packed(SaveAndLoad.loadgame())
+		SaveAndLoad.loadgame(1)
+		get_tree().change_scene_to_packed(SaveAndLoad.loadgame(1))

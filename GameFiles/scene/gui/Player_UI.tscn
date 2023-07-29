@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=59 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -31,7 +31,6 @@
 [ext_resource type="Texture2D" uid="uid://dbdb7lcximmt3" path="res://assets/environment/scifi/anims/CIA_Coin.png" id="22_oixjb"]
 [ext_resource type="Script" path="res://scene/gui/Quit.gd" id="25_ptl4u"]
 [ext_resource type="Script" path="res://scene/gui/goldsprite.gd" id="26_ppo4d"]
-[ext_resource type="Script" path="res://scene/gui/Load.gd" id="26_rnijt"]
 [ext_resource type="Script" path="res://scene/gui/Continue.gd" id="27_2ut5b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hclwf"]
@@ -811,29 +810,44 @@ theme_override_font_sizes/font_size = 77
 text = "Quit"
 script = ExtResource("25_ptl4u")
 
-[node name="Save" type="Button" parent="pause_modulation"]
+[node name="Save1" type="Button" parent="pause_modulation"]
 process_mode = 2
-offset_left = 350.0
-offset_top = 171.0
-offset_right = 900.0
-offset_bottom = 321.0
+offset_left = 285.0
+offset_top = 145.0
+offset_right = 1085.0
+offset_bottom = 295.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontVariation_i2kh3")
 theme_override_font_sizes/font_size = 77
-text = "Save"
+text = "Save slot 1
+Override"
 script = ExtResource("5_4od5o")
 
-[node name="Load" type="Button" parent="pause_modulation"]
+[node name="Save2" type="Button" parent="pause_modulation"]
 process_mode = 2
-offset_left = 350.0
-offset_top = 291.0
-offset_right = 900.0
-offset_bottom = 441.0
+offset_left = 285.0
+offset_top = 230.0
+offset_right = 1085.0
+offset_bottom = 380.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontVariation_i2kh3")
 theme_override_font_sizes/font_size = 77
-text = "Load"
-script = ExtResource("26_rnijt")
+text = "Save slot 2
+Override"
+script = ExtResource("5_4od5o")
+
+[node name="Save3" type="Button" parent="pause_modulation"]
+process_mode = 2
+offset_left = 285.0
+offset_top = 315.0
+offset_right = 1085.0
+offset_bottom = 465.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontVariation_i2kh3")
+theme_override_font_sizes/font_size = 77
+text = "Save slot 3
+Override"
+script = ExtResource("5_4od5o")
 
 [node name="Continue" type="Button" parent="pause_modulation"]
 process_mode = 2

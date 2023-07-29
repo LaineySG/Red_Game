@@ -15,6 +15,7 @@ var dying = false
 var coindrops = true
 var currentDoTs = 0
 var frozen = false
+var attacking = false
 var currentpos
 var frogtarget
 var webstuck = false
@@ -408,12 +409,12 @@ func afflictDoT(DoT, MoT):
 	returner3.tween_property(self,"modulate", Color.WHITE, 0.2)
 	hurt(DoT,MoT,0,0)
 	currentDoTs -= 1
-		
-func attack():
-	if !hypnotized:
-		player.hurt(attackdamage,0)
-	elif frogtarget != null and hypnotized:
-		frogtarget.hurt(0,attackdamage/2.0,0,0)
+#
+#func attack():
+#	if !hypnotized:
+#		player.hurt(attackdamage,0)
+#	elif frogtarget != null and hypnotized:
+#		frogtarget.hurt(0,attackdamage/2.0,0,0)
 		
 func hypnoslow(_caster):
 	#simulates fighting a hypnotized alien
@@ -484,7 +485,10 @@ func _on_patience_value_changed(value):
 		freeze()
 
 func _on_attack_timer_timeout():
+	if !dead and !dying and !frozen and !nopatience:
+		attacking = true
 	
+func attack():
 	if hypnotized:
 		get_node("Attackbox/AttackTimer").wait_time = 2.5 + rng.randf_range(-1.5,1.5)
 	else:

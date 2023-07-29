@@ -81,7 +81,7 @@ func _apply_gravity(delta):
 		velocity.x = move_toward(velocity.x,0,delta * SPEED)
 	
 func _ready():
-	SaveAndLoad.savegame(get_tree().current_scene)
+	SaveAndLoad.savegame(get_tree().current_scene,1)  # slot 1 - autosave
 	update_ammo.emit()
 	update_gun.emit()
 	update_health.emit()
@@ -139,7 +139,7 @@ func abilitykeys(key_pressed):
 	for ability in Game.current_abilities:
 		var keypress = Game.current_abilities[ability]
 		if keypress == "S":
-			if key_pressed == "ui_shift":
+			if key_pressed == "ui_shift" and !Game.inventorylock:
 				return ability
 		elif keypress == "R":
 			if key_pressed == "ui_R":

@@ -11,7 +11,7 @@ func _ready():
 	call_deferred("set_state", states.idle)
 
 func _state_logic(delta):	
-	if state == states.run:
+	if state == states.run or state == states.shoot:
 		parent._apply_movement(delta)
 	elif (state != states.death and state != states.dead) or state == states.idle :
 		parent._apply_movement(delta,true) #delta, nomove = true
@@ -33,6 +33,9 @@ func _get_transition(_delta):
 	if parent.nopatience and parent.frozen and state != states.frozen and state != states.dead:
 		return states.frozen
 		
+	if parent.attacking:
+		return states.shoot
+		
 	match state:
 		states.idle:
 			if parent.chase:
@@ -51,6 +54,9 @@ func _get_transition(_delta):
 			return states.dead
 		states.frozen:
 			return states.dead
+		states.shoot:
+			if !parent.attacking:
+				return states.run
 
 
 func _enter_state(new, _previous):
@@ -95,11 +101,16 @@ func _enter_state(new, _previous):
 			parent.anim.play("happy")
 			get_node("Label").text = "happy"
 		states.shoot:
-			parent.anim.play("Idle")
+			parent.anim.play("attack")
 			get_node("Label").text = "shooting"
+			await parent.anim.animation_finished
+			parent.attacking = false
 		
 	
 func _exit_state(previous, _new):
 	match previous:
 		states.happy:
 			parent.interactions(true)
+		states.shoot:
+			if _new != states.shoot:
+				parent.attack()

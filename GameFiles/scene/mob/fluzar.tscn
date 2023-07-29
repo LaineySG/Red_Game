@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://dt58it6tefknc"]
+[gd_scene load_steps=75 format=3 uid="uid://dt58it6tefknc"]
 
 [ext_resource type="Script" path="res://scene/mob/fluzar.gd" id="1_jrggg"]
 [ext_resource type="Shader" path="res://scene/mob/frog.gdshader" id="2_u20l5"]
@@ -9,13 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dc64a1cspkdkp" path="res://assets/environment/scifi/anims/scifi_alien_run_4.png" id="13_n2qv6"]
 [ext_resource type="Texture2D" uid="uid://yo30a3bmye2k" path="res://assets/environment/scifi/anims/scifi_alien_run_5.png" id="14_50bxj"]
 [ext_resource type="Texture2D" uid="uid://mbvoamf4musw" path="res://assets/environment/scifi/anims/fluzar_freezing.png" id="14_o6vwd"]
-[ext_resource type="Texture2D" uid="uid://ddkbmqrrj2ty5" path="res://assets/environment/scifi/anims/scifi_alien_bite_1.png" id="15_xlt48"]
 [ext_resource type="Script" path="res://scene/mob/hp_hitbox.gd" id="16_s2cs6"]
-[ext_resource type="Texture2D" uid="uid://b1htc2nthsbsm" path="res://assets/environment/scifi/anims/scifi_alien_bite_2.png" id="16_sn602"]
 [ext_resource type="Texture2D" uid="uid://bhwtxracracqr" path="res://assets/environment/scifi/anims/frozen_fluzar.png" id="17_d22g3"]
-[ext_resource type="Texture2D" uid="uid://bd32bs3pmr1tk" path="res://assets/environment/scifi/anims/scifi_alien_bite_3.png" id="17_nebpy"]
-[ext_resource type="Texture2D" uid="uid://b36owicapyp61" path="res://assets/environment/scifi/anims/scifi_alien_bite_4.png" id="18_ep1pe"]
-[ext_resource type="Texture2D" uid="uid://cn2vtm64igjwo" path="res://assets/environment/scifi/anims/scifi_alien_bite_5.png" id="19_56u5k"]
 [ext_resource type="Texture2D" uid="uid://dqxjfugpy5d87" path="res://assets/environment/Smoke/FX001/shroomclockDoT.png" id="19_e1vvd"]
 [ext_resource type="Texture2D" uid="uid://j76kbvymmq5w" path="res://assets/gui/pixelUIart/enemyhpempty.png" id="24_74qwk"]
 [ext_resource type="Texture2D" uid="uid://dkgn6a61bmodd" path="res://assets/gui/pixelUIart/enemyhpfull.png" id="25_5udrx"]
@@ -303,23 +298,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("15_xlt48")
+"texture": SubResource("AtlasTexture_cf7cm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_sn602")
+"texture": SubResource("AtlasTexture_cf7cm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_nebpy")
+"texture": SubResource("AtlasTexture_cf7cm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_ep1pe")
+"texture": SubResource("AtlasTexture_cf7cm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_56u5k")
+"texture": SubResource("AtlasTexture_cf7cm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf7cm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nvva")
 }],
 "loop": false,
 "name": &"attack",
-"speed": 10.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -487,7 +488,7 @@ disabled = true
 material = SubResource("ShaderMaterial_kmicr")
 position = Vector2(1, 0)
 sprite_frames = SubResource("SpriteFrames_an24v")
-animation = &"Idle"
+animation = &"attack"
 
 [node name="playerdetection" type="Area2D" parent="." groups=["mob"]]
 visible = false
@@ -555,6 +556,7 @@ texture_under = ExtResource("24_74qwk")
 texture_progress = ExtResource("25_5udrx")
 
 [node name="DoTTimer" type="TextureProgressBar" parent="hp"]
+layout_mode = 0
 offset_left = 38.0
 offset_top = 12.0
 offset_right = 70.0

@@ -8,33 +8,63 @@ process_mode = 3
 script = ExtResource("1_ur567")
 
 [node name="Play" type="Button" parent="."]
-offset_left = 300.0
+offset_left = 250.0
 offset_top = 60.0
-offset_right = 700.0
+offset_right = 750.0
 offset_bottom = 160.0
 theme_override_font_sizes/font_size = 96
 text = "Play"
 
 [node name="Quit" type="Button" parent="."]
-offset_left = 300.0
+offset_left = 250.0
 offset_top = 220.0
-offset_right = 700.0
+offset_right = 750.0
 offset_bottom = 320.0
 theme_override_font_sizes/font_size = 96
 text = "Quit
 "
 
-[node name="Load" type="Button" parent="."]
-offset_left = 300.0
-offset_top = 380.0
-offset_right = 700.0
-offset_bottom = 480.0
-theme_override_font_sizes/font_size = 96
-text = "Load"
+[node name="slot1" type="Button" parent="."]
+offset_left = 250.0
+offset_top = 360.0
+offset_right = 750.0
+offset_bottom = 394.0
+theme_override_font_sizes/font_size = 32
+text = "Load slot 1 - Autosave"
+clip_text = true
+
+[node name="slot2" type="Button" parent="."]
+offset_left = 250.0
+offset_top = 404.0
+offset_right = 750.0
+offset_bottom = 438.0
+theme_override_font_sizes/font_size = 32
+text = "Load slot 2 -"
+clip_text = true
+
+[node name="slot3" type="Button" parent="."]
+offset_left = 250.0
+offset_top = 448.0
+offset_right = 750.0
+offset_bottom = 482.0
+theme_override_font_sizes/font_size = 32
+text = "Load slot 3 -"
+clip_text = true
+
+[node name="slot4" type="Button" parent="."]
+offset_left = 250.0
+offset_top = 492.0
+offset_right = 750.0
+offset_bottom = 526.0
+theme_override_font_sizes/font_size = 32
+text = "Load slot 4 -"
 clip_text = true
 
 [node name="new_BG_Test" parent="." instance=ExtResource("3_josv8")]
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="slot4" to="." method="_on_slot_4_pressed"]

@@ -18,8 +18,8 @@
 [ext_resource type="Shader" path="res://scene/player/player.gdshader" id="17_ofbqt"]
 [ext_resource type="Script" path="res://scene/item/test_idea.gd" id="18_f0wg3"]
 [ext_resource type="PackedScene" uid="uid://chtf1tf3vjph3" path="res://scene/item/idea.tscn" id="18_kemys"]
-[ext_resource type="PackedScene" uid="uid://bqdw2t26crriy" path="res://scene/mob/boo.tscn" id="18_s0xk8"]
 [ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="19_tx5dt"]
+[ext_resource type="PackedScene" uid="uid://dt58it6tefknc" path="res://scene/mob/fluzar.tscn" id="19_yfs2u"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="20_agrq8"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_6bcbv"]
@@ -2826,7 +2826,7 @@ position = Vector2(23, 108)
 material = SubResource("ShaderMaterial_y1spq")
 
 [node name="Lighting" type="Node2D" parent="."]
-position = Vector2(-2, 1)
+position = Vector2(-1, -36)
 
 [node name="Light2" type="Node2D" parent="Lighting"]
 z_index = 1
@@ -3061,7 +3061,8 @@ script = ExtResource("18_f0wg3")
 
 [node name="mobs" type="Node2D" parent="."]
 
-[node name="boo" parent="mobs" instance=ExtResource("18_s0xk8")]
+[node name="fluzar" parent="mobs" instance=ExtResource("19_yfs2u")]
+position = Vector2(45, 31)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_vk62y")

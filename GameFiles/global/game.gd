@@ -138,7 +138,11 @@ func refreshEffects():
 						level = 5
 						
 					current_effects.append(i.get("Effect"))
-					current_effects_levels[str(i.get("Effect"))] = level
+					if current_effects_levels.get(str(i.get("Effect"))): #if already exists:
+						if current_effects_levels[str(i.get("Effect"))] < level: # if improvement
+							current_effects_levels[str(i.get("Effect"))] = level
+					else:
+							current_effects_levels[str(i.get("Effect"))] = level
 			if inspect.left(5) == "Abili":
 				if i.get("Ability") != null:
 					var level
@@ -153,8 +157,12 @@ func refreshEffects():
 					elif i.get("Level") == "V":
 						level = 5
 					current_abilities[str(i.get("Ability"))] = inspect.left(6).right(1)
-					current_abilities_levels[str(i.get("Ability"))] = level
-					#eg balloon : 1-6, S = shift, R and F
+					
+					if current_abilities_levels.get(str(i.get("Ability"))): #if already exists:
+						if current_abilities_levels[str(i.get("Ability"))] < level: # if improvement
+							current_abilities_levels[str(i.get("Ability"))] = level
+					else:
+							current_abilities_levels[str(i.get("Ability"))] = level
 	
 	
 func refreshstats():
