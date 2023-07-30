@@ -151,6 +151,7 @@ func _apply_movement(delta, nomove = false):
 			get_node("Attackbox/CollisionShape2D").position.x *= -1
 			get_node("Head").position.x *= -1
 			get_node("dead_shape").position.x *= -1
+			get_node("Attackbox/RayCast2D").target_position.x *= -1
 	elif direction.x < 0 == true and player.camo == false:
 		if !nomove and !webstuck:
 			velocity.x = direction.x * speed
@@ -159,6 +160,7 @@ func _apply_movement(delta, nomove = false):
 			get_node("Attackbox/CollisionShape2D").position.x *= -1
 			get_node("Head").position.x *= -1
 			get_node("dead_shape").position.x *= -1
+			get_node("Attackbox/RayCast2D").target_position.x *= -1
 	if !nomove and abs(player.position.x - self.position.x) < 50 and player.position.y > self.position.y and !hypnotized: #if on top of player, move
 		velocity.x = -500
 	if frogtarget != null: 
@@ -371,10 +373,14 @@ func afflictDoT(DoT, MoT):
 	currentDoTs -= 1
 		
 func attack():
-	if !hypnotized:
-		player.hurt(damage,0)
-	elif frogtarget != null and hypnotized:
-		frogtarget.hurt(0,damage/2.0,0,0)
+	if get_node("Attackbox/RayCast2D").is_colliding():
+		if !get_node("Attackbox/RayCast2D").get_collider().name == "Player":
+			pass
+		else:
+			if !hypnotized:
+				player.hurt(damage,0)
+			elif frogtarget != null and hypnotized:
+				frogtarget.hurt(0,damage/2.0,0,0)
 		
 func hypnoslow(_caster):
 	#simulates fighting a hypnotized alien

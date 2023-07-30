@@ -125,31 +125,32 @@ func _input(_event):
 func _state_logic(delta):
 	if state == states.death:
 		parent.move_and_slide()
-	if state == states.wallrun:
-		parent.wallsidegravity(true)
-		parent._apply_movement(delta, 1)
-		
-	if state == states.crawl or state == states.crouch:
-		parent._apply_movement(delta, 0.5)
-	elif parent.dashing:
-		parent._apply_movement(delta, 1.0)
-	elif state == states.reload or state == states.charging or state == states.fire or state == states.gun:
-		parent._gun_movement(delta)
-		parent.move_and_slide()
 	else:
-		parent._apply_movement(delta, 1)
+		if state == states.wallrun:
+			parent.wallsidegravity(true)
+			parent._apply_movement(delta, 1)
+			
+		if state == states.crawl or state == states.crouch:
+			parent._apply_movement(delta, 0.5)
+		elif parent.dashing:
+			parent._apply_movement(delta, 1.0)
+		elif state == states.reload or state == states.charging or state == states.fire or state == states.gun:
+			parent._gun_movement(delta)
+			parent.move_and_slide()
+		else:
+			parent._apply_movement(delta, 1)
+			
+		if state == states.gun or state == states.fire or state == states.reload or state == states.charging:
+			parent._draw_gun() # refresh gun dir
+			
+		parent._update_wall_direction()
+		parent._update_move_direction()
+		parent._apply_gravity(delta)
 		
-	if state == states.gun or state == states.fire or state == states.reload or state == states.charging:
-		parent._draw_gun() # refresh gun dir
-		
-	parent._update_wall_direction()
-	parent._update_move_direction()
-	parent._apply_gravity(delta)
-	
-	if !parent.coyotetime:
-		if parent.jumps > parent.maxjumps - 1: # if they havent jumped yet
-			parent.jumps -= 1 
-		parent.coyotetime = true
+		if !parent.coyotetime:
+			if parent.jumps > parent.maxjumps - 1: # if they havent jumped yet
+				parent.jumps -= 1 
+			parent.coyotetime = true
 	
 	
 func _get_transition(_delta):

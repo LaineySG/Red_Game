@@ -355,7 +355,6 @@ collision_mask = 80
 shape = SubResource("CircleShape2D_afgcd")
 
 [node name="Attackbox" type="Area2D" parent="." groups=["mob"]]
-visible = false
 collision_layer = 64
 collision_mask = 80
 
@@ -366,6 +365,11 @@ shape = SubResource("RectangleShape2D_rxkvq")
 [node name="AttackTimer" type="Timer" parent="Attackbox"]
 wait_time = 0.5
 one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Attackbox"]
+position = Vector2(0, -10)
+target_position = Vector2(-50, 0)
+collision_mask = 25
 
 [node name="Hitbox" type="Area2D" parent="." groups=["mob"]]
 visible = false
