@@ -15,6 +15,7 @@ class_name Variables_to_load
 @export var has_toy_gun = 1
 @export var playerDied = false
 @export var currentammo = 7
+@export var currenttoyammo = 7
 @export var berserkshotcount = 0
 @export var tutorial_area2count = 0
 @export var roomcount = 0
@@ -86,6 +87,7 @@ func denitialize():
 	current_effects = Game.current_effects
 	eqptracker = Game.eqptracker
 	eqptracker2 = Game.eqptracker2
+	currenttoyammo = Game.currenttoyammo
 
 func initialize():
 	Variables.inputIsDisabled= inputIsDisabled
@@ -124,6 +126,7 @@ func initialize():
 	Game.current_effects=current_effects
 	Game.eqptracker=eqptracker
 	Game.eqptracker2=eqptracker2
+	Game.currenttoyammo=currenttoyammo
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

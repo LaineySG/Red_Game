@@ -115,11 +115,17 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true
-		ammobar.value = Game.currentammo
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
 	elif Input.is_action_just_pressed("ui_I") and get_node("UI/Inventory/Tutorial UI").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = false
 		Game.inventorylock = false
-		ammobar.value = Game.currentammo
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
 	
 	var mouse_offset = (get_viewport().get_mouse_position() - Vector2(get_viewport().size / 2))
 	$Player/Camera2D.position = lerp(Vector2(), mouse_offset.normalized() * 50, mouse_offset.length() / 1000)
@@ -308,7 +314,10 @@ func _on_update_health():
 
 
 func _on_player_update_ammo():
-	ammobar.value = Game.currentammo
+	if Game.weapon_equipped == "gun":
+		ammobar.value = Game.currentammo
+	elif Game.weapon_equipped == "toygun":
+		ammobar.value = Game.currenttoyammo
 	
 
 

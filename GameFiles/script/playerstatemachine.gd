@@ -175,9 +175,9 @@ func _get_transition(_delta):
 					parent._gun_movement(_delta)
 					parent._draw_gun()
 					parent.item_reset_cooldown.start()
-					if Game.currentammo > 0 and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
+					if ((Game.weapon_equipped == "gun" and Game.currentammo > 0) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo > 0)) and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
 						return states.fire
-					elif Game.currentammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
+					elif Game.currenttoyammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
 						return states.charging
 					elif !Game.inventorylock:
 						parent.noammoclick.play()
@@ -198,9 +198,9 @@ func _get_transition(_delta):
 				if Input.is_action_pressed("ui_left_click") and !Game.inventorylock and !Variables.inputIsDisabled and Game.weapon_equipped != null:
 					parent.item_reset_cooldown.start()
 					parent._draw_gun()
-					if Game.currentammo > 0 and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
+					if ((Game.weapon_equipped == "gun" and Game.currentammo > 0) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo > 0)) and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
 						return states.fire
-					elif Game.currentammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
+					elif Game.currenttoyammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
 						return states.charging
 					elif !Game.inventorylock:
 						parent.noammoclick.play()
@@ -241,9 +241,9 @@ func _get_transition(_delta):
 			elif Input.is_action_pressed("ui_left_click") and parent.is_on_floor() and parent.item_reset_cooldown.is_stopped() and !Game.inventorylock and !Variables.inputIsDisabled and Game.weapon_equipped != null:
 				parent.item_reset_cooldown.start()
 				parent._draw_gun()
-				if Game.currentammo > 0 and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
+				if ((Game.weapon_equipped == "gun" and Game.currentammo > 0) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo > 0)) and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
 					return states.fire
-				elif Game.currentammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
+				elif Game.currenttoyammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
 					return states.charging
 				elif !Game.inventorylock:
 					return states.reload
@@ -264,9 +264,9 @@ func _get_transition(_delta):
 			elif Input.is_action_pressed("ui_left_click") and parent.is_on_floor() and parent.item_reset_cooldown.is_stopped() and !Game.inventorylock and Game.weapon_equipped != null:
 				parent.item_reset_cooldown.start()
 				parent._draw_gun()
-				if Game.currentammo > 0 and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
+				if ((Game.weapon_equipped == "gun" and Game.currentammo > 0) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo > 0)) and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
 					return states.fire
-				elif Game.currentammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
+				elif Game.currenttoyammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
 					return states.charging
 				elif !Game.inventorylock:
 					return states.reload
@@ -277,21 +277,21 @@ func _get_transition(_delta):
 				return states.run
 			elif (Input.is_action_pressed("ui_right_click") and !Variables.inputIsDisabled) and !Game.inventorylock and Game.weapon_equipped != null:
 				return states.reload
-			elif (Input.is_action_pressed("ui_left_click")) and Game.currentammo <= 0 and !Game.inventorylock and !Variables.inputIsDisabled and Game.weapon_equipped != null:
+			elif (Input.is_action_pressed("ui_left_click")) and (Game.weapon_equipped == "gun" and Game.currentammo <= 0) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo <= 0) and !Game.inventorylock and !Variables.inputIsDisabled and Game.weapon_equipped != null:
 				parent.noammoclick.play()
 				return states.reload
-			elif (Input.is_action_pressed("ui_left_click"))  and !Variables.inputIsDisabled and Game.currentammo > 0 and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun") and Game.weapon_equipped != null:
+			elif (Input.is_action_pressed("ui_left_click"))  and !Variables.inputIsDisabled and ((Game.weapon_equipped == "gun" and Game.currentammo > 0) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo > 0)) and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun") and Game.weapon_equipped != null:
 				return states.fire
-			elif (Input.is_action_pressed("ui_left_click")) and !Variables.inputIsDisabled and Game.currentammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun" and Game.weapon_equipped != null:
+			elif (Input.is_action_pressed("ui_left_click")) and !Variables.inputIsDisabled and Game.currenttoyammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun" and Game.weapon_equipped != null:
 				return states.charging
 		states.reload: #similar to gun one
 			if (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_accept")) and !Variables.inputIsDisabled and parent.item_reset_cooldown.is_stopped():
 				return states.run
-			elif Game.currentammo == Game.ammomax: #if times out reload
+			elif (Game.weapon_equipped == "gun" and Game.currentammo == Game.ammomax) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo== Game.ammomax): #if times out reload
 				return states.gun
-			elif Input.is_action_pressed("ui_left_click") and !Variables.inputIsDisabled and Game.currentammo > 0 and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun") and Game.weapon_equipped != null:
+			elif Input.is_action_pressed("ui_left_click") and !Variables.inputIsDisabled and ((Game.weapon_equipped == "gun" and Game.currentammo > 0) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo > 0)) and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun") and Game.weapon_equipped != null:
 				return states.fire
-			elif Input.is_action_pressed("ui_left_click") and !Variables.inputIsDisabled and Game.currentammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun" and Game.weapon_equipped != null:
+			elif Input.is_action_pressed("ui_left_click") and !Variables.inputIsDisabled and Game.currenttoyammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun" and Game.weapon_equipped != null:
 				return states.charging
 		states.fire:
 			if parent.shotsfired:
@@ -434,7 +434,7 @@ func _exit_state(previous, new):
 				parent.shoot_torso.visible = false
 				parent.get_node("Gunarms/GunarmR").visible = false
 				parent.get_node("Gunarms/GunarmL").visible = false
-			if Game.currentammo != Game.ammomax: # if reload was cancelled 
+			if (Game.weapon_equipped == "gun" and Game.currentammo != Game.ammomax) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo != Game.ammomax):
 				parent.cancelreloadaudio()
 		states.fall:
 			if new != states.jump and new != states.wallrun:

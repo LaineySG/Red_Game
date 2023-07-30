@@ -99,11 +99,17 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true
-		ammobar.value = Game.currentammo
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
 	elif Input.is_action_just_pressed("ui_I") and get_node("UI/Inventory/Tutorial UI").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = false
 		Game.inventorylock = false
-		ammobar.value = Game.currentammo
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
 		
 		#remove later - testing purposes
 	if Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == false:
@@ -301,7 +307,10 @@ func _on_update_health():
 
 
 func _on_player_update_ammo():
-	ammobar.value = Game.currentammo
+	if Game.weapon_equipped == "gun":
+		ammobar.value = Game.currentammo
+	elif Game.weapon_equipped == "toygun":
+		ammobar.value = Game.currenttoyammo
 	
 
 

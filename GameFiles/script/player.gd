@@ -448,6 +448,7 @@ func _on_crouch():
 	crouch_collision.disabled = false
 	
 func _draw_gun():
+	update_ammo.emit()
 	if get_node("AnimatedSprite2D").flip_h: # if char is flipped left
 		get_node("Gunarms/GunarmR").visible = false
 		get_node("Gunarms/GunarmL").visible = true
@@ -458,8 +459,9 @@ func _draw_gun():
 		currentdir = -1
 		
 func _hide_gun():
-		get_node("Gunarms/GunarmR").visible = false
-		get_node("Gunarms/GunarmL").visible = false
+	update_ammo.emit()
+	get_node("Gunarms/GunarmR").visible = false
+	get_node("Gunarms/GunarmL").visible = false
 	
 	
 func _on_stand():
@@ -490,7 +492,10 @@ func _update_wall_direction():
 		
 
 func _reload():
-	Game.currentammo = (int(round(Game.playerstats["Magazine Size"] * 14 / 20))) + 7
+	if Game.weapon_equipped == "gun":
+		Game.currentammo = (int(round(Game.playerstats["Magazine Size"] * 14 / 20))) + 7
+	elif Game.weapon_equipped == "toygun":
+		Game.currenttoyammo = (int(round(Game.playerstats["Magazine Size"] * 14 / 20))) + 7
 	update_ammo.emit()
 
 func _shoot(_shootoverride=false):
@@ -509,7 +514,10 @@ func _shoot(_shootoverride=false):
 		if Game.current_effects.has("Quad-Shot"):
 			numShots *= 4
 		if !Game.inventorylock:
-			Game.currentammo -= 1
+			if Game.weapon_equipped == "gun":
+				Game.currentammo -= 1
+			elif Game.weapon_equipped == "toygun":
+				Game.currenttoyammo -= 1
 			update_ammo.emit()
 			if get_node("Gunarms/GunarmR").visible == true:
 				if Game.weapon_equipped == "gun":
@@ -734,6 +742,7 @@ func switchgun(_input):
 		#if Game.gun_list.size() > 1:
 			Game.weapon_equipped = Game.gun_list[0]
 	update_gun.emit()
+	update_ammo.emit()
 		
 	#if Game.weapon_equipped == "gun":
 		#anim.play("gun_idle")

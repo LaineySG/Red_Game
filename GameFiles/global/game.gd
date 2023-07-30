@@ -14,6 +14,7 @@ var runs = 0
 var has_toy_gun = 1
 var playerDied = false
 var currentammo = 7
+var currenttoyammo = 7
 var berserkshotcount = 0
 var tutorial_area2count = 0
 var roomcount = 0
@@ -59,6 +60,7 @@ func _gamereset():
 	givenabilities = []
 	playerDied = false
 	currentammo = 7
+	currenttoyammo = 7
 	berserkshotcount = 0
 	playershottimer = 0.4
 	inventorylock = false
@@ -96,6 +98,7 @@ func _gamereset():
 func _ready():
 	ammomax = (int(round(playerstats["Magazine Size"] * 14 / 20))) + 7
 	currentammo = ammomax
+	currenttoyammo = ammomax
 	
 func newRoom():
 	Game.inventorylock = false
@@ -217,6 +220,9 @@ func _process(_delta):
 	playerhpmax = 100 + (playerstats["HP"] * 10)
 	if currentammo > ammomax:
 		currentammo = ammomax
+	if currenttoyammo > ammomax:
+		currenttoyammo = ammomax
+		
 		
 	playershottimer = 0.4 - (playerstats["Fire Rate"] * 0.4 / 20)
 
