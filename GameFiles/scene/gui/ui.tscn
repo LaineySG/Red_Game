@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ptqmw5bb63iv"]
+[gd_scene load_steps=30 format=3 uid="uid://ptqmw5bb63iv"]
 
 [ext_resource type="Script" path="res://script/ui.gd" id="1_hftp1"]
 [ext_resource type="Texture2D" uid="uid://dd364yc3aikjo" path="res://assets/gui/MainPanel02.png" id="1_vwbhd"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://script/Matrix.gd" id="12_o3kya"]
 [ext_resource type="Script" path="res://script/Text_BB_Extras.gd" id="12_pyku5"]
 [ext_resource type="Script" path="res://script/Pulse.gd" id="13_t3m6n"]
+[ext_resource type="Script" path="res://scene/gui/LineEdit.gd" id="17_th1r0"]
 [ext_resource type="Texture2D" uid="uid://yvaporno4brj" path="res://assets/environment/scifi/anims/toygunicon.png" id="22_6we44"]
 
 [sub_resource type="FontVariation" id="FontVariation_s6278"]
@@ -627,6 +628,7 @@ max_length = 50
 expand_to_text_length = true
 select_all_on_focus = true
 caret_blink = true
+script = ExtResource("17_th1r0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128
@@ -701,4 +703,7 @@ script = ExtResource("11_mp03j")
 [connection signal="on_hover" from="Tutorial UI/dragdroplayer/AbiliR" to="." method="_on_texture_rect_on_hover"]
 [connection signal="on_hover" from="Tutorial UI/dragdroplayer/AbiliF" to="." method="_on_texture_rect_on_hover"]
 [connection signal="gui_input" from="Tutorial UI/dragdroplayer/ScrollContainer/ItemList" to="Tutorial UI/dragdroplayer/ScrollContainer/ItemList" method="_on_gui_input"]
+[connection signal="focus_entered" from="Tutorial UI/LineEdit" to="Tutorial UI/LineEdit" method="_on_focus_entered"]
+[connection signal="focus_exited" from="Tutorial UI/LineEdit" to="Tutorial UI/LineEdit" method="_on_focus_exited"]
 [connection signal="text_changed" from="Tutorial UI/LineEdit" to="." method="_on_line_edit_text_changed"]
+[connection signal="text_submitted" from="Tutorial UI/LineEdit" to="Tutorial UI/LineEdit" method="_on_text_submitted"]

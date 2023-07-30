@@ -19,3 +19,8 @@ func _on_focus_entered():
 func _on_focus_exited():
 	currently_focused = false
 	Variables.inputIsDisabled = false
+
+
+func _on_text_submitted(_new_text):
+	currently_focused = false
+	Variables.inputIsDisabled = false
