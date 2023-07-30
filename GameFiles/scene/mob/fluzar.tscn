@@ -1,7 +1,6 @@
 [gd_scene load_steps=75 format=3 uid="uid://dt58it6tefknc"]
 
 [ext_resource type="Script" path="res://scene/mob/fluzar.gd" id="1_jrggg"]
-[ext_resource type="Shader" path="res://scene/mob/frog.gdshader" id="2_u20l5"]
 [ext_resource type="Texture2D" uid="uid://t217k0qshdws" path="res://assets/environment/scifi/anims/fluzar.png" id="8_81p01"]
 [ext_resource type="Texture2D" uid="uid://cbdtupnqg0bnq" path="res://assets/environment/scifi/anims/scifi_alien_run_1.png" id="10_qlioh"]
 [ext_resource type="Texture2D" uid="uid://dp8jhej0p6s3y" path="res://assets/environment/scifi/anims/scifi_alien_run_2.png" id="11_cjxxn"]
@@ -25,11 +24,44 @@ radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vut2b"]
 
+[sub_resource type="Shader" id="Shader_n0rsr"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 origin:source_color;
+uniform vec4 new:source_color;
+uniform bool enable_sil = false;
+//silhouette
+uniform vec4 modulate: source_color;
+//solhouette
+
+void fragment() {
+	
+
+vec4 current_pixel = texture(TEXTURE, UV);
+vec4 modulated = COLOR - current_pixel;
+		
+		//sil
+if (enable_sil) {
+	COLOR = vec4(modulate.rgb, texture(TEXTURE, UV).a * modulate.a) + modulated;
+} else {
+	if ((distance(current_pixel, origin) < 0.1))
+		COLOR = new;
+	else
+		COLOR = current_pixel + modulated;
+}
+	//sil
+		
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kmicr"]
 resource_local_to_scene = true
-shader = ExtResource("2_u20l5")
+shader = SubResource("Shader_n0rsr")
 shader_parameter/origin = Color(0.223529, 0.262745, 0.25098, 1)
 shader_parameter/new = Color(0.223529, 0.262745, 0.25098, 1)
+shader_parameter/enable_sil = false
+shader_parameter/modulate = Color(0.772549, 0.772549, 0.772549, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5buom"]
 atlas = ExtResource("8_81p01")

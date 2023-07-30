@@ -1,7 +1,6 @@
 [gd_scene load_steps=71 format=3 uid="uid://cpoegrnujb5w5"]
 
 [ext_resource type="Script" path="res://scene/mob/grimm_boss.gd" id="1_1x84i"]
-[ext_resource type="Shader" path="res://scene/mob/frog.gdshader" id="2_wohef"]
 [ext_resource type="Texture2D" uid="uid://larkt0jdy3s7" path="res://assets/Grimm/grimm_cast.png" id="8_bw1ne"]
 [ext_resource type="Texture2D" uid="uid://d2cu2gj4jnrqj" path="res://assets/Grimm/werewolf-Sheet.png" id="8_oicoe"]
 [ext_resource type="Texture2D" uid="uid://cnckbvgvut5qo" path="res://assets/gui/pixelUIart/enemytier1bar.png" id="10_7a6u0"]
@@ -23,11 +22,44 @@ size = Vector2(66, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mdso"]
 size = Vector2(52, 23)
 
+[sub_resource type="Shader" id="Shader_n0rsr"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 origin:source_color;
+uniform vec4 new:source_color;
+uniform bool enable_sil = false;
+//silhouette
+uniform vec4 modulate: source_color;
+//solhouette
+
+void fragment() {
+	
+
+vec4 current_pixel = texture(TEXTURE, UV);
+vec4 modulated = COLOR - current_pixel;
+		
+		//sil
+if (enable_sil) {
+	COLOR = vec4(modulate.rgb, texture(TEXTURE, UV).a * modulate.a) + modulated;
+} else {
+	if ((distance(current_pixel, origin) < 0.1))
+		COLOR = new;
+	else
+		COLOR = current_pixel + modulated;
+}
+	//sil
+		
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tnuko"]
 resource_local_to_scene = true
-shader = ExtResource("2_wohef")
+shader = SubResource("Shader_n0rsr")
 shader_parameter/origin = Color(0.6, 0.898039, 0.313726, 1)
 shader_parameter/new = Color(0.537255, 0.831373, 0.341176, 1)
+shader_parameter/enable_sil = false
+shader_parameter/modulate = Color(0.835294, 0.835294, 0.835294, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7tjwl"]
 atlas = ExtResource("8_oicoe")

@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://script/frog.gd" id="1_vhlij"]
 [ext_resource type="Texture2D" uid="uid://rj7piqxalu2q" path="res://assets/environment/scifi/anims/scifi_alien_die_1.png" id="2_rvkh4"]
-[ext_resource type="Shader" path="res://scene/mob/frog.gdshader" id="2_w8o3i"]
 [ext_resource type="Texture2D" uid="uid://u3u33w7lf7pw" path="res://assets/environment/scifi/anims/scifi_alien_die_2.png" id="3_3opq3"]
 [ext_resource type="Texture2D" uid="uid://c0a8i6w2iqvs3" path="res://assets/environment/scifi/anims/scifi_alien_die_3.png" id="4_qopdm"]
 [ext_resource type="Texture2D" uid="uid://c6ek43md0ty1d" path="res://assets/environment/scifi/anims/scifi_alien_die_4.png" id="5_wvxy2"]
@@ -39,11 +38,44 @@ size = Vector2(66, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mdso"]
 size = Vector2(52, 23)
 
+[sub_resource type="Shader" id="Shader_n0rsr"]
+resource_local_to_scene = true
+code = "shader_type canvas_item;
+
+uniform vec4 origin:source_color;
+uniform vec4 new:source_color;
+uniform bool enable_sil = false;
+//silhouette
+uniform vec4 modulate: source_color;
+//solhouette
+
+void fragment() {
+	
+
+vec4 current_pixel = texture(TEXTURE, UV);
+vec4 modulated = COLOR - current_pixel;
+		
+		//sil
+if (enable_sil) {
+	COLOR = vec4(modulate.rgb, texture(TEXTURE, UV).a * modulate.a) + modulated;
+} else {
+	if ((distance(current_pixel, origin) < 0.1))
+		COLOR = new;
+	else
+		COLOR = current_pixel + modulated;
+}
+	//sil
+		
+}
+"
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_slhg2"]
 resource_local_to_scene = true
-shader = ExtResource("2_w8o3i")
+shader = SubResource("Shader_n0rsr")
 shader_parameter/origin = Color(0.6, 0.898039, 0.313726, 1)
 shader_parameter/new = Color(0.537255, 0.831373, 0.341176, 1)
+shader_parameter/enable_sil = false
+shader_parameter/modulate = Color(0.772549, 0.772549, 0.772549, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xgxdt"]
 atlas = ExtResource("19_1axlr")

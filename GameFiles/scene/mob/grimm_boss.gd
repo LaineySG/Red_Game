@@ -221,13 +221,18 @@ func freeze():
 func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 	
 	var crit_dmg = false
-	if damage > 5 or patiencedmg > 5:
+	if dmg > 5 or patiencedmg > 5:
 		var critchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
 		if critchance > 0.99:
 			crit_dmg = true
 			dmg *= 2
 			patiencedmg *= 2
 
+	if dmg >= 10 or patiencedmg >= 10:
+		get_node("AnimatedSprite2D").material.set_shader_parameter("enable_sil", true)
+		await get_tree().create_timer(0.14).timeout
+		get_node("AnimatedSprite2D").material.set_shader_parameter("enable_sil", false)
+		
 	if dmg > 0:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
