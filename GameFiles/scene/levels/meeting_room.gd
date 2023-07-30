@@ -83,6 +83,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:
 		$UI/pause_modulation.visible = true
 		Utils.pausegame()
+	if Input.is_action_just_pressed("ui_cancel") and get_node("UI/Inventory/Tutorial UI").visible:
+		get_node("UI/Inventory/Tutorial UI").visible = false
+		Game.inventorylock = false
 		
 	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true

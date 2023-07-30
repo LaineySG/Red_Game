@@ -7,11 +7,23 @@ var disabletext = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+			get_node("ColorRect2/skipicon").play("none")  
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if Input.is_action_pressed("ui_accept") and !disabletext and get_node("spacetimer").is_stopped():
+		if get_node("spacetimer").wait_time > 0.05:
+			get_node("spacetimer").wait_time -= 0.01
+			get_node("ColorRect2/skipicon").play("default")  
+		if get_node("spacetimer").wait_time < 0.23:
+			get_node("ColorRect2/Label").visible = true
+				
+	if Input.is_action_just_released("ui_accept"):
+			get_node("spacetimer").wait_time = 0.25
+			get_node("ColorRect2/skipicon").play("none")
+			get_node("ColorRect2/Label").visible = false
+		
 	if Input.is_action_pressed("ui_accept") and cursor != -1 and get_node("spacetimer").is_stopped() and !is_over and !disabletext:
 		cursor = -1
 		get_node("spacetimer").start()

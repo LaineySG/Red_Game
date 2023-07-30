@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=69 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://dbdb7lcximmt3" path="res://assets/environment/scifi/anims/CIA_Coin.png" id="22_oixjb"]
 [ext_resource type="Script" path="res://scene/gui/Quit.gd" id="25_ptl4u"]
 [ext_resource type="Script" path="res://scene/gui/goldsprite.gd" id="26_ppo4d"]
+[ext_resource type="Texture2D" uid="uid://7rgielv7ufg5" path="res://assets/gui/loadingcircle.png" id="26_uonb4"]
 [ext_resource type="Script" path="res://scene/gui/Continue.gd" id="27_2ut5b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hclwf"]
@@ -54,6 +55,86 @@ func _ready():
 func _process(_delta):
 	text = (str(floor(Game.playerhp)) + \"/\" + str(Game.playerhpmax))
 "
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gvsgv"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klkpw"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yqp0"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noikc"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n75i7"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3kkpy"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qkx12"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nek12"]
+atlas = ExtResource("26_uonb4")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j2q3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvsgv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klkpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yqp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noikc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n75i7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3kkpy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qkx12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nek12")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nek12")
+}],
+"loop": true,
+"name": &"full",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gvsgv")
+}],
+"loop": true,
+"name": &"none",
+"speed": 1.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtdtv"]
 atlas = ExtResource("21_qfvdi")
@@ -186,6 +267,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Textbox/ColorRect2/Label:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1640.95, 1391.59)]
+}
 
 [sub_resource type="Animation" id="Animation_gydr4"]
 resource_name = "textboxappears"
@@ -261,6 +354,18 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Textbox/ColorRect2/Label:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1640.95, 1391.59), Vector2(1640.95, 1036)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yvunk"]
@@ -731,6 +836,13 @@ offset_bottom = 1238.0
 scale = Vector2(47.889, 5.83293)
 color = Color(0.12549, 0.12549, 0.12549, 1)
 
+[node name="skipicon" type="AnimatedSprite2D" parent="Textbox/ColorRect2"]
+modulate = Color(1, 1, 1, 0.6)
+position = Vector2(36.8777, 33.6785)
+scale = Vector2(0.0626449, 0.514321)
+sprite_frames = SubResource("SpriteFrames_j2q3q")
+animation = &"none"
+
 [node name="spacebaricon" type="AnimatedSprite2D" parent="Textbox/ColorRect2"]
 modulate = Color(1, 1, 1, 0.521569)
 position = Vector2(18.7726, 33.088)
@@ -738,6 +850,18 @@ scale = Vector2(0.104408, 0.514321)
 sprite_frames = SubResource("SpriteFrames_4a44q")
 frame_progress = 0.880174
 script = ExtResource("22_ntma1")
+
+[node name="Label" type="Label" parent="Textbox/ColorRect2"]
+visible = false
+modulate = Color(1, 1, 1, 0.521569)
+top_level = true
+layout_mode = 0
+offset_left = 1640.95
+offset_top = 1391.59
+offset_right = 1784.95
+offset_bottom = 1420.59
+theme_override_font_sizes/font_size = 32
+text = "hold to skip"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Textbox"]
 offset_left = 339.0
@@ -763,6 +887,8 @@ autostart = true
 [node name="spacetimer" type="Timer" parent="Textbox"]
 wait_time = 0.25
 one_shot = true
+
+[node name="Timer" type="Timer" parent="Textbox"]
 
 [node name="Textboxanims" type="AnimationPlayer" parent="."]
 libraries = {
