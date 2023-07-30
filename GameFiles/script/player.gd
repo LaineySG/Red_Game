@@ -452,7 +452,7 @@ func _draw_gun():
 		get_node("Gunarms/GunarmR").visible = false
 		get_node("Gunarms/GunarmL").visible = true
 		currentdir = 1
-	else: # if char is facing right
+	else: # if char is facing 
 		get_node("Gunarms/GunarmR").visible = true
 		get_node("Gunarms/GunarmL").visible = false
 		currentdir = -1

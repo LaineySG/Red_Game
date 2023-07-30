@@ -172,8 +172,9 @@ func _get_transition(_delta):
 				return states.run
 			elif parent.is_on_floor() and parent.item_reset_cooldown.is_stopped(): 
 				if Input.is_action_pressed("ui_left_click") and !Game.inventorylock and !Variables.inputIsDisabled and Game.weapon_equipped != null:
-					parent.item_reset_cooldown.start()
+					parent._gun_movement(_delta)
 					parent._draw_gun()
+					parent.item_reset_cooldown.start()
 					if Game.currentammo > 0 and !Game.inventorylock and (!Game.current_effects.has("Pump-action (Toygun)") or !Game.weapon_equipped == "toygun"):
 						return states.fire
 					elif Game.currentammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun":
