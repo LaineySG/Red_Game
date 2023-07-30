@@ -1,0 +1,37 @@
+Assets used: 
+
+For main character and modified for NPCS:
+https://legnops.itch.io/red-hood-character
+
+For much of the tileset:
+https://0x72.itch.io/16x16-robot-tileset
+
+Agent NPC:
+https://opengameart.org/content/simon-the-secret-agent
+
+Gun audio and reloading:
+https://f8studios.itch.io/snakes-authentic-gun-sounds
+
+UI:
+https://wenrexa.itch.io/kit-nesia2
+
+Font:
+https://datagoblin.itch.io/monogram
+
+For much of the tileset and alien frog enemy:
+https://procjam.itch.io/marsh-2d-sci-fi-pack
+
+Ammo:
+https://fightswithbears.itch.io/2d-health-and-ammo-pickups
+
+Smoke and dust:
+https://nyknck.itch.io/fx062
+
+HP Bars:
+https://bdragon1727.itch.io/basic-pixel-health-bar-and-scroll-bar
+
+Some fire/frost effects:
+https://bdragon1727.itch.io/free-effect-bullet-impact-explosion-32x32
+
+Frozen ice block:
+https://opengameart.org/content/ice-block

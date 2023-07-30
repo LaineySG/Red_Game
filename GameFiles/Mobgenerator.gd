@@ -41,7 +41,7 @@ func instantiate(level,floornum):
 					mob.health = frog_base[0] + (Game.roomcount * rng.randf_range(3.0,5.0))
 					mob.patience = frog_base[1] + (Game.roomcount * rng.randf_range(2.0,4.0))
 					mob.speed = frog_base[2] + (Game.roomcount * rng.randf_range(2.0,4.0))
-					mob.damage = frog_base[3] + (Game.roomcount * rng.randf_range(0.75,2.5))
+					mob.damage = frog_base[3] + (Game.roomcount * rng.randf_range(0.7,1.50))
 					mob.level = frog_base[4] + floor(Game.roomcount/20.0)
 					get_parent().call_deferred("add_child", mob)
 				elif which_enemy < 0.8:
@@ -51,7 +51,7 @@ func instantiate(level,floornum):
 					mob.health = fluzar_base[0] + (Game.roomcount * rng.randf_range(2.0,4.0))
 					mob.patience = fluzar_base[1] + (Game.roomcount * rng.randf_range(4.0,6.0))
 					mob.speed = fluzar_base[2] + (Game.roomcount * rng.randf_range(3.0,5.0))
-					mob.damage = fluzar_base[3] + (Game.roomcount * rng.randf_range(0.75,1.50))
+					mob.damage = fluzar_base[3] + (Game.roomcount * rng.randf_range(0.75,1.25))
 					mob.level = fluzar_base[4] + floor(Game.roomcount/10.0)
 					get_parent().call_deferred("add_child", mob)
 				else:
@@ -61,7 +61,7 @@ func instantiate(level,floornum):
 					mob.health = boo_base[0] + (Game.roomcount * rng.randf_range(7.0,9.0))
 					mob.patience = boo_base[1] + (Game.roomcount * rng.randf_range(3.0,5.0))
 					mob.speed = boo_base[2] + (Game.roomcount * rng.randf_range(4.0,6.0))
-					mob.damage = boo_base[3] + (Game.roomcount * rng.randf_range(0.75,2.50))
+					mob.damage = boo_base[3] + (Game.roomcount * rng.randf_range(0.75,1.75))
 					mob.level = boo_base[4] + floor(Game.roomcount/10.0)
 					get_parent().call_deferred("add_child", mob)
 
