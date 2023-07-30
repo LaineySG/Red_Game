@@ -3,10 +3,18 @@ var mischief = 0
 var DoT = 0
 var dmg = 0
 var MoT = 0
+var length
 var targetedbodies = []
 var frequency = 3
 var amplitude = 0.3
 var time = 0
+var breakout = false
+var cast1 = false
+var cast2 = false
+var cast3 = false
+@onready var raycast1 = $RayCast2D
+@onready var raycast2 = $RayCast2D2
+@onready var raycast3 = $RayCast2D3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,13 +54,38 @@ func init(init_position):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#wave function
-		time += delta
-		var bubbling = cos(time * frequency) * amplitude
-		get_node("Sprite2D").scale.x += bubbling * delta
-		get_node("Sprite2D").scale.y += bubbling * delta
-	#wave function
+func _process(_delta):
+	if self.visible:
+		if raycast1.is_colliding() and !cast1:
+			if raycast1.get_collider().is_in_group("mob"):
+				breakout = true
+			elif !breakout:
+				mischief -= (mischief * 0.33)
+				MoT -= (MoT * 0.33)
+				dmg -= (dmg * 0.33)
+				DoT -= (DoT * 0.33)
+				cast1 = true
+		if raycast2.is_colliding() and !cast2:
+			if raycast2.get_collider().is_in_group("mob"):
+				breakout = true
+			elif !breakout:
+				mischief -= (mischief * 0.33)
+				MoT -= (MoT * 0.33)
+				dmg -= (dmg * 0.33)
+				DoT -= (DoT * 0.33)
+				cast2 = true
+		if raycast3.is_colliding() and !cast3:
+			if raycast3.get_collider().is_in_group("mob"):
+				breakout = true
+			
+		if raycast3.is_colliding() and raycast2.is_colliding() and raycast1.is_colliding() and !breakout:
+			mischief = 0
+			MoT = 0
+			dmg = 0
+			DoT = 0
+			breakout = true
+			
+			
 
 
 func _on_body_entered(body):

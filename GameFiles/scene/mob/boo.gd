@@ -247,7 +247,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is sho
 		get_parent().add_child(smokerspawn)
 		smokerspawn.emitting = true
 	
-	if dmg > 0:
+	if dmg >= 1:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position
@@ -260,7 +260,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is sho
 		else:
 			dmgnumspawn.modulate = Color.DARK_RED
 		get_parent().add_child(dmgnumspawn)
-	if patiencedmg > 0:
+	if patiencedmg >= 1:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position
@@ -290,7 +290,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is sho
 			
 			
 			
-		elif patiencedmg > 0 and !berserk and !dying and !dead and !frozen: # if shot w/ toy gun
+		elif patiencedmg >= 1 and !berserk and !dying and !dead and !frozen: # if shot w/ toy gun
 			if patbar.value >= (patbar.max_value / 1.7) or patbar.value == 0: # over 60% ish or happy
 				patbar.value -= patiencedmg
 				var wtfspawn = wtf.instantiate()
