@@ -29,8 +29,12 @@ func _input(_event):
 		
 		
 	if Input.is_action_just_pressed("ui_accept") and parent.jumps > 0 and state != states.wallrun:
-		parent.velocity.y = parent.JUMP_VELOCITY
-		parent.jumps -= 1 # doublejump
+		if parent.velocity.y < -200.0:
+			parent.velocity.y = -400.0
+			parent.jumps -= 1 # doublejump
+		else:
+			parent.velocity.y = parent.JUMP_VELOCITY
+			parent.jumps -= 1 # doublejump
 		
 	elif Input.is_action_just_pressed("ui_accept") and state == states.wallrun:
 		parent.wallsidegravity(false)
