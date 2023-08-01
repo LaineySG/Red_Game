@@ -58,6 +58,8 @@ func _ready():
 	player.update_gun.connect(_on_player_update_gun)
 	player.update_health.connect(_on_update_health)
 	get_node("UI/Textbox").changetext.connect(_on_textbox_changetext)
+	get_node("UI").visible = true
+	get_node("UI/Textbox").visible = true
 	
 	if Game.toy_kill_counter > Game.gun_kill_counter or (Game.toy_kill_counter == 0 and Game.gun_kill_counter == 0):
 		morality_tracker = "good"

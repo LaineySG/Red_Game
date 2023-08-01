@@ -1,14 +1,14 @@
-[gd_scene load_steps=90 format=3 uid="uid://db1gw1yesvekq"]
+[gd_scene load_steps=89 format=3 uid="uid://db1gw1yesvekq"]
 
 [ext_resource type="Script" path="res://scene/levels/item_choice_room.gd" id="1_gm4wm"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_7j4m2"]
-[ext_resource type="Texture2D" uid="uid://bpay2622mcaxh" path="res://assets/environment/scifi/scifi_4c1a1.png" id="3_6hjn7"]
+[ext_resource type="Texture2D" uid="uid://bivc7v2od0dld" path="res://assets/environment/background_tiles/Level_1/closed_door_W.png" id="3_hqyok"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="4_0yupn"]
-[ext_resource type="Texture2D" uid="uid://clirs7i1g1cjt" path="res://assets/environment/scifi/scifi_4g1a1.png" id="5_ewmkc"]
-[ext_resource type="Texture2D" uid="uid://cbfrq0ikloqrt" path="res://assets/environment/scifi/scifi_4h1a1.png" id="6_wh3x2"]
-[ext_resource type="Texture2D" uid="uid://d2rkqlrode73b" path="res://assets/environment/scifi/scifi_4i1a1.png" id="7_uf175"]
+[ext_resource type="Texture2D" uid="uid://2b1ijwkeemi4" path="res://assets/environment/background_tiles/Level_1/test_1_3.png" id="5_tbuj4"]
+[ext_resource type="Texture2D" uid="uid://dduw5q2b3kbxv" path="res://assets/environment/background_tiles/Level_1/test_2_3.png" id="6_r7sxx"]
+[ext_resource type="Texture2D" uid="uid://p2jo12em5h2x" path="res://assets/environment/background_tiles/Level_1/test_4_3.png" id="7_84j3e"]
 [ext_resource type="Texture2D" uid="uid://db2ckdww11pqg" path="res://assets/environment/scifi/scifi_4f1a1.png" id="8_fqo1e"]
-[ext_resource type="Texture2D" uid="uid://bowanun4reqp8" path="res://assets/environment/scifi/scifi_3a2b1.png" id="9_urey3"]
+[ext_resource type="Texture2D" uid="uid://bhwtiqv3ih3mm" path="res://assets/environment/background_tiles/Level_1/scifi_3a2b_3.png" id="9_bhias"]
 [ext_resource type="PackedScene" uid="uid://dk6hcdxo683yh" path="res://check_for_exit.tscn" id="10_bky2p"]
 [ext_resource type="PackedScene" uid="uid://5o6wuyan4l24" path="res://exitdoorgen.tscn" id="11_dset0"]
 [ext_resource type="Texture2D" uid="uid://bl2j4yweayrca" path="res://assets/environment/0x72_16x16RobotTileset.v1.png" id="12_64a31"]
@@ -23,15 +23,11 @@
 [ext_resource type="Script" path="res://scene/item/choice_idea.gd" id="22_bfcvc"]
 [ext_resource type="PackedScene" uid="uid://cb22fgnxtslwo" path="res://scene/item/shop_idea.tscn" id="26_rm2lf"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fcr6a"]
-atlas = ExtResource("3_6hjn7")
-region = Rect2(0, 0, 64, 64)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8w26"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fcr6a")
+"texture": ExtResource("3_hqyok")
 }],
 "loop": true,
 "name": &"closed",
@@ -2792,23 +2788,23 @@ shape = SubResource("RectangleShape2D_djjln")
 
 [node name="Scifi4g1a1" type="Sprite2D" parent="item_room"]
 position = Vector2(-152.435, -104.92)
-texture = ExtResource("5_ewmkc")
+texture = ExtResource("5_tbuj4")
 
 [node name="Scifi4h1a1" type="Sprite2D" parent="item_room"]
 position = Vector2(-88.435, -104.92)
-texture = ExtResource("6_wh3x2")
+texture = ExtResource("6_r7sxx")
 
 [node name="Scifi4i1a1" type="Sprite2D" parent="item_room"]
 position = Vector2(-24.435, -104.92)
-texture = ExtResource("7_uf175")
+texture = ExtResource("7_84j3e")
 
 [node name="Scifi4i1a2" type="Sprite2D" parent="item_room"]
 position = Vector2(39.565, -104.92)
-texture = ExtResource("7_uf175")
+texture = ExtResource("6_r7sxx")
 
 [node name="Scifi4f1a1" type="Sprite2D" parent="item_room"]
 position = Vector2(103.565, -104.92)
-texture = ExtResource("8_fqo1e")
+texture = ExtResource("6_r7sxx")
 
 [node name="Scifi4f1a2" type="Sprite2D" parent="item_room"]
 position = Vector2(167, -105)
@@ -2816,36 +2812,37 @@ texture = ExtResource("8_fqo1e")
 
 [node name="Scifi3a2b1" type="Sprite2D" parent="item_room"]
 position = Vector2(-216.435, -168.92)
-texture = ExtResource("9_urey3")
+texture = ExtResource("9_bhias")
 
 [node name="Scifi3a2b2" type="Sprite2D" parent="item_room"]
 position = Vector2(-152.435, -168.92)
-texture = ExtResource("9_urey3")
+texture = ExtResource("9_bhias")
 
 [node name="Scifi3a2b3" type="Sprite2D" parent="item_room"]
 position = Vector2(-88.435, -168.92)
-texture = ExtResource("9_urey3")
+texture = ExtResource("9_bhias")
 
 [node name="Scifi3a2b4" type="Sprite2D" parent="item_room"]
 position = Vector2(-24.435, -168.92)
-texture = ExtResource("9_urey3")
+texture = ExtResource("9_bhias")
 
 [node name="Scifi3a2b5" type="Sprite2D" parent="item_room"]
 position = Vector2(39.565, -168.92)
-texture = ExtResource("9_urey3")
+texture = ExtResource("9_bhias")
 
 [node name="Scifi3a2b6" type="Sprite2D" parent="item_room"]
 position = Vector2(103.565, -168.92)
-texture = ExtResource("9_urey3")
+texture = ExtResource("9_bhias")
 
 [node name="Scifi3a2b7" type="Sprite2D" parent="item_room"]
 position = Vector2(167.565, -168.92)
-texture = ExtResource("9_urey3")
+texture = ExtResource("9_bhias")
 
 [node name="check_for_exit" parent="item_room" instance=ExtResource("10_bky2p")]
 
 [node name="exitdoor" parent="item_room" instance=ExtResource("11_dset0")]
-position = Vector2(174, -105)
+position = Vector2(167, -105)
+animation = &"closed_white"
 
 [node name="TileMap" type="TileMap" parent="."]
 light_mask = 2
@@ -3117,7 +3114,7 @@ visible = false
 [node name="UI" parent="." instance=ExtResource("18_tctfw")]
 visible = false
 
-[node name="gold" parent="UI" index="9"]
+[node name="gold" parent="UI" index="10"]
 script = ExtResource("19_hmaum")
 
 [node name="item_choices" type="Node2D" parent="."]

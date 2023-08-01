@@ -1,44 +1,44 @@
-[gd_scene load_steps=43 format=3 uid="uid://cxounw8qahnah"]
+[gd_scene load_steps=46 format=3 uid="uid://cxounw8qahnah"]
 
 [ext_resource type="Script" path="res://scene/levels/fight_room_1_1.gd" id="1_wxa2m"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_i06fv"]
-[ext_resource type="Texture2D" uid="uid://dtycmtyhq5h4p" path="res://assets/environment/scifi/scifi_4c1a.png" id="3_riab3"]
+[ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="3_6afxi"]
+[ext_resource type="Texture2D" uid="uid://c2jqkinnqjfus" path="res://assets/environment/background_tiles/Level_1/test_3_2.png" id="5_wvcg5"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="6_h0nls"]
+[ext_resource type="Texture2D" uid="uid://b7sw1nfilvmij" path="res://assets/environment/background_tiles/Level_1/test_1_2.png" id="6_nspxj"]
+[ext_resource type="Texture2D" uid="uid://dtkp0rsmtedtt" path="res://assets/environment/background_tiles/Level_1/test_2_2.png" id="7_qmv7h"]
+[ext_resource type="Texture2D" uid="uid://eat8qh5mabgw" path="res://assets/environment/background_tiles/Level_1/test_4_2.png" id="8_0613f"]
+[ext_resource type="Texture2D" uid="uid://dvi8r8xxud3qc" path="res://assets/environment/background_tiles/Level_1/test_5_2.png" id="9_4lt5p"]
+[ext_resource type="Texture2D" uid="uid://dqv0uic5fcids" path="res://assets/environment/background_tiles/Level_1/test_6_2.png" id="10_e2d2t"]
+[ext_resource type="Texture2D" uid="uid://vgdrqfrlrahu" path="res://assets/environment/background_tiles/Level_1/test_7_2.png" id="11_30a1d"]
+[ext_resource type="Texture2D" uid="uid://bw74xfftv2ur" path="res://assets/environment/background_tiles/Level_1/scifi_3a2a_2.png" id="13_m2wia"]
+[ext_resource type="Texture2D" uid="uid://dcrxkqgs5a40s" path="res://assets/environment/background_tiles/Level_1/scifi_3a2b_2.png" id="14_5mt0u"]
+[ext_resource type="Texture2D" uid="uid://gygxil32gi3" path="res://assets/environment/background_tiles/Level_1/scifi_3a3a_2.png" id="15_wn6el"]
+[ext_resource type="Texture2D" uid="uid://4sik1i27dy3t" path="res://assets/environment/background_tiles/Level_1/scifi_3a2c_4.png" id="16_6iwb6"]
+[ext_resource type="Texture2D" uid="uid://bvkfjl4ryof32" path="res://assets/environment/background_tiles/Level_1/scifi_3a1_2.png" id="18_q3evv"]
+[ext_resource type="Texture2D" uid="uid://b6gnvi1i6alsg" path="res://assets/environment/background_tiles/Level_1/uppergradient1.png" id="19_6ti8q"]
+[ext_resource type="Texture2D" uid="uid://bn1mbh7loplqy" path="res://assets/environment/background_tiles/Level_1/scifi_7a2a.png" id="20_5qxgs"]
 [ext_resource type="PackedScene" uid="uid://dk6hcdxo683yh" path="res://check_for_exit.tscn" id="21_ls6gh"]
+[ext_resource type="Texture2D" uid="uid://d1j7adckiq5i7" path="res://assets/environment/background_tiles/Level_1/scifi_8a2a.png" id="21_y4joj"]
+[ext_resource type="Texture2D" uid="uid://bhmtnp3ync4rx" path="res://assets/environment/background_tiles/Level_1/scifi_8a2b.png" id="22_555qo"]
 [ext_resource type="PackedScene" uid="uid://5o6wuyan4l24" path="res://exitdoorgen.tscn" id="22_siw86"]
 [ext_resource type="PackedScene" uid="uid://m3rxdh24o1nw" path="res://tile_map_fight_1.tscn" id="23_1ol1x"]
+[ext_resource type="Texture2D" uid="uid://bv7dmmwjagdlk" path="res://assets/environment/background_tiles/Level_1/scifi_7a2b.png" id="23_doans"]
+[ext_resource type="Texture2D" uid="uid://b8lseogl3t88s" path="res://assets/environment/background_tiles/Level_1/scifi_9a2a.png" id="24_j0a3y"]
 [ext_resource type="Script" path="res://scene/levels/mobs.gd" id="29_svvs8"]
 [ext_resource type="PackedScene" uid="uid://dk8edw251qj3" path="res://scene/player/player.tscn" id="31_jpnai"]
 [ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="32_wjlnh"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="32_y1k4a"]
 [ext_resource type="PackedScene" uid="uid://q3gf76rase8m" path="res://script/mobgenerator.tscn" id="35_2hfgl"]
 [ext_resource type="PackedScene" uid="uid://pfhdu57xrkil" path="res://scene/levels/death_screen.tscn" id="36_sg1op"]
-[ext_resource type="Texture2D" uid="uid://cwb5cdrki7xb1" path="res://assets/environment/scifi/scifi_4f1a.png" id="39_dxfmu"]
 [ext_resource type="Texture2D" uid="uid://biqbvu7tpbjro" path="res://assets/environment/scifi/scifi_4g1a.png" id="40_1do1s"]
-[ext_resource type="Texture2D" uid="uid://ckr78rq85irko" path="res://assets/environment/scifi/scifi_4h1a.png" id="41_skbud"]
-[ext_resource type="Texture2D" uid="uid://1noosfl3jf2e" path="res://assets/environment/scifi/scifi_4i1a.png" id="42_plfmt"]
-[ext_resource type="Texture2D" uid="uid://bi65gc3cc5ekv" path="res://assets/environment/scifi/scifi_4j1a.png" id="43_qurua"]
-[ext_resource type="Texture2D" uid="uid://d1crcswkwawhh" path="res://assets/environment/scifi/scifi_3a2a.png" id="44_yijcv"]
-[ext_resource type="Texture2D" uid="uid://b478ka7qrq7ok" path="res://assets/environment/scifi/scifi_3a2b.png" id="45_6u083"]
-[ext_resource type="Texture2D" uid="uid://bd1phc3v7j0dr" path="res://assets/environment/scifi/scifi_3a3a.png" id="46_1o25b"]
-[ext_resource type="Texture2D" uid="uid://cvivibr3oonrg" path="res://assets/environment/scifi/scifi_3a2c.png" id="47_gs2a1"]
-[ext_resource type="Texture2D" uid="uid://duvwslurkdwit" path="res://assets/environment/scifi/scifi_7a2a.png" id="48_4bd0r"]
-[ext_resource type="Texture2D" uid="uid://de6dnqli2ylm6" path="res://assets/environment/scifi/scifi_3a1a.png" id="49_d41tt"]
-[ext_resource type="Texture2D" uid="uid://qr4iq3rapqj7" path="res://assets/environment/scifi/scifi_2a3a.png" id="50_r8bbu"]
-[ext_resource type="Texture2D" uid="uid://d1dmlms2illg0" path="res://assets/environment/scifi/scifi_2a2a.png" id="51_201b2"]
-[ext_resource type="Texture2D" uid="uid://86pq0go2wnji" path="res://assets/environment/scifi/scifi_2a1a.png" id="52_y4lis"]
-[ext_resource type="Texture2D" uid="uid://c4wbl43fxh23l" path="res://assets/environment/scifi/scifi_7a1a.png" id="53_f5oy7"]
 [ext_resource type="Texture2D" uid="uid://vrgjmca025h2" path="res://assets/environment/scifi/scifi_7a2b.png" id="54_3uqhu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pgsay"]
-atlas = ExtResource("3_riab3")
-region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_pejn3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pgsay")
+"texture": ExtResource("3_6afxi")
 }],
 "loop": true,
 "name": &"closed",
@@ -156,63 +156,63 @@ shape = SubResource("RectangleShape2D_j0cbd")
 
 [node name="Scifi4f1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(-153, -105)
-texture = ExtResource("39_dxfmu")
+texture = ExtResource("5_wvcg5")
 
 [node name="Scifi4g1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(-89, -105)
-texture = ExtResource("40_1do1s")
+texture = ExtResource("6_nspxj")
 
 [node name="Scifi4h1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(-25, -105)
-texture = ExtResource("41_skbud")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4i1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(39, -105)
-texture = ExtResource("42_plfmt")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4j1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(103, -105)
-texture = ExtResource("43_qurua")
+texture = ExtResource("8_0613f")
 
 [node name="Scifi4i1a2" type="Sprite2D" parent="fight_room"]
 position = Vector2(231, -105)
-texture = ExtResource("42_plfmt")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4i1a3" type="Sprite2D" parent="fight_room"]
 position = Vector2(295, -105)
-texture = ExtResource("42_plfmt")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4i1a6" type="Sprite2D" parent="fight_room"]
 position = Vector2(167, -105)
-texture = ExtResource("42_plfmt")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4h1a2" type="Sprite2D" parent="fight_room"]
 position = Vector2(359, -105)
-texture = ExtResource("41_skbud")
+texture = ExtResource("6_nspxj")
 
 [node name="Scifi4i1a4" type="Sprite2D" parent="fight_room"]
 position = Vector2(423, -105)
-texture = ExtResource("42_plfmt")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4i1a5" type="Sprite2D" parent="fight_room"]
 position = Vector2(487, -105)
-texture = ExtResource("42_plfmt")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4f1a2" type="Sprite2D" parent="fight_room"]
 position = Vector2(551, -105)
-texture = ExtResource("39_dxfmu")
+texture = ExtResource("9_4lt5p")
 
 [node name="Scifi4g1a2" type="Sprite2D" parent="fight_room"]
 position = Vector2(615, -105)
-texture = ExtResource("40_1do1s")
+texture = ExtResource("10_e2d2t")
 
 [node name="Scifi4g1a3" type="Sprite2D" parent="fight_room"]
 position = Vector2(679, -105)
-texture = ExtResource("40_1do1s")
+texture = ExtResource("11_30a1d")
 
 [node name="Scifi4h1a3" type="Sprite2D" parent="fight_room"]
 position = Vector2(743, -105)
-texture = ExtResource("41_skbud")
+texture = ExtResource("7_qmv7h")
 
 [node name="Scifi4g1a4" type="Sprite2D" parent="fight_room"]
 position = Vector2(807, -105)
@@ -220,199 +220,191 @@ texture = ExtResource("40_1do1s")
 
 [node name="Scifi3a2a" type="Sprite2D" parent="fight_room"]
 position = Vector2(-217, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b" type="Sprite2D" parent="fight_room"]
 position = Vector2(-153, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a2a2" type="Sprite2D" parent="fight_room"]
 position = Vector2(-89, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b2" type="Sprite2D" parent="fight_room"]
 position = Vector2(-25, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a2a3" type="Sprite2D" parent="fight_room"]
 position = Vector2(39, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b3" type="Sprite2D" parent="fight_room"]
 position = Vector2(103, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a2a4" type="Sprite2D" parent="fight_room"]
 position = Vector2(167, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b4" type="Sprite2D" parent="fight_room"]
 position = Vector2(231, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a2a5" type="Sprite2D" parent="fight_room"]
 position = Vector2(295, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b5" type="Sprite2D" parent="fight_room"]
 position = Vector2(359, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a2a6" type="Sprite2D" parent="fight_room"]
 position = Vector2(423, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b6" type="Sprite2D" parent="fight_room"]
 position = Vector2(487, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a2a7" type="Sprite2D" parent="fight_room"]
 position = Vector2(551, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b7" type="Sprite2D" parent="fight_room"]
 position = Vector2(615, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a2a8" type="Sprite2D" parent="fight_room"]
 position = Vector2(679, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2a9" type="Sprite2D" parent="fight_room"]
 position = Vector2(807, -169)
-texture = ExtResource("44_yijcv")
-
-[node name="Scifi3a2a10" type="Sprite2D" parent="fight_room"]
-position = Vector2(807, -169)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2b8" type="Sprite2D" parent="fight_room"]
 position = Vector2(743, -169)
-texture = ExtResource("45_6u083")
+texture = ExtResource("14_5mt0u")
 
 [node name="Scifi3a3a" type="Sprite2D" parent="fight_room"]
 position = Vector2(807, -233)
-texture = ExtResource("46_1o25b")
+texture = ExtResource("15_wn6el")
 
 [node name="Scifi3a2c" type="Sprite2D" parent="fight_room"]
 position = Vector2(743, -233)
-texture = ExtResource("47_gs2a1")
+texture = ExtResource("16_6iwb6")
 
 [node name="Scifi3a2a11" type="Sprite2D" parent="fight_room"]
 position = Vector2(679, -233)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2a12" type="Sprite2D" parent="fight_room"]
 position = Vector2(615, -233)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2a13" type="Sprite2D" parent="fight_room"]
 position = Vector2(423, -233)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2a14" type="Sprite2D" parent="fight_room"]
 position = Vector2(359, -233)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2a15" type="Sprite2D" parent="fight_room"]
 position = Vector2(295, -233)
-texture = ExtResource("44_yijcv")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2c2" type="Sprite2D" parent="fight_room"]
 position = Vector2(551, -233)
-texture = ExtResource("47_gs2a1")
-
-[node name="Scifi3a2c3" type="Sprite2D" parent="fight_room"]
-position = Vector2(551, -233)
-texture = ExtResource("47_gs2a1")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi3a2c4" type="Sprite2D" parent="fight_room"]
 position = Vector2(487, -233)
-texture = ExtResource("47_gs2a1")
+texture = ExtResource("13_m2wia")
 
 [node name="Scifi7a2a2" type="Sprite2D" parent="fight_room"]
-position = Vector2(232, -348)
-texture = ExtResource("48_4bd0r")
+position = Vector2(231, -348)
+texture = ExtResource("24_j0a3y")
 
 [node name="Scifi3a1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(231, -233)
-texture = ExtResource("49_d41tt")
+texture = ExtResource("18_q3evv")
 
 [node name="Scifi2a3a" type="Sprite2D" parent="fight_room"]
 position = Vector2(807, -297)
-texture = ExtResource("50_r8bbu")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a" type="Sprite2D" parent="fight_room"]
 position = Vector2(743, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a2" type="Sprite2D" parent="fight_room"]
 position = Vector2(679, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a3" type="Sprite2D" parent="fight_room"]
 position = Vector2(615, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a4" type="Sprite2D" parent="fight_room"]
 position = Vector2(551, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a5" type="Sprite2D" parent="fight_room"]
 position = Vector2(487, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a6" type="Sprite2D" parent="fight_room"]
 position = Vector2(423, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a7" type="Sprite2D" parent="fight_room"]
 position = Vector2(359, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a2a8" type="Sprite2D" parent="fight_room"]
 position = Vector2(295, -297)
-texture = ExtResource("51_201b2")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi2a1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(231, -297)
-texture = ExtResource("52_y4lis")
+texture = ExtResource("19_6ti8q")
 
 [node name="Scifi7a1a" type="Sprite2D" parent="fight_room"]
 position = Vector2(231, -377)
-texture = ExtResource("53_f5oy7")
+texture = ExtResource("20_5qxgs")
 
 [node name="Scifi7a2a" type="Sprite2D" parent="fight_room"]
 position = Vector2(295, -377)
-texture = ExtResource("48_4bd0r")
+texture = ExtResource("21_y4joj")
 
 [node name="Scifi7a2b" type="Sprite2D" parent="fight_room"]
 position = Vector2(359, -377)
-texture = ExtResource("54_3uqhu")
+texture = ExtResource("22_555qo")
 
 [node name="Scifi7a2a3" type="Sprite2D" parent="fight_room"]
 position = Vector2(423, -377)
-texture = ExtResource("48_4bd0r")
+texture = ExtResource("23_doans")
 
 [node name="Scifi7a2b2" type="Sprite2D" parent="fight_room"]
 position = Vector2(487, -377)
-texture = ExtResource("54_3uqhu")
+texture = ExtResource("21_y4joj")
 
 [node name="mask1" type="Sprite2D" parent="fight_room"]
 clip_children = 1
 position = Vector2(648, -361)
 scale = Vector2(2.03125, 0.5)
-texture = ExtResource("54_3uqhu")
+texture = ExtResource("24_j0a3y")
 
 [node name="Scifi7a2a6" type="Sprite2D" parent="fight_room/mask1"]
 position = Vector2(14.5231, -32)
 scale = Vector2(0.515384, 2)
-texture = ExtResource("48_4bd0r")
+texture = ExtResource("24_j0a3y")
 
 [node name="Scifi7a2b3" type="Sprite2D" parent="fight_room/mask1"]
 position = Vector2(-16.2462, -32)
 scale = Vector2(0.492308, 2)
-texture = ExtResource("54_3uqhu")
+texture = ExtResource("24_j0a3y")
 
 [node name="mask2" type="Sprite2D" parent="fight_room"]
 clip_children = 1
@@ -425,23 +417,24 @@ texture = ExtResource("54_3uqhu")
 position = Vector2(4.6997, 32)
 rotation = -1.5708
 scale = Vector2(2, 0.853481)
-texture = ExtResource("48_4bd0r")
+texture = ExtResource("24_j0a3y")
 
 [node name="Scifi7a2a4" type="Sprite2D" parent="fight_room"]
 position = Vector2(551, -377)
-texture = ExtResource("48_4bd0r")
+texture = ExtResource("22_555qo")
 
 [node name="Scifi7a2a6" type="Sprite2D" parent="fight_room"]
 position = Vector2(807, -377)
-texture = ExtResource("48_4bd0r")
+texture = ExtResource("23_doans")
+
+[node name="Scifi7a2b4" type="Sprite2D" parent="fight_room"]
+position = Vector2(743, -377)
+texture = ExtResource("22_555qo")
 
 [node name="check_for_exit" parent="fight_room" instance=ExtResource("21_ls6gh")]
 
 [node name="exitdoor" parent="fight_room" instance=ExtResource("22_siw86")]
-
-[node name="Scifi7a2b4" type="Sprite2D" parent="fight_room"]
-position = Vector2(743, -377)
-texture = ExtResource("54_3uqhu")
+position = Vector2(807, -105)
 
 [node name="TileMap" parent="." instance=ExtResource("23_1ol1x")]
 

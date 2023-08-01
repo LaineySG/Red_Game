@@ -378,7 +378,6 @@ func _on_textbox_changetext():
 			conversation_step += 1
 			get_node("UI/Textbox").change_text("Aaand he's gone. What a strange beast.", "red")
 		elif conversation_step == 15:
-			conversation_step = 1
 			Variables.inputIsDisabled = false
 			currentconversation = ""
 			Game.inventorylock = false
@@ -390,6 +389,7 @@ func _on_textbox_changetext():
 func _on_transition_screen_transitioned():
 	if conversation_step >= 12:
 		get_node("Grimm").visible = false
+		conversation_step = 1
 	else:
 		doorchosen.changeroom()
 	
