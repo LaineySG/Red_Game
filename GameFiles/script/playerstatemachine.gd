@@ -128,7 +128,7 @@ func _input(_event):
 
 func _state_logic(delta):
 	if state == states.death:
-		parent.move_and_slide()
+		parent._apply_gravity(delta)
 	else:
 		if state == states.wallrun:
 			parent.wallsidegravity(true)
@@ -213,6 +213,8 @@ func _get_transition(_delta):
 				elif (Input.is_action_just_pressed("ui_right_click") and !Variables.inputIsDisabled)and !Game.inventorylock and Game.weapon_equipped != null:
 					return states.reload
 		states.jump:
+			if (parent.wall_direction == -1 and Input.is_action_pressed("ui_left")) or (parent.wall_direction == 1 and Input.is_action_pressed("ui_right")):
+				return states.wallrun
 			if parent.is_on_floor():
 				return states.idle
 			elif parent.velocity.y > 16.5: # positive is DOWN
