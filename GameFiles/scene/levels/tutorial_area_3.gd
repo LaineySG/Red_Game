@@ -17,6 +17,7 @@ func _ready():
 	player.update_health.connect(_on_update_health)
 	Utils.unpausegame()
 	get_node("UI/Textbox").visible = false
+	get_node("UI").visible = true
 	
 	#get_tree().reload_current_scene()
 	#player.update_health.connect(_on_update_health)

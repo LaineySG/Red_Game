@@ -1,10 +1,18 @@
-[gd_scene load_steps=114 format=3 uid="uid://ct2v37ji1fk1x"]
+[gd_scene load_steps=117 format=3 uid="uid://ct2v37ji1fk1x"]
 
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_3.gd" id="1_2sxoi"]
 [ext_resource type="Texture2D" uid="uid://bl2j4yweayrca" path="res://assets/environment/0x72_16x16RobotTileset.v1.png" id="3_mm3yv"]
 [ext_resource type="Texture2D" uid="uid://dpwssde2a2y60" path="res://assets/environment/navarea.png" id="4_g7gmb"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="5_426d5"]
 [ext_resource type="Texture2D" uid="uid://chccse5kk5vkf" path="res://assets/environment/shadowarea.png" id="5_kv6fp"]
+[ext_resource type="Texture2D" uid="uid://bw74xfftv2ur" path="res://assets/environment/background_tiles/Level_1/scifi_3a2a_2.png" id="15_21rf7"]
+[ext_resource type="Texture2D" uid="uid://ciby7uoeldvyt" path="res://assets/environment/background_tiles/Level_1/scifi_3a2c_3.png" id="16_qjuvr"]
+[ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="17_bqrbc"]
+[ext_resource type="Texture2D" uid="uid://dvi8r8xxud3qc" path="res://assets/environment/background_tiles/Level_1/test_5_2.png" id="18_iadac"]
+[ext_resource type="Texture2D" uid="uid://vgdrqfrlrahu" path="res://assets/environment/background_tiles/Level_1/test_7_2.png" id="19_k6gvh"]
+[ext_resource type="Texture2D" uid="uid://dtkp0rsmtedtt" path="res://assets/environment/background_tiles/Level_1/test_2_2.png" id="20_aj7r7"]
+[ext_resource type="Texture2D" uid="uid://b7sw1nfilvmij" path="res://assets/environment/background_tiles/Level_1/test_1_2.png" id="21_kmuad"]
+[ext_resource type="Texture2D" uid="uid://cm2y0drjhr2hi" path="res://assets/environment/background_tiles/Level_1/door_opening.png" id="22_b5ayr"]
 [ext_resource type="PackedScene" uid="uid://up4ihseinsod" path="res://scene/item/item_generator.tscn" id="25_dw0du"]
 [ext_resource type="PackedScene" uid="uid://dk8edw251qj3" path="res://scene/player/player.tscn" id="26_8pruc"]
 [ext_resource type="Script" path="res://scene/levels/textguide.gd" id="27_nyf8p"]
@@ -14,13 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://dfl8857qpb126" path="res://assets/environment/scifi/anims/sleeperagent.png" id="30_ifes0"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="31_66kff"]
 [ext_resource type="Script" path="res://scene/levels/Sleeperagent.gd" id="31_h2jj2"]
-[ext_resource type="Texture2D" uid="uid://b478ka7qrq7ok" path="res://assets/environment/scifi/scifi_3a2b.png" id="32_274yj"]
 [ext_resource type="Texture2D" uid="uid://lffy3fa7dixg" path="res://assets/environment/scifi/anims/tablegun.png" id="32_x14yh"]
-[ext_resource type="Texture2D" uid="uid://dtycmtyhq5h4p" path="res://assets/environment/scifi/scifi_4c1a.png" id="33_mu5sp"]
 [ext_resource type="Texture2D" uid="uid://doyau0n7qtjjw" path="res://assets/environment/scifi/anims/toychest.png" id="33_tgq33"]
-[ext_resource type="Texture2D" uid="uid://bi65gc3cc5ekv" path="res://assets/environment/scifi/scifi_4j1a.png" id="34_bp8xm"]
-[ext_resource type="Texture2D" uid="uid://biqbvu7tpbjro" path="res://assets/environment/scifi/scifi_4g1a.png" id="35_jo83g"]
-[ext_resource type="Texture2D" uid="uid://ckr78rq85irko" path="res://assets/environment/scifi/scifi_4h1a.png" id="36_qk2cx"]
 [ext_resource type="Texture2D" uid="uid://bsqidby5di0pq" path="res://assets/environment/scifi/door_opening.png" id="37_jxvai"]
 [ext_resource type="Script" path="res://scene/levels/tablegun.gd" id="39_pif1s"]
 [ext_resource type="Script" path="res://scene/levels/door3.gd" id="39_ta50w"]
@@ -2716,71 +2719,71 @@ adjustment_enabled = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dq8yn"]
 size = Vector2(40, 52)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hjpmq"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcskm"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1hu0p"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_n22us"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wt1p4"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_blsr8"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hfkxu"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_prtke"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g1u3d"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f75r0"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nkb8a"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_56oo3"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_28rbu"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq5uu"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dv1uo"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_lw7cf"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(448, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pxjc1"]
-atlas = ExtResource("37_jxvai")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l62w1"]
+atlas = ExtResource("22_b5ayr")
 region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xe2ck"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hjpmq")
+"texture": SubResource("AtlasTexture_wcskm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1hu0p")
+"texture": SubResource("AtlasTexture_n22us")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wt1p4")
+"texture": SubResource("AtlasTexture_blsr8")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hfkxu")
+"texture": SubResource("AtlasTexture_prtke")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g1u3d")
+"texture": SubResource("AtlasTexture_f75r0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nkb8a")
+"texture": SubResource("AtlasTexture_56oo3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_28rbu")
+"texture": SubResource("AtlasTexture_hq5uu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dv1uo")
+"texture": SubResource("AtlasTexture_lw7cf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pxjc1")
+"texture": SubResource("AtlasTexture_l62w1")
 }],
 "loop": false,
 "name": &"opening",
@@ -2883,6 +2886,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-393219, 3, 0, -327683, 3, 0, -262147, 3, 0, -196611, 3, 0, -131075, 3, 0, -65539, 3, 0, -3, 3, 0, 65533, 3, 0, -393218, 3, 0, -327682, 3, 0, -262146, 3, 0, -196610, 3, 0, -131074, 3, 0, -65538, 3, 0, -2, 3, 0, 65534, 3, 0, -393217, 3, 0, -327681, 3, 0, -262145, 3, 0, -196609, 3, 0, -131073, 3, 0, -65537, 3, 0, -1, 3, 0, 65535, 3, 0, -458752, 3, 0, -393216, 3, 0, -327680, 3, 0, -262144, 3, 0, -196608, 3, 0, -131072, 3, 0, -65536, 3, 0, 0, 3, 0, -458751, 3, 0, -393215, 3, 0, -327679, 3, 0, -262143, 3, 0, -196607, 3, 0, -131071, 3, 0, -65535, 3, 0, 1, 3, 0, -458750, 3, 0, -393214, 3, 0, -327678, 3, 0, -262142, 3, 0, -196606, 3, 0, -131070, 3, 0, -65534, 3, 0, 2, 3, 0, -458749, 3, 0, -393213, 3, 0, -327677, 3, 0, -262141, 3, 0, -196605, 3, 0, -131069, 3, 0, -65533, 3, 0, 3, 3, 0, -458748, 3, 0, -393212, 3, 0, -327676, 3, 0, -262140, 3, 0, -196604, 3, 0, -131068, 3, 0, -65532, 3, 0, 4, 3, 0, -458747, 3, 0, -393211, 3, 0, -327675, 3, 0, -262139, 3, 0, -196603, 3, 0, -131067, 3, 0, -65531, 3, 0, 5, 3, 0, -458746, 3, 0, -393210, 3, 0, -327674, 3, 0, -262138, 3, 0, -196602, 3, 0, -131066, 3, 0, -65530, 3, 0, 6, 3, 0, -458745, 3, 0, -393209, 3, 0, -327673, 3, 0, -262137, 3, 0, -196601, 3, 0, -131065, 3, 0, -65529, 3, 0, 7, 3, 0, -458744, 3, 0, -393208, 3, 0, -327672, 3, 0, -262136, 3, 0, -196600, 3, 0, -131064, 3, 0, -65528, 3, 0, 8, 3, 0, -458743, 3, 0, -393207, 3, 0, -327671, 3, 0, -262135, 3, 0, -196599, 3, 0, -131063, 3, 0, -65527, 3, 0, 9, 3, 0, -458742, 3, 0, -393206, 3, 0, -327670, 3, 0, -262134, 3, 0, -196598, 3, 0, -131062, 3, 0, -65526, 3, 0, 10, 3, 0, -458741, 3, 0, -393205, 3, 0, -327669, 3, 0, -262133, 3, 0, -196597, 3, 0, -131061, 3, 0, -65525, 3, 0, 11, 3, 0, -458740, 3, 0, -393204, 3, 0, -327668, 3, 0, -262132, 3, 0, -196596, 3, 0, -131060, 3, 0, -65524, 3, 0, 12, 3, 0, -458739, 3, 0, -393203, 3, 0, -327667, 3, 0, -262131, 3, 0, -196595, 3, 0, -131059, 3, 0, -65523, 3, 0, 13, 3, 0, -458738, 3, 0, -393202, 3, 0, -327666, 3, 0, -262130, 3, 0, -196594, 3, 0, -131058, 3, 0, -65522, 3, 0, 14, 3, 0, -458737, 3, 0, -393201, 3, 0, -327665, 3, 0, -262129, 3, 0, -196593, 3, 0, -131057, 3, 0, -65521, 3, 0, 15, 3, 0, -458736, 3, 0, -393200, 3, 0, -327664, 3, 0, -262128, 3, 0, -196592, 3, 0, -131056, 3, 0, -65520, 3, 0, 16, 3, 0, -458735, 3, 0, -393199, 3, 0, -327663, 3, 0, -262127, 3, 0, -196591, 3, 0, -131055, 3, 0, -65519, 3, 0, 17, 3, 0, -458734, 3, 0, -393198, 3, 0, -327662, 3, 0, -262126, 3, 0, -196590, 3, 0, -131054, 3, 0, -65518, 3, 0, 18, 3, 0, -458733, 3, 0, -393197, 3, 0, -327661, 3, 0, -262125, 3, 0, -196589, 3, 0, -131053, 3, 0, -65517, 3, 0, 19, 3, 0, -458732, 3, 0, -393196, 3, 0, -327660, 3, 0, -262124, 3, 0, -196588, 3, 0, -131052, 3, 0, -65516, 3, 0, 20, 3, 0)
 
 [node name="UI" parent="." instance=ExtResource("5_426d5")]
+visible = false
 
 [node name="item_generator" parent="." instance=ExtResource("25_dw0du")]
 
@@ -3238,51 +3242,51 @@ script = ExtResource("31_66kff")
 
 [node name="Scifi3a2b" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(32, 32)
-texture = ExtResource("32_274yj")
+texture = ExtResource("15_21rf7")
 
 [node name="Scifi3a2b2" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(96, 32)
-texture = ExtResource("32_274yj")
+texture = ExtResource("15_21rf7")
 
 [node name="Scifi3a2b3" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(160, 32)
-texture = ExtResource("32_274yj")
+texture = ExtResource("16_qjuvr")
 
 [node name="Scifi3a2b4" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(224, 32)
-texture = ExtResource("32_274yj")
+texture = ExtResource("15_21rf7")
 
 [node name="Scifi3a2b5" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(288, 32)
-texture = ExtResource("32_274yj")
+texture = ExtResource("15_21rf7")
 
 [node name="Scifi3a2b6" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(352, 32)
-texture = ExtResource("32_274yj")
+texture = ExtResource("15_21rf7")
 
 [node name="Scifi4c1a" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(352, 96)
-texture = ExtResource("33_mu5sp")
+texture = ExtResource("17_bqrbc")
 
 [node name="Scifi4j1a" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(96, 96)
-texture = ExtResource("34_bp8xm")
+texture = ExtResource("18_iadac")
 
 [node name="Scifi4g1a" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(32, 96)
-texture = ExtResource("35_jo83g")
+texture = ExtResource("19_k6gvh")
 
 [node name="Scifi4g1a2" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(160, 96)
-texture = ExtResource("35_jo83g")
+texture = ExtResource("20_aj7r7")
 
 [node name="Scifi4g1a3" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(224, 96)
-texture = ExtResource("35_jo83g")
+texture = ExtResource("20_aj7r7")
 
 [node name="Scifi4h1a" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(288, 96)
-texture = ExtResource("36_qk2cx")
+texture = ExtResource("21_kmuad")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="tutorial_room1"]
 color = Color(0.160784, 0.282353, 0.396078, 1)

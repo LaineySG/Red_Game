@@ -24,6 +24,10 @@ Variables="*res://global/Variables.gd"
 Utils="*res://global/utils.gd"
 SaveAndLoad="*res://global/Save_and_load.gd"
 
+[debug]
+
+file_logging/enable_file_logging=true
+
 [display]
 
 window/size/viewport_width=960

@@ -15,6 +15,7 @@ func _ready():
 	player.update_gun.connect(_on_player_update_gun)
 	player.update_health.connect(_on_update_health)
 	get_node("UI/Textbox").visible = false
+	get_node("UI").visible = true
 	
 	Utils.unpausegame()
 	

@@ -1,9 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://5o6wuyan4l24"]
+[gd_scene load_steps=32 format=3 uid="uid://5o6wuyan4l24"]
 
-[ext_resource type="Texture2D" uid="uid://dtycmtyhq5h4p" path="res://assets/environment/scifi/scifi_4c1a.png" id="1_h1in7"]
-[ext_resource type="Texture2D" uid="uid://bsqidby5di0pq" path="res://assets/environment/scifi/door_opening.png" id="2_81082"]
+[ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="1_ucey7"]
 [ext_resource type="Texture2D" uid="uid://ly3i0x71f4s4" path="res://assets/environment/scifi/door_opening1.png" id="2_ejhu8"]
 [ext_resource type="Script" path="res://exitdoorgen.gd" id="3_6r4ce"]
+[ext_resource type="Texture2D" uid="uid://cm2y0drjhr2hi" path="res://assets/environment/background_tiles/Level_1/door_opening.png" id="3_yqaws"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="4_eprki"]
 [ext_resource type="Script" path="res://scene/levels/exitdoorarea2D.gd" id="5_ftkun"]
 [ext_resource type="Texture2D" uid="uid://cpix2rb6xo8d" path="res://assets/environment/scifi/anims/itemroom.png" id="6_efi4h"]
@@ -13,49 +13,41 @@
 [ext_resource type="PackedScene" uid="uid://tx0k8w40l0k3" path="res://roomdeterminator.tscn" id="10_18ww2"]
 [ext_resource type="Texture2D" uid="uid://cmiwbcivicski" path="res://assets/environment/scifi/anims/meeting_room.png" id="10_rikax"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qnrfv"]
-atlas = ExtResource("1_h1in7")
-region = Rect2(0, 0, 64, 64)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_e7qgc"]
 atlas = ExtResource("2_ejhu8")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_00v86"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5egek"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_w67bj"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gucvq"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fjouh"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjop3"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x3cbc"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xs7ij"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gb0ic"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab8si"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xsja5"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_psvsh"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4dsa4"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_fax3r"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rfcfj"]
-atlas = ExtResource("2_81082")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbssa"]
+atlas = ExtResource("3_yqaws")
 region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_durlr"]
-atlas = ExtResource("2_81082")
-region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lled4"]
 atlas = ExtResource("2_ejhu8")
@@ -93,7 +85,7 @@ region = Rect2(512, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qnrfv")
+"texture": ExtResource("1_ucey7")
 }],
 "loop": true,
 "name": &"closed",
@@ -109,31 +101,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_00v86")
+"texture": SubResource("AtlasTexture_5egek")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_w67bj")
+"texture": SubResource("AtlasTexture_gucvq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fjouh")
+"texture": SubResource("AtlasTexture_vjop3")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x3cbc")
+"texture": SubResource("AtlasTexture_xs7ij")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_gb0ic")
+"texture": SubResource("AtlasTexture_ab8si")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xsja5")
+"texture": SubResource("AtlasTexture_psvsh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4dsa4")
+"texture": SubResource("AtlasTexture_fax3r")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rfcfj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_durlr")
+"texture": SubResource("AtlasTexture_gbssa")
 }],
 "loop": false,
 "name": &"open",
@@ -178,7 +167,7 @@ size = Vector2(41, 57)
 [node name="exitdoor" type="AnimatedSprite2D" groups=["interact"]]
 position = Vector2(808, -105)
 sprite_frames = SubResource("SpriteFrames_tcadn")
-animation = &"closed"
+animation = &"open"
 script = ExtResource("3_6r4ce")
 
 [node name="door_light" type="Node2D" parent="."]

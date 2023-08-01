@@ -23,7 +23,7 @@ size = Vector2(66, 43)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mdso"]
 size = Vector2(52, 23)
 
-[sub_resource type="Shader" id="Shader_n0rsr"]
+[sub_resource type="Shader" id="Shader_daiuq"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -56,7 +56,7 @@ if (enable_sil) {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_slhg2"]
 resource_local_to_scene = true
-shader = SubResource("Shader_n0rsr")
+shader = SubResource("Shader_daiuq")
 shader_parameter/origin = Color(0.535156, 0.773438, 0.3125, 1)
 shader_parameter/new = Color(0, 100, 0.5, 1)
 shader_parameter/enable_sil = false

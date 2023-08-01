@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_5.gd" id="1_vahqb"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_k335v"]
-[ext_resource type="Texture2D" uid="uid://b478ka7qrq7ok" path="res://assets/environment/scifi/scifi_3a2b.png" id="3_etao7"]
-[ext_resource type="Texture2D" uid="uid://bi65gc3cc5ekv" path="res://assets/environment/scifi/scifi_4j1a.png" id="4_qia65"]
-[ext_resource type="Texture2D" uid="uid://biqbvu7tpbjro" path="res://assets/environment/scifi/scifi_4g1a.png" id="5_2p4hi"]
-[ext_resource type="Texture2D" uid="uid://ckr78rq85irko" path="res://assets/environment/scifi/scifi_4h1a.png" id="7_jkp8q"]
-[ext_resource type="Texture2D" uid="uid://cndxbucf4b837" path="res://assets/environment/scifi/scifi_4d1a.png" id="9_qn5wi"]
-[ext_resource type="Texture2D" uid="uid://bsqidby5di0pq" path="res://assets/environment/scifi/door_opening.png" id="15_67pxk"]
+[ext_resource type="Texture2D" uid="uid://dcrxkqgs5a40s" path="res://assets/environment/background_tiles/Level_1/scifi_3a2b_2.png" id="3_wdm62"]
+[ext_resource type="Texture2D" uid="uid://dvi8r8xxud3qc" path="res://assets/environment/background_tiles/Level_1/test_5_2.png" id="4_svymn"]
+[ext_resource type="Texture2D" uid="uid://dqv0uic5fcids" path="res://assets/environment/background_tiles/Level_1/test_6_2.png" id="5_iongi"]
+[ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="6_jil34"]
+[ext_resource type="Texture2D" uid="uid://cm2y0drjhr2hi" path="res://assets/environment/background_tiles/Level_1/door_opening.png" id="7_ypfxx"]
+[ext_resource type="Texture2D" uid="uid://yfemqbg4rodt" path="res://assets/environment/background_tiles/Level_1/cpu_test.png" id="11_38lfr"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="15_bx0ku"]
 [ext_resource type="Script" path="res://scene/levels/exitdoor.gd" id="16_564v0"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="17_fpm7w"]
@@ -20,47 +20,47 @@
 [ext_resource type="PackedScene" uid="uid://dk8edw251qj3" path="res://scene/player/player.tscn" id="42_0eyy7"]
 [ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="44_tj6fy"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c61yc"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_f83kq"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xqj3d"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtisr"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_luxyq"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1i05"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pmfsh"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h1pa"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_at2j4"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sxq5"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(256, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3rvm4"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbjir"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mjfvx"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwkqx"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(384, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xpa0j"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_gx24j"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(448, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_web33"]
-atlas = ExtResource("15_67pxk")
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr4mk"]
+atlas = ExtResource("7_ypfxx")
 region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8w26"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c61yc")
+"texture": ExtResource("6_jil34")
 }],
 "loop": true,
 "name": &"closed",
@@ -68,31 +68,31 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c61yc")
+"texture": SubResource("AtlasTexture_f83kq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xqj3d")
+"texture": SubResource("AtlasTexture_jtisr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_luxyq")
+"texture": SubResource("AtlasTexture_v1i05")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pmfsh")
+"texture": SubResource("AtlasTexture_8h1pa")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_at2j4")
+"texture": SubResource("AtlasTexture_2sxq5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3rvm4")
+"texture": SubResource("AtlasTexture_tbjir")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mjfvx")
+"texture": SubResource("AtlasTexture_mwkqx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xpa0j")
+"texture": SubResource("AtlasTexture_gx24j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_web33")
+"texture": SubResource("AtlasTexture_xr4mk")
 }],
 "loop": false,
 "name": &"opening",
@@ -2895,47 +2895,47 @@ script = ExtResource("2_k335v")
 
 [node name="Scifi3a2b" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(32, 32)
-texture = ExtResource("3_etao7")
+texture = ExtResource("3_wdm62")
 
 [node name="Scifi3a2b2" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(96, 32)
-texture = ExtResource("3_etao7")
+texture = ExtResource("3_wdm62")
 
 [node name="Scifi3a2b3" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(160, 32)
-texture = ExtResource("3_etao7")
+texture = ExtResource("3_wdm62")
 
 [node name="Scifi3a2b4" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(224, 32)
-texture = ExtResource("3_etao7")
+texture = ExtResource("3_wdm62")
 
 [node name="Scifi3a2b5" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(288, 32)
-texture = ExtResource("3_etao7")
+texture = ExtResource("3_wdm62")
 
 [node name="Scifi3a2b7" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(416, 32)
-texture = ExtResource("3_etao7")
+texture = ExtResource("3_wdm62")
 
 [node name="Scifi3a2b6" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(352, 32)
-texture = ExtResource("3_etao7")
+texture = ExtResource("3_wdm62")
 
 [node name="Scifi4j1a" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(96, 96)
-texture = ExtResource("4_qia65")
+texture = ExtResource("4_svymn")
 
 [node name="Scifi4g1a2" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(160, 96)
-texture = ExtResource("5_2p4hi")
+texture = ExtResource("5_iongi")
 
 [node name="Scifi4g1a3" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(224, 96)
-texture = ExtResource("5_2p4hi")
+texture = ExtResource("5_iongi")
 
 [node name="Scifi4h1a" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(288, 96)
-texture = ExtResource("7_jkp8q")
+texture = ExtResource("5_iongi")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="tutorial_room1"]
 color = Color(0.160784, 0.282353, 0.396078, 1)
@@ -2943,7 +2943,7 @@ color = Color(0.160784, 0.282353, 0.396078, 1)
 [node name="exitdoor" type="AnimatedSprite2D" parent="tutorial_room1" groups=["interact"]]
 position = Vector2(416, 96)
 sprite_frames = SubResource("SpriteFrames_f8w26")
-animation = &"closed"
+animation = &"opening"
 script = ExtResource("16_564v0")
 
 [node name="door_light" type="Node2D" parent="tutorial_room1/exitdoor"]
@@ -3018,7 +3018,7 @@ shape = SubResource("RectangleShape2D_bbvjj")
 
 [node name="Scifi4d1a" type="Sprite2D" parent="tutorial_room1"]
 position = Vector2(352, 96)
-texture = ExtResource("9_qn5wi")
+texture = ExtResource("11_38lfr")
 
 [node name="TileMap" type="TileMap" parent="."]
 light_mask = 2
@@ -3043,6 +3043,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-393219, 3, 0, -327683, 3, 0, -262147, 3, 0, -196611, 3, 0, -131075, 3, 0, -65539, 3, 0, -3, 3, 0, 65533, 3, 0, -393218, 3, 0, -327682, 3, 0, -262146, 3, 0, -196610, 3, 0, -131074, 3, 0, -65538, 3, 0, -2, 3, 0, 65534, 3, 0, -393217, 3, 0, -327681, 3, 0, -262145, 3, 0, -196609, 3, 0, -131073, 3, 0, -65537, 3, 0, -1, 3, 0, 65535, 3, 0, -458752, 3, 0, -393216, 3, 0, -327680, 3, 0, -262144, 3, 0, -196608, 3, 0, -131072, 3, 0, -65536, 3, 0, 0, 3, 0, -458751, 3, 0, -393215, 3, 0, -327679, 3, 0, -262143, 3, 0, -196607, 3, 0, -131071, 3, 0, -65535, 3, 0, 1, 3, 0, -458750, 3, 0, -393214, 3, 0, -327678, 3, 0, -262142, 3, 0, -196606, 3, 0, -131070, 3, 0, -65534, 3, 0, 2, 3, 0, -458749, 3, 0, -393213, 3, 0, -327677, 3, 0, -262141, 3, 0, -196605, 3, 0, -131069, 3, 0, -65533, 3, 0, 3, 3, 0, -458748, 3, 0, -393212, 3, 0, -327676, 3, 0, -262140, 3, 0, -196604, 3, 0, -131068, 3, 0, -65532, 3, 0, 4, 3, 0, -458747, 3, 0, -393211, 3, 0, -327675, 3, 0, -262139, 3, 0, -196603, 3, 0, -131067, 3, 0, -65531, 3, 0, 5, 3, 0, -458746, 3, 0, -393210, 3, 0, -327674, 3, 0, -262138, 3, 0, -196602, 3, 0, -131066, 3, 0, -65530, 3, 0, 6, 3, 0, -458745, 3, 0, -393209, 3, 0, -327673, 3, 0, -262137, 3, 0, -196601, 3, 0, -131065, 3, 0, -65529, 3, 0, 7, 3, 0, -458744, 3, 0, -393208, 3, 0, -327672, 3, 0, -262136, 3, 0, -196600, 3, 0, -131064, 3, 0, -65528, 3, 0, 8, 3, 0, -458743, 3, 0, -393207, 3, 0, -327671, 3, 0, -262135, 3, 0, -196599, 3, 0, -131063, 3, 0, -65527, 3, 0, 9, 3, 0, -458742, 3, 0, -393206, 3, 0, -327670, 3, 0, -262134, 3, 0, -196598, 3, 0, -131062, 3, 0, -65526, 3, 0, 10, 3, 0, -458741, 3, 0, -393205, 3, 0, -327669, 3, 0, -262133, 3, 0, -196597, 3, 0, -131061, 3, 0, -65525, 3, 0, 11, 3, 0, -458740, 3, 0, -393204, 3, 0, -327668, 3, 0, -262132, 3, 0, -196596, 3, 0, -131060, 3, 0, -65524, 3, 0, 12, 3, 0, -458739, 3, 0, -393203, 3, 0, -327667, 3, 0, -262131, 3, 0, -196595, 3, 0, -131059, 3, 0, -65523, 3, 0, 13, 3, 0, -458738, 3, 0, -393202, 3, 0, -327666, 3, 0, -262130, 3, 0, -196594, 3, 0, -131058, 3, 0, -65522, 3, 0, 14, 3, 0, -458737, 3, 0, -393201, 3, 0, -327665, 3, 0, -262129, 3, 0, -196593, 3, 0, -131057, 3, 0, -65521, 3, 0, 15, 3, 0, -458736, 3, 0, -393200, 3, 0, -327664, 3, 0, -262128, 3, 0, -196592, 3, 0, -131056, 3, 0, -65520, 3, 0, 16, 3, 0, -458735, 3, 0, -393199, 3, 0, -327663, 3, 0, -262127, 3, 0, -196591, 3, 0, -131055, 3, 0, -65519, 3, 0, 17, 3, 0, -458734, 3, 0, -393198, 3, 0, -327662, 3, 0, -262126, 3, 0, -196590, 3, 0, -131054, 3, 0, -65518, 3, 0, 18, 3, 0, -458733, 3, 0, -393197, 3, 0, -327661, 3, 0, -262125, 3, 0, -196589, 3, 0, -131053, 3, 0, -65517, 3, 0, 19, 3, 0, -458732, 3, 0, -393196, 3, 0, -327660, 3, 0, -262124, 3, 0, -196588, 3, 0, -131052, 3, 0, -65516, 3, 0, 20, 3, 0)
 
 [node name="UI" parent="." instance=ExtResource("15_bx0ku")]
+visible = false
 
 [node name="item_generator" parent="." instance=ExtResource("41_rlkun")]
 

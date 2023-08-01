@@ -10,6 +10,7 @@ var chase = false
 var dying = false
 var frozen = false
 var frogtarget
+var tutflipped = false
 var webstuck = false
 var tutorial_area_2_cutscene_1 = false
 @onready var webstucktimer = $webstucktimer
@@ -98,10 +99,11 @@ func _apply_movement(delta, nomove = false):
 		if !nomove and !webstuck:
 			velocity.x = direction.x * speed
 		get_node("AnimatedSprite2D").flip_h = true
-		if get_node("Attackbox/CollisionShape2D").position.x < 0 or tutorial_area_2_cutscene_1:
+		if get_node("Attackbox/CollisionShape2D").position.x < 0 or (tutorial_area_2_cutscene_1 and !tutflipped):
 			get_node("Attackbox/CollisionShape2D").position.x *= -1
 			get_node("Head").position.x *= -1
 			get_node("dead_shape").position.x *= -1
+			tutflipped = true
 	elif direction.x < 0 == true and player.camo == false:
 		if !nomove and !webstuck:
 			velocity.x = direction.x * speed
