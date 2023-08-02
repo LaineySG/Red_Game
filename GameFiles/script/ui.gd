@@ -30,11 +30,12 @@ func check_inventory():
 		var missingitem = false
 		for j in range(0, get_node("Tutorial UI/dragdroplayer").get_child_count() - 1):
 			var currentslot = get_node("Tutorial UI/dragdroplayer").get_child(j)
-			currentslot = currentslot.slotdata["ID"]
-			#print("\nEquipped:" +  str(Game.equipped_items))
-			var currentequip = item["ID"]
-			if currentequip == currentslot: # if the ID is the same as the dropped ID for any square
-				missingitem = true
+			if currentslot.name != "ScrollContainer":
+				currentslot = currentslot.slotdata["ID"]
+				#print("\nEquipped:" +  str(Game.equipped_items))
+				var currentequip = item["ID"]
+				if currentequip == currentslot: # if the ID is the same as the dropped ID for any square
+					missingitem = true
 		if !missingitem:
 			Game.items_list.append(item) #Append the dropped item to the equipped list
 			Game.equipped_items.erase(item) # And remove the original from the item list
@@ -98,6 +99,7 @@ func check_inventory():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	
 	if can_sell:
 		get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList").can_sell = true
 		get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").can_sell = true
@@ -112,6 +114,14 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("ui_I"):
 		check_inventory()
+		
+	if get_node("Tutorial UI").visible == false:
+		if Input.is_action_just_pressed("ui_I"):
+			var a = InputEventMouseButton.new()
+			a.set_button_index(1)
+			a.set_pressed(false)
+			Input.parse_input_event(a)
+		
 	if itemlist.is_anything_selected(): #if something is hovered
 			get_node("CanvasLayer").visible = true
 			get_node("CanvasLayer/TextureRect").position = get_global_mouse_position() + Vector2(15,15)
