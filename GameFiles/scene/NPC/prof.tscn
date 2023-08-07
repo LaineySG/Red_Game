@@ -1,7 +1,8 @@
-[gd_scene load_steps=24 format=3 uid="uid://dq1dw0mjc1phe"]
+[gd_scene load_steps=26 format=3 uid="uid://dq1dw0mjc1phe"]
 
 [ext_resource type="Script" path="res://scene/NPC/prof.gd" id="1_fpqcs"]
 [ext_resource type="Texture2D" uid="uid://bw7fe2rqrxlqm" path="res://assets/NPCs/professor.png" id="2_shdlm"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="3_4mwxh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_grp2c"]
 atlas = ExtResource("2_shdlm")
@@ -141,6 +142,15 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv36n"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4sxae"]
+resource_local_to_scene = true
+shader = ExtResource("3_4mwxh")
+shader_parameter/enable_outline = true
+shader_parameter/new = Color(0.937255, 0.623529, 0.721569, 1)
+shader_parameter/origin = null
+shader_parameter/outline_width = 0.7
+shader_parameter/outline_color = null
+
 [node name="prof" type="CharacterBody2D"]
 script = ExtResource("1_fpqcs")
 
@@ -162,13 +172,14 @@ shape = SubResource("CapsuleShape2D_nv36n")
 
 [node name="!" type="RichTextLabel" parent="."]
 visible = false
-offset_left = -4.0
-offset_top = -36.0
-offset_right = 6.0
-offset_bottom = -6.0
+material = SubResource("ShaderMaterial_4sxae")
+offset_left = -7.0
+offset_top = -47.0
+offset_right = 13.0
+offset_bottom = 13.0
 theme_override_colors/default_color = Color(1, 0.764706, 0, 1)
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 text = "!"
 

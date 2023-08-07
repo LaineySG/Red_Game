@@ -97,7 +97,7 @@ func get_nav_path():
 						frogtarget = children
 						cursor = currentdist
 			#get closets child
-		for bodies in get_node("Attackbox").get_overlapping_bodies:
+		for bodies in get_node("Attackbox").get_overlapping_bodies():
 			if bodies == frogtarget:
 				attack()
 				
@@ -261,7 +261,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 	
 	
 	if !dying and !dead:	
-		if dmg > 0:
+		if dmg >= 1:
 			hpbar.value -= dmg
 			berserk = true
 			if nopatience:

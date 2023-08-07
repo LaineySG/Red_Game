@@ -80,12 +80,22 @@ func _on_navigation_agent_2d_target_reached():
 
 
 func _on_zap_timer_timeout():
-	if current_target.is_in_group("mob"):
-		var spawn = laser.instantiate()
-		get_parent().add_child(spawn)
-		spawn.position = self.global_position
-		spawn.shoot_at_target(self.global_position,player.accuracy,current_target)
+	var numshots = 1
+	if Game.current_effects.has("Duo-Shot"):
+		numshots = 2
+	if Game.current_effects.has("Tri-Shot"):
+		numshots = 3
+	if Game.current_effects.has("Quad-Shot"):
+		numshots = 4
 		
+		
+	if current_target.is_in_group("mob"):
+		for i in numshots:
+			var spawn = laser.instantiate()
+			get_parent().add_child(spawn)
+			spawn.position = self.global_position
+			spawn.shoot_at_target(self.global_position,player.accuracy,current_target)
+			
 		var rng = RandomNumberGenerator.new()
 		var levelmodtest = (Game.current_abilities_levels["Summon(Green Aliens)"] / 5.0) + 0.4
 		var zaptime = rng.randf_range(-1.0,0.5)
@@ -95,10 +105,8 @@ func _on_zap_timer_timeout():
 			zaptime *= levelmodtest
 		if zaptime < 0.1:
 			zaptime = 0.1
+		zaptime -= ( 0.0 + (Game.playerstats["Fire Rate"] / 20.0))
 		get_node("zap_timer").wait_time = 1.3 + zaptime
-	
-	
-
 
 func _on_lifetime_timeout():
 		var rise = get_tree().create_tween()

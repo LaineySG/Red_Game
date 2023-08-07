@@ -5426,7 +5426,6 @@ texture = ExtResource("13_nwn21")
 texture_scale = 0.5
 
 [node name="confetti_dmg" type="Area2D" parent="Gunarms/GunarmR/gun"]
-visible = false
 z_index = 5
 scale = Vector2(8.72, 3.76)
 collision_mask = 65
@@ -5560,7 +5559,6 @@ texture = ExtResource("13_nwn21")
 texture_scale = 0.5
 
 [node name="confetti_dmg" type="Area2D" parent="Gunarms/GunarmL/gun"]
-visible = false
 top_level = true
 z_index = 5
 scale = Vector2(8.72, 3.76)

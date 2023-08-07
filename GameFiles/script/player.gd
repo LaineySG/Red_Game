@@ -534,9 +534,9 @@ func _shoot(_shootoverride=false):
 					get_node("Camera2D").add_trauma(0.1 + (knockbackmod / -2000 * 0.3))
 					velocity.x = knockbackmod
 					move_and_slide()
-					var randchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
-					if Game.current_effects.has("Poison Spray (Gun)") and randchance > 0.85:
-						for i in numShots:
+					for i in numShots:
+						var randchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
+						if Game.current_effects.has("Poison Spray (Gun)") and randchance > 0.85:
 							get_node("Gunarms/poison_spray").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
 							var levelmodtest = (Game.current_effects_levels["Poison Spray (Gun)"] / 5.0) + 0.4
@@ -544,17 +544,16 @@ func _shoot(_shootoverride=false):
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							fetti.init(self.global_position)
 							fetti.visible = true
-					else:
-						for i in numShots:
+						else:
 							var spawn = bullet.instantiate()
 							get_parent().add_child(spawn)
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
-					var shellspawn = shell.instantiate()
-					shellspawn.position = get_node("Gunarms/GunarmR/gun/RShellSpawn").global_position
-					var rand = rng.randi_range(-75,75)
-					shellspawn.linear_velocity.y = -50
-					shellspawn.linear_velocity.x = rand
-					get_parent().add_child(shellspawn)
+						var shellspawn = shell.instantiate()
+						shellspawn.position = get_node("Gunarms/GunarmR/gun/RShellSpawn").global_position
+						var rand = rng.randi_range(-75,75)
+						shellspawn.linear_velocity.y = -50
+						shellspawn.linear_velocity.x = rand
+						get_parent().add_child(shellspawn)
 					await anim.animation_finished
 					anim.play("gun_idle")
 					
@@ -569,21 +568,21 @@ func _shoot(_shootoverride=false):
 					get_node("Camera2D").add_trauma(0.15 * knockbackmod / 270)
 					velocity.x = knockbackmod
 					move_and_slide()
-					var rand = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
-					var cutoff2
-					var cutoff
-					if Game.current_effects.has("Confetti Cannon (Toygun)") and Game.current_effects.has("Hypno-Ray (Toygun)"):
-						cutoff2 = 0.70
-						cutoff = 0.85
-					else:
-						cutoff2 = 0.85
-						cutoff = 0.85
-					if Game.current_effects.has("Confetti Cannon (Toygun)") and rand > cutoff:
-						for i in numShots:
+					for i in numShots:
+						var rand = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
+						var cutoff2
+						var cutoff
+						if Game.current_effects.has("Confetti Cannon (Toygun)") and Game.current_effects.has("Hypno-Ray (Toygun)"):
+							cutoff2 = 0.70
+							cutoff = 0.85
+						else:
+							cutoff2 = 0.85
+							cutoff = 0.85
+						if Game.current_effects.has("Confetti Cannon (Toygun)") and rand > cutoff:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
 							var levelmodtest = (Game.current_effects_levels["Confetti Cannon (Toygun)"] / 5.0) + 0.4
-							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3)) * levelmodtest
+							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3.0)) * levelmodtest
 							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest
 							fetti.setdmg(fettidmg,0,0,fettidot)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
@@ -593,8 +592,7 @@ func _shoot(_shootoverride=false):
 								chargetime = 0.0
 							fetti.init(self.global_position)
 							fetti.visible = true
-					elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
-						for i in numShots:
+						elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
 							var spawn = hypnoray.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
@@ -603,8 +601,7 @@ func _shoot(_shootoverride=false):
 								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 								chargetime = 0.0
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
-					elif Game.current_effects.has("Heart-Shot (Toygun)"):
-						for i in numShots:
+						elif Game.current_effects.has("Heart-Shot (Toygun)"):
 							var spawn = heartshot.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
@@ -612,8 +609,7 @@ func _shoot(_shootoverride=false):
 								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
-					else:
-						for i in numShots:
+						else:
 							var spawn = toybullet.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
@@ -640,10 +636,10 @@ func _shoot(_shootoverride=false):
 					knockbackmod += (numShots - 1) * 50
 					get_node("Camera2D").add_trauma(0.1 + (knockbackmod / 2000 * 0.3))
 					velocity.x = knockbackmod
-					move_and_slide()
-					var randchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
-					if Game.current_effects.has("Poison Spray (Gun)") and randchance > 0.85:
-						for i in numShots:
+					for i in numShots:
+						move_and_slide()
+						var randchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
+						if Game.current_effects.has("Poison Spray (Gun)") and randchance > 0.85:
 							get_node("Gunarms/poison_spray").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
 							var levelmodtest = (Game.current_effects_levels["Poison Spray (Gun)"] / 5.0) + 0.4
@@ -651,17 +647,16 @@ func _shoot(_shootoverride=false):
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							fetti.init(self.global_position)
 							fetti.visible = true
-					else:
-						for i in numShots:
+						else:
 							var spawn = bullet.instantiate()
 							get_parent().add_child(spawn)
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
-					var shellspawn = shell.instantiate()
-					shellspawn.position = get_node("Gunarms/GunarmL/gun/LShellSpawn").global_position
-					var rand = rng.randi_range(-75,75)
-					shellspawn.linear_velocity.y = -50
-					shellspawn.linear_velocity.x = rand
-					get_parent().add_child(shellspawn)
+						var shellspawn = shell.instantiate()
+						shellspawn.position = get_node("Gunarms/GunarmL/gun/LShellSpawn").global_position
+						var rand = rng.randi_range(-75,75)
+						shellspawn.linear_velocity.y = -50
+						shellspawn.linear_velocity.x = rand
+						get_parent().add_child(shellspawn)
 					await anim.animation_finished
 					anim.play("gun_idle")
 					
@@ -679,18 +674,18 @@ func _shoot(_shootoverride=false):
 					var rand = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
 					var cutoff2
 					var cutoff
-					if Game.current_effects.has("Confetti Cannon (Toygun)") and Game.current_effects.has("Hypno-Ray (Toygun)"):
-						cutoff2 = 0.70 
-						cutoff = 0.85
-					else:
-						cutoff2 = 0.85
-						cutoff = 0.85
-					if Game.current_effects.has("Confetti Cannon (Toygun)") and rand > cutoff:
-						for i in numShots:
+					for i in numShots:
+						if Game.current_effects.has("Confetti Cannon (Toygun)") and Game.current_effects.has("Hypno-Ray (Toygun)"):
+							cutoff2 = 0.70 
+							cutoff = 0.85
+						else:
+							cutoff2 = 0.85
+							cutoff = 0.85
+						if Game.current_effects.has("Confetti Cannon (Toygun)") and rand > cutoff:
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
 							var levelmodtest = (Game.current_effects_levels["Confetti Cannon (Toygun)"] / 5.0) + 0.4
-							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3)) * levelmodtest
+							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3.0)) * levelmodtest
 							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest
 							fetti.setdmg(fettidmg,0,0,fettidot)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
@@ -699,8 +694,7 @@ func _shoot(_shootoverride=false):
 								fetti.Chargemod(chargetime * levelmodtest)
 							fetti.init(self.global_position)
 							fetti.visible = true
-					elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
-						for i in numShots:
+						elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
 							var spawn = hypnoray.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
@@ -708,8 +702,7 @@ func _shoot(_shootoverride=false):
 								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
-					elif Game.current_effects.has("Heart-Shot (Toygun)"):
-						for i in numShots:
+						elif Game.current_effects.has("Heart-Shot (Toygun)"):
 							var spawn = heartshot.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
@@ -717,8 +710,7 @@ func _shoot(_shootoverride=false):
 								spawn.mischief *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 								spawn.MoT *=  (1.0 + ( 0.12 * chargetime)) * levelmodtest
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
-					else:
-						for i in numShots:
+						else:
 							var spawn = toybullet.instantiate()
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):

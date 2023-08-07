@@ -2,10 +2,18 @@ shader_type canvas_item;
 
 uniform bool enable_outline = false;
 
+uniform vec4 new:source_color;
+uniform vec4 origin:source_color;
+
 uniform float outline_width = 2.0;
 uniform vec4 outline_color: source_color;
 
 void fragment() {
+	
+	
+vec4 current_pixel = texture(TEXTURE, UV);
+vec4 modulated = COLOR - current_pixel;
+	
 	if (enable_outline) {
 		
 	vec4 col = texture(TEXTURE, UV);
@@ -30,6 +38,9 @@ void fragment() {
 	maxa = max(a, maxa);
 	mina = min(a, mina);
 
-	COLOR = mix(col, outline_color, maxa - mina);
+	COLOR = mix(col, outline_color, maxa - mina) + modulated;
+	
+	
+	
 	}
 }

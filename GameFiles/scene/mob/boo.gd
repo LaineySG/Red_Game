@@ -279,7 +279,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is sho
 	
 	
 	if !dying and !dead:	
-		if dmg > 0:
+		if dmg >= 1:
 			hpbar.value -= dmg
 			berserk = true
 			if nopatience:

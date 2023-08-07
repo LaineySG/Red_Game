@@ -8,11 +8,11 @@ var direction
 var bubble = preload("res://scene/player/rainbubble.tscn")
 var first = true
 var mischief = 8 + (Game.playerstats["Punch"] * 6)
-var damage = true
-var dmg = 0
-var bubble_emitted = false
 var DoT = 0
 var MoT = 0
+var dmg = 0
+var damage = true
+var bubble_emitted = false
 var second = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -21,45 +21,43 @@ func _ready():
 		get_node("AnimatedSprite2D").modulate = Color8(0,50,255,255)
 	get_node("AnimatedSprite2D").play("default")
 	get_node("Timer").start()
-	scale.x = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)
-	scale.y = 1 + (Game.playerstats["Bullet Size"] * 2 / 10)	
+	scale.x = 1.0 + (Game.playerstats["Bullet Size"] * 2 / 10)
+	scale.y = 1.0 + (Game.playerstats["Bullet Size"] * 2 / 10)	
 	damage = true
 	if Game.current_effects.has("Big Shot"):
 		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
-		scale.x *= 2 * levelmodtest
-		scale.y *= 2 * levelmodtest
+		scale.x *= 2.0 * levelmodtest
+		scale.y *= 2.0 * levelmodtest
 	
 func shoot_at_target(start_pos,accuracy,target):
 	
-
 	if Game.current_effects.has("Duo-Shot"):
 		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
-		mischief *= 1.25 * levelmodtest
-		DoT *= 1.25 * levelmodtest
-		MoT *= 1.25 * levelmodtest
-		dmg *= 1.25 * levelmodtest
+		mischief *= 0.75 * levelmodtest
+		DoT *= 0.50 * levelmodtest
 	if Game.current_effects.has("Tri-Shot"):
 		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
-		mischief *= 1.40 * levelmodtest
-		DoT *= 1.40 * levelmodtest
-		MoT *= 1.40 * levelmodtest
-		dmg *= 1.40 * levelmodtest
+		mischief *= 0.6 * levelmodtest
+		DoT *= 0.40 * levelmodtest
 	if Game.current_effects.has("Quad-Shot"):
 		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
-		mischief *= 1.65 * levelmodtest
-		MoT *= 1.65 * levelmodtest
-		DoT *= 1.65 * levelmodtest
-		dmg *= 1.65 * levelmodtest
-	
+		mischief *= 0.4 * levelmodtest
+		DoT *= 0.30 * levelmodtest
+		
+	if Game.current_effects.has("Pump-action (Toygun)"):
+		var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+		mischief *= 1.0 + (0.2 * levelmodtest)
+		DoT *= 1.0 + (0.20 * levelmodtest)
+		
 	
 	self.global_position = start_pos
 	direction = (target.global_position - start_pos).normalized()
 	
 	var rng = RandomNumberGenerator.new()
-	var offshoot = 200 - accuracy
+	var offshoot = 200.0 - accuracy
 	var randoffshoot = rng.randi_range(-offshoot, offshoot)
 	
-	velocity = direction * speed * (1 + Game.playerstats["Shot Speed"] / 15)
+	velocity = direction * speed * (1.0 + (Game.playerstats["Shot Speed"] / 15.0))
 	velocity.y += randoffshoot
 	look_at(target.global_position)
 

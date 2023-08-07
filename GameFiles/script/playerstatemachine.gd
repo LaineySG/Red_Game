@@ -152,7 +152,7 @@ func _state_logic(delta):
 		parent._apply_gravity(delta)
 		
 		if !parent.coyotetime:
-			if parent.jumps > parent.maxjumps - 1: # if they havent jumped yet
+			if parent.jumps > (parent.maxjumps - 1): # if they havent jumped yet
 				parent.jumps -= 1 
 			parent.coyotetime = true
 	
@@ -362,7 +362,7 @@ func _enter_state(new, previous):
 		states.fall:
 			parent.anim.play("fall")
 			get_node("Label").text = "fall"
-			if previous != states.jump: #if previous state was on ground
+			if previous != states.jump and previous != states.idle: #if previous state was on ground
 				parent.coyote_time.start()
 				parent.coyotetime = true
 		states.wallrun:

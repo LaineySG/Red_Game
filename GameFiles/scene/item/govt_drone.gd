@@ -82,11 +82,20 @@ func _on_navigation_agent_2d_target_reached():
 
 
 func _on_zap_timer_timeout():
+	var numshots = 1
+	if Game.current_effects.has("Duo-Shot"):
+		numshots = 2
+	if Game.current_effects.has("Tri-Shot"):
+		numshots = 3
+	if Game.current_effects.has("Quad-Shot"):
+		numshots = 4
+		
 	if current_target.is_in_group("mob"):
-		var spawn = laser.instantiate()
-		get_parent().add_child(spawn)
-		spawn.position = self.global_position
-		spawn.shoot_at_target(self.global_position,player.accuracy,current_target)
+		for i in numshots:
+			var spawn = laser.instantiate()
+			get_parent().add_child(spawn)
+			spawn.position = self.global_position
+			spawn.shoot_at_target(self.global_position,player.accuracy,current_target)
 		
 		var rng = RandomNumberGenerator.new()
 		var levelmodtest = (Game.current_abilities_levels["Summon(CIA Drone)"] / 5.0) + 0.4
@@ -97,7 +106,25 @@ func _on_zap_timer_timeout():
 			zaptime *= levelmodtest
 		if zaptime < 0.1:
 			zaptime = 0.1
+		zaptime -= ( 0.0 + (Game.playerstats["Fire Rate"] / 20.0))
 		get_node("zap_timer").wait_time = 1.3 + zaptime
+		
+		if Game.current_effects.has("Pump-action (Toygun)"):
+			var levelmodtest2 = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
+			get_node("zap_timer").wait_time = 1.3 + (zaptime * levelmodtest2)
+		var levelmodtest2
+		var shotspeed = (1.0 + (Game.playerstats["Fire Rate"] * 0.8 / 20.0))
+		if Game.current_effects.has("Berserk (Gun)"):
+			levelmodtest2 = (Game.current_effects_levels["Berserk (Gun)"] / 5.0) + 0.4
+			shotspeed += Game.berserkshotcount * 0.1 * levelmodtest2
+			zaptime += (0.2 * (levelmodtest2))
+			
+		if Game.current_effects.has("Frenzy (Gun)"):
+			levelmodtest2 = (Game.current_effects_levels["Frenzy (Gun)"] / 5.0) + 0.4
+			shotspeed += ((0.15 * (Game.playerhpmax - Game.playerhp) / Game.playerhpmax) * levelmodtest2)
+			zaptime += (0.2 * (levelmodtest2))
+		speed *= shotspeed
+		get_node("zap_timer").wait_time = 1.3 + (zaptime)
 	
 	
 

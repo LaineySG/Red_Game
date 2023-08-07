@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://dp87hqbaj8bx8"]
+[gd_scene load_steps=25 format=3 uid="uid://dp87hqbaj8bx8"]
 
 [ext_resource type="Texture2D" uid="uid://bkhm68arka1p3" path="res://assets/NPCs/blue.png" id="1_2hduy"]
 [ext_resource type="Script" path="res://scene/NPC/blue.gd" id="1_8ggtl"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="3_scf8t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gb010"]
 atlas = ExtResource("1_2hduy")
@@ -139,6 +140,15 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_218gg"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt557"]
+resource_local_to_scene = true
+shader = ExtResource("3_scf8t")
+shader_parameter/enable_outline = true
+shader_parameter/new = null
+shader_parameter/origin = null
+shader_parameter/outline_width = 0.7
+shader_parameter/outline_color = null
+
 [node name="Blue" type="CharacterBody2D"]
 collision_mask = 16
 script = ExtResource("1_8ggtl")
@@ -161,13 +171,14 @@ shape = SubResource("CapsuleShape2D_218gg")
 
 [node name="!" type="RichTextLabel" parent="."]
 visible = false
-offset_left = -4.0
-offset_top = -36.0
-offset_right = 6.0
-offset_bottom = -6.0
+material = SubResource("ShaderMaterial_bt557")
+offset_left = -7.0
+offset_top = -47.0
+offset_right = 23.0
+offset_bottom = 8.0
 theme_override_colors/default_color = Color(1, 0.764706, 0, 1)
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
 bbcode_enabled = true
 text = "!"
 

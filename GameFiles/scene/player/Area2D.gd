@@ -19,8 +19,20 @@ var cast3 = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$lifetime.start()
+	var tickspeed = (Game.playerstats["Shot Speed"] / 200.0)
+	$damageticker.wait_time = (0.25 - tickspeed)
 	$damageticker.start()
 	look_at(get_global_mouse_position())
+	scale.x = 8.72 + (Game.playerstats["Bullet Size"] * 1.0 / 15.0)
+	scale.y = 3.76 + (Game.playerstats["Bullet Size"] * 1.0 / 15.0)	
+	if Game.current_effects.has("Big Shot"):
+		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.6
+		if scale.x < 10:
+			scale.x = 10 + (1.5 * levelmodtest)
+			scale.y = 5 + (1.5 * levelmodtest)
+		else:
+			scale.x = 12 + (1.5 * levelmodtest)
+			scale.y *= 8 + (1.5 * levelmodtest)
 		
 func setdmg(input_mischief,input_dmg,input_DoT,input_MoT):
 	mischief = input_mischief
@@ -28,20 +40,31 @@ func setdmg(input_mischief,input_dmg,input_DoT,input_MoT):
 	DoT = input_DoT
 	MoT = input_MoT
 	if Game.current_effects.has("Duo-Shot"):
-		mischief *= 1.15
-		DoT *= 1.15
-		dmg *= 1.15
-		MoT *= 1.15
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		var modifier = 1.0 + (0.15 * levelmodtest)
+		mischief  *= modifier
+		DoT  *= modifier
+		dmg  *= modifier
+		MoT  *= modifier
 	if Game.current_effects.has("Tri-Shot"):
-		mischief *= 1.25
-		DoT *= 1.25
-		dmg *= 1.25
-		MoT *= 1.25
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		var modifier = 1.0 + (0.25 * levelmodtest)
+		mischief  *= modifier
+		DoT  *= modifier
+		dmg  *= modifier
+		MoT  *= modifier
 	if Game.current_effects.has("Quad-Shot"):
-		mischief *= 1.4
-		DoT *= 1.4
-		dmg *= 1.4
-		MoT *= 1.4
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		var modifier = 1.0 + (0.40 * levelmodtest)
+		mischief  *= modifier
+		DoT  *= modifier
+		dmg  *= modifier
+		MoT  *= modifier
+		
+	if Game.current_effects.has("Flintlock (Gun)") and Game.weapon_equipped == "gun":
+		var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
+		dmg *= (1.0 + (0.4 * levelmodtest))
+		
 	
 func Chargemod(chargetime):
 	mischief *=  1.0 + ( 0.1 * chargetime)

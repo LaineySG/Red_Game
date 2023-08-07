@@ -7,12 +7,13 @@ var speed = 400.0
 var direction
 var bubble = preload("res://scene/player/rainbubble.tscn")
 var first = true
-var mischief = 15 + (Game.playerstats["Punch"] * 5)
+var mischief = 15.0 + (Game.playerstats["Punch"] * 5.0)
+var dmg = 0
+var DoT = 0
+var MoT = 0
 var damage = true
 var rng = RandomNumberGenerator.new()
 var bubble_emitted = false
-var DoT = 0
-var MoT = 0
 var second = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -21,19 +22,19 @@ func _ready():
 	if Game.current_effects.has("Freeze-Ray (Toygun)"):
 		get_node("AnimatedSprite2D").play("ice")
 	get_node("Timer").start()
-	scale.x = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
-	scale.y = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
+	scale.x = 1.0 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
+	scale.y = 1.0 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
 	damage = true
 	
 	
 	if Game.current_effects.has("Big Shot"):
 		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
 		if scale.x < 1.5:
-			scale.x = (4 * levelmodtest)
-			scale.y = (4 * levelmodtest)
+			scale.x = (4.0 * levelmodtest)
+			scale.y = (4.0 * levelmodtest)
 		else:
-			scale.x *= (3 * levelmodtest)
-			scale.y *= (3 * levelmodtest)
+			scale.x *= (3.0 * levelmodtest)
+			scale.y *= (3.0 * levelmodtest)
 	
 func shoot_at_mouse(start_pos,accuracy):
 	
@@ -55,10 +56,10 @@ func shoot_at_mouse(start_pos,accuracy):
 	self.global_position = start_pos
 	direction = (get_global_mouse_position() - start_pos).normalized()
 	
-	var offshoot = 200 - accuracy
+	var offshoot = 200.0 - accuracy
 	var randoffshoot = rng.randi_range(-offshoot, offshoot)
 	
-	velocity = direction * speed * (1 + Game.playerstats["Shot Speed"] / 15)
+	velocity = direction * speed * (1.0 + (Game.playerstats["Shot Speed"] / 15.0))
 	velocity.y += randoffshoot
 	look_at(get_global_mouse_position())
 
@@ -76,7 +77,7 @@ func spawnbubble():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var collision = move_and_collide(velocity * delta)		
-	var gravmod = 3
+	var gravmod = 3.0
 		
 	if collision and !collision.get_collider().is_in_group("bullets") and first and ((collision.get_normal().x == 0) and ((collision.get_normal().y == 1)) or (collision.get_normal().y == -1)):
 		#bounce condition

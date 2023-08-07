@@ -278,7 +278,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 	
 	
 	if !dying and !dead and direction != null:	
-		if dmg > 0:
+		if dmg >= 1:
 			hpbar.value -= dmg
 			berserk = true
 			if nopatience:

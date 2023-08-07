@@ -118,7 +118,7 @@ func _process(_delta):
 	if get_node("Tutorial UI").visible == false:
 		if Input.is_action_just_pressed("ui_I"):
 			var a = InputEventMouseButton.new()
-			a.set_button_index(1)
+			a.set_button_index(MOUSE_BUTTON_LEFT)
 			a.set_pressed(false)
 			Input.parse_input_event(a)
 		

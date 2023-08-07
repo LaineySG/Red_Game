@@ -1,7 +1,8 @@
-[gd_scene load_steps=109 format=3 uid="uid://bw4cvf7h2mhwn"]
+[gd_scene load_steps=110 format=3 uid="uid://bw4cvf7h2mhwn"]
 
 [ext_resource type="Script" path="res://scene/levels/boss_fight_1.gd" id="1_ofwsy"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_ikad3"]
+[ext_resource type="Texture2D" uid="uid://bpay2622mcaxh" path="res://assets/environment/scifi/scifi_4c1a1.png" id="3_iugoe"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="4_6dxt3"]
 [ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="4_sjliq"]
 [ext_resource type="Texture2D" uid="uid://dvi8r8xxud3qc" path="res://assets/environment/background_tiles/Level_1/test_5_2.png" id="8_bou1x"]
@@ -42,7 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://pfhdu57xrkil" path="res://scene/levels/death_screen.tscn" id="39_bfiku"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcr6a"]
-atlas = ExtResource("4_sjliq")
+atlas = ExtResource("3_iugoe")
 region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8w26"]
@@ -3513,7 +3514,7 @@ script = ExtResource("2_ikad3")
 [node name="closeddoor" type="AnimatedSprite2D" parent="item_room"]
 position = Vector2(-216.435, -104.92)
 sprite_frames = SubResource("SpriteFrames_f8w26")
-animation = &"closed"
+animation = &"closed_blue"
 
 [node name="door_light" type="Node2D" parent="item_room/closeddoor"]
 z_index = 1

@@ -6,14 +6,15 @@ var speed = 250.0
 var frequency = 30
 var amplitude = 40
 var time = 0
+var mischief = 15.0 + (Game.playerstats["Punch"] * 5.0)
+var DoT = 0
+var MoT =   3.0 + (Game.playerstats["Punch"] * 2.0)
+var dmg = 0
 var direction
 var bubble = preload("res://scene/player/rainbubble.tscn")
 var bubble_emitted = false
 var first = true
-var mischief = 15 + (Game.playerstats["Punch"] * 5)
 var damage = true
-var DoT = 0
-var MoT =   3 + (Game.playerstats["Punch"] * 2)
 var second = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -22,13 +23,13 @@ func _ready():
 	if Game.current_effects.has("Freeze-Ray (Toygun)"):
 		get_node("AnimatedSprite2D").play("frost_idle")
 	get_node("Timer").start()
-	scale.x = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
-	scale.y = 1 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
+	scale.x = 1.0 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
+	scale.y = 1.0 + (Game.playerstats["Bullet Size"] * 1.0 / 5.0)
 	damage = true
 	if Game.current_effects.has("Big Shot"):
 		var levelmodtest = (Game.current_effects_levels["Big Shot"] / 5.0) + 0.4
-		scale.x *= 2 *levelmodtest
-		scale.y *= 2*levelmodtest
+		scale.x *= 2.0 *levelmodtest
+		scale.y *= 2.0*levelmodtest
 	
 func shoot_at_mouse(start_pos,accuracy):
 	
@@ -48,15 +49,15 @@ func shoot_at_mouse(start_pos,accuracy):
 	
 	self.global_position = start_pos
 	direction = (get_global_mouse_position() - start_pos).normalized()
-	if accuracy < 50:
-		accuracy = 50
+	if accuracy < 50.0:
+		accuracy = 50.0
 	else:
-		accuracy = 100
+		accuracy = 100.0
 	var rng = RandomNumberGenerator.new()
-	var offshoot = 200 - accuracy
+	var offshoot = 200.0 - accuracy
 	var randoffshoot = rng.randi_range(-offshoot, offshoot)
 	
-	velocity = direction * speed * (1 + Game.playerstats["Shot Speed"] / 60)
+	velocity = direction * speed * (1.0 + (Game.playerstats["Shot Speed"] / 60.0))
 	velocity.y += randoffshoot
 	look_at(get_global_mouse_position())
 	if velocity.x < 0 :
