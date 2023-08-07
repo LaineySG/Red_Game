@@ -11,4 +11,4 @@ func _process(_delta):
 	pass
 
 func _pressed():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://scene/levels/main.tscn")

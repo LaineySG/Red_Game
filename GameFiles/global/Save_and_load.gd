@@ -4,6 +4,7 @@ var scene_name = "scenedata"
 var scene_name_postfix = ".tscn"
 var save_name = "savegamedata"
 var save_name_postfix = ".tres"
+var datetimename = "savemetadata"
 var gamedata = ResourceDataVariables.new()
 
 # Called when the node enters the scene tree for the first time.
@@ -24,11 +25,14 @@ func savegame(current_scene,slot): # slot can be 1,2,3,4. 1 is autosave.
 	gamedata.denitialize()
 	var gamedata_save = ResourceSaver.save(gamedata, save_path+save_name+str(slot)+save_name_postfix)
 	assert(gamedata_save == OK)
+	var datetimesave = FileAccess.open(save_path+datetimename+str(slot), FileAccess.WRITE)
+	datetimesave.store_string(Time.get_datetime_string_from_system(false,true))
 			
 func get_save_data(slot):
-	if ResourceLoader.exists(save_path+save_name+str(slot)+save_name_postfix) and ResourceLoader.exists(save_path+scene_name+str(slot)+scene_name_postfix):
-		var time = FileAccess.get_modified_time(save_path+save_name+str(slot)+save_name_postfix)
-		return Time.get_datetime_string_from_unix_time(time,true)		
+	if ResourceLoader.exists(save_path+save_name+str(slot)+save_name_postfix) and ResourceLoader.exists(save_path+scene_name+str(slot)+scene_name_postfix) and FileAccess.file_exists(save_path+datetimename+str(slot)):
+		var file = FileAccess.open(save_path+datetimename+str(slot), FileAccess.READ)
+		var time = file.get_as_text()		
+		return time	
 	else:
 		return null
 			
