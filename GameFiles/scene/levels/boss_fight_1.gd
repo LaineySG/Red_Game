@@ -9,6 +9,7 @@ var brokemessage = false
 var textcheck = false
 var doorchosen
 var visited = false
+var death_screen_playing = false
 var introstep = 0
 var hpregenerated = true
 var rng = RandomNumberGenerator.new()
@@ -135,9 +136,9 @@ func _process(_delta):
 		get_node("UI/Inventory/Tutorial UI").visible = false
 		Game.inventorylock = false
 		
-	if Game.playerDied:
-		Utils.pausegame()
+	if Game.playerDied and !death_screen_playing:
 		get_node("death_screen").playerdied()
+		death_screen_playing = true
 	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true

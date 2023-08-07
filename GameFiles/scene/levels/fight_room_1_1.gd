@@ -8,6 +8,7 @@ var wtf = preload("res://scene/mob/wtf.tscn")
 var brokemessage = false
 var introstep = 0
 var hasmobs=false
+var death_screen_playing = false
 var helpcounter = 0
 var hpregenerated = false
 var conversation_step = 1
@@ -101,9 +102,10 @@ func _process(_delta):
 		get_node("UI/Inventory/Tutorial UI").visible = false
 		Game.inventorylock = false
 	
-	if Game.playerDied:
-		Utils.pausegame()
+	if Game.playerDied and !death_screen_playing:
 		get_node("death_screen").playerdied()
+		death_screen_playing = true
+		
 	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true

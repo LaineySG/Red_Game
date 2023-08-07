@@ -5,6 +5,7 @@ signal backtoship
 var dead = false
 var rng = RandomNumberGenerator.new()
 @onready var deathmessage = get_node("Label")
+@export var animationtracker = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +18,9 @@ func playerdied():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if animationtracker:
+		Utils.pausegame()
+		animationtracker = false
 
 func transition():
 	$AnimationPlayer.play("fade_to_black")
@@ -45,7 +48,7 @@ func transition():
 		chosentext = "Dawn breaks behind the eyes."
 		
 	deathmessage.text = chosentext
-
+	
 
 
 

@@ -108,9 +108,6 @@ func _process(_delta):
 		get_node("shoot_body_torso").visible = false
 		get_node("Gunarms/GunarmL").visible = false
 		get_node("Gunarms/GunarmR").visible = false
-		anim.play("death")
-		await anim.animation_finished
-		Game.playerDied = true
 		_hide_gun()
 	if sprinting:	
 		SPEED = 500.0 + (Game.playerstats["Alacrity"] * 5)

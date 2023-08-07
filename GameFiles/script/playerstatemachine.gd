@@ -317,6 +317,10 @@ func _get_transition(_delta):
 
 func _enter_state(new, previous):
 	match new:
+		states.death:
+			if previous != states.death:
+				parent.anim.play("death")
+				Game.playerDied = true
 		states.idle:
 			parent.anim.play("idle")
 			get_node("Label").text = "idle"
