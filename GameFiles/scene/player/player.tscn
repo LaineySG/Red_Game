@@ -1,4 +1,4 @@
-[gd_scene load_steps=409 format=3 uid="uid://dk8edw251qj3"]
+[gd_scene load_steps=410 format=3 uid="uid://dk8edw251qj3"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_4cvrk"]
 [ext_resource type="Texture2D" uid="uid://bp1hhgod73e7n" path="res://assets/environment/scifi/anims/shootbodyidleupperlayer_sweat.png" id="2_i6r7d"]
@@ -5226,6 +5226,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t1k55"]
 size = Vector2(28.006, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6idq"]
+size = Vector2(28.1193, 21.1702)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f6gnx"]
 shader = ExtResource("5_3f1xy")
 shader_parameter/enable_disintegrate = false
@@ -5428,6 +5431,7 @@ texture_scale = 0.5
 [node name="confetti_dmg" type="Area2D" parent="Gunarms/GunarmR/gun"]
 z_index = 5
 scale = Vector2(8.72, 3.76)
+collision_layer = 129
 collision_mask = 65
 script = ExtResource("28_4wcda")
 
@@ -5475,6 +5479,14 @@ scale = Vector2(1.32979, 0.974771)
 target_position = Vector2(0, 29)
 collision_mask = 73
 hit_from_inside = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Gunarms/GunarmR/gun/confetti_dmg"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gunarms/GunarmR/gun/confetti_dmg/CharacterBody2D"]
+position = Vector2(14.3807, -0.744681)
+shape = SubResource("RectangleShape2D_m6idq")
 
 [node name="GunarmL" type="Node2D" parent="Gunarms"]
 visible = false
@@ -5562,6 +5574,7 @@ texture_scale = 0.5
 top_level = true
 z_index = 5
 scale = Vector2(8.72, 3.76)
+collision_layer = 129
 collision_mask = 65
 script = ExtResource("28_4wcda")
 
@@ -5609,6 +5622,14 @@ scale = Vector2(1.32979, 0.974771)
 target_position = Vector2(0, 29)
 collision_mask = 73
 hit_from_inside = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Gunarms/GunarmL/gun/confetti_dmg"]
+collision_layer = 128
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gunarms/GunarmL/gun/confetti_dmg/CharacterBody2D"]
+position = Vector2(14.3807, -0.744681)
+shape = SubResource("RectangleShape2D_m6idq")
 
 [node name="gunflashtimer" type="Timer" parent="Gunarms"]
 wait_time = 0.1
