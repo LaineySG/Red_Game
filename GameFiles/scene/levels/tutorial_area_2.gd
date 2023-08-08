@@ -14,6 +14,7 @@ func _ready():
 	player.update_health.connect(_on_update_health)
 	get_node("UI/Textbox").visible = false
 	get_node("UI").visible = true
+	get_node("Item_tutorial").visible = false
 	
 	
 	
@@ -23,6 +24,10 @@ func _ready():
 		get_node("mobs/Frog").tutorial_area_2_cutscene_1 = true
 		get_node("UI/Ammo").visible = false
 	elif Game.tutorial_area2count == 1:
+		
+		get_node("Item_tutorial").visible = true
+		Utils.pausegame()
+		
 		get_node("mobs/Frog").global_position = Vector2(1220,155)
 		get_node("Player").global_position = Vector2(1540,100)
 		get_node("tutorialtext").visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://xuv45lc16v38"]
+[gd_scene load_steps=98 format=3 uid="uid://xuv45lc16v38"]
 
 [ext_resource type="Script" path="res://scene/levels/item_room.gd" id="1_qxxyi"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_jhbkb"]
@@ -14,14 +14,19 @@
 [ext_resource type="Texture2D" uid="uid://chccse5kk5vkf" path="res://assets/environment/shadowarea.png" id="15_vga74"]
 [ext_resource type="Shader" path="res://scene/player/player.gdshader" id="17_it15b"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="23_5h65a"]
-[ext_resource type="Texture2D" uid="uid://f143g8bjgrk3" path="res://assets/environment/Smoke/FX001/dashtimer.png" id="27_rxisy"]
+[ext_resource type="Script" path="res://scene/levels/tutorial_info_script.gd" id="23_voi86"]
+[ext_resource type="Texture2D" uid="uid://db4qqg75epk8" path="res://assets/gui/MainPanel03.png" id="24_1bga5"]
+[ext_resource type="Texture2D" uid="uid://ccwjn7a7uad1t" path="res://assets/gui/SelectPanel02.png" id="25_b3fgo"]
+[ext_resource type="Script" path="res://scene/levels/tutorialimgdisplay.gd" id="26_tedgl"]
+[ext_resource type="Script" path="res://script/Text_BB_Extras.gd" id="27_qx6xg"]
+[ext_resource type="Script" path="res://script/Matrix.gd" id="28_ypjxi"]
+[ext_resource type="Script" path="res://script/Pulse.gd" id="29_un3rx"]
+[ext_resource type="Script" path="res://scene/levels/tutorialimgdisplaytext.gd" id="30_g8jrd"]
+[ext_resource type="Texture2D" uid="uid://xtq3m86t3unu" path="res://assets/gui/itemtutorial/item_inventory_tutorial_example.png" id="31_fqueq"]
 [ext_resource type="PackedScene" uid="uid://up4ihseinsod" path="res://scene/item/item_generator.tscn" id="37_32taq"]
 [ext_resource type="PackedScene" uid="uid://dk8edw251qj3" path="res://scene/player/player.tscn" id="38_v7mt1"]
 [ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="39_wg86j"]
 [ext_resource type="PackedScene" uid="uid://chtf1tf3vjph3" path="res://scene/item/idea.tscn" id="40_5tjxy"]
-[ext_resource type="Texture2D" uid="uid://gxyhyolneq31" path="res://assets/gui/itemtutorial/pic1.png" id="41_83g11"]
-[ext_resource type="Texture2D" uid="uid://buhtg3ma63hq5" path="res://assets/gui/itemtutorial/pic2.png" id="42_a441a"]
-[ext_resource type="Texture2D" uid="uid://d0s3y7h284w3s" path="res://assets/gui/itemtutorial/pic3.png" id="43_j883j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8w26"]
 animations = [{
@@ -2739,6 +2744,15 @@ glow_blend_mode = 1
 glow_hdr_threshold = 0.9
 adjustment_enabled = true
 
+[sub_resource type="RichTextEffect" id="RichTextEffect_wwmag"]
+script = ExtResource("27_qx6xg")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_fyi5h"]
+script = ExtResource("28_ypjxi")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_7y05c"]
+script = ExtResource("29_un3rx")
+
 [node name="item_room" type="Node2D"]
 script = ExtResource("1_qxxyi")
 
@@ -3122,137 +3136,335 @@ visible = false
 [node name="UI" parent="." instance=ExtResource("23_5h65a")]
 visible = false
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 7
+[node name="Item_tutorial" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("23_voi86")
+
+[node name="page1" type="CanvasGroup" parent="Item_tutorial"]
+
+[node name="TextureRect" type="TextureRect" parent="Item_tutorial/page1"]
+offset_right = 960.0
+offset_bottom = 537.0
+texture = ExtResource("24_1bga5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item_tutorial/page1"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 958.0
+offset_bottom = 518.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "As Red explores the CIA headquarters, she will pick up [u]ideas[/u] along the way. These [u]ideas[/u] come in 3 varieties, all of which boost Red's power or grant her new abilities.
+
+[u]Basic ideas[/u] are [u]ideas[/u] which increase only Red's stats such as [u]luck[/u], [u]health[/u], or [u]punch[/u].
+
+[u]Effect ideas[/u] are [u]ideas[/u] which may increase Red's stats, but also offer an [u]effect[/u]. [u]Effects[/u] grant Red powers, changing the way her gun or toygun works. Many [u]effect ideas[/u] work only with a specific weapon.
+
+[u]Ability ideas[/u] are [u]ideas[/u] which offer an powerful temporary ability, such as a dash or a summon. These [u]ideas[/u] have cooldowns, and must be assigned to a key and activated using that key. Ability ideas do not increase stats."
+
+[node name="Label" type="Label" parent="Item_tutorial/page1"]
+modulate = Color(1, 1, 1, 0.607843)
+offset_top = 475.0
+offset_right = 960.0
+offset_bottom = 533.0
+theme_override_font_sizes/font_size = 32
+text = "A <- 1/3 -> D
+[Esc] Close Window"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="page2" type="CanvasGroup" parent="Item_tutorial"]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="TextureRect" type="TextureRect" parent="Item_tutorial/page2"]
 offset_right = 960.0
-offset_bottom = 540.0
-color = Color(0.207843, 0.207843, 0.207843, 0.560784)
+offset_bottom = 537.0
+texture = ExtResource("24_1bga5")
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_left = 15.0
-offset_top = 248.0
-offset_right = 55.0
-offset_bottom = 302.0
-theme_override_font_sizes/font_size = 48
-text = "A"
+[node name="RichTextLabel" type="RichTextLabel" parent="Item_tutorial/page2"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 958.0
+offset_bottom = 518.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Below are 3 items. Red's Enigma is a [u]basic idea[/u], offering only stat boosts.
 
-[node name="Label2" type="Label" parent="CanvasLayer"]
-offset_left = 925.0
-offset_top = 248.0
-offset_right = 965.0
-offset_bottom = 302.0
-theme_override_font_sizes/font_size = 48
-text = "D"
+Red's Charm is an [u]effect idea[/u]. It allows red to fire a hypno-ray, but only if she is using the toygun. You can tell by the icon ([img=35x35]res://assets/environment/scifi/anims/toygunicon.png[/img] means the effect only applies to toygun, [img=35x35]res://assets/environment/scifi/anims/gunicon.png[/img] means the effect only applies to the gun, and [img=35x35]res://assets/environment/scifi/anims/switchgunicon.png[/img] means it will work for either gun.) 
 
-[node name="Dashtimer" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(926, 270)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("27_rxisy")
+Finally, Blue's Boon is an [u]ability idea[/u]. You can tell by the icon ([img=32x32]res://assets/gui/abilityicon.png[/img]). This means that Blue's Boon must
+be equipped to a key, and 
+the key must be pressed to 
+enable the temporary effect.
 
-[node name="Dashtimer2" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(27, 270)
-rotation = 3.14159
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("27_rxisy")
+Effects and abilities also
+have levels (I to V) which
+correspond to how strong
+the effect or ability is."
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 97.0
-offset_top = 14.0
-offset_right = 1317.0
-offset_bottom = 840.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("41_83g11")
-expand_mode = 1
-stretch_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 596.0
-offset_top = 227.0
-offset_right = 910.0
-offset_bottom = 506.0
-color = Color(0.258824, 0.454902, 0.447059, 1)
-
-[node name="RichTextLabel" type="Label" parent="CanvasLayer/TextureRect"]
-layout_mode = 0
-offset_left = 605.0
-offset_top = 235.0
-offset_right = 912.0
-offset_bottom = 496.0
+[node name="Label" type="Label" parent="Item_tutorial/page2"]
+modulate = Color(1, 1, 1, 0.607843)
+offset_left = -307.0
+offset_top = 478.0
+offset_right = 653.0
+offset_bottom = 536.0
 theme_override_font_sizes/font_size = 32
-text = "Press [TAB] to open your inventory. There are 3 item types. The item shown on the right offers only stat improvements. It can be equipped in any of the 10 gun modification slots shown on the left."
-autowrap_mode = 2
+text = "A <- 2/3 -> D
+[Esc] Close Window"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
-offset_left = 1200.0
-offset_top = 25.0
-offset_right = 2420.0
-offset_bottom = 857.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("42_a441a")
+[node name="bluesboon" type="TextureRect" parent="Item_tutorial/page2"]
+offset_left = 755.0
+offset_top = 265.0
+offset_right = 953.0
+offset_bottom = 532.0
+mouse_filter = 2
+texture = ExtResource("25_b3fgo")
+expand_mode = 1
+script = ExtResource("26_tedgl")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect2"]
+[node name="MarginContainer" type="MarginContainer" parent="Item_tutorial/page2/bluesboon"]
+custom_minimum_size = Vector2(0, 260)
 layout_mode = 0
-offset_left = 570.0
-offset_top = 234.0
-offset_right = 890.0
-offset_bottom = 689.0
-color = Color(0.258824, 0.454902, 0.447059, 1)
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
 
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/TextureRect2"]
-layout_mode = 0
-offset_left = 1205.0
-offset_top = 584.0
-offset_right = 1333.0
-offset_bottom = 1219.0
-rotation = 1.5708
-color = Color(0.258824, 0.454902, 0.447059, 1)
+[node name="RichTextLabel2" type="RichTextLabel" parent="Item_tutorial/page2/bluesboon/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "[center][table=1][cell border=DARK_MAGENTA] [font_size=32][color=DARK_MAGENTA]Blue's Boon[/color][/font_size][/cell][cell border=DARK_MAGENTA][color=pale_goldenrod]Shield II  [img=15x15]res://assets/gui/abilityicon.png[/img][/color][/cell][cell border=DARK_MAGENTA][color=papaya_whip]Allows Red to gain a small temporary shield.[/color][/cell]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect2"]
+[cell border=DARK_MAGENTA][color=light_slate_gray][font_size=16][KEY] click: Equip to [KEY]
+
+Rare[/font_size][/color][/cell][/table][/center]"
+fit_content = true
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_wwmag"), SubResource("RichTextEffect_fyi5h"), SubResource("RichTextEffect_7y05c")]
+script = ExtResource("30_g8jrd")
+
+[node name="redscharm" type="TextureRect" parent="Item_tutorial/page2"]
+offset_left = 552.0
+offset_top = 265.0
+offset_right = 750.0
+offset_bottom = 532.0
+mouse_filter = 2
+texture = ExtResource("25_b3fgo")
+expand_mode = 1
+script = ExtResource("26_tedgl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Item_tutorial/page2/redscharm"]
+custom_minimum_size = Vector2(0, 260)
 layout_mode = 0
-offset_left = 574.0
-offset_top = 238.0
-offset_right = 893.0
-offset_bottom = 582.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Item_tutorial/page2/redscharm/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center][table=1][cell border=cornflower_blue] [font_size=32][color=cornflower_blue]Red's Charm[/color][/font_size][/cell][cell border=cornflower_blue][color=pale_goldenrod]Hypno-Ray I  [img=15x15]res://assets/environment/scifi/anims/toygunicon.png[/img][/color][/cell][cell border=cornflower_blue][color=papaya_whip]Chance of enemies fighting for you temporarily.[/color][/cell][cell border=cornflower_blue][color=LIGHT_GRAY]Luck++++[/color]
+[color=light_slate_gray]Increases luck, proc chances, and adds critical hit chance.[/color]
+[/cell]
+
+[cell border=cornflower_blue][color=light_slate_gray][font_size=16][SHIFT] click: Equip to major
+[CTRL] click: Equip to minor
+
+Uncommon[/font_size][/color][/cell][/table][/center]"
+fit_content = true
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_wwmag"), SubResource("RichTextEffect_fyi5h"), SubResource("RichTextEffect_7y05c")]
+script = ExtResource("30_g8jrd")
+
+[node name="redsenigma" type="TextureRect" parent="Item_tutorial/page2"]
+offset_left = 349.0
+offset_top = 265.0
+offset_right = 547.0
+offset_bottom = 532.0
+mouse_filter = 2
+texture = ExtResource("25_b3fgo")
+expand_mode = 1
+script = ExtResource("26_tedgl")
+
+[node name="MarginContainer" type="MarginContainer" parent="Item_tutorial/page2/redsenigma"]
+custom_minimum_size = Vector2(0, 260)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 185.0
+offset_bottom = 270.0
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Item_tutorial/page2/redsenigma/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "
+[center][table=1][cell border=cornflower_blue] [font_size=32][color=cornflower_blue]Red's Enigma[/color][/font_size][/cell][/color][/cell][cell border=cornflower_blue][color=LIGHT_GRAY]Shot Weight+++[/color]
+[color=light_slate_gray]Adds knockback to each shot.[/color]
+[color=LIGHT_GRAY]Reload Speed++[/color]
+[color=light_slate_gray]Increases reload speed.[/color]
+[/cell]
+
+[cell border=cornflower_blue][color=light_slate_gray][font_size=16][SHIFT] click: Equip to major
+[CTRL] click: Equip to minor
+
+Uncommon[/font_size][/color][/cell][/table][/center]"
+fit_content = true
+scroll_active = false
+custom_effects = [SubResource("RichTextEffect_wwmag"), SubResource("RichTextEffect_fyi5h"), SubResource("RichTextEffect_7y05c")]
+script = ExtResource("30_g8jrd")
+
+[node name="page3" type="CanvasGroup" parent="Item_tutorial"]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="Item_tutorial/page3"]
+offset_right = 960.0
+offset_bottom = 537.0
+texture = ExtResource("24_1bga5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item_tutorial/page3"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 958.0
+offset_bottom = 518.0
 theme_override_font_sizes/normal_font_size = 32
-text = "This item offers a stat improvement as well as an effect - \"pump-action\" This effect only works with the toygun equipped. If a gun type is not specified in parentheses, it will work on either. Items with effects can be equipped in any of the 10 slots on the left, only the green \"Major\" slots at the top will allow"
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Press [tab] to open Red's inventory. This is where [u]ideas[/u] can be equipped.
+1 - These are Red's [u]major slots[/u]. [u]basic ideas[/u] and [u]effect ideas[/u] can be equipped here.
+2 - These are [u]minor slots[/u]. [u]basic ideas[/u] and [u]effect ideas[/u] can be equipped here, however only stat boosts will be applied. Effects must be equipped in a [u]major slot[/u] to be applied to Red's guns.
+3 - Red's stats will be listed here. Stats can be increased up to a maximum of 20.
+4 - Red's abilities can be equipped here, and assigned to a corresponding key listed in the hexagon (1-6, R, F, or shift). The
+\"->\" slot denotes shift. To use an ability, the
+key that the ability is equipped to must be 
+pressed.
+5 - Red's inventory. Items here are not equipped.
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/TextureRect2"]
-layout_mode = 0
-offset_left = 577.0
-offset_top = 590.0
-offset_right = 1197.0
-offset_bottom = 890.0
-theme_override_font_sizes/normal_font_size = 32
-text = "for the effect to be applied to the gun. If an item with an effect is equipped in a white slot, the stat modifications will be applied but the effect will be ignored. "
+Equipped abilities will be displayed in-game in 
+the top-right corner, along with the key they
+are equipped to."
 
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
-offset_left = 1200.0
-offset_top = 25.0
-offset_right = 2420.0
-offset_bottom = 851.0
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("43_j883j")
+[node name="Label" type="Label" parent="Item_tutorial/page3"]
+modulate = Color(1, 1, 1, 0.607843)
+offset_left = -4.0
+offset_top = 477.0
+offset_right = 956.0
+offset_bottom = 535.0
+theme_override_font_sizes/font_size = 32
+text = "A <- 3/3 -> D
+[Esc] Close Window"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect3"]
-layout_mode = 0
-offset_left = 331.0
-offset_top = 195.0
-offset_right = 836.0
-offset_bottom = 411.0
-color = Color(0.258824, 0.454902, 0.447059, 1)
+[node name="TextureRect2" type="TextureRect" parent="Item_tutorial/page3"]
+modulate = Color(1, 1, 1, 0.87451)
+offset_left = 603.0
+offset_top = 274.0
+offset_right = 953.0
+offset_bottom = 524.0
+texture = ExtResource("31_fqueq")
+expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/TextureRect3"]
-layout_mode = 0
-offset_left = 345.0
-offset_top = 200.0
-offset_right = 843.0
-offset_bottom = 557.0
-theme_override_font_sizes/normal_font_size = 32
-text = "The item on the right gives an ability. It can be equipped in any of the hexagonal slots, and can be used by pressing the number or key corresponding to the slot it is equipped in. The \"->\" slot will assign the item to the shift key. These items can be used repeatedly but have an associated cooldown."
+[node name="Line2D" type="Line2D" parent="Item_tutorial/page3/TextureRect2"]
+position = Vector2(49, 41)
+points = PackedVector2Array(0, 0, 130, 0, 130, 20, 0, 20, 0, 0)
+width = 1.0
+default_color = Color(1, 1, 1, 0.643137)
+
+[node name="Line2D2" type="Line2D" parent="Item_tutorial/page3/TextureRect2"]
+position = Vector2(49, 63)
+points = PackedVector2Array(0, 0, 130, 0, 130, 20, 0, 20, 0, 0)
+width = 1.0
+default_color = Color(1, 1, 1, 0.643137)
+
+[node name="Line2D3" type="Line2D" parent="Item_tutorial/page3/TextureRect2"]
+position = Vector2(8, 86)
+points = PackedVector2Array(0, 0, 170, 0, 170, 34, 0, 34, 0, 0)
+width = 1.0
+default_color = Color(1, 1, 1, 0.643137)
+
+[node name="Line2D4" type="Line2D" parent="Item_tutorial/page3/TextureRect2"]
+position = Vector2(8, 123)
+points = PackedVector2Array(0, 0, 170, 0, 170, 117, 0, 117, 0, 0)
+width = 1.0
+default_color = Color(1, 1, 1, 0.643137)
+
+[node name="Line2D5" type="Line2D" parent="Item_tutorial/page3/TextureRect2"]
+position = Vector2(182.884, 9.005)
+scale = Vector2(0.883721, 1.005)
+points = PackedVector2Array(0, 0, 170, 0, 172, 200, 0, 200, 0, 0)
+width = 2.0
+default_color = Color(1, 1, 1, 0.643137)
+
+[node name="Label2" type="Label" parent="Item_tutorial/page3"]
+offset_left = 712.0
+offset_top = 311.0
+offset_right = 752.0
+offset_bottom = 340.0
+theme_override_font_sizes/font_size = 32
+text = "1"
+
+[node name="Label3" type="Label" parent="Item_tutorial/page3"]
+offset_left = 711.0
+offset_top = 332.0
+offset_right = 751.0
+offset_bottom = 361.0
+theme_override_font_sizes/font_size = 32
+text = "2"
+
+[node name="Label4" type="Label" parent="Item_tutorial/page3"]
+offset_left = 688.0
+offset_top = 363.0
+offset_right = 728.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 32
+text = "3"
+
+[node name="Label5" type="Label" parent="Item_tutorial/page3"]
+offset_left = 687.0
+offset_top = 443.0
+offset_right = 727.0
+offset_bottom = 472.0
+theme_override_font_sizes/font_size = 32
+text = "4"
+
+[node name="Label6" type="Label" parent="Item_tutorial/page3"]
+offset_left = 851.0
+offset_top = 293.0
+offset_right = 891.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 32
+text = "5"
 
 [connection signal="which_door_opened" from="item_room/check_for_exit" to="." method="_on_check_for_exit_which_door_opened"]
 [connection signal="open_door" from="item_room/exitdoor" to="item_room/check_for_exit" method="_on_exitdoor_open_door"]

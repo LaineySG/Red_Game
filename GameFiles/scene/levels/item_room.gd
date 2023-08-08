@@ -57,55 +57,12 @@ func _ready():
 func _process(_delta):
 	
 	if Game.runs == 0 and !tutorial_finished and Variables.tutorial_tooltip_1:
-		var tutpic1 = get_node("CanvasLayer/TextureRect")
-		var tutpic2 = get_node("CanvasLayer/TextureRect2")
-		var tutpic3 = get_node("CanvasLayer/TextureRect3")
-		get_node("CanvasLayer").visible = true
 		get_node("UI").visible = true
-		if introstep == 0:
-			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(125, 25), 1)
-			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(1200, 25), 1)
-			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(1200, 25), 1)
-			#get_node("CanvasLayer/TextureRect").visible = true
-			#get_node("CanvasLayer/TextureRect2").visible = false
-			#get_node("CanvasLayer/TextureRect3").visible = false
-		elif introstep == 1:
-			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(-1200, 25), 1)
-			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(100, 25), 1)
-			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(1200, 25), 1)
-		elif introstep == 2:
-			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(-1200, 25), 1)
-			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(-1200, 25), 1)
-			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(100, 25), 1)
-		elif introstep >= 3:
-			Variables.inputIsDisabled = false
-			var tween = get_tree().create_tween()
-			tween.tween_property(tutpic1, "position", Vector2(-1200, 99), 1)
-			var tween2 = get_tree().create_tween()
-			tween2.tween_property(tutpic2, "position", Vector2(-1200, 25), 1)
-			var tween3 = get_tree().create_tween()
-			tween3.tween_property(tutpic3, "position", Vector2(-1200, 25), 1)
-			await get_tree().create_timer(0.5).timeout
-			get_node("CanvasLayer").visible = false
-			Variables.tutorial_tooltip_1 = false
-			introstep = 1000
-			tutorial_finished = true
-			
-		if Input.is_action_just_pressed("ui_right") or Input.is_action_just_pressed("ui_accept"):
-			introstep += 1
-		elif Input.is_action_just_pressed("ui_left"):
-			introstep -= 1
-			if introstep < 0:
-				introstep = 0
+		get_node("Item_tutorial").visible = true
+		Variables.tutorial_tooltip_1 = false
+		Variables.inputIsDisabled = false
+		tutorial_finished = true
+		Utils.pausegame()
 
 	
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:

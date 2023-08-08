@@ -1,4 +1,4 @@
-[gd_scene load_steps=198 format=3 uid="uid://rn3t1w7o4t6h"]
+[gd_scene load_steps=200 format=3 uid="uid://rn3t1w7o4t6h"]
 
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_2.gd" id="1_tf8j0"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_hc5n4"]
@@ -52,6 +52,8 @@
 [ext_resource type="Script" path="res://script/statemachine.gd" id="56_h56at"]
 [ext_resource type="Script" path="res://scene/levels/tutorialFrog.gd" id="56_jfywc"]
 [ext_resource type="Script" path="res://scene/mob/frogstatemachine.gd" id="57_mkqjv"]
+[ext_resource type="Texture2D" uid="uid://db4qqg75epk8" path="res://assets/gui/MainPanel03.png" id="58_dfsx6"]
+[ext_resource type="Script" path="res://scene/levels/tutorial_info_script.gd" id="58_l5lc8"]
 [ext_resource type="Script" path="res://scene/mob/Label.gd" id="58_rnjpw"]
 [ext_resource type="Script" path="res://scene/levels/buttonarea.gd" id="83_gt6cp"]
 [ext_resource type="Script" path="res://scene/levels/gate.gd" id="84_oxpp6"]
@@ -4416,7 +4418,6 @@ collision_mask = 80
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mobs/Frog/Attackbox"]
 position = Vector2(-19.4118, -17.6471)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_rxkvq")
 
 [node name="AttackTimer" type="Timer" parent="mobs/Frog/Attackbox"]
@@ -4552,6 +4553,47 @@ shape = SubResource("RectangleShape2D_j2g8d")
 
 [node name="wire" parent="." instance=ExtResource("87_pr7gc")]
 position = Vector2(1173, 75)
+
+[node name="Item_tutorial" type="CanvasLayer" parent="."]
+process_mode = 2
+script = ExtResource("58_l5lc8")
+
+[node name="page1" type="CanvasGroup" parent="Item_tutorial"]
+
+[node name="TextureRect" type="TextureRect" parent="Item_tutorial/page1"]
+offset_right = 960.0
+offset_bottom = 537.0
+texture = ExtResource("58_dfsx6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Item_tutorial/page1"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 958.0
+offset_bottom = 518.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Red can use two guns. Her [u]toy gun[/u] [img=35x35]res://assets/environment/scifi/anims/toygunicon.png[/img], which does [u][color=dark cyan]mischief[/color][/u], and her \"borrowed\" [u]gun[/u] [img=35x35]res://assets/environment/scifi/anims/gunicon.png[/img], which does [u][color=dark red]damage[/color][/u]. 
+
+Enemies have two hit point pools - [u][color=dark cyan]patience[/color][/u], which is lowered by [u][color=dark cyan]mischief[/color][/u], and [u][color=dark red]health[/color][/u], which is lowered by [u][color=dark red]damage[/color][/u]. 
+
+Once an enemy takes [u][color=dark red]damage[/color][/u], that enemy becomes immune to [u][color=dark cyan]mischief[/color][/u] as it is [u]enraged[/u].
+
+If an enemy takes [u][color=dark cyan]mischief[/color][/u] prior to taking [u][color=dark red]damage[/color][/u], it may feel [u]betrayed[/u], gaining extra abilities or statistics.
+"
+
+[node name="Label" type="Label" parent="Item_tutorial/page1"]
+offset_top = 475.0
+offset_right = 960.0
+offset_bottom = 533.0
+theme_override_font_sizes/font_size = 32
+text = "A <- 1/1 -> D
+[Esc] Close Window"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="opendoor" from="tutorial_room1/door1/Area2D" to="TransitionScreen" method="_on_area_2d_opendoor"]
 [connection signal="opendoor2" from="tutorial_room1/door2/Area2D" to="TransitionScreen" method="_on_area_2d_opendoor_2"]
