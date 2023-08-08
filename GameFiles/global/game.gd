@@ -141,11 +141,18 @@ func refreshEffects():
 						level = 5
 						
 					current_effects.append(i.get("Effect"))
+					
+					
 					if current_effects_levels.get(str(i.get("Effect"))): #if already exists:
-						if current_effects_levels[str(i.get("Effect"))] < level: # if improvement
-							current_effects_levels[str(i.get("Effect"))] = level
+						if current_effects_levels.get(str(i.get("Effect"))) < 5: # if currently less than 5
+							var totallevel = current_effects_levels.get(str(i.get("Effect"))) + level
+							if totallevel > 5:
+								totallevel = 5
+							current_effects_levels[str(i.get("Effect"))] = totallevel
 					else:
-							current_effects_levels[str(i.get("Effect"))] = level
+						current_effects_levels[str(i.get("Effect"))] = level
+						
+					
 			if inspect.left(5) == "Abili":
 				if i.get("Ability") != null:
 					var level
@@ -162,10 +169,15 @@ func refreshEffects():
 					current_abilities[str(i.get("Ability"))] = inspect.left(6).right(1)
 					
 					if current_abilities_levels.get(str(i.get("Ability"))): #if already exists:
-						if current_abilities_levels[str(i.get("Ability"))] < level: # if improvement
-							current_abilities_levels[str(i.get("Ability"))] = level
+						if current_abilities_levels.get(str(i.get("Ability"))) < 5: # if currently less than 5
+							var totallevel = current_abilities_levels.get(str(i.get("Ability"))) + level
+							if totallevel > 5:
+								totallevel = 5
+							current_abilities_levels[str(i.get("Ability"))] = totallevel
 					else:
-							current_abilities_levels[str(i.get("Ability"))] = level
+						current_abilities_levels[str(i.get("Ability"))] = level
+						
+					
 	
 	
 func refreshstats():

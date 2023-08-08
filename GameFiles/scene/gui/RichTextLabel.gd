@@ -387,7 +387,6 @@ func item_info_parser(x: Dictionary, is_shop_bool):
 				output += "\n\n" + "[cell border=" + border_color + "]" + "[color=" + desc_color + "]"
 				output += "[font_size=16]"
 				output += str(rarity) + "[/font_size][/color][/cell][/table][/center]"
-		print(output)
 		text = output
 
 func get_mod_desc(mod_name):
