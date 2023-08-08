@@ -2,6 +2,7 @@ extends Node2D
 var cost
 var rng = RandomNumberGenerator.new()
 var fivefingerdiscount = false
+signal makesomenoise
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -44,6 +45,8 @@ func _process(_delta):
 	var nodecheck = get_node_or_null("Idea")
 	if nodecheck != null:
 		if !get_node("Idea").visible:
+			makesomenoise.emit()
 			queue_free()
 	else:
+		makesomenoise.emit()
 		queue_free()

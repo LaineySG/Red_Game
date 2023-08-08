@@ -63,9 +63,12 @@ func _on_textscrolltimer_timeout():
 			get_node("ColorRect2/spacebaricon").visible = false
 		if cursor < get_node("RichTextLabel").get_total_character_count() and cursor != -1:
 			get_node("RichTextLabel").set_visible_characters(cursor)
+			if !get_node("blipping").playing:
+				get_node("blipping").play()
 			get_node("ColorRect2/spacebaricon").visible = false
 		else:
 			cursor = -1
 			get_node("RichTextLabel").set_visible_characters(cursor)
 			get_node("ColorRect2/spacebaricon").visible = true
+			get_node("blipping").stop()
 			is_over = true

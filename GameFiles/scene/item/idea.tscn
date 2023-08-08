@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chtf1tf3vjph3"]
+[gd_scene load_steps=15 format=3 uid="uid://chtf1tf3vjph3"]
 
 [ext_resource type="Script" path="res://script/idea.gd" id="1_sdgp6"]
 [ext_resource type="Texture2D" uid="uid://bgtvn1w0n4pa3" path="res://assets/item/idea.png" id="1_t80eu"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://gg7dnap5ctqf" path="res://assets/environment/Smoke/FX001/FX001_04.png" id="7_0mkn5"]
 [ext_resource type="Texture2D" uid="uid://ojdhwpldoh03" path="res://assets/environment/Smoke/FX001/FX001_05.png" id="8_67k0n"]
 [ext_resource type="Script" path="res://scene/item/ideapoof.gd" id="9_68nt4"]
+[ext_resource type="AudioStream" uid="uid://c6ynro0b4t14d" path="res://assets/sounds/new_idea.mp3" id="10_4g1uv"]
+[ext_resource type="AudioStream" uid="uid://4wqv0fnnm0cv" path="res://assets/sounds/poof-80161.mp3" id="11_omc7y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2grmr"]
 
@@ -71,5 +73,16 @@ sprite_frames = SubResource("SpriteFrames_v0qni")
 animation = &"poof"
 script = ExtResource("9_68nt4")
 
+[node name="ping" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4g1uv")
+volume_db = 1.0
+max_polyphony = 5
+
+[node name="poof" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_omc7y")
+volume_db = 1.0
+max_polyphony = 5
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="finished" from="ping" to="." method="_on_ping_finished"]

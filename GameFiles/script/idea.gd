@@ -38,11 +38,18 @@ func _process(_delta):
 
 func _on_body_entered(_body):
 	if !given:
-		Game.items_list.append(itemstats)
 		given = true
+		Game.items_list.append(itemstats)
+		get_node("ping").play()
+		get_node("poof").play()
 		get_node("Sprite2D").visible = false
 		get_node("AnimatedSprite2D").visible = true
 
 
 func _on_animated_sprite_2d_animation_finished():
+	get_node("Sprite2D").visible = false
+	get_node("AnimatedSprite2D").visible = false
+
+
+func _on_ping_finished():
 	queue_free()

@@ -330,6 +330,8 @@ func _get_transition(_delta):
 	return null
 
 func _enter_state(new, previous):
+	if parent.is_on_floor:
+		get_node("sounds/in_air").stop()
 	match new:
 		states.death:
 			if previous != states.death:
@@ -344,6 +346,7 @@ func _enter_state(new, previous):
 			get_node("Label").text = "dash"
 		states.run:
 			parent.jumps = parent.maxjumps
+			get_node("sounds/running").play()
 			if parent.turning == false:
 				parent.anim.play("run")
 			else:
@@ -395,15 +398,19 @@ func _enter_state(new, previous):
 						parent.anim.play("reload_fumble_toy_walk",-1,reloadspeed)
 		states.jump:
 			parent.anim.play("jump")
+			get_node("sounds/in_air").play()
 			get_node("Label").text = "jump"
+			get_node("sounds/jump").play()
 		states.fall:
 			parent.anim.play("fall")
 			get_node("Label").text = "fall"
+			get_node("sounds/in_air").play()
 			if previous != states.jump and previous != states.idle: #if previous state was on ground
 				parent.coyote_time.start()
 				parent.coyotetime = true
 		states.wallrun:
 			parent.anim.play("wallrun")
+			get_node("sounds/wall_slide").play()
 			get_node("Label").text = "wallrun"
 			if parent.wall_direction == 1:
 				parent.get_node("AnimatedSprite2D").flip_h = false
@@ -458,12 +465,17 @@ func _enter_state(new, previous):
 	
 func _exit_state(previous, new):
 	match previous:
+		states.jump:
+			if new != states.wallrun:
+				get_node("sounds/in_air").stop()
 		states.wallrun:
 			parent.wall_jump_cooldown.start()
 			parent.get_node("dustmaker_R").set_dust(false)
 			parent.get_node("dustmaker_L").set_dust(false)
+			get_node("sounds/wall_slide").stop()
 			if parent.is_on_floor():
 				parent.jumps = parent.maxjumps
+				get_node("sounds/landing").play()
 		states.crawl:
 			parent._on_stand()
 		states.crouch:
@@ -484,6 +496,10 @@ func _exit_state(previous, new):
 			if new != states.jump and new != states.wallrun:
 				parent.jumps = parent.maxjumps
 				parent.poof()
+				get_node("sounds/in_air").stop()
+				get_node("sounds/landing").play()
+			if new == states.wallrun:
+				get_node("sounds/in_air").stop()
 		states.dash:
 			parent.item_reset_cooldown.start()
 			parent._hide_gun()
@@ -491,4 +507,6 @@ func _exit_state(previous, new):
 		states.idle:
 			#parent.jumps = parent.maxjumps
 			parent.poof()
+		states.run:
+			get_node("sounds/running").stop()
 			

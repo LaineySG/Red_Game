@@ -4,6 +4,7 @@ var rng = RandomNumberGenerator.new()
 var allowinput = false
 var fivefingerdiscount = false
 var is_player_in
+signal makesomenoise
 var bodies = []
 
 # Called when the node enters the scene tree for the first time.
@@ -32,11 +33,13 @@ func _process(_delta):
 			for body in bodies:
 				if body.name == "Player":
 					body.heal(Game.playerhpmax - Game.playerhp)
+			makesomenoise.emit()
 		elif Input.is_action_just_pressed("ui_E") and Game.playergold < cost:
 			for body in bodies:
 				if body.name == "Player":
 					body.heal(4 * Game.playergold)
 			Game.playergold = 0
+			makesomenoise.emit()
 	
 func fivefingerdiscountset():
 	fivefingerdiscount = true

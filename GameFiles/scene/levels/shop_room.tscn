@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://bet7dcaxnomaa"]
+[gd_scene load_steps=121 format=3 uid="uid://bet7dcaxnomaa"]
 
 [ext_resource type="Script" path="res://scene/levels/shop_room.gd" id="1_qmoed"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_yyb2e"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scene/levels/goldUIimg.gd" id="23_330ip"]
 [ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="23_o56ml"]
 [ext_resource type="Texture2D" uid="uid://dlkn61yunbnbl" path="res://assets/environment/scifi/anims/SimonSpriteSheet.png" id="24_atwtg"]
+[ext_resource type="Script" path="res://scene/levels/items_for_sale.gd" id="25_453x2"]
 [ext_resource type="Texture2D" uid="uid://brevpd7cxjpth" path="res://assets/environment/scifi/anims/table.png" id="25_b31sg"]
 [ext_resource type="Texture2D" uid="uid://dfl8857qpb126" path="res://assets/environment/scifi/anims/sleeperagent.png" id="26_nfro0"]
 [ext_resource type="Script" path="res://scene/levels/Sleeperagent.gd" id="27_c7ciy"]
@@ -28,7 +29,9 @@
 [ext_resource type="Texture2D" uid="uid://dbdb7lcximmt3" path="res://assets/environment/scifi/anims/CIA_Coin.png" id="28_vlinj"]
 [ext_resource type="PackedScene" uid="uid://cb22fgnxtslwo" path="res://scene/item/shop_idea.tscn" id="29_v7y1j"]
 [ext_resource type="Texture2D" uid="uid://b5v6laa76fxu2" path="res://assets/mob/heart.png.png" id="30_b8f0s"]
+[ext_resource type="AudioStream" uid="uid://c6ynro0b4t14d" path="res://assets/sounds/new_idea.mp3" id="30_o8fpe"]
 [ext_resource type="Script" path="res://scene/levels/healing_station.gd" id="30_tmld6"]
+[ext_resource type="AudioStream" uid="uid://4wqv0fnnm0cv" path="res://assets/sounds/poof-80161.mp3" id="31_et4tp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8w26"]
 animations = [{
@@ -3292,6 +3295,7 @@ wait_time = 0.3
 autostart = true
 
 [node name="items_for_sale" type="Node2D" parent="."]
+script = ExtResource("25_453x2")
 
 [node name="item1" type="Node2D" parent="items_for_sale"]
 position = Vector2(102.33, 95.6654)
@@ -3390,6 +3394,16 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="items_for_sale/healing_station/Area2D" groups=["interact"]]
 position = Vector2(-3.77399, -5.2753)
 shape = SubResource("RectangleShape2D_5nsxq")
+
+[node name="ping" type="AudioStreamPlayer2D" parent="items_for_sale"]
+stream = ExtResource("30_o8fpe")
+volume_db = 1.0
+max_polyphony = 5
+
+[node name="poof" type="AudioStreamPlayer2D" parent="items_for_sale"]
+stream = ExtResource("31_et4tp")
+volume_db = 1.0
+max_polyphony = 5
 
 [connection signal="which_door_opened" from="item_room/check_for_exit" to="." method="_on_check_for_exit_which_door_opened"]
 [connection signal="open_door" from="item_room/exitdoor" to="item_room/check_for_exit" method="_on_exitdoor_open_door"]

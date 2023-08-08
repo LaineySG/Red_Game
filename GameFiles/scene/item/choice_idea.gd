@@ -38,10 +38,10 @@ func _process(_delta):
 				given = true
 				get_node("Sprite2D").visible = false
 				get_node("AnimatedSprite2D").visible = true
-				await get_tree().create_timer(0.5).timeout
+				await get_tree().create_timer(0.3).timeout
+				choice_made.emit()
 				self.visible = false
 				clear = true
-				choice_made.emit()
 
 
 func _on_body_entered(body):
@@ -56,3 +56,5 @@ func _on_animated_sprite_2d_animation_finished():
 func _on_body_exited(_body):
 	bodies = []
 	hideitem.emit(self)
+	
+	

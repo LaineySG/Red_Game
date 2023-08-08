@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://db1gw1yesvekq"]
+[gd_scene load_steps=91 format=3 uid="uid://db1gw1yesvekq"]
 
 [ext_resource type="Script" path="res://scene/levels/item_choice_room.gd" id="1_gm4wm"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_7j4m2"]
@@ -21,6 +21,8 @@
 [ext_resource type="Script" path="res://scene/levels/goldUIimg.gd" id="19_hmaum"]
 [ext_resource type="Script" path="res://scene/levels/item_choices.gd" id="20_tripp"]
 [ext_resource type="Script" path="res://scene/item/choice_idea.gd" id="22_bfcvc"]
+[ext_resource type="AudioStream" uid="uid://c6ynro0b4t14d" path="res://assets/sounds/new_idea.mp3" id="23_dgcbu"]
+[ext_resource type="AudioStream" uid="uid://4wqv0fnnm0cv" path="res://assets/sounds/poof-80161.mp3" id="24_i227c"]
 [ext_resource type="PackedScene" uid="uid://cb22fgnxtslwo" path="res://scene/item/shop_idea.tscn" id="26_rm2lf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f8w26"]
@@ -3137,6 +3139,14 @@ script = ExtResource("22_bfcvc")
 frame = 0
 frame_progress = 0.0
 
+[node name="ping" type="AudioStreamPlayer2D" parent="item_choices"]
+stream = ExtResource("23_dgcbu")
+max_polyphony = 5
+
+[node name="poof" type="AudioStreamPlayer2D" parent="item_choices"]
+stream = ExtResource("24_i227c")
+max_polyphony = 5
+
 [connection signal="which_door_opened" from="item_room/check_for_exit" to="." method="_on_check_for_exit_which_door_opened"]
 [connection signal="open_door" from="item_room/exitdoor" to="item_room/check_for_exit" method="_on_exitdoor_open_door"]
 [connection signal="transitioned" from="TransitionScreen" to="." method="_on_transition_screen_transitioned"]
@@ -3151,6 +3161,8 @@ frame_progress = 0.0
 [connection signal="choice_made" from="item_choices/item2/Idea" to="item_choices" method="_on_idea_choice_made"]
 [connection signal="hideitem" from="item_choices/item2/Idea" to="." method="_on_idea_hideitem"]
 [connection signal="viewitem" from="item_choices/item2/Idea" to="." method="_on_idea_viewitem"]
+[connection signal="finished" from="item_choices/ping" to="item_choices" method="_on_ping_finished"]
+[connection signal="finished" from="item_choices/ping" to="item_choices/item2/Idea" method="_on_ping_finished" flags=18]
 
 [editable path="UI"]
 [editable path="item_choices/item2/Idea"]
