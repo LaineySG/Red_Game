@@ -130,6 +130,20 @@ func _state_logic(delta):
 	if state == states.death:
 		parent._apply_gravity(delta)
 	else:
+		
+		
+		if state == states.gun:
+			if Game.weapon_equipped == "gun":
+				if parent.direction != 0:
+					parent.anim.play("gun_idle_walk")
+				else:
+					parent.anim.play("gun_idle")
+			elif Game.weapon_equipped == "toygun":
+				if parent.direction != 0:
+					parent.anim.play("toygun_idle_walk")
+				else:
+					parent.anim.play("toygun_idle")
+		
 		if state == states.wallrun:
 			parent.wallsidegravity(true)
 			parent._apply_movement(delta, 1)
@@ -280,7 +294,7 @@ func _get_transition(_delta):
 			elif (Input.is_action_just_pressed("ui_right_click") and !Variables.inputIsDisabled)and !Game.inventorylock and Game.weapon_equipped != null:
 				return states.reload
 		states.gun:
-			if (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_accept")) and !Variables.inputIsDisabled:
+			if (Input.is_action_pressed("ui_accept") or Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right")) and !Variables.inputIsDisabled:
 				return states.run
 			elif (Input.is_action_pressed("ui_right_click") and !Variables.inputIsDisabled) and !Game.inventorylock and Game.weapon_equipped != null:
 				return states.reload
@@ -292,7 +306,7 @@ func _get_transition(_delta):
 			elif (Input.is_action_pressed("ui_left_click")) and !Variables.inputIsDisabled and Game.currenttoyammo > 0 and !Game.inventorylock and Game.current_effects.has("Pump-action (Toygun)") and Game.weapon_equipped == "toygun" and Game.weapon_equipped != null:
 				return states.charging
 		states.reload: #similar to gun one
-			if (Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_accept")) and !Variables.inputIsDisabled and parent.item_reset_cooldown.is_stopped():
+			if Input.is_action_pressed("ui_accept") and !Variables.inputIsDisabled and parent.item_reset_cooldown.is_stopped():
 				return states.run
 			elif (Game.weapon_equipped == "gun" and Game.currentammo == Game.ammomax) or (Game.weapon_equipped == "toygun" and Game.currenttoyammo== Game.ammomax): #if times out reload
 				return states.gun
@@ -347,19 +361,38 @@ func _enter_state(new, previous):
 			var reloadspeed = 1.0 + (Game.playerstats["Reload Speed"] * 0.5 / 20.0)
 			if reloadrandom > 0.66:
 				if Game.weapon_equipped == "gun":
-					parent.anim.play("reload",-1,reloadspeed)
+					if parent.direction == 0:
+						parent.anim.play("reload",-1,reloadspeed)
+					else:
+						parent.anim.play("reload_walk",-1,reloadspeed)
 				elif Game.weapon_equipped == "toygun":
-					parent.anim.play("reload_toy",-1,reloadspeed)
+					if parent.direction == 0:
+						parent.anim.play("reload_toy",-1,reloadspeed)
+					else:
+						parent.anim.play("reload_toy_walk",-1,reloadspeed)
 			elif reloadrandom > 0.33:
 				if Game.weapon_equipped == "gun":
-					parent.anim.play("reload_spinny",-1,reloadspeed)
+					if parent.direction == 0:
+						parent.anim.play("reload_spinny",-1,reloadspeed)
+					else:
+						parent.anim.play("reload_spinny_walk",-1,reloadspeed)
 				elif Game.weapon_equipped == "toygun":
-					parent.anim.play("reload_spinny_toy",-1,reloadspeed)
+					if parent.direction == 0:
+						parent.anim.play("reload_spinny_toy",-1,reloadspeed)
+					else:
+						parent.anim.play("reload_spinny_toy_walk",-1,reloadspeed)
 			else:
 				if Game.weapon_equipped == "gun":
-					parent.anim.play("reload_fumble",-1,reloadspeed)
+					if parent.direction == 0:
+						parent.anim.play("reload_fumble",-1,reloadspeed)
+					else:
+						parent.anim.play("reload_fumble_walk",-1,reloadspeed)
+					
 				elif Game.weapon_equipped == "toygun":
-					parent.anim.play("reload_fumble_toy",-1,reloadspeed)
+					if parent.direction == 0:
+						parent.anim.play("reload_fumble_toy",-1,reloadspeed)
+					else:
+						parent.anim.play("reload_fumble_toy_walk",-1,reloadspeed)
 		states.jump:
 			parent.anim.play("jump")
 			get_node("Label").text = "jump"

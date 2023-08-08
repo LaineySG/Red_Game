@@ -393,7 +393,7 @@ func _gun_movement(_delta):
 		currentdir = 1
 	#Movement
 	if direction:
-		velocity.x = direction * SPEED * 0.05
+		velocity.x = direction * SPEED * 0.15
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
