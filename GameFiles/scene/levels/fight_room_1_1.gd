@@ -26,6 +26,7 @@ func _ready():
 	get_node("death_screen").backtoship.connect(_on_death_screen_backtoship)
 	_on_player_update_ammo()
 	_on_player_update_gun()
+	Musicplayer.playsong("combat")
 	_on_update_health()
 	
 	

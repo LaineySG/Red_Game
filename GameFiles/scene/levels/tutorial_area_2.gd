@@ -15,6 +15,7 @@ func _ready():
 	get_node("UI/Textbox").visible = false
 	get_node("UI").visible = true
 	get_node("Item_tutorial").visible = false
+	Musicplayer.playsong("relaxed")
 	
 	
 	

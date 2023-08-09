@@ -54,6 +54,7 @@ func _ready():
 	Game.playerhp = Game.playerhpmax
 	Game.newRoom()
 	conversation_step = 1
+	Musicplayer.playsong("relaxed")
 	player.update_ammo.connect(_on_player_update_ammo)
 	player.update_gun.connect(_on_player_update_gun)
 	player.update_health.connect(_on_update_health)

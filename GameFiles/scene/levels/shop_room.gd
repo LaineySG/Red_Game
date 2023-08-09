@@ -18,6 +18,7 @@ var tutorial_finished = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.newRoom()
+	Musicplayer.playsong("relaxed")
 	player.update_ammo.connect(_on_player_update_ammo)
 	player.update_gun.connect(_on_player_update_gun)
 	player.update_health.connect(_on_update_health)
@@ -44,7 +45,8 @@ func _ready():
 		get_node("Sleeperagent").visible = true
 		get_node("shop_owner").visible = false
 		for i in get_node("items_for_sale").get_children():
-			i.fivefingerdiscountset()
+			if i.name != "ping" and i.name != "poof":
+				i.fivefingerdiscountset()
 	
 	if sleepchance <= 0.9:
 		if !Variables.shop_conversation_tracker.has("shop_1"):

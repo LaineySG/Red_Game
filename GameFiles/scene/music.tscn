@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjyp134o87an5"]
+
+[ext_resource type="Script" path="res://scene/music.gd" id="1_n14j2"]
+[ext_resource type="AudioStream" uid="uid://bmcv8nsldfiqy" path="res://assets/sounds/Twilight Train - Dan Lebowitz.mp3" id="1_qoudx"]
+[ext_resource type="AudioStream" uid="uid://cflhntt3k8q43" path="res://assets/sounds/Soul Food - Chris Haugen.mp3" id="2_wux01"]
+
+[node name="music" type="Node2D"]
+script = ExtResource("1_n14j2")
+
+[node name="combat" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("1_qoudx")
+volume_db = -80.0
+
+[node name="relaxed" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("2_wux01")
+volume_db = -80.0

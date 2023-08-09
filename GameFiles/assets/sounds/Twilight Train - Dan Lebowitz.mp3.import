@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bmcv8nsldfiqy"
+path="res://.godot/imported/Twilight Train - Dan Lebowitz.mp3-a5b3542a4ba55a1e7596378433bd7574.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/Twilight Train - Dan Lebowitz.mp3"
+dest_files=["res://.godot/imported/Twilight Train - Dan Lebowitz.mp3-a5b3542a4ba55a1e7596378433bd7574.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

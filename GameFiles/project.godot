@@ -23,6 +23,7 @@ Game="*res://global/game.gd"
 Variables="*res://global/Variables.gd"
 Utils="*res://global/utils.gd"
 SaveAndLoad="*res://global/Save_and_load.gd"
+Musicplayer="*res://scene/music.tscn"
 
 [debug]
 

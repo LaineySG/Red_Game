@@ -12,6 +12,7 @@ signal gunspickedup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Musicplayer.playsong("relaxed")
 	player.update_ammo.connect(_on_player_update_ammo)
 	player.update_gun.connect(_on_player_update_gun)
 	player.update_health.connect(_on_update_health)

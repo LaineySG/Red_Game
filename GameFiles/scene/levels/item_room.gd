@@ -15,6 +15,7 @@ var tutorial_finished = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.newRoom()
+	Musicplayer.playsong("relaxed")
 	get_node("UI").visible = true
 	player.update_ammo.connect(_on_player_update_ammo)
 	player.update_gun.connect(_on_player_update_gun)

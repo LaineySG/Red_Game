@@ -4,6 +4,7 @@ func _on_quit_pressed():
 	get_tree().quit()
 
 func _ready():
+	Musicplayer.playsong("relaxed")
 	for slot in range (1,5):
 		if SaveAndLoad.get_save_data(slot) != null:
 			var path = "slot" + str(slot)

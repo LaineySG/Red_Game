@@ -932,6 +932,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ding" type="AudioStreamPlayer2D" parent="Gold"]
 stream = ExtResource("31_hoqxx")
+volume_db = -10.0
+pitch_scale = 2.0
 
 [node name="pause_modulation" type="CanvasLayer" parent="."]
 process_mode = 2
