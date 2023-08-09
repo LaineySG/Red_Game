@@ -228,7 +228,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 		await get_tree().create_timer(0.14).timeout
 		get_node("AnimatedSprite2D").material.set_shader_parameter("enable_sil", false)
 		
-	if dmg >= 1:
+	if dmg >= 1 and Variables.enemy_damage_float_toggle:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position
@@ -242,7 +242,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 			dmgnumspawn.modulate = Color.DARK_RED
 		get_parent().add_child(dmgnumspawn)
 		
-	if patiencedmg >= 1:
+	if patiencedmg >= 1 and Variables.enemy_damage_float_toggle:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position

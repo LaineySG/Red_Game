@@ -398,6 +398,26 @@ func _gun_movement(_delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 func hurt(x,DoT):
+	if x >= 1 and !shielded and !iframes and Variables.player_damage_float_toggle:
+		var dmgnumspawn = wtf.instantiate()
+		var locationmodx = rng.randi_range(-50,50)
+		dmgnumspawn.position = global_position
+		dmgnumspawn.position.x += locationmodx
+		dmgnumspawn.position.y -= 50
+		dmgnumspawn.settext(str(round(x)))
+		dmgnumspawn.modulate = Color.DARK_RED
+		get_parent().add_child(dmgnumspawn)
+		
+	elif x >= 1 and (shielded or iframes) and Variables.player_damage_float_toggle:
+		var dmgnumspawn = wtf.instantiate()
+		var locationmodx = rng.randi_range(-50,50)
+		dmgnumspawn.position = global_position
+		dmgnumspawn.position.x += locationmodx
+		dmgnumspawn.position.y -= 50
+		dmgnumspawn.settext(str(round(0)))
+		dmgnumspawn.modulate = Color.DARK_CYAN
+		get_parent().add_child(dmgnumspawn)
+		
 	if !shielded and !iframes:
 		Game.playerhp -= x
 		update_health.emit(	)
@@ -410,6 +430,7 @@ func hurt(x,DoT):
 			iframetimer.start()
 	if DoT > 0 and !iframes and !shielded:
 		afflictDoT(DoT)
+		
 	
 func afflictDoT(DoT):
 	currentDoTs += 1

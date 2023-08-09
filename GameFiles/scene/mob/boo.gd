@@ -247,7 +247,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is sho
 		get_parent().add_child(smokerspawn)
 		smokerspawn.emitting = true
 	
-	if dmg >= 1:
+	if dmg >= 1 and Variables.enemy_damage_float_toggle:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position
@@ -260,7 +260,7 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is sho
 		else:
 			dmgnumspawn.modulate = Color.DARK_RED
 		get_parent().add_child(dmgnumspawn)
-	if patiencedmg >= 1:
+	if patiencedmg >= 1 and Variables.enemy_damage_float_toggle:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position

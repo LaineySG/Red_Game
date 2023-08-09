@@ -3142,10 +3142,12 @@ frame_progress = 0.0
 [node name="ping" type="AudioStreamPlayer2D" parent="item_choices"]
 stream = ExtResource("23_dgcbu")
 max_polyphony = 5
+bus = &"SFX"
 
 [node name="poof" type="AudioStreamPlayer2D" parent="item_choices"]
 stream = ExtResource("24_i227c")
 max_polyphony = 5
+bus = &"SFX"
 
 [connection signal="which_door_opened" from="item_room/check_for_exit" to="." method="_on_check_for_exit_which_door_opened"]
 [connection signal="open_door" from="item_room/exitdoor" to="item_room/check_for_exit" method="_on_exitdoor_open_door"]

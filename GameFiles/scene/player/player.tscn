@@ -6591,21 +6591,26 @@ horizontal_alignment = 1
 [node name="landing" type="AudioStreamPlayer2D" parent="PlayerSM/sounds"]
 stream = ExtResource("49_jakye")
 pitch_scale = 1.82
+bus = &"SFX"
 
 [node name="running" type="AudioStreamPlayer2D" parent="PlayerSM/sounds"]
 stream = ExtResource("36_sbgy8")
 pitch_scale = 1.5
+bus = &"SFX"
 
 [node name="jump" type="AudioStreamPlayer2D" parent="PlayerSM/sounds"]
 stream = ExtResource("37_dou0v")
+bus = &"SFX"
 
 [node name="in_air" type="AudioStreamPlayer2D" parent="PlayerSM/sounds"]
 stream = ExtResource("38_7efh6")
 volume_db = 3.0
+bus = &"SFX"
 
 [node name="wall_slide" type="AudioStreamPlayer2D" parent="PlayerSM/sounds"]
 stream = ExtResource("39_mvo0h")
 volume_db = 2.0
+bus = &"SFX"
 
 [node name="WallRayCasts" type="Node2D" parent="."]
 
@@ -6929,23 +6934,29 @@ scale = Vector2(1, -1)
 [node name="gunshot" type="AudioStreamPlayer2D" parent="Gunarms"]
 stream = ExtResource("12_mgdcn")
 max_polyphony = 10
+bus = &"SFX"
 
 [node name="reload_clip_in" type="AudioStreamPlayer2D" parent="Gunarms"]
 stream = ExtResource("17_qqvty")
 pitch_scale = 1.2
+bus = &"SFX"
 
 [node name="fumble_bonk" type="AudioStreamPlayer2D" parent="Gunarms"]
 stream = ExtResource("18_oymeq")
+bus = &"SFX"
 
 [node name="reload_clip_out" type="AudioStreamPlayer2D" parent="Gunarms"]
 stream = ExtResource("25_8fi76")
+bus = &"SFX"
 
 [node name="no_ammo_click" type="AudioStreamPlayer2D" parent="Gunarms"]
 stream = ExtResource("26_hl6j3")
+bus = &"SFX"
 
 [node name="toygunshot" type="AudioStreamPlayer2D" parent="Gunarms"]
 position = Vector2(-1, 2)
 stream = ExtResource("19_us7sl")
+bus = &"SFX"
 
 [node name="poison_spray" parent="Gunarms" instance=ExtResource("43_hf38b")]
 

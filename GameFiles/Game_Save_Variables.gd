@@ -50,6 +50,14 @@ class_name Variables_to_load
 @export var grimm_conversation_tracker = []
 @export var shop_conversation_tracker = []
 
+#settings
+@export var enemy_damage_float_toggle = true
+@export var player_damage_float_toggle = false
+@export var master_volume_slider_value = 0
+@export var sfx_volume_slider_value = 0
+@export var music_volume_slider_value = 0
+#settings
+
 func denitialize():
 	inputIsDisabled = Variables.inputIsDisabled
 	tutorial_tooltip_1 = Variables.tutorial_tooltip_1
@@ -57,6 +65,14 @@ func denitialize():
 	prof_conversation_tracker = Variables.prof_conversation_tracker
 	grimm_conversation_tracker = Variables.grimm_conversation_tracker
 	shop_conversation_tracker = Variables.shop_conversation_tracker
+	
+	#settings
+	enemy_damage_float_toggle = Variables.enemy_damage_float_toggle
+	player_damage_float_toggle = Variables.player_damage_float_toggle
+	master_volume_slider_value = Variables.master_volume_slider_value
+	sfx_volume_slider_value = Variables.sfx_volume_slider_value
+	music_volume_slider_value = Variables.music_volume_slider_value
+	#settings
 	
 	playerhp = Game.playerhp
 	playerhpmax = Game.playerhpmax
@@ -96,6 +112,14 @@ func initialize():
 	Variables.prof_conversation_tracker = prof_conversation_tracker
 	Variables.grimm_conversation_tracker = grimm_conversation_tracker
 	Variables.shop_conversation_tracker = shop_conversation_tracker
+	
+	#settings
+	Variables.enemy_damage_float_toggle = enemy_damage_float_toggle
+	Variables.player_damage_float_toggle = player_damage_float_toggle
+	Variables.master_volume_slider_value = master_volume_slider_value
+	Variables.sfx_volume_slider_value = sfx_volume_slider_value
+	Variables.music_volume_slider_value = music_volume_slider_value
+	#settings
 	
 	Game.playerhp = playerhp
 	Game.playerhpmax = playerhpmax

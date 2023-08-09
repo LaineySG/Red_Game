@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=75 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -35,6 +35,10 @@
 [ext_resource type="Script" path="res://scene/gui/Continue.gd" id="27_2ut5b"]
 [ext_resource type="AudioStream" uid="uid://dqljt0id8f24j" path="res://assets/sounds/medium-text-blip-14855.mp3" id="28_scvwb"]
 [ext_resource type="AudioStream" uid="uid://b7g5pdvwxvx6y" path="res://assets/sounds/coin-pickup-98269.mp3" id="31_hoqxx"]
+[ext_resource type="Texture2D" uid="uid://bk3kf0rptemny" path="res://assets/gui/gearicon.png" id="35_i3wlm"]
+[ext_resource type="Script" path="res://scene/gui/Settings.gd" id="35_oss7l"]
+[ext_resource type="Script" path="res://scene/gui/returnmenubtn.gd" id="38_bmvnr"]
+[ext_resource type="Script" path="res://scene/gui/settings_modulation.gd" id="38_snqd4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hclwf"]
 shader = ExtResource("1_tkis7")
@@ -934,6 +938,7 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("31_hoqxx")
 volume_db = -10.0
 pitch_scale = 2.0
+bus = &"SFX"
 
 [node name="pause_modulation" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -967,6 +972,22 @@ text = "Save slot 1
 Override"
 script = ExtResource("5_4od5o")
 
+[node name="Settings" type="Button" parent="pause_modulation"]
+process_mode = 2
+offset_left = 610.0
+offset_top = 45.0
+offset_right = 760.0
+offset_bottom = 195.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontVariation_i2kh3")
+theme_override_font_sizes/font_size = 77
+script = ExtResource("35_oss7l")
+
+[node name="Gearicon" type="Sprite2D" parent="pause_modulation/Settings"]
+position = Vector2(76, 76)
+scale = Vector2(2, 2)
+texture = ExtResource("35_i3wlm")
+
 [node name="Save2" type="Button" parent="pause_modulation"]
 process_mode = 2
 offset_left = 285.0
@@ -995,14 +1016,205 @@ script = ExtResource("5_4od5o")
 
 [node name="Continue" type="Button" parent="pause_modulation"]
 process_mode = 2
-offset_left = 350.0
-offset_top = 48.0
-offset_right = 900.0
-offset_bottom = 198.0
+offset_left = 285.0
+offset_top = 45.0
+offset_right = 905.0
+offset_bottom = 195.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = SubResource("FontVariation_i2kh3")
 theme_override_font_sizes/font_size = 77
 text = "Continue"
 script = ExtResource("27_2ut5b")
 
+[node name="settings_modulation" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 3
+visible = false
+script = ExtResource("38_snqd4")
+
+[node name="Main Menu" type="Button" parent="settings_modulation"]
+process_mode = 2
+offset_left = 350.0
+offset_top = 411.0
+offset_right = 900.0
+offset_bottom = 561.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontVariation_kovee")
+theme_override_font_sizes/font_size = 77
+text = "Return to menu"
+script = ExtResource("38_bmvnr")
+
+[node name="Continue" type="Button" parent="settings_modulation"]
+process_mode = 2
+offset_left = 350.0
+offset_top = 45.0
+offset_right = 900.0
+offset_bottom = 195.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = SubResource("FontVariation_i2kh3")
+theme_override_font_sizes/font_size = 77
+text = "Continue"
+script = ExtResource("27_2ut5b")
+
+[node name="Panel" type="Panel" parent="settings_modulation"]
+offset_left = 100.0
+offset_top = 129.0
+offset_right = 860.0
+offset_bottom = 404.0
+
+[node name="Volumesettingstitle" type="RichTextLabel" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 4.0
+offset_right = 177.0
+offset_bottom = 37.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]VOLUME[/b]"
+
+[node name="Gameplaysettingstitle" type="RichTextLabel" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 3.0
+offset_right = 461.0
+offset_bottom = 36.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]GAMEPLAY[/b]"
+
+[node name="Mastervolumelabel" type="RichTextLabel" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 44.0
+offset_right = 103.0
+offset_bottom = 63.0
+bbcode_enabled = true
+text = "Master Volume:"
+
+[node name="MasterVolume" type="HSlider" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 34.0
+offset_right = 247.0
+offset_bottom = 70.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="Muted" type="RichTextLabel" parent="settings_modulation/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 253.0
+offset_top = 38.0
+offset_right = 274.0
+offset_bottom = 65.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]X[/b]"
+
+[node name="Musicvolumelabel" type="RichTextLabel" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 81.0
+offset_right = 103.0
+offset_bottom = 100.0
+bbcode_enabled = true
+text = "Music Volume:"
+
+[node name="MusicVolume" type="HSlider" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 71.0
+offset_right = 247.0
+offset_bottom = 107.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="Muted2" type="RichTextLabel" parent="settings_modulation/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 252.0
+offset_top = 74.0
+offset_right = 273.0
+offset_bottom = 101.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]X[/b]"
+
+[node name="SFXvolumelabel" type="RichTextLabel" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 118.0
+offset_right = 103.0
+offset_bottom = 137.0
+bbcode_enabled = true
+text = "SFX Volume:"
+
+[node name="SFXVolume" type="HSlider" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 108.0
+offset_right = 247.0
+offset_bottom = 144.0
+min_value = -30.0
+max_value = 0.0
+
+[node name="Muted3" type="RichTextLabel" parent="settings_modulation/Panel"]
+visible = false
+layout_mode = 0
+offset_left = 251.0
+offset_top = 113.0
+offset_right = 272.0
+offset_bottom = 140.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "[b]X[/b]"
+
+[node name="enemydamagetoggle" type="CheckBox" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 37.0
+offset_right = 297.0
+offset_bottom = 61.0
+button_pressed = true
+flat = true
+
+[node name="enemydamagelabel" type="RichTextLabel" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 41.0
+offset_right = 491.0
+offset_bottom = 60.0
+bbcode_enabled = true
+text = "Enemy floating damage numbers"
+
+[node name="playerdamagetoggle" type="CheckBox" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 273.0
+offset_top = 58.0
+offset_right = 297.0
+offset_bottom = 82.0
+button_pressed = true
+flat = true
+
+[node name="playerdamagelabel" type="RichTextLabel" parent="settings_modulation/Panel"]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 62.0
+offset_right = 491.0
+offset_bottom = 81.0
+bbcode_enabled = true
+text = "Player floating damage numbers"
+
 [connection signal="timeout" from="Textbox/textscrolltimer" to="Textbox" method="_on_textscrolltimer_timeout"]
+[connection signal="opensettings" from="pause_modulation/Settings" to="." method="_on_settings_opensettings"]
+[connection signal="returntomenu" from="settings_modulation/Main Menu" to="." method="_on_main_menu_returntomenu"]
+[connection signal="value_changed" from="settings_modulation/Panel/MasterVolume" to="settings_modulation" method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="settings_modulation/Panel/MusicVolume" to="settings_modulation" method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="settings_modulation/Panel/SFXVolume" to="settings_modulation" method="_on_sfx_volume_value_changed"]
+[connection signal="toggled" from="settings_modulation/Panel/enemydamagetoggle" to="settings_modulation" method="_on_enemydamagetoggle_toggled"]
+[connection signal="toggled" from="settings_modulation/Panel/playerdamagetoggle" to="settings_modulation" method="_on_playerdamagetoggle_toggled"]

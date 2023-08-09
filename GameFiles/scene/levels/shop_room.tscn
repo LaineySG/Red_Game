@@ -3399,11 +3399,13 @@ shape = SubResource("RectangleShape2D_5nsxq")
 stream = ExtResource("30_o8fpe")
 volume_db = 1.0
 max_polyphony = 5
+bus = &"SFX"
 
 [node name="poof" type="AudioStreamPlayer2D" parent="items_for_sale"]
 stream = ExtResource("31_et4tp")
 volume_db = 1.0
 max_polyphony = 5
+bus = &"SFX"
 
 [connection signal="which_door_opened" from="item_room/check_for_exit" to="." method="_on_check_for_exit_which_door_opened"]
 [connection signal="open_door" from="item_room/exitdoor" to="item_room/check_for_exit" method="_on_exitdoor_open_door"]

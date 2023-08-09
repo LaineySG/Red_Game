@@ -10,6 +10,14 @@ var current_room_items = {}
 var current_room_doors = {}
 var current_room_enemies = {}
 
+#settings
+var enemy_damage_float_toggle = true
+var player_damage_float_toggle = true
+var master_volume_slider_value
+var sfx_volume_slider_value
+var music_volume_slider_value
+#settings
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

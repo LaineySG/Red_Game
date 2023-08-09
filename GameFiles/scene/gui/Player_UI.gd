@@ -28,3 +28,13 @@ func _process(_delta):
 		gamegoldstore = Game.playergold
 	elif gamegoldstore > Game.playergold:
 		gamegoldstore = Game.playergold
+
+
+func _on_settings_opensettings():
+	get_node("pause_modulation").visible = false
+	get_node("settings_modulation").visible = true
+
+
+func _on_main_menu_returntomenu():
+	get_node("pause_modulation").visible = true
+	get_node("settings_modulation").visible = false
