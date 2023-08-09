@@ -26,6 +26,7 @@ func _ready():
 		get_node("UI/Ammo").visible = false
 	elif Game.tutorial_area2count == 1:
 		
+		Musicplayer.playsong("combat")
 		get_node("Item_tutorial").visible = true
 		Utils.pausegame()
 		
@@ -65,6 +66,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	if get_node("mobs/Frog").dead or get_node("mobs/Frog").nopatience:
+		Musicplayer.playsong("relaxed")
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:
 		$UI/pause_modulation.visible = true
 		Utils.pausegame()

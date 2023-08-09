@@ -20,14 +20,14 @@ var tutorial_finished = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Musicplayer.playsong("combat")
+	Utils.unpausegame()
 	Game.newRoom()
+	Musicplayer.playsong("combat")
 	player.update_ammo.connect(_on_player_update_ammo)
 	player.update_gun.connect(_on_player_update_gun)
 	player.update_health.connect(_on_update_health)
 	get_node("death_screen").backtoship.connect(_on_death_screen_backtoship)
 	get_node("UI").visible = true
-	Utils.unpausegame()
 	
 		
 	_on_player_update_ammo()
@@ -106,6 +106,7 @@ func _process(_delta):
 					i.setcombatinteractions(false)
 					
 	if !hasmobs and !textcheck:
+		#Musicplayer.playsong("relaxed")
 		textcheck = true
 		if get_node("mobs/grimm_boss").nopatience:
 			Variables.grimm_conversation_tracker.append("Grimm_Tired_1")
@@ -129,6 +130,10 @@ func _process(_delta):
 		for i in get_node("item_room").get_children():
 			if i.name.left(8) == "exitdoor":
 				i.get_node("Area2D").locked = true
+		if Musicplayer.getcurrentsong() == "relaxed": # if you shoot a nopatience enemy
+			Musicplayer.playsong("combat")
+				
+				
 
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:
 		$UI/pause_modulation.visible = true

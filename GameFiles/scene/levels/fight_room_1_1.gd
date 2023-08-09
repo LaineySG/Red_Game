@@ -90,10 +90,13 @@ func _process(_delta):
 		for i in get_node("fight_room").get_children():
 			if i.name.left(8) == "exitdoor":
 				i.get_node("Area2D").locked = false
+		Musicplayer.playsong("relaxed")
 	elif hasmobs:
 		for i in get_node("fight_room").get_children():
 			if i.name.left(8) == "exitdoor":
 				i.get_node("Area2D").locked = true
+		if Musicplayer.getcurrentsong() == "relaxed": # if you shoot a nopatience enemy
+			Musicplayer.playsong("combat")
 		
 		
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:

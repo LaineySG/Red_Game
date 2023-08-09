@@ -40,21 +40,21 @@ func setdmg(input_mischief,input_dmg,input_DoT,input_MoT):
 	DoT = input_DoT
 	MoT = input_MoT
 	if Game.current_effects.has("Duo-Shot"):
-		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0) + 0.4
+		var levelmodtest = (Game.current_effects_levels["Duo-Shot"] / 5.0)
 		var modifier = 1.0 + (0.15 * levelmodtest)
 		mischief  *= modifier
 		DoT  *= modifier
 		dmg  *= modifier
 		MoT  *= modifier
 	if Game.current_effects.has("Tri-Shot"):
-		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0) + 0.4
+		var levelmodtest = (Game.current_effects_levels["Tri-Shot"] / 5.0)
 		var modifier = 1.0 + (0.25 * levelmodtest)
 		mischief  *= modifier
 		DoT  *= modifier
 		dmg  *= modifier
 		MoT  *= modifier
 	if Game.current_effects.has("Quad-Shot"):
-		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
+		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0)
 		var modifier = 1.0 + (0.40 * levelmodtest)
 		mischief  *= modifier
 		DoT  *= modifier

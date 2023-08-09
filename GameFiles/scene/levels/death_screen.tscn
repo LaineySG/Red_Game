@@ -78,7 +78,6 @@ _data = {
 [node name="death_screen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_m5pc7")
-animationtracker = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 960.0

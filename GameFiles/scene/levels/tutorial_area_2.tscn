@@ -4556,6 +4556,7 @@ position = Vector2(1173, 75)
 
 [node name="Item_tutorial" type="CanvasLayer" parent="."]
 process_mode = 2
+visible = false
 script = ExtResource("58_l5lc8")
 
 [node name="page1" type="CanvasGroup" parent="Item_tutorial"]

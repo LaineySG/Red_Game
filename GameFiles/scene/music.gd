@@ -31,7 +31,7 @@ func fadein(song):
 	elif song == "relaxed":
 		audiostream = get_node("relaxed")
 	var tween_fadein = get_tree().create_tween()	
-	tween_fadein.tween_property(audiostream,"volume_db", -10,2.0)
+	tween_fadein.tween_property(audiostream,"volume_db", -20,2.0)
 			
 	
 func fadeout(song):
@@ -46,13 +46,10 @@ func fadeout(song):
 	
 func playsong(song):
 	if song == "combat" and getcurrentsong() != "combat":
-		print("combat")
 		fadein("combat")
 	elif song == "relaxed" and getcurrentsong() != "relaxed":
-		print("relaxed")
 		fadein("relaxed")
 	else:
-		print("no change")
 		pass
 
 func stopsongs():
