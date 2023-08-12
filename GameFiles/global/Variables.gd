@@ -13,9 +13,9 @@ var current_room_enemies = {}
 #settings
 var enemy_damage_float_toggle = true
 var player_damage_float_toggle = true
-var master_volume_slider_value
-var sfx_volume_slider_value
-var music_volume_slider_value
+var master_volume_slider_value = 0
+var sfx_volume_slider_value = 0
+var music_volume_slider_value = 0
 #settings
 
 # Called when the node enters the scene tree for the first time.

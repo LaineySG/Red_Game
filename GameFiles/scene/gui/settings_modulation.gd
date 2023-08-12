@@ -19,6 +19,7 @@ func _ready():
 		AudioServer.set_bus_volume_db(SFX_bus, Variables.sfx_volume_slider_value)
 		get_node("Panel/SFXVolume").value = Variables.sfx_volume_slider_value
 		_on_sfx_volume_value_changed(Variables.sfx_volume_slider_value)
+		
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

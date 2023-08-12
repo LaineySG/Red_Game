@@ -55,6 +55,15 @@ class_name ResourceDataVariables
 @export var current_room_doors = {}
 @export var current_room_enemies = {}
 
+
+#settings
+@export var enemy_damage_float_toggle = true
+@export var player_damage_float_toggle = false
+@export var master_volume_slider_value = 0
+@export var sfx_volume_slider_value = 0
+@export var music_volume_slider_value = 0
+#settings
+
 func denitialize():
 	inputIsDisabled = Variables.inputIsDisabled
 	tutorial_tooltip_1 = Variables.tutorial_tooltip_1
@@ -65,6 +74,16 @@ func denitialize():
 	current_room_items = Variables.current_room_items
 	current_room_doors = Variables.current_room_doors
 	current_room_enemies = Variables.current_room_enemies
+	
+	
+	#settings
+	enemy_damage_float_toggle = Variables.enemy_damage_float_toggle
+	player_damage_float_toggle = Variables.player_damage_float_toggle
+	master_volume_slider_value = Variables.master_volume_slider_value
+	sfx_volume_slider_value = Variables.sfx_volume_slider_value
+	music_volume_slider_value = Variables.music_volume_slider_value
+	#settings
+	
 	
 	playerhp = Game.playerhp
 	playerhpmax = Game.playerhpmax
@@ -109,6 +128,25 @@ func initialize():
 	Variables.current_room_items = current_room_items
 	Variables.current_room_doors = current_room_doors
 	Variables.current_room_enemies = current_room_enemies
+	
+	
+	#settings
+	Variables.enemy_damage_float_toggle = enemy_damage_float_toggle
+	Variables.player_damage_float_toggle = player_damage_float_toggle
+	Variables.master_volume_slider_value = master_volume_slider_value
+	Variables.sfx_volume_slider_value = sfx_volume_slider_value
+	Variables.music_volume_slider_value = music_volume_slider_value
+	#settings
+	
+	#initialize settings
+	var master_bus = AudioServer.get_bus_index("Master")
+	var music_bus = AudioServer.get_bus_index("Music")
+	var SFX_bus = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(master_bus, master_volume_slider_value)
+	AudioServer.set_bus_volume_db(music_bus, music_volume_slider_value)
+	AudioServer.set_bus_volume_db(SFX_bus, sfx_volume_slider_value)
+	
+	#initialize settings
 	
 	Game.playerhp = playerhp
 	Game.playerhpmax = playerhpmax
