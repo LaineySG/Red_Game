@@ -7,8 +7,10 @@ extends Node2D
 var wtf = preload("res://scene/mob/wtf.tscn")
 var brokemessage = false
 var introstep = 0
+var timetrialchance = 0
 var hasmobs=false
 var death_screen_playing = false
+var rng = RandomNumberGenerator.new()
 var helpcounter = 0
 var hpregenerated = false
 var conversation_step = 1
@@ -28,6 +30,21 @@ func _ready():
 	_on_player_update_gun()
 	Musicplayer.playsong("combat")
 	_on_update_health()
+	
+	##check for time trial##
+	timetrialchance = rng.randf()
+	if timetrialchance >= 0.95:
+		get_node("UI/time_trial_timer").combat = true
+		get_node("UI/time_trial_timer").timetrial = true
+		var randtimervar = rng.randi_range(5,12)
+		var goldmod = 25 - randtimervar
+		get_node("UI/time_trial_timer").goldmod = goldmod
+		get_node("UI/time_trial_timer").maxtimer = (randtimervar * get_node("mobs/Mobgenerator").enemycount)
+		get_node("UI/time_trial_timer").init()
+	else:
+		get_node("UI/time_trial_timer").combat = false
+		get_node("UI/time_trial_timer").timetrial = false
+		get_node("UI/time_trial_timer").init()
 	
 	
 	get_node("UI/Textboxanims").play("textboxappears")
@@ -86,6 +103,8 @@ func _process(_delta):
 		if !hpregenerated:
 			hpregenerated = true
 			player.heal(ceil((Game.playerstats["Regeneration"] / 4.0 * Game.playerhpmax * 0.04))) # heal 2% of player health * 1-5 depending on regeneration stat
+	
+		
 	else: # if enemies 
 		for j in get_node("fight_room").get_children():
 			if j.name.left(4) == "exit":
@@ -100,6 +119,11 @@ func _process(_delta):
 			if i.name.left(8) == "exitdoor":
 				i.get_node("Area2D").locked = false
 		Musicplayer.playsong("relaxed")
+		
+		if timetrialchance > 0.95:
+			get_node("UI/time_trial_timer").combat = false
+			timetrialchance = 0
+			
 	elif hasmobs:
 		for i in get_node("fight_room").get_children():
 			if i.name.left(8) == "exitdoor":

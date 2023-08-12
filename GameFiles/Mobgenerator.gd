@@ -3,6 +3,7 @@ var rng = RandomNumberGenerator.new()
 @onready var frog = preload("res://scene/mob/frog.tscn")
 @onready var boo = preload("res://scene/mob/boo.tscn")
 @onready var fluzar = preload("res://scene/mob/fluzar.tscn")
+var enemycount = 0
 
 #base stats:
 #health, patience, speed, damage, level
@@ -21,7 +22,6 @@ func instantiate(level,floornum):
 			if mobspawnnummax > get_child_count():
 				mobspawnnummax = get_child_count()
 			var spawn_position
-			var enemycount
 			if Variables.current_room_enemies.has(str(self.name) + "_enemycount"):
 				enemycount = Variables.current_room_enemies[str(self.name) + "_enemycount"]
 			else:

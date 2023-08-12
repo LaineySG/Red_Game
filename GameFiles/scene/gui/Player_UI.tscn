@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=76 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -39,6 +39,7 @@
 [ext_resource type="Script" path="res://scene/gui/Settings.gd" id="35_oss7l"]
 [ext_resource type="Script" path="res://scene/gui/returnmenubtn.gd" id="38_bmvnr"]
 [ext_resource type="Script" path="res://scene/gui/settings_modulation.gd" id="38_snqd4"]
+[ext_resource type="Script" path="res://scene/gui/time_trial_timer.gd" id="40_wtpvd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hclwf"]
 shader = ExtResource("1_tkis7")
@@ -1210,6 +1211,19 @@ offset_bottom = 81.0
 bbcode_enabled = true
 text = "Player floating damage numbers"
 
+[node name="time_trial_timer" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 287.0
+offset_top = 4.0
+offset_right = 737.0
+offset_bottom = 254.0
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]TIME TRIAL[/center]"
+script = ExtResource("40_wtpvd")
+
+[node name="Timer" type="Timer" parent="time_trial_timer"]
+
 [connection signal="timeout" from="Textbox/textscrolltimer" to="Textbox" method="_on_textscrolltimer_timeout"]
 [connection signal="opensettings" from="pause_modulation/Settings" to="." method="_on_settings_opensettings"]
 [connection signal="returntomenu" from="settings_modulation/Main Menu" to="." method="_on_main_menu_returntomenu"]
@@ -1218,3 +1232,4 @@ text = "Player floating damage numbers"
 [connection signal="value_changed" from="settings_modulation/Panel/SFXVolume" to="settings_modulation" method="_on_sfx_volume_value_changed"]
 [connection signal="toggled" from="settings_modulation/Panel/enemydamagetoggle" to="settings_modulation" method="_on_enemydamagetoggle_toggled"]
 [connection signal="toggled" from="settings_modulation/Panel/playerdamagetoggle" to="settings_modulation" method="_on_playerdamagetoggle_toggled"]
+[connection signal="timeout" from="time_trial_timer/Timer" to="time_trial_timer" method="_on_timer_timeout"]
