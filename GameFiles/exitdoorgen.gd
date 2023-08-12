@@ -69,6 +69,9 @@ func open():
 		play("open")
 	elif door_theme == "white_1":
 		play("open_white")
+	elif door_theme == "gradient_1":
+		play("open_gradient")
+		
 	get_node("door_light/Shadow").color = Color.LIGHT_BLUE
 	get_node("door_light/TextureLight").color = Color.LIGHT_BLUE
 
@@ -78,6 +81,8 @@ func _process(_delta):
 		play("closed")
 	elif door_theme == "white_1" and !opened:
 		play("closed_white")
+	elif door_theme == "gradient_1" and !opened:
+		play("closed_gradient")
 		
 	if get_node("Area2D").open and !opened:
 		opened = true

@@ -1,11 +1,13 @@
-[gd_scene load_steps=33 format=3 uid="uid://5o6wuyan4l24"]
+[gd_scene load_steps=44 format=3 uid="uid://5o6wuyan4l24"]
 
 [ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="1_ucey7"]
 [ext_resource type="Texture2D" uid="uid://bivc7v2od0dld" path="res://assets/environment/background_tiles/Level_1/closed_door_W.png" id="2_qcxyy"]
+[ext_resource type="Texture2D" uid="uid://cp0dbk7e80nwj" path="res://assets/environment/background_tiles/Level_1/closed_door_blue_gradient.png" id="2_xuvx4"]
 [ext_resource type="Script" path="res://exitdoorgen.gd" id="3_6r4ce"]
 [ext_resource type="Texture2D" uid="uid://cm2y0drjhr2hi" path="res://assets/environment/background_tiles/Level_1/door_opening.png" id="3_yqaws"]
 [ext_resource type="Texture2D" uid="uid://d0rt1b8kvroa6" path="res://assets/environment/background_tiles/Level_1/door_opening_white.png" id="4_7en6m"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="4_eprki"]
+[ext_resource type="Texture2D" uid="uid://up46dhyt1u8i" path="res://assets/environment/background_tiles/Level_1/door_opening_gradient.png" id="5_0mnpl"]
 [ext_resource type="Script" path="res://scene/levels/exitdoorarea2D.gd" id="5_ftkun"]
 [ext_resource type="Texture2D" uid="uid://cpix2rb6xo8d" path="res://assets/environment/scifi/anims/itemroom.png" id="6_efi4h"]
 [ext_resource type="Texture2D" uid="uid://dopdmojaxerof" path="res://assets/environment/scifi/anims/mysteryroom.png" id="7_r5x27"]
@@ -45,6 +47,42 @@ region = Rect2(384, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbssa"]
 atlas = ExtResource("3_yqaws")
 region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrfrk"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6oi0"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_expt7"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp6nq"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5741"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlerq"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meu87"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yttvs"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lq3ug"]
+atlas = ExtResource("5_0mnpl")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n720k"]
 atlas = ExtResource("4_7en6m")
@@ -94,6 +132,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_xuvx4")
+}],
+"loop": true,
+"name": &"closed_gradient",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_qcxyy")
 }],
 "loop": true,
@@ -127,6 +173,38 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrfrk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6oi0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_expt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp6nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5741")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlerq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meu87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yttvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lq3ug")
+}],
+"loop": false,
+"name": &"open_gradient",
 "speed": 15.0
 }, {
 "frames": [{
@@ -168,7 +246,7 @@ size = Vector2(41, 57)
 [node name="exitdoor" type="AnimatedSprite2D" groups=["interact"]]
 position = Vector2(808, -105)
 sprite_frames = SubResource("SpriteFrames_tcadn")
-animation = &"open"
+animation = &"open_gradient"
 script = ExtResource("3_6r4ce")
 
 [node name="door_light" type="Node2D" parent="."]

@@ -1,0 +1,2520 @@
+[gd_scene load_steps=65 format=3 uid="uid://d4hqone8g67yk"]
+
+[ext_resource type="Script" path="res://scene/levels/fight_room_1_4.gd" id="1_oknmt"]
+[ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_vk0qn"]
+[ext_resource type="Texture2D" uid="uid://cp0dbk7e80nwj" path="res://assets/environment/background_tiles/Level_1/closed_door_blue_gradient.png" id="3_ujfnc"]
+[ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="4_n2r0v"]
+[ext_resource type="Texture2D" uid="uid://c2jqkinnqjfus" path="res://assets/environment/background_tiles/Level_1/test_3_2.png" id="5_i2103"]
+[ext_resource type="Texture2D" uid="uid://b7sw1nfilvmij" path="res://assets/environment/background_tiles/Level_1/test_1_2.png" id="6_gr5mr"]
+[ext_resource type="Texture2D" uid="uid://28wyfrpgdpia" path="res://assets/environment/background_tiles/Level_1/variant_upper.png" id="6_vqwd2"]
+[ext_resource type="Texture2D" uid="uid://dtkp0rsmtedtt" path="res://assets/environment/background_tiles/Level_1/test_2_2.png" id="7_wvipo"]
+[ext_resource type="Texture2D" uid="uid://eat8qh5mabgw" path="res://assets/environment/background_tiles/Level_1/test_4_2.png" id="8_xrfgu"]
+[ext_resource type="Texture2D" uid="uid://dvi8r8xxud3qc" path="res://assets/environment/background_tiles/Level_1/test_5_2.png" id="9_2vbsk"]
+[ext_resource type="Texture2D" uid="uid://budyw2setwakl" path="res://assets/environment/background_tiles/Level_1/uppergradient5.png" id="9_4c6i1"]
+[ext_resource type="Texture2D" uid="uid://dqv0uic5fcids" path="res://assets/environment/background_tiles/Level_1/test_6_2.png" id="10_p0tfa"]
+[ext_resource type="Texture2D" uid="uid://vgdrqfrlrahu" path="res://assets/environment/background_tiles/Level_1/test_7_2.png" id="11_367ef"]
+[ext_resource type="Texture2D" uid="uid://bw74xfftv2ur" path="res://assets/environment/background_tiles/Level_1/scifi_3a2a_2.png" id="13_q2nvu"]
+[ext_resource type="Texture2D" uid="uid://dcrxkqgs5a40s" path="res://assets/environment/background_tiles/Level_1/scifi_3a2b_2.png" id="14_d0t1m"]
+[ext_resource type="Texture2D" uid="uid://gygxil32gi3" path="res://assets/environment/background_tiles/Level_1/scifi_3a3a_2.png" id="15_ju46x"]
+[ext_resource type="Texture2D" uid="uid://4sik1i27dy3t" path="res://assets/environment/background_tiles/Level_1/scifi_3a2c_4.png" id="16_dvfx7"]
+[ext_resource type="Texture2D" uid="uid://bvkfjl4ryof32" path="res://assets/environment/background_tiles/Level_1/scifi_3a1_2.png" id="18_vlqxb"]
+[ext_resource type="Texture2D" uid="uid://b6gnvi1i6alsg" path="res://assets/environment/background_tiles/Level_1/uppergradient1.png" id="19_fwhd8"]
+[ext_resource type="Texture2D" uid="uid://ciby7uoeldvyt" path="res://assets/environment/background_tiles/Level_1/scifi_3a2c_3.png" id="20_k44pf"]
+[ext_resource type="PackedScene" uid="uid://dk6hcdxo683yh" path="res://check_for_exit.tscn" id="25_rg6ws"]
+[ext_resource type="PackedScene" uid="uid://5o6wuyan4l24" path="res://exitdoorgen.tscn" id="26_ktxo3"]
+[ext_resource type="PackedScene" uid="uid://m3rxdh24o1nw" path="res://tile_map_fight_1.tscn" id="27_qbekx"]
+[ext_resource type="PackedScene" uid="uid://cixidhrb5q1qo" path="res://scene/gui/Player_UI.tscn" id="28_ikeuh"]
+[ext_resource type="PackedScene" uid="uid://dk8edw251qj3" path="res://scene/player/player.tscn" id="29_3v6vm"]
+[ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="30_a8psi"]
+[ext_resource type="Script" path="res://scene/levels/mobs.gd" id="31_wefwu"]
+[ext_resource type="PackedScene" uid="uid://q3gf76rase8m" path="res://script/mobgenerator.tscn" id="32_0fbw8"]
+[ext_resource type="Script" path="res://scene/item/explosives.gd" id="33_6hrro"]
+[ext_resource type="PackedScene" uid="uid://pfhdu57xrkil" path="res://scene/levels/death_screen.tscn" id="33_7eyxq"]
+[ext_resource type="Texture2D" uid="uid://cbhyxqf82x5bm" path="res://assets/environment/background_tiles/Level_1/extramonitor2.png" id="34_4okbu"]
+[ext_resource type="Texture2D" uid="uid://blkttuxo7htrs" path="res://assets/environment/background_tiles/Level_1/decor_1.png" id="34_5jels"]
+[ext_resource type="Texture2D" uid="uid://dqvmneppxg0o3" path="res://assets/environment/scifi/anims/confettitestparticle.png" id="34_ppjuj"]
+[ext_resource type="Texture2D" uid="uid://mf0f8qvfkc7" path="res://assets/environment/background_tiles/Level_1/decor_2.png" id="35_an4sm"]
+[ext_resource type="PackedScene" uid="uid://bd0n7bcttv1oa" path="res://ooze_tub.tscn" id="35_ygl62"]
+[ext_resource type="Texture2D" uid="uid://dtesffdeq2fcx" path="res://assets/environment/background_tiles/Level_1/decor_5.png" id="36_oly06"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ahnwx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ujfnc")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 1.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fm1v"]
+size = Vector2(60, 75)
+
+[sub_resource type="Environment" id="Environment_vk62y"]
+background_mode = 3
+tonemap_mode = 3
+tonemap_white = 4.5
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 1.5
+glow_blend_mode = 1
+glow_hdr_threshold = 0.9
+adjustment_enabled = true
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rfp8q"]
+vertices = PackedVector2Array(39, 92, 39, 124, 7, 124, 7, 92)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 92, 7, 124, 39, 124, 39, 92)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_akh8m"]
+vertices = PackedVector2Array(23, 92, 23, 124, 7, 124, 7, 92)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 92, 7, 124, 23, 124, 23, 92)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ntkgv"]
+vertices = PackedVector2Array(23, 108, 23, 124, 7, 124, 7, 108)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 108, 7, 124, 23, 124, 23, 108)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_q6kht"]
+vertices = PackedVector2Array(71, 93, 71, 109, 7, 109, 7, 93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 93, 7, 109, 71, 109, 71, 93)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_tpo2c"]
+vertices = PackedVector2Array(39, 93, 39, 109, 7, 109, 7, 93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 93, 7, 109, 39, 109, 39, 93)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_3i3uc"]
+vertices = PackedVector2Array(55, 93, 55, 109, 7, 109, 7, 93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(7, 93, 7, 109, 55, 109, 55, 93)])
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_dxel7"]
+vertices = PackedVector2Array(55, 93, 55, 109, 23, 109, 23, 93)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(23, 93, 23, 109, 55, 109, 55, 93)])
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2s5f"]
+size = Vector2(64, 67)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s26v0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_5jels")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4462j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_an4sm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_hjff3"]
+length = 0.6
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_piy51"]
+resource_name = "blue_balloo"
+length = 6.0
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wl4ny"]
+_data = {
+"RESET": SubResource("Animation_hjff3"),
+"blue_balloon": SubResource("Animation_piy51")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5qps"]
+
+[sub_resource type="Gradient" id="Gradient_fpwm6"]
+offsets = PackedFloat32Array(0, 0.338384, 0.621212, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.737437, 0.159362, 1.92523e-07, 1, 0.824561, 0.549079, 0.00772229, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8tbb3"]
+gradient = SubResource("Gradient_fpwm6")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lq2av"]
+lifetime_randomness = 0.03
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 75.0
+angular_velocity_min = 15.0
+angular_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+color_ramp = SubResource("GradientTexture1D_8tbb3")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryb26"]
+size = Vector2(64, 66)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t2rv"]
+size = Vector2(64, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yuykj"]
+size = Vector2(64, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_codif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_an4sm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0t2k"]
+size = Vector2(32, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyya0"]
+size = Vector2(32, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ssk20"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_5jels")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4dods"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_oly06")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="fight_room_4" type="Node2D"]
+script = ExtResource("1_oknmt")
+
+[node name="fight_room" type="ParallaxBackground" parent="."]
+layer = -50
+offset = Vector2(250, 200)
+transform = Transform2D(1, 0, 0, 1, 250, 200)
+follow_viewport_enabled = true
+script = ExtResource("2_vk0qn")
+
+[node name="closeddoor" type="AnimatedSprite2D" parent="fight_room"]
+position = Vector2(-217, -105)
+sprite_frames = SubResource("SpriteFrames_ahnwx")
+animation = &"closed"
+
+[node name="door_light" type="Node2D" parent="fight_room/closeddoor"]
+z_index = 1
+position = Vector2(0, -26)
+
+[node name="TextureLight" type="PointLight2D" parent="fight_room/closeddoor/door_light"]
+color = Color(0.84812, 0.208988, 0.918914, 1)
+energy = 0.1
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="Shadow" type="PointLight2D" parent="fight_room/closeddoor/door_light"]
+color = Color(0.84812, 0.208988, 0.918914, 1)
+energy = 0.25
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Area2D" type="Area2D" parent="fight_room/closeddoor"]
+position = Vector2(1, 1)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fight_room/closeddoor/Area2D"]
+position = Vector2(248, 197.5)
+shape = SubResource("RectangleShape2D_7fm1v")
+
+[node name="Scifi4f1a42" type="Sprite2D" parent="fight_room"]
+position = Vector2(-153, -233)
+rotation = -3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a" type="Sprite2D" parent="fight_room"]
+position = Vector2(-153, -249)
+texture = ExtResource("5_i2103")
+
+[node name="Scifi4f1a3" type="Sprite2D" parent="fight_room"]
+position = Vector2(-217, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a4" type="Sprite2D" parent="fight_room"]
+position = Vector2(-153, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a5" type="Sprite2D" parent="fight_room"]
+position = Vector2(-89, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a6" type="Sprite2D" parent="fight_room"]
+position = Vector2(-25, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a22" type="Sprite2D" parent="fight_room"]
+position = Vector2(39, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a23" type="Sprite2D" parent="fight_room"]
+position = Vector2(103, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a24" type="Sprite2D" parent="fight_room"]
+position = Vector2(167, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a25" type="Sprite2D" parent="fight_room"]
+position = Vector2(231, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a26" type="Sprite2D" parent="fight_room"]
+position = Vector2(295, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a27" type="Sprite2D" parent="fight_room"]
+position = Vector2(359, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a28" type="Sprite2D" parent="fight_room"]
+position = Vector2(423, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a29" type="Sprite2D" parent="fight_room"]
+position = Vector2(487, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a30" type="Sprite2D" parent="fight_room"]
+position = Vector2(551, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a31" type="Sprite2D" parent="fight_room"]
+position = Vector2(615, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a32" type="Sprite2D" parent="fight_room"]
+position = Vector2(679, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a33" type="Sprite2D" parent="fight_room"]
+position = Vector2(743, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a34" type="Sprite2D" parent="fight_room"]
+position = Vector2(807, -169)
+texture = ExtResource("6_vqwd2")
+
+[node name="Scifi4f1a7" type="Sprite2D" parent="fight_room"]
+position = Vector2(-153, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a8" type="Sprite2D" parent="fight_room"]
+position = Vector2(-25, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a10" type="Sprite2D" parent="fight_room"]
+position = Vector2(103, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a12" type="Sprite2D" parent="fight_room"]
+position = Vector2(39, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a11" type="Sprite2D" parent="fight_room"]
+position = Vector2(167, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a14" type="Sprite2D" parent="fight_room"]
+position = Vector2(359, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a15" type="Sprite2D" parent="fight_room"]
+position = Vector2(423, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a17" type="Sprite2D" parent="fight_room"]
+position = Vector2(551, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a35" type="Sprite2D" parent="fight_room"]
+position = Vector2(487, -233)
+rotation = 3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a41" type="Sprite2D" parent="fight_room"]
+position = Vector2(-217, -233)
+rotation = 3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a36" type="Sprite2D" parent="fight_room"]
+position = Vector2(551, -233)
+rotation = 3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a37" type="Sprite2D" parent="fight_room"]
+position = Vector2(615, -233)
+rotation = 3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a38" type="Sprite2D" parent="fight_room"]
+position = Vector2(679, -233)
+rotation = 3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a39" type="Sprite2D" parent="fight_room"]
+position = Vector2(743, -233)
+rotation = 3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a40" type="Sprite2D" parent="fight_room"]
+position = Vector2(807, -233)
+rotation = 3.14159
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a19" type="Sprite2D" parent="fight_room"]
+position = Vector2(679, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a43" type="Sprite2D" parent="fight_room"]
+position = Vector2(615, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a44" type="Sprite2D" parent="fight_room"]
+position = Vector2(295, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a45" type="Sprite2D" parent="fight_room"]
+position = Vector2(231, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a20" type="Sprite2D" parent="fight_room"]
+position = Vector2(743, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a21" type="Sprite2D" parent="fight_room"]
+position = Vector2(807, -105)
+texture = ExtResource("19_fwhd8")
+
+[node name="Scifi4f1a16" type="Sprite2D" parent="fight_room"]
+position = Vector2(487, -105)
+texture = ExtResource("9_4c6i1")
+
+[node name="Scifi4g1a" type="Sprite2D" parent="fight_room"]
+position = Vector2(-89, -249)
+texture = ExtResource("6_gr5mr")
+
+[node name="Scifi4h1a" type="Sprite2D" parent="fight_room"]
+position = Vector2(-25, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4h1a4" type="Sprite2D" parent="fight_room"]
+position = Vector2(-217, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4i1a" type="Sprite2D" parent="fight_room"]
+position = Vector2(39, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4j1a" type="Sprite2D" parent="fight_room"]
+position = Vector2(103, -249)
+texture = ExtResource("8_xrfgu")
+
+[node name="Scifi4i1a2" type="Sprite2D" parent="fight_room"]
+position = Vector2(231, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4i1a3" type="Sprite2D" parent="fight_room"]
+position = Vector2(295, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4i1a6" type="Sprite2D" parent="fight_room"]
+position = Vector2(167, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4h1a2" type="Sprite2D" parent="fight_room"]
+position = Vector2(551, -249)
+texture = ExtResource("6_gr5mr")
+
+[node name="Scifi4i1a4" type="Sprite2D" parent="fight_room"]
+position = Vector2(423, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4i1a5" type="Sprite2D" parent="fight_room"]
+position = Vector2(487, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4f1a2" type="Sprite2D" parent="fight_room"]
+position = Vector2(359, -249)
+texture = ExtResource("9_2vbsk")
+
+[node name="Scifi4g1a2" type="Sprite2D" parent="fight_room"]
+position = Vector2(615, -249)
+texture = ExtResource("10_p0tfa")
+
+[node name="Scifi4g1a3" type="Sprite2D" parent="fight_room"]
+position = Vector2(679, -249)
+texture = ExtResource("11_367ef")
+
+[node name="Scifi4h1a3" type="Sprite2D" parent="fight_room"]
+position = Vector2(743, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi4h1a5" type="Sprite2D" parent="fight_room"]
+position = Vector2(807, -249)
+texture = ExtResource("7_wvipo")
+
+[node name="Scifi3a2a" type="Sprite2D" parent="fight_room"]
+position = Vector2(-217, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b" type="Sprite2D" parent="fight_room"]
+position = Vector2(-153, -313)
+texture = ExtResource("14_d0t1m")
+
+[node name="Scifi3a2a2" type="Sprite2D" parent="fight_room"]
+position = Vector2(-89, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b2" type="Sprite2D" parent="fight_room"]
+position = Vector2(-25, -313)
+texture = ExtResource("20_k44pf")
+
+[node name="Scifi3a2a3" type="Sprite2D" parent="fight_room"]
+position = Vector2(39, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b3" type="Sprite2D" parent="fight_room"]
+position = Vector2(103, -313)
+texture = ExtResource("14_d0t1m")
+
+[node name="Scifi3a2a4" type="Sprite2D" parent="fight_room"]
+position = Vector2(167, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b4" type="Sprite2D" parent="fight_room"]
+position = Vector2(231, -313)
+texture = ExtResource("14_d0t1m")
+
+[node name="Scifi3a2a5" type="Sprite2D" parent="fight_room"]
+position = Vector2(295, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b5" type="Sprite2D" parent="fight_room"]
+position = Vector2(359, -313)
+texture = ExtResource("14_d0t1m")
+
+[node name="Scifi3a2a6" type="Sprite2D" parent="fight_room"]
+position = Vector2(423, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b6" type="Sprite2D" parent="fight_room"]
+position = Vector2(487, -313)
+texture = ExtResource("14_d0t1m")
+
+[node name="Scifi3a2a7" type="Sprite2D" parent="fight_room"]
+position = Vector2(551, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b7" type="Sprite2D" parent="fight_room"]
+position = Vector2(615, -313)
+texture = ExtResource("14_d0t1m")
+
+[node name="Scifi3a2a8" type="Sprite2D" parent="fight_room"]
+position = Vector2(679, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a9" type="Sprite2D" parent="fight_room"]
+position = Vector2(807, -313)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2b8" type="Sprite2D" parent="fight_room"]
+position = Vector2(743, -313)
+texture = ExtResource("14_d0t1m")
+
+[node name="Scifi3a3a" type="Sprite2D" parent="fight_room"]
+position = Vector2(807, -377)
+texture = ExtResource("15_ju46x")
+
+[node name="Scifi3a3a2" type="Sprite2D" parent="fight_room"]
+position = Vector2(167, -377)
+texture = ExtResource("15_ju46x")
+
+[node name="Scifi3a2c" type="Sprite2D" parent="fight_room"]
+position = Vector2(743, -377)
+texture = ExtResource("16_dvfx7")
+
+[node name="Scifi3a2a11" type="Sprite2D" parent="fight_room"]
+position = Vector2(679, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a12" type="Sprite2D" parent="fight_room"]
+position = Vector2(615, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a13" type="Sprite2D" parent="fight_room"]
+position = Vector2(423, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a16" type="Sprite2D" parent="fight_room"]
+position = Vector2(103, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a14" type="Sprite2D" parent="fight_room"]
+position = Vector2(359, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a15" type="Sprite2D" parent="fight_room"]
+position = Vector2(295, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2c2" type="Sprite2D" parent="fight_room"]
+position = Vector2(551, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2c4" type="Sprite2D" parent="fight_room"]
+position = Vector2(487, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a17" type="Sprite2D" parent="fight_room"]
+position = Vector2(-89, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2a18" type="Sprite2D" parent="fight_room"]
+position = Vector2(-153, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2c3" type="Sprite2D" parent="fight_room"]
+position = Vector2(39, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a2c5" type="Sprite2D" parent="fight_room"]
+position = Vector2(-25, -377)
+texture = ExtResource("13_q2nvu")
+
+[node name="Scifi3a1a" type="Sprite2D" parent="fight_room"]
+position = Vector2(231, -377)
+texture = ExtResource("18_vlqxb")
+
+[node name="Scifi3a1a2" type="Sprite2D" parent="fight_room"]
+position = Vector2(-217, -377)
+texture = ExtResource("18_vlqxb")
+
+[node name="check_for_exit" parent="fight_room" instance=ExtResource("25_rg6ws")]
+position = Vector2(0, -144)
+
+[node name="exitdoor" parent="fight_room" instance=ExtResource("26_ktxo3")]
+position = Vector2(-89, -105)
+
+[node name="TileMap" parent="." instance=ExtResource("27_qbekx")]
+layer_0/tile_data = PackedInt32Array(-327685, 393217, 2, -262149, 393217, 2, -196613, 393217, 2, -131077, 393217, 2, -65541, 393217, 2, -5, 393217, 2, 65531, 393217, 2, 131067, 393217, 2, 196603, 393217, 2, 262139, 393217, 3, 262140, 1, 4, 262141, 65537, 4, 262142, 65537, 4, 262143, 65537, 4, 196608, 65537, 4, 196609, 65537, 4, 196610, 65537, 4, -393213, 1, 4, 196611, 65537, 4, -393212, 65537, 4, 196612, 196609, 4, -393211, 65537, 4, 196613, 65537, 4, -393210, 65537, 4, 196614, 65537, 4, -393209, 65537, 4, 196615, 65537, 4, -393208, 65537, 4, 196616, 65537, 4, -393207, 65537, 4, 196617, 65537, 4, -393206, 65537, 4, 196618, 65537, 4, -393205, 65537, 4, 196619, 65537, 4, -393204, 65537, 4, 196620, 196609, 4, -393203, 65537, 4, 196621, 65537, 4, -393202, 65537, 4, 196622, 65537, 4, -393201, 65537, 4, 196623, 65537, 4, -393200, 196609, 4, 196624, 65537, 4, -393199, 65537, 4, 196625, 65537, 4, -393198, 65537, 4, 196626, 65537, 4, -393197, 65537, 4, 196627, 65537, 4, -393196, 65537, 4, 196628, 65537, 4, -393195, 65537, 4, 196629, 65537, 4, -393194, 327681, 4, 196630, 65537, 4, -393193, 393217, 3, 196631, 65537, 4, -393192, 1, 4, 196632, 65537, 4, -393191, 65537, 4, -393190, 65537, 4, -393189, 65537, 4, -393188, 65537, 4, -393187, 65537, 4, -393186, 65537, 4, -393185, 262145, 4, -393184, 65537, 4, -393183, 65537, 4, -393182, 65537, 4, -393181, 65537, 4, -393180, 65537, 4, -393179, 65537, 4, -393178, 65537, 4, -393177, 327681, 4, 196633, 65537, 4, 196634, 65537, 4, 196635, 65537, 4, 196636, 65537, 4, 196637, 65537, 4, 196638, 65537, 4, 196639, 65537, 4, 196640, 65537, 4, 196641, 65537, 4, 196642, 65537, 4, 196643, 65537, 4, 196644, 65537, 4, 196645, 65537, 4, 196646, 65537, 4, 196647, 65537, 4, 196648, 65537, 4, 196649, 65537, 4, 196650, 65537, 4, 196651, 65537, 4, 196652, 65537, 4, 196653, 65537, 4, 196654, 65537, 4, 196655, 65537, 4, 196656, 65537, 4, 196657, 65537, 4, 196658, 65537, 4, 196659, 65537, 4, 196660, 65537, 4, 196661, 65537, 4, 196662, 65537, 4, 196663, 65537, 4, 196664, 65537, 4, 196665, 65537, 4, 196666, 65537, 4, 196667, 65537, 4, 196668, 65537, 4, 196669, 65537, 4, 196670, 65537, 4, 196671, 327681, 4, 131136, 393217, 2, 196672, 393217, 3, -327616, 393217, 2, -262080, 393217, 2, -196544, 393217, 2, -131008, 393217, 2, -65472, 393217, 2, 64, 393217, 2, 65600, 393217, 2, -851904, 393217, 2, -786368, 393217, 2, -720832, 393217, 2, -655296, 393217, 2, -589760, 393217, 2, -524224, 393217, 2, -458688, 393217, 2, -393152, 393217, 2, -917440, 393217, 2, -917465, 262145, 2, -917464, 262145, 2, -917463, 262145, 2, -917462, 262145, 2, -917461, 262145, 2, -917460, 262145, 2, -917459, 262145, 2, -917458, 262145, 2, -917457, 262145, 2, -917456, 262145, 2, -917455, 262145, 2, -917454, 262145, 2, -917453, 262145, 2, -917452, 262145, 2, -917451, 262145, 2, -917450, 262145, 2, -917449, 262145, 2, -917448, 262145, 2, -917447, 262145, 2, -917446, 262145, 2, -917445, 262145, 2, -917444, 262145, 2, -917443, 262145, 2, -917442, 262145, 2, -917441, 262145, 2, -917466, 262145, 2, -917467, 262145, 2, -917468, 262145, 2, -917473, 262145, 2, -917472, 262145, 2, -917471, 262145, 2, -917470, 262145, 2, -917469, 262145, 2, -917481, 393217, 1, -851945, 393217, 2, -786409, 393217, 2, -720873, 393217, 2, -655337, 393217, 2, -589801, 393217, 2, -524265, 393217, 2, -458729, 393217, 2, -1245161, 262145, 2, -1245160, 262145, 2, -1245159, 262145, 2, -1245158, 262145, 2, -1245157, 262145, 2, -1245156, 262145, 2, -1245155, 262145, 2, -1245154, 262145, 2, -1245153, 262145, 2, -1245152, 262145, 2, -1245151, 262145, 2, -1245150, 262145, 2, -1245149, 262145, 2, -1245148, 262145, 2, -1245147, 262145, 2, -1245146, 262145, 2, -1245145, 262145, 2, -1245144, 262145, 2, -1245143, 262145, 2, -1245142, 262145, 2, -1245141, 262145, 2, -1245140, 262145, 2, -1245139, 262145, 2, -1245138, 262145, 2, -1245137, 262145, 2, -1245131, 262145, 2, -1245130, 262145, 2, -1245129, 262145, 2, -1245128, 262145, 2, -1245127, 262145, 2, -1245126, 262145, 2, -1245125, 262145, 2, -1245124, 262145, 2, -1245123, 262145, 2, -1245122, 262145, 2, -1245121, 262145, 2, -1245120, 393217, 1, -1179584, 393217, 2, -1114048, 393217, 2, -1048512, 393217, 2, -982976, 393217, 2, -458757, 393217, 2, -393221, 393217, 2, -524293, 393217, 2, -589829, 393217, 2, -655365, 393217, 2, -720901, 393217, 2, -786437, 393217, 2, -851973, 393217, 2, -917502, 262145, 2, -917501, 262145, 2, -917500, 262145, 2, -917499, 262145, 2, -917498, 262145, 2, -917497, 262145, 2, -917496, 262145, 2, -917495, 262145, 2, -917494, 262145, 2, -917493, 262145, 2, -917492, 262145, 2, -917491, 262145, 2, -917490, 262145, 2, -917489, 262145, 2, -327677, 262145, 2, -262141, 262145, 2, -196605, 262145, 2, -131069, 262145, 2, -65533, 262145, 2, 3, 262145, 2, 65539, 262145, 2, 131075, 262145, 2, -1179653, 393217, 1, -1114117, 393217, 2, -1048581, 393217, 2, -983045, 393217, 2, -917509, 393217, 2, -1179652, 262145, 2, -1179651, 262145, 2, -1179650, 262145, 2, -1179649, 262145, 2, -1245184, 262145, 2, -1245183, 262145, 2, -1245182, 262145, 2, -1245181, 262145, 2, -1245180, 262145, 2, -1245179, 262145, 2, -1245178, 262145, 2, -1245177, 262145, 2, -1245176, 262145, 2, -1245175, 262145, 2, -1245174, 262145, 2, -1245173, 262145, 2, -1245172, 262145, 2, -1245171, 262145, 2, -1245170, 262145, 2, -1245169, 262145, 2, -1245168, 262145, 2, -1245167, 262145, 2, -1245166, 262145, 2, -1245165, 262145, 2, -1245164, 262145, 2, -1245163, 262145, 2, -1245162, 262145, 2, -1245136, 262145, 2, -1245135, 262145, 2, -1245134, 262145, 2, -1245133, 262145, 2, -1245132, 262145, 2, -65492, 458753, 3, -65491, 524289, 3, -65490, 524289, 3, -65489, 524289, 3, -65488, 524289, 3, -65487, 589825, 3, -458699, 458753, 3, -458698, 524289, 3, -458697, 524289, 3, -458696, 589825, 3, -65479, 524289, 3, -65478, 589825, 3, -65480, 458753, 3)
+
+[node name="UI" parent="." instance=ExtResource("28_ikeuh")]
+visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_vk62y")
+
+[node name="Player" parent="." instance=ExtResource("29_3v6vm")]
+z_index = 2
+position = Vector2(23, 108)
+
+[node name="Lighting" type="Node2D" parent="."]
+visible = false
+position = Vector2(-2, 1)
+
+[node name="Light2" type="Node2D" parent="Lighting"]
+visible = false
+z_index = 1
+position = Vector2(34, 4)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Light2"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Light2"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="Arealight" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(30, 243)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Arealight"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 2.0
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Arealight"]
+position = Vector2(9, 9)
+color = Color(0.870588, 0.886275, 1, 1)
+blend_mode = 2
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+
+[node name="Arealight2" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(454, 241)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Arealight2"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 2.0
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Arealight2"]
+position = Vector2(9, 9)
+color = Color(0.870588, 0.886275, 1, 1)
+blend_mode = 2
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+
+[node name="Light3" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(99, 5)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Light3"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Light3"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="Light4" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(162, 5)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Light4"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Light4"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="Light5" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(227, 5)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Light5"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Light5"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="Light6" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(290, 3)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Light6"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Light6"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="Light8" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(355, 5)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Light8"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Light8"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="Light7" type="Node2D" parent="Lighting"]
+z_index = 1
+position = Vector2(418, 3)
+
+[node name="TextureLight" type="PointLight2D" parent="Lighting/Light7"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.1
+
+[node name="Shadow" type="PointLight2D" parent="Lighting/Light7"]
+color = Color(0.870588, 0.886275, 1, 1)
+range_layer_min = -100
+range_item_cull_mask = 515
+shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 20.9
+shadow_item_cull_mask = 515
+texture = ExtResource("4_n2r0v")
+texture_scale = 0.2
+
+[node name="TransitionScreen" parent="." instance=ExtResource("30_a8psi")]
+visible = false
+
+[node name="mobs" type="Node2D" parent="."]
+script = ExtResource("31_wefwu")
+
+[node name="Mobgenerator" parent="mobs" instance=ExtResource("32_0fbw8")]
+
+[node name="spawnpos1" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(448, 47)
+
+[node name="spawnpos2" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(225, -181)
+
+[node name="spawnpos4" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(1038, 43)
+
+[node name="spawnpos6" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(826, -95)
+
+[node name="spawnpos7" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(671, -77)
+
+[node name="spawnpos8" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(722, 43)
+
+[node name="spawnpos9" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(546, 46)
+
+[node name="spawnpos12" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(897, -88)
+
+[node name="spawnpos13" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(1035, -77)
+
+[node name="spawnpos14" type="Node2D" parent="mobs/Mobgenerator"]
+position = Vector2(236, -73)
+
+[node name="death_screen" parent="." instance=ExtResource("33_7eyxq")]
+
+[node name="navigation_areas" type="Node2D" parent="."]
+visible = false
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D2" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D3" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D4" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D5" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D6" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D7" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D8" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D9" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D10" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D11" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D12" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D17" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D18" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D19" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D20" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D21" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D22" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D23" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D24" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D25" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D26" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D27" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D28" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D29" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D30" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D31" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D32" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D33" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D34" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D35" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D36" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D37" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D38" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D39" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D40" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D41" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D42" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D43" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D44" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D45" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D46" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D47" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D48" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D49" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D50" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D51" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D52" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D53" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D54" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D55" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D56" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D57" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D58" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D59" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D60" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D61" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D62" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D63" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D64" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D65" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D66" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D67" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D68" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D69" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D70" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D71" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D72" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D73" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D74" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D75" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D76" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D77" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D78" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D79" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D80" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D94" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D95" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D98" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D81" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D82" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D83" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D84" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D85" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D86" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D87" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D88" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D89" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D90" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D91" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D92" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D93" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D96" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D97" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D100" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D101" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D104" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D105" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D108" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D109" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D112" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D113" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D114" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D115" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D116" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D117" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D118" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D119" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D120" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D126" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D99" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D102" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D103" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D127" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D106" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D107" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D110" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D130" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D111" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D132" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D135" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D136" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D137" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D138" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D139" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D140" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D141" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D142" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D143" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D157" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D158" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D159" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D160" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D161" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D162" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D144" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D145" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D146" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D147" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D148" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D149" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D150" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D151" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D152" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D153" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D154" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D155" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D163" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D164" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D165" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D166" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D167" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D168" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D169" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D170" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D171" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D172" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D173" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D174" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D175" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D176" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D177" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D178" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D179" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D180" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D181" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D182" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D183" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D184" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D185" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D186" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D156" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D187" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D188" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D189" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D190" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D191" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D192" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D193" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D194" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D195" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D196" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D197" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D199" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D200" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D201" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D198" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D203" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D204" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D205" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D206" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D207" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D229" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D230" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D231" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D232" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D233" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D234" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D235" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D236" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D237" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D238" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(154, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D239" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D240" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(122, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D241" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D242" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D243" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D244" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D245" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D246" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D247" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D248" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D249" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D250" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D251" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D252" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D253" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D254" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D255" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D256" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D257" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D258" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D259" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D260" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D261" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D262" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D263" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D264" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D265" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D266" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D267" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D268" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D269" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D270" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D271" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D272" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(634, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D273" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D274" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D275" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D276" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(698, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D277" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D278" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(794, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D279" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D280" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(762, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D281" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D282" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(858, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D283" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D284" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D285" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D286" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D287" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D288" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D289" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D290" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D291" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D292" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D293" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D294" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1050, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D295" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -269)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D296" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -301)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D208" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D209" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D210" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(218, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D211" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D212" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D213" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(186, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D214" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D215" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D216" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(282, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D217" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D218" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D219" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(250, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D220" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D221" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D222" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D226" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D227" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D228" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(378, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D223" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -157)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D224" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -189)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D225" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -221)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D202" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(58, -125)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D121" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D122" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -29)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D123" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -61)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D124" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(1018, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D125" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D129" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="half_tile" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, -61)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile6" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, -29)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile7" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -61)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile8" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(730, -29)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile9" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(874, -61)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile10" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(874, -29)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile2" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, 3)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile3" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -29)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile4" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -61)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile12" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -157)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile13" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -189)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile14" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -221)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile15" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(410, -253)
+navigation_polygon = SubResource("NavigationPolygon_ntkgv")
+
+[node name="half_tile5" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -93)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile11" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(90, -125)
+navigation_polygon = SubResource("NavigationPolygon_akh8m")
+
+[node name="half_tile_upper5" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -110)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper6" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, -110)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper9" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(602, -126)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper20" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(666, -126)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper21" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(506, -126)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper23" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -126)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper22" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(570, -126)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper24" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(330, -126)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper25" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(394, -126)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper26" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(234, -126)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper27" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(170, -126)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper28" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(298, -126)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper29" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(138, -126)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper31" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(26, -238)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper32" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(-6, -238)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper33" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(346, -238)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper34" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(314, -238)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile16" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(538, -253)
+navigation_polygon = SubResource("NavigationPolygon_ntkgv")
+
+[node name="half_tile_upper35" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(474, -238)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper36" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(442, -238)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper30" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(106, -126)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper7" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(890, -158)
+navigation_polygon = SubResource("NavigationPolygon_q6kht")
+
+[node name="half_tile_upper8" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, -158)
+navigation_polygon = SubResource("NavigationPolygon_tpo2c")
+
+[node name="half_tile_upper10" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(938, -62)
+navigation_polygon = SubResource("NavigationPolygon_3i3uc")
+
+[node name="half_tile_upper12" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(938, -14)
+navigation_polygon = SubResource("NavigationPolygon_3i3uc")
+
+[node name="half_tile_upper11" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(970, -62)
+navigation_polygon = SubResource("NavigationPolygon_dxel7")
+
+[node name="half_tile_upper13" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(970, -14)
+navigation_polygon = SubResource("NavigationPolygon_dxel7")
+
+[node name="half_tile_upper14" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(746, -62)
+navigation_polygon = SubResource("NavigationPolygon_3i3uc")
+
+[node name="half_tile_upper16" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -62)
+navigation_polygon = SubResource("NavigationPolygon_3i3uc")
+
+[node name="half_tile_upper15" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(778, -62)
+navigation_polygon = SubResource("NavigationPolygon_dxel7")
+
+[node name="half_tile_upper17" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(746, -14)
+navigation_polygon = SubResource("NavigationPolygon_3i3uc")
+
+[node name="half_tile_upper18" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(826, -14)
+navigation_polygon = SubResource("NavigationPolygon_3i3uc")
+
+[node name="half_tile_upper19" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(778, -14)
+navigation_polygon = SubResource("NavigationPolygon_dxel7")
+
+[node name="NavigationRegion2D131" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, 3)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D133" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(954, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D134" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(922, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="NavigationRegion2D128" type="NavigationRegion2D" parent="navigation_areas"]
+position = Vector2(986, -93)
+navigation_polygon = SubResource("NavigationPolygon_rfp8q")
+
+[node name="objects" type="Node2D" parent="."]
+
+[node name="barrels_1" type="CharacterBody2D" parent="objects"]
+position = Vector2(278, 126)
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+script = ExtResource("33_6hrro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_1"]
+position = Vector2(14, -30.5)
+shape = SubResource("RectangleShape2D_x2s5f")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="objects/barrels_1"]
+position = Vector2(32, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s26v0")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="objects/barrels_1"]
+position = Vector2(8, -64)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s26v0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="objects/barrels_1"]
+position = Vector2(8, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4462j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="objects/barrels_1"]
+libraries = {
+"": SubResource("AnimationLibrary_wl4ny")
+}
+
+[node name="pop_damage" type="Area2D" parent="objects/barrels_1"]
+visible = false
+collision_mask = 193
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_1/pop_damage"]
+scale = Vector2(7.2979, 6.57288)
+shape = SubResource("CircleShape2D_b5qps")
+
+[node name="confetti" type="GPUParticles2D" parent="objects/barrels_1"]
+emitting = false
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_lq2av")
+texture = ExtResource("34_ppjuj")
+lifetime = 1.3
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.2
+randomness = 0.85
+
+[node name="Area2D" type="Area2D" parent="objects/barrels_1"]
+collision_mask = 193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_1/Area2D"]
+position = Vector2(14, -31)
+shape = SubResource("RectangleShape2D_ryb26")
+
+[node name="barrels_4" type="CharacterBody2D" parent="objects"]
+position = Vector2(854, 126)
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+script = ExtResource("33_6hrro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_4"]
+position = Vector2(14, -30.5)
+shape = SubResource("RectangleShape2D_x2s5f")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="objects/barrels_4"]
+position = Vector2(32, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s26v0")
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="objects/barrels_4"]
+position = Vector2(8, -64)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_s26v0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="objects/barrels_4"]
+position = Vector2(8, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4462j")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="objects/barrels_4"]
+libraries = {
+"": SubResource("AnimationLibrary_wl4ny")
+}
+
+[node name="pop_damage" type="Area2D" parent="objects/barrels_4"]
+visible = false
+collision_mask = 193
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_4/pop_damage"]
+scale = Vector2(7.2979, 6.57288)
+shape = SubResource("CircleShape2D_b5qps")
+
+[node name="confetti" type="GPUParticles2D" parent="objects/barrels_4"]
+emitting = false
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_lq2av")
+texture = ExtResource("34_ppjuj")
+lifetime = 1.3
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.2
+randomness = 0.85
+
+[node name="Area2D" type="Area2D" parent="objects/barrels_4"]
+collision_mask = 193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_4/Area2D"]
+position = Vector2(14, -31)
+shape = SubResource("RectangleShape2D_ryb26")
+
+[node name="barrels_2" type="CharacterBody2D" parent="objects"]
+position = Vector2(459, 126)
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+script = ExtResource("33_6hrro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_2"]
+position = Vector2(14, -14.5)
+shape = SubResource("RectangleShape2D_1t2rv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="objects/barrels_2"]
+libraries = {
+"": SubResource("AnimationLibrary_wl4ny")
+}
+
+[node name="pop_damage" type="Area2D" parent="objects/barrels_2"]
+visible = false
+collision_mask = 193
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_2/pop_damage"]
+scale = Vector2(7.2979, 6.57288)
+shape = SubResource("CircleShape2D_b5qps")
+
+[node name="confetti" type="GPUParticles2D" parent="objects/barrels_2"]
+emitting = false
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_lq2av")
+texture = ExtResource("34_ppjuj")
+lifetime = 1.3
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.2
+randomness = 0.85
+
+[node name="Area2D" type="Area2D" parent="objects/barrels_2"]
+collision_mask = 193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_2/Area2D"]
+position = Vector2(14, -15)
+shape = SubResource("RectangleShape2D_yuykj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="objects/barrels_2"]
+position = Vector2(12, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_codif")
+
+[node name="barrels_3" type="CharacterBody2D" parent="objects"]
+position = Vector2(506, 126)
+scale = Vector2(0.5, 0.5)
+collision_layer = 0
+script = ExtResource("33_6hrro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_3"]
+position = Vector2(-2, -14.5)
+shape = SubResource("RectangleShape2D_q0t2k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="objects/barrels_3"]
+libraries = {
+"": SubResource("AnimationLibrary_wl4ny")
+}
+
+[node name="pop_damage" type="Area2D" parent="objects/barrels_3"]
+visible = false
+collision_mask = 193
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_3/pop_damage"]
+scale = Vector2(7.2979, 6.57288)
+shape = SubResource("CircleShape2D_b5qps")
+
+[node name="confetti" type="GPUParticles2D" parent="objects/barrels_3"]
+emitting = false
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_lq2av")
+texture = ExtResource("34_ppjuj")
+lifetime = 1.3
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.2
+randomness = 0.85
+
+[node name="Area2D" type="Area2D" parent="objects/barrels_3"]
+collision_mask = 193
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="objects/barrels_3/Area2D"]
+position = Vector2(-2, -15)
+shape = SubResource("RectangleShape2D_lyya0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="objects/barrels_3"]
+position = Vector2(-2, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ssk20")
+
+[node name="Extramonitor2" type="Sprite2D" parent="objects"]
+position = Vector2(546, 101)
+texture = ExtResource("34_4okbu")
+
+[node name="ooze_tub" parent="objects" instance=ExtResource("35_ygl62")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="objects/ooze_tub"]
+position = Vector2(10, -30)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4dods")
+
+[connection signal="open_door" from="fight_room/exitdoor" to="fight_room/check_for_exit" method="_on_exitdoor_open_door"]
+[connection signal="transitioned" from="TransitionScreen" to="." method="_on_transition_screen_transitioned"]
+[connection signal="body_entered" from="objects/barrels_1/pop_damage" to="objects/barrels_1" method="_on_pop_damage_body_entered" flags=18]
+[connection signal="body_entered" from="objects/barrels_1/Area2D" to="objects/barrels_1" method="_on_area_2d_body_entered" flags=18]
+[connection signal="body_entered" from="objects/barrels_4/pop_damage" to="objects/barrels_4" method="_on_pop_damage_body_entered" flags=18]
+[connection signal="body_entered" from="objects/barrels_4/Area2D" to="objects/barrels_4" method="_on_area_2d_body_entered" flags=18]
+[connection signal="body_entered" from="objects/barrels_2/pop_damage" to="objects/barrels_2" method="_on_pop_damage_body_entered" flags=18]
+[connection signal="body_entered" from="objects/barrels_2/Area2D" to="objects/barrels_2" method="_on_area_2d_body_entered" flags=18]
+[connection signal="body_entered" from="objects/barrels_3/pop_damage" to="objects/barrels_3" method="_on_pop_damage_body_entered" flags=18]
+[connection signal="body_entered" from="objects/barrels_3/Area2D" to="objects/barrels_3" method="_on_area_2d_body_entered" flags=18]
+
+[editable path="UI"]
+[editable path="objects/ooze_tub"]

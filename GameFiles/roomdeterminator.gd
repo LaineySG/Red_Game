@@ -39,27 +39,35 @@ func changeroom(type):
 			get_tree().change_scene_to_file("res://scene/levels/item_choice_room.tscn")
 	elif type == "fight":
 		var randfloat = rng.randf()
-		if randfloat < 0.33:
-			if randfloat < 0.11:
+		if randfloat < 0.25:
+			if randfloat < 0.8:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_1.tscn")
-			elif randfloat < 0.22:
+			elif randfloat < 0.16:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_1_var1.tscn")
 			else:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_1_var2.tscn")
-		elif randfloat < 0.66:
-			if randfloat < 0.44:
+		elif randfloat < 0.50:
+			if randfloat < 0.33:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_2.tscn")
-			elif randfloat < 0.55:
+			elif randfloat < 0.41:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_2_var1.tscn")
 			else:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_2_var2.tscn")
-		else:
-			if randfloat < 0.77:
+		elif randfloat < 0.75:
+			if randfloat < 0.58:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_3.tscn")
-			elif randfloat < 0.88:
+			elif randfloat < 0.66:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_3_var1.tscn")
 			else:
 				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_3_var2.tscn")
+		else:
+			if randfloat < 0.83:
+				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_4.tscn")
+			elif randfloat < 0.91:
+				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_4_var1.tscn")
+			else:
+				get_tree().change_scene_to_file("res://scene/levels/fight_room_1_4_var2.tscn")
+				
 	elif type == "meeting":
 		if Game.roomcount >= 10 and !Variables.grimm_conversation_tracker.has("grimm_1"):
 			get_tree().change_scene_to_file("res://scene/levels/meeting_room.tscn")
