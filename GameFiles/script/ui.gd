@@ -15,6 +15,8 @@ var icon
 func _ready():
 	check_inventory()
 	get_node("Tutorial UI").visible = false
+	get_node("Talents").visible = false
+	get_node("Stats").visible = false
 	get_node("CanvasLayer").visible = false
 
 func check_inventory():
@@ -100,6 +102,22 @@ func check_inventory():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	
+	if get_node("Tutorial UI").visible or get_node("Stats").visible or get_node("Talents").visible:
+		get_node("gui_button_backpack").visible = true
+		get_node("gui_button_stats").visible = true
+		get_node("gui_button_talents").visible = true
+		get_node("gui_label_backpack").visible = true
+		get_node("gui_label_stats").visible = true
+		get_node("gui_label_talents").visible = true
+	else:
+		
+		get_node("gui_button_backpack").visible = false
+		get_node("gui_button_stats").visible = false
+		get_node("gui_button_talents").visible = false
+		get_node("gui_label_backpack").visible = false
+		get_node("gui_label_stats").visible = false
+		get_node("gui_label_talents").visible = false
+	
 	if can_sell:
 		get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList").can_sell = true
 		get_node("CanvasLayer/TextureRect/MarginContainer/RichTextLabel2").can_sell = true
@@ -163,3 +181,24 @@ func _on_dragdroplayer_mouse_entered():
 
 func _on_line_edit_text_changed(search_query):
 	get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList").searchtext(search_query)
+
+
+func _on_gui_button_backpack_pressed():
+	if !get_node("Tutorial UI").visible:
+		get_node("Tutorial UI").visible = true
+		get_node("Talents").visible = false
+		get_node("Stats").visible = false
+
+
+func _on_gui_button_talents_pressed():
+	if !get_node("Talents").visible:
+		get_node("Tutorial UI").visible = false
+		get_node("Talents").visible = true
+		get_node("Stats").visible = false
+
+
+func _on_gui_button_stats_pressed():
+	if !get_node("Stats").visible:
+		get_node("Tutorial UI").visible = false
+		get_node("Talents").visible = false
+		get_node("Stats").visible = true
