@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://c03gf1rhjaous"
+path="res://.godot/imported/burn.png-986555d3f6f98de1b90ae0f8a2eeb53d.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/burn.png"
+dest_files=["res://.godot/imported/burn.png-986555d3f6f98de1b90ae0f8a2eeb53d.image"]
+
+[params]
+

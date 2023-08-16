@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cb22fgnxtslwo"]
 
 [ext_resource type="Script" path="res://scene/item/shop_idea.gd" id="1_3yfnd"]
-[ext_resource type="Texture2D" uid="uid://bgtvn1w0n4pa3" path="res://assets/item/idea.png" id="2_adbk5"]
+[ext_resource type="Texture2D" uid="uid://igi20ltfhaeb" path="res://assets/item/inspiration.png" id="2_vvs1w"]
 [ext_resource type="PackedScene" uid="uid://up4ihseinsod" path="res://scene/item/item_generator.tscn" id="3_y6pii"]
 [ext_resource type="Texture2D" uid="uid://bb0gra7lqdmer" path="res://assets/environment/Smoke/FX001/FX001_01.png" id="4_g3hal"]
 [ext_resource type="Texture2D" uid="uid://vf0wdyyiv8x" path="res://assets/environment/Smoke/FX001/FX001_02.png" id="5_6jrxn"]
@@ -58,8 +58,8 @@ scale = Vector2(3.83501, 3.34362)
 shape = SubResource("RectangleShape2D_k57ey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.866667)
-texture = ExtResource("2_adbk5")
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_vvs1w")
 
 [node name="item_generator" parent="." instance=ExtResource("3_y6pii")]
 

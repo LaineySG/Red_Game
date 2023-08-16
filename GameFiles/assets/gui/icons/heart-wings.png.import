@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://brf6yjfkx10ce"
+path="res://.godot/imported/heart-wings.png-ed6e90f2f675534a5a688f5a2ccbbedb.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/heart-wings.png"
+dest_files=["res://.godot/imported/heart-wings.png-ed6e90f2f675534a5a688f5a2ccbbedb.image"]
+
+[params]
+

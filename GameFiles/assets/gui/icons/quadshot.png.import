@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://xc0x1qe4lh8p"
+path="res://.godot/imported/quadshot.png-28ea76cd50e89cea7714b4cfc5b4070a.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/quadshot.png"
+dest_files=["res://.godot/imported/quadshot.png-28ea76cd50e89cea7714b4cfc5b4070a.image"]
+
+[params]
+

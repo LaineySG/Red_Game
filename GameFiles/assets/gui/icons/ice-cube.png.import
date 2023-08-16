@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://vab6hg77dk33"
+path="res://.godot/imported/ice-cube.png-bf657b980fbef4d206c332c48ecbe1ba.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/ice-cube.png"
+dest_files=["res://.godot/imported/ice-cube.png-bf657b980fbef4d206c332c48ecbe1ba.image"]
+
+[params]
+

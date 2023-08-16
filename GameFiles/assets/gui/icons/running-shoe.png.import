@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://o3ejv8cwoksn"
+path="res://.godot/imported/running-shoe.png-d895a4c2128ed9200d85ea4ee5a8debb.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/running-shoe.png"
+dest_files=["res://.godot/imported/running-shoe.png-d895a4c2128ed9200d85ea4ee5a8debb.image"]
+
+[params]
+

@@ -3,13 +3,8 @@ var Items = []
 var can_sell = false
 var inventory_size = 0
 @onready var itemlist = get_node("Tutorial UI/dragdroplayer/ScrollContainer/ItemList")
-@onready var icon_common = preload("res://assets/item/idea_common.png")
-@onready var icon_uncommon = preload("res://assets/item/idea.png")
-@onready var icon_rare = preload("res://assets/item/idea_purple.png")
-@onready var icon_epic = preload("res://assets/item/idea_orange.png")
-@onready var icon_insane = preload("res://assets/item/idea_pink.png")
-@onready var icon_perfect = preload("res://assets/item/idea_beige.png")
-var icon
+
+var icon = Image.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -51,19 +46,27 @@ func check_inventory():
 			Game.items_list.erase(item) 
 			
 	for items in Game.equipped_items:
+		var squarity = Image.new()
+		var icondir = geticonname(items)
+		icon = icondir
 		if items["Rarity"] == "Common":
-			icon = icon_common
+			squarity = load("res://assets/gui/icons/squarity_common.png")
 		elif items["Rarity"] == "Uncommon":
-			icon = icon_uncommon
+			squarity = load("res://assets/gui/icons/squarity_uncommon.png")
 		elif items["Rarity"] == "Rare":
-			icon = icon_rare
+			squarity = load("res://assets/gui/icons/squarity_rare.png")
 		elif items["Rarity"] == "Epic":
-			icon = icon_epic
+			squarity = load("res://assets/gui/icons/squarity_epic.png")
 		elif items["Rarity"] == "Insane":
-			icon = icon_insane
+			squarity = load("res://assets/gui/icons/squarity_insane.png")
 		elif items["Rarity"] == "Perfect":
-			icon = icon_perfect
+			squarity = load("res://assets/gui/icons/squarity_perfect.png")
+		
+		squarity.blend_rect(icon,Rect2i(0,0,80,80),Vector2(0,0))
 			
+		var _iconout = ImageTexture.new()
+		_iconout = ImageTexture.create_from_image(squarity)
+		
 		var slot = items["EquipSlot"]
 		var slotname = slot.left(6)
 		var slotdirectory = "Tutorial UI/dragdroplayer/" + slotname
@@ -75,19 +78,28 @@ func check_inventory():
 	inventory_size = 0
 	itemlist.clear()		
 	for items in Game.items_list:
+		var squarity = Image.new()
+		var icondir = geticonname(items)
+		icon = icondir
 		if items["Rarity"] == "Common":
-			icon = icon_common
+			squarity = load("res://assets/gui/icons/squarity_common.png")
 		elif items["Rarity"] == "Uncommon":
-			icon = icon_uncommon
+			squarity = load("res://assets/gui/icons/squarity_uncommon.png")
 		elif items["Rarity"] == "Rare":
-			icon = icon_rare
+			squarity = load("res://assets/gui/icons/squarity_rare.png")
 		elif items["Rarity"] == "Epic":
-			icon = icon_epic
+			squarity = load("res://assets/gui/icons/squarity_epic.png")
 		elif items["Rarity"] == "Insane":
-			icon = icon_insane
+			squarity = load("res://assets/gui/icons/squarity_insane.png")
 		elif items["Rarity"] == "Perfect":
-			icon = icon_perfect
-		itemlist.add_icon_item(icon,true) # icon link, selectable
+			squarity = load("res://assets/gui/icons/squarity_perfect.png")
+		
+		squarity.blend_rect(icon,Rect2i(0,0,80,80),Vector2(0,0))
+			
+		var iconout = ImageTexture.new()
+		iconout = ImageTexture.create_from_image(squarity)
+		
+		itemlist.add_icon_item(iconout,true) # icon link, selectable
 		itemlist.set_item_metadata(inventory_size, Game.items_list[inventory_size])
 		inventory_size += 1
 		
@@ -97,7 +109,81 @@ func check_inventory():
 				
 				
 				
-
+func geticonname(item):
+	if item.get("Effect") != null:
+		if item["Effect"] == "Burn Shot (Gun)":
+			return load("res://assets/gui/icons/burn.png")
+		elif item["Effect"] == "Flame Shot (Gun)":
+			return load("res://assets/gui/icons/flame.png")
+		elif item["Effect"] == "Berserk (Gun)":
+			return load("res://assets/gui/icons/enrage.png")
+		elif item["Effect"] == "Frenzy (Gun)":
+			return load("res://assets/gui/icons/raccoon-head.png")
+		elif item["Effect"] == "Vampire (Gun)":
+			return load("res://assets/gui/icons/chewed-heart.png")
+		elif item["Effect"] == "Flintlock (Gun)":
+			return load("res://assets/gui/icons/cannon-shot.png")
+		elif item["Effect"] == "Ricochet (Gun)":
+			return load("res://assets/gui/icons/ricochet.png")
+		elif item["Effect"] == "Piercing Shot (Gun)":
+			return load("res://assets/gui/icons/spiky-wing.png")
+		elif item["Effect"] == "Split Shot (Gun)":
+			return load("res://assets/gui/icons/split-arrows.png")
+		elif item["Effect"] == "Duo-Shot":
+			return load("res://assets/gui/icons/duoshot.png")
+		elif item["Effect"] == "Tri-Shot":
+			return load("res://assets/gui/icons/trishot.png")
+		elif item["Effect"] == "Quad-Shot":
+			return load("res://assets/gui/icons/quadshot.png")
+		elif item["Effect"] == "Big Shot":
+			return load("res://assets/gui/icons/bullet-bill.png")
+		elif item["Effect"] == "Freeze-Ray (Toygun)":
+			return load("res://assets/gui/icons/ice-cube.png")
+		elif item["Effect"] == "Shrink-Ray (Toygun)":
+			return load("res://assets/gui/icons/ant.png")
+		elif item["Effect"] == "Confetti Cannon (Toygun)":
+			return load("res://assets/gui/icons/party-popper.png")
+		elif item["Effect"] == "Web Shot (Toygun)":
+			return load("res://assets/gui/icons/spider-web.png")
+		elif item["Effect"] == "Pump-action (Toygun)":
+			return load("res://assets/gui/icons/water-gun.png")
+		elif item["Effect"] == "Hypno-Ray (Toygun)":
+			return load("res://assets/gui/icons/ray-gun.png")
+		elif item["Effect"] == "Heart-Shot (Toygun)":
+			return load("res://assets/gui/icons/heart-wings.png")
+		elif item["Effect"] == "Rainbubble Blaster (Toygun)":
+			return load("res://assets/gui/icons/bubbles.png")
+		elif item["Effect"] == "Bounce Blaster (Toygun)":
+			return load("res://assets/gui/icons/spring.png")
+		elif item["Effect"] == "Poison Spray (Gun)":
+			return load("res://assets/gui/icons/poison-gas.png")
+	elif item.get("Ability") != null:
+		if item["Ability"] == "Dash":
+			return load("res://assets/gui/icons/sprint.png")
+		elif item["Ability"] == "Balloon":
+			return load("res://assets/gui/icons/balloons.png")
+		elif item["Ability"] == "Teleport":
+			return load("res://assets/gui/icons/teleport.png")
+		elif item["Ability"] == "Camoflague":
+			return load("res://assets/gui/icons/hidden.png")
+		elif item["Ability"] == "Sprint":
+			return load("res://assets/gui/icons/running-shoe.png")
+		elif item["Ability"] == "Shield":
+			return load("res://assets/gui/icons/shield.png")
+		elif item["Ability"] == "Land Mine":
+			return load("res://assets/gui/icons/land-mine.png")
+		elif item["Ability"] == "Summon(Green Aliens)":
+			return load("res://assets/gui/icons/ufo.png")
+		elif item["Ability"] == "Summon(CIA Drone)":
+			return load("res://assets/gui/icons/delivery-drone.png")
+	else:
+		return load("res://assets/gui/icons/light-bulb.png")
+		
+	#var effects = ["Burn Shot (Gun)", "Flame Shot (Gun)", "Berserk (Gun)", "Frenzy (Gun)", "Vampire (Gun)", "Flintlock (Gun)", "Ricochet (Gun)", "Piercing Shot (Gun)", "Split Shot (Gun)", "Duo-Shot", "Tri-Shot", "Quad-Shot", "Big Shot", "Freeze-Ray (Toygun)", "Shrink-Ray (Toygun)", "Confetti Cannon (Toygun)", "Web Shot (Toygun)", "Pump-action (Toygun)", "Hypno-Ray (Toygun)", "Heart-Shot (Toygun)", "Rainbubble Blaster (Toygun)", "Bounce Blaster (Toygun)", "Poison Spray (Gun)"]
+	#var modifications = ["Shot Speed", "Shot Weight", "Punch", "Magazine Size", "Reload Speed", "Fire Rate", "Bullet Size", "Scope", "HP", "Regeneration", "Luck", "Alacrity"]
+	#var abilities = ["Dash", "Teleport", "Camoflague", "Sprint", "Summon", "Shield", "Land Mine", "Balloon"]
+	#var summons = ["Green Aliens", "CIA Drone"]
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

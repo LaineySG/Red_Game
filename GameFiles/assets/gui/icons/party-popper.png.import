@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dq4mw4vcug81y"
+path="res://.godot/imported/party-popper.png-59baf5ca4923a9901bdfb7adedb0a54d.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/party-popper.png"
+dest_files=["res://.godot/imported/party-popper.png-59baf5ca4923a9901bdfb7adedb0a54d.image"]
+
+[params]
+

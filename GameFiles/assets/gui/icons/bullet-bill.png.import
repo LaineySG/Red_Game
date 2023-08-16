@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://myqa6kmhsjdg"
+path="res://.godot/imported/bullet-bill.png-41f9002c1d9f453512674c2a876828cf.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/bullet-bill.png"
+dest_files=["res://.godot/imported/bullet-bill.png-41f9002c1d9f453512674c2a876828cf.image"]
+
+[params]
+

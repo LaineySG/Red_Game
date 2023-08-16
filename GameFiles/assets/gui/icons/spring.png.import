@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dkdlw6i824uji"
+path="res://.godot/imported/spring.png-f34e0684e3b5c177dfa2c93b43fe0ede.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/spring.png"
+dest_files=["res://.godot/imported/spring.png-f34e0684e3b5c177dfa2c93b43fe0ede.image"]
+
+[params]
+

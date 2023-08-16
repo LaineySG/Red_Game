@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dqvrhktwyp28w"
+path="res://.godot/imported/raccoon-head.png-5f69846b03db5e8c0cde50cad7373766.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/raccoon-head.png"
+dest_files=["res://.godot/imported/raccoon-head.png-5f69846b03db5e8c0cde50cad7373766.image"]
+
+[params]
+

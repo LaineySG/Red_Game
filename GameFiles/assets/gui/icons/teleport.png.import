@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://bge2udjo6bcgc"
+path="res://.godot/imported/teleport.png-b408e15018126a0504a5e5ebc7a9113f.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/teleport.png"
+dest_files=["res://.godot/imported/teleport.png-b408e15018126a0504a5e5ebc7a9113f.image"]
+
+[params]
+

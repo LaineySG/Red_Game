@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://j722fn6037s1"
+path="res://.godot/imported/squarity_uncommon.png-10fa76a4faa582bcf7d11779cfba5478.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/squarity_uncommon.png"
+dest_files=["res://.godot/imported/squarity_uncommon.png-10fa76a4faa582bcf7d11779cfba5478.image"]
+
+[params]
+

@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://didwoom8lli45"
+path="res://.godot/imported/land-mine.png-30f217a423ef8ac6998b1910fbcdba0f.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/land-mine.png"
+dest_files=["res://.godot/imported/land-mine.png-30f217a423ef8ac6998b1910fbcdba0f.image"]
+
+[params]
+

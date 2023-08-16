@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://b7duw3md6j1x8"
+path="res://.godot/imported/bubbles.png-e68d1c46cdf58c4f4b712dfa28fe824b.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/bubbles.png"
+dest_files=["res://.godot/imported/bubbles.png-e68d1c46cdf58c4f4b712dfa28fe824b.image"]
+
+[params]
+

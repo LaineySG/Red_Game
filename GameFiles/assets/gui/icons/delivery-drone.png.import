@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dy0s1sqeexhqg"
+path="res://.godot/imported/delivery-drone.png-5d10dfb6c1212d0841555807c2389f0c.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/delivery-drone.png"
+dest_files=["res://.godot/imported/delivery-drone.png-5d10dfb6c1212d0841555807c2389f0c.image"]
+
+[params]
+

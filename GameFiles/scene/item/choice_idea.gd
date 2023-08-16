@@ -16,18 +16,21 @@ func _ready():
 	if Variables.current_room_items.has(get_parent().name):
 		itemstats = Variables.current_room_items[get_parent().name]
 	var rarity = itemstats["Rarity"]
+	
+	
 	if rarity == "Common":
-		get_node("Sprite2D").texture = load("res://assets/item/idea_common.png")
+		get_node("Sprite2D").texture = load("res://assets/item/idea_common_2.png")
 	if rarity == "Uncommon":
-		get_node("Sprite2D").texture = load("res://assets/item/idea.png")
+		get_node("Sprite2D").texture = load("res://assets/item/idea_2.png")
 	if rarity == "Rare":
-		get_node("Sprite2D").texture = load("res://assets/item/idea_purple.png")
+		get_node("Sprite2D").texture = load("res://assets/item/idea_purple_2.png")
 	if rarity == "Epic":
-		get_node("Sprite2D").texture = load("res://assets/item/idea_orange.png")
+		get_node("Sprite2D").texture = load("res://assets/item/idea_orange_2.png")
 	if rarity == "Insane":
-		get_node("Sprite2D").texture = load("res://assets/item/idea_pink.png")
+		get_node("Sprite2D").texture = load("res://assets/item/idea_pink_2.png")
 	if rarity == "Perfect":
-		get_node("Sprite2D").texture = load("res://assets/item/idea_beige.png")
+		get_node("Sprite2D").texture = load("res://assets/item/idea_beige_2.png")
+	
 	Variables.current_room_items[get_parent().name] = itemstats
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

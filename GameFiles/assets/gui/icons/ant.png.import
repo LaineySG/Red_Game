@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://cf0jcd6kh50ex"
+path="res://.godot/imported/ant.png-26c6148f33b552e1616039c2e4922dd2.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/ant.png"
+dest_files=["res://.godot/imported/ant.png-26c6148f33b552e1616039c2e4922dd2.image"]
+
+[params]
+

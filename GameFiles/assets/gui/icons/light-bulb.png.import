@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://d3u3vbeu1ao70"
+path="res://.godot/imported/light-bulb.png-d343ebcac17d74be49e85cf537a4d531.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/light-bulb.png"
+dest_files=["res://.godot/imported/light-bulb.png-d343ebcac17d74be49e85cf537a4d531.image"]
+
+[params]
+

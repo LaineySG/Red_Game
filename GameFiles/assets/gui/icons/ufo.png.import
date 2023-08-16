@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://b34xbpw6xmn7o"
+path="res://.godot/imported/ufo.png-d705f887370009a692ac66cf1c08159f.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/ufo.png"
+dest_files=["res://.godot/imported/ufo.png-d705f887370009a692ac66cf1c08159f.image"]
+
+[params]
+

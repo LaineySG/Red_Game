@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://i6trlspol7fe"
+path="res://.godot/imported/water-gun.png-9c538a2294697a23aaf1951a82866c51.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/water-gun.png"
+dest_files=["res://.godot/imported/water-gun.png-9c538a2294697a23aaf1951a82866c51.image"]
+
+[params]
+

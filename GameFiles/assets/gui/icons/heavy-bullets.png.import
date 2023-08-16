@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://epxvkjq8ytch"
+path="res://.godot/imported/heavy-bullets.png-ba2b593fde19f41a1b46bfec04f98dc5.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/heavy-bullets.png"
+dest_files=["res://.godot/imported/heavy-bullets.png-ba2b593fde19f41a1b46bfec04f98dc5.image"]
+
+[params]
+

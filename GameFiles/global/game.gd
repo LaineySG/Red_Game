@@ -35,6 +35,34 @@ var playerstats = {
 	"Luck":0,
 	"Alacrity":0,
 	}
+	
+var player_talents_current = {
+	"Power":0, 
+	"Poison":0, 
+	"Punish":0, 
+	"Profit":0, 
+	"Promise":0, 
+	"Curse of the Ages":0, 
+	"Curse of Dread":0, 
+	"Boon of Fortune":0, 
+	"Boon of the Ages":0,
+	"Hyperactivity":0,
+	"Boon of Vigor":0,
+	"Boon of Shields":0,
+	"Jill of All Trades":0,
+	"Vampire's Curse":0,
+	"Idealistic":0,
+	"Red of All Trades":0,
+	"Trickery":0,
+	"Lone Wolf":0,
+	"Red's Best Friend":0,
+	"Gunomancy":0,
+	}
+var talent_points = 0
+var talent_points_gun = 0
+var talent_points_magic = 0
+var talent_points_pets = 0
+
 var current_abilities = {}
 var gun_list = ["gun", "toygun"]
 var weapon_equipped = gun_list[0] # gun or toygun

@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://bsx8mbr2qqwjn"
+path="res://.godot/imported/ray-gun.png-522ad79e00c00f374b90720a837fa410.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/ray-gun.png"
+dest_files=["res://.godot/imported/ray-gun.png-522ad79e00c00f374b90720a837fa410.image"]
+
+[params]
+

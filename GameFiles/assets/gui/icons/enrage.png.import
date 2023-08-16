@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://c1ypfplnxuj1o"
+path="res://.godot/imported/enrage.png-0161c7ff27181f5c38aab8dc5d8bdca4.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/enrage.png"
+dest_files=["res://.godot/imported/enrage.png-0161c7ff27181f5c38aab8dc5d8bdca4.image"]
+
+[params]
+

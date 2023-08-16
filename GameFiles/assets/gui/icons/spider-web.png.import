@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://ckdiishbpq0aa"
+path="res://.godot/imported/spider-web.png-f9cd3159c3846e50eb1a27742af395ea.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/spider-web.png"
+dest_files=["res://.godot/imported/spider-web.png-f9cd3159c3846e50eb1a27742af395ea.image"]
+
+[params]
+

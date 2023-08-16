@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ptqmw5bb63iv"]
+[gd_scene load_steps=65 format=3 uid="uid://ptqmw5bb63iv"]
 
 [ext_resource type="Script" path="res://script/ui.gd" id="1_hftp1"]
 [ext_resource type="Texture2D" uid="uid://dd364yc3aikjo" path="res://assets/gui/MainPanel02.png" id="1_vwbhd"]
@@ -25,7 +25,7 @@
 [ext_resource type="Script" path="res://scene/gui/TalentGUI.gd" id="18_xh28m"]
 [ext_resource type="Script" path="res://scene/gui/talentbox.gd" id="19_dhit3"]
 [ext_resource type="Texture2D" uid="uid://0lut1duqw0yr" path="res://assets/gui/icons/bullet-impacts (2).png" id="20_aeymk"]
-[ext_resource type="Texture2D" uid="uid://bkrb3e4klkwkh" path="res://assets/gui/icons/mushrooms (1).png" id="21_2vyhw"]
+[ext_resource type="Texture2D" uid="uid://dkgcvsbmnip8u" path="res://assets/gui/icons/mushrooms (1).png" id="21_2vyhw"]
 [ext_resource type="Texture2D" uid="uid://yvaporno4brj" path="res://assets/environment/scifi/anims/toygunicon.png" id="22_6we44"]
 [ext_resource type="Texture2D" uid="uid://dec0w3uxyrxhw" path="res://assets/gui/icons/cursed-star.png" id="22_udn1v"]
 [ext_resource type="Texture2D" uid="uid://c4nrfqumankxk" path="res://assets/gui/icons/gold-stack.png" id="23_6oud6"]
@@ -47,6 +47,8 @@
 [ext_resource type="Texture2D" uid="uid://b5mcacalhwvfq" path="res://assets/gui/icons/inspiration.png" id="37_wmpua"]
 [ext_resource type="Texture2D" uid="uid://c5iiwpbe7cqej" path="res://assets/gui/icons/speedometer.png" id="38_e3fts"]
 [ext_resource type="Texture2D" uid="uid://clq4igt1wtrci" path="res://assets/gui/icons/glock.png" id="39_ibi1h"]
+[ext_resource type="Texture2D" uid="uid://j004af4emgek" path="res://assets/gui/icons/return-arrow.png" id="42_1dq2v"]
+[ext_resource type="Script" path="res://scene/gui/reset_button.gd" id="42_dsv0c"]
 
 [sub_resource type="FontVariation" id="FontVariation_s6278"]
 
@@ -763,6 +765,7 @@ Insane Ideas:
 Perfect Ideas:"
 
 [node name="Talents" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("18_xh28m")
 
 [node name="GUI" type="Control" parent="Talents"]
@@ -1521,14 +1524,40 @@ offset_bottom = 384.155
 theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 
-[node name="Label" type="Label" parent="Talents"]
-offset_left = 266.593
-offset_top = 454.296
-offset_right = 766.593
-offset_bottom = 483.296
-theme_override_font_sizes/font_size = 32
-text = "Talent points to spend: 0"
-horizontal_alignment = 1
+[node name="points" type="RichTextLabel" parent="Talents"]
+offset_left = 267.0
+offset_top = 451.0
+offset_right = 767.0
+offset_bottom = 483.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[img width=\"30\" height=\"30\"]res://assets/gui/icons/electric.png[/img]0"
+
+[node name="reset_label" type="RichTextLabel" parent="Talents"]
+offset_left = 608.661
+offset_top = 454.442
+offset_right = 1108.66
+offset_bottom = 486.442
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Reset All"
+
+[node name="reset_button" type="Button" parent="Talents"]
+offset_left = 705.998
+offset_top = 452.16
+offset_right = 818.998
+offset_bottom = 518.16
+scale = Vector2(0.5, 0.5)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_g4o4y")
+icon = ExtResource("3_46fcn")
+flat = true
+icon_alignment = 1
+script = ExtResource("42_dsv0c")
+
+[node name="Sprite2D" type="Sprite2D" parent="Talents/reset_button"]
+position = Vector2(57.9402, 34.1292)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("42_1dq2v")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 128

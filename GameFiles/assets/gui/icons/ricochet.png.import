@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://dud7vdyf15f1j"
+path="res://.godot/imported/ricochet.png-26f20be8c888a5153553e74508cec8a1.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/ricochet.png"
+dest_files=["res://.godot/imported/ricochet.png-26f20be8c888a5153553e74508cec8a1.image"]
+
+[params]
+

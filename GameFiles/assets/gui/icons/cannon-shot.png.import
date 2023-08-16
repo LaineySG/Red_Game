@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://3d7eob0o5o3j"
+path="res://.godot/imported/cannon-shot.png-a28a47039bd1447bfa7ff4956746c672.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/cannon-shot.png"
+dest_files=["res://.godot/imported/cannon-shot.png-a28a47039bd1447bfa7ff4956746c672.image"]
+
+[params]
+

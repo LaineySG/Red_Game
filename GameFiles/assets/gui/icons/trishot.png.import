@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://cf2n0rci4jbjr"
+path="res://.godot/imported/trishot.png-93e54da617fb867eeec7535ffa4aef74.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/trishot.png"
+dest_files=["res://.godot/imported/trishot.png-93e54da617fb867eeec7535ffa4aef74.image"]
+
+[params]
+

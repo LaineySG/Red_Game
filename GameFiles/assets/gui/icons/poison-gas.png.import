@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://bscg28cxov402"
+path="res://.godot/imported/poison-gas.png-c6c9292bee6f81f4ccb0f764c7ba461a.image"
+
+[deps]
+
+source_file="res://assets/gui/icons/poison-gas.png"
+dest_files=["res://.godot/imported/poison-gas.png-c6c9292bee6f81f4ccb0f764c7ba461a.image"]
+
+[params]
+
