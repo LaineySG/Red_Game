@@ -6,6 +6,7 @@ var bullet = preload("res://scene/player/bullet.tscn")
 
 var speed = 650.0
 var direction
+var player
 var pierced = false
 var damage = 25 + (Game.playerstats["Punch"] * 3)
 var first = true
@@ -19,7 +20,7 @@ func _ready():
 	if Game.current_effects.has("Flintlock (Gun)"):
 		var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
 		damage += ((5 + (Game.playerstats["Punch"] * 1.25)) * levelmodtest) #Around a 30% increase
-
+	
 func shoot_at_mouse(start_pos,accuracy):
 	if Game.current_effects.has("Burn Shot (Gun)"):
 		var levelmodtest = (Game.current_effects_levels["Burn Shot (Gun)"] / 5.0) + 0.4
@@ -65,7 +66,16 @@ func shoot_at_mouse(start_pos,accuracy):
 			scale.x *= (3.0 * levelmodtest)
 			scale.y *= (3.0 * levelmodtest)
 		
-			
+	damage *= (1.0 + (Game.player_talents_current["Power"] * 0.02))
+	DoT += (damage * (Game.player_talents_current["Poison"] * 0.01))
+	DoT += (DoT * (Game.player_talents_current["Curse of the Ages"] * 0.1))
+	damage *= (1.0 + (Game.player_talents_current["Promise"] * 0.002 * Game.roomcount))
+	damage *= player.boon_of_ages_dmg_mod
+	DoT *= player.boon_of_ages_dmg_mod
+	if Game.current_abilities.size() == 0 and Game.player_talents_current["Lone Wolf"]:
+			damage *= 1.15
+			DoT *= 1.15
+	
 	
 	var rng = RandomNumberGenerator.new()
 	#var nameseed = rng.randf()
@@ -75,6 +85,7 @@ func shoot_at_mouse(start_pos,accuracy):
 	velocity = direction * speed * (1.0 + (Game.playerstats["Shot Speed"] / 15.0))
 	velocity.y += randoffshoot
 	look_at(get_global_mouse_position())
+	
 
 func split_shot(start_pos, accuracy,dir):
 	if Game.current_effects.has("Burn Shot (Gun)"):
@@ -160,6 +171,12 @@ func _process(delta):
 				
 			self.queue_free()
 		elif collision.get_collider().is_in_group("mob"):
+			player.hittargetspeedboost()
+			if Game.player_talents_current["Curse of Dread"] > 0 and !pierced:
+				var dreadmod = player.setdreadtarget(self,collision.get_collider())
+				damage += (damage * dreadmod)
+				
+				
 			reflect = collision.get_remainder().bounce(collision.get_normal())
 			#var blood_velocity = velocity.bounce(collision.get_normal())
 			#move_and_collide(reflect)

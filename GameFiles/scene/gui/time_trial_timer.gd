@@ -85,7 +85,7 @@ func _on_timer_timeout():
 		await get_tree().create_timer(0.2).timeout
 		var colorchange7 = get_tree().create_tween()
 		colorchange7.tween_property(self, "modulate", Color(0.0,1.0,0.0,1.0), 0.6)
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().creaste_timer(1.0).timeout
 		var colorchange8 = get_tree().create_tween()
 		colorchange8.tween_property(self, "modulate", Color(1.0,1.0,1.0,1.0), 0.6)
 		await get_tree().create_timer(1.0).timeout
@@ -99,7 +99,11 @@ func _on_timer_timeout():
 		var colorchange9 = get_tree().create_tween()
 		colorchange9.tween_property(self, "modulate", Color(0.0,1.0,0.0,1.0), 0.6)
 		await get_tree().create_timer(1.0).timeout
-		Game.playergold += int(goldreward) + int(bonusgoldreward)
+		
+		
+		var totalgold = (int(goldreward) + int(bonusgoldreward))
+		totalgold *= ( 1.0 + (Game.player_talents_current["Boon of Fortune"] * 0.25))
+		Game.playergold += totalgold
 		self.queue_free()
 		
 		

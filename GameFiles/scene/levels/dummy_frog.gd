@@ -31,8 +31,8 @@ var frosted = 0
 var hit = false
 @onready var anim = get_node("AnimatedSprite2D")
 
-var health = 140
-var patience = 125
+var health = 1400000
+var patience = 125000
 var damage = 15
 var speed = 150
 var level = 1 # level 2 and 3 will unlock new "berserk mode" abilities later
@@ -129,58 +129,8 @@ func apply_gravity(delta):
 	move_and_slide()
 	velocity.y += gravity * delta
 	
-func _apply_movement(delta, nomove = false):
-	velocity.y += gravity * delta
-	if chase or hypnotized:
-		navi.get_next_path_position()
-	if nomove:
-		velocity.x = 0
-		if !hypnotized:
-			direction = (player.position - self.position).normalized()
-		else:
-			if frogtarget != null:
-				direction = (frogtarget.position - self.position).normalized()
-			
-	else:
-		direction = to_local(navi.get_next_path_position()).normalized() 
-	if (direction.x > 0 == true and player.camo == false) or tutorial_area_2_cutscene_1:
-		if !nomove and !webstuck:
-			velocity.x = direction.x * speed
-		get_node("AnimatedSprite2D").flip_h = true
-		if get_node("Attackbox/CollisionShape2D").position.x < 0 or tutorial_area_2_cutscene_1:
-			get_node("Attackbox/CollisionShape2D").position.x *= -1
-			get_node("Head").position.x *= -1
-			get_node("dead_shape").position.x *= -1
-			get_node("Attackbox/RayCast2D").target_position.x *= -1
-	elif direction.x < 0 == true and player.camo == false:
-		if !nomove and !webstuck:
-			velocity.x = direction.x * speed
-		get_node("AnimatedSprite2D").flip_h = false
-		if get_node("Attackbox/CollisionShape2D").position.x > 0:
-			get_node("Attackbox/CollisionShape2D").position.x *= -1
-			get_node("Head").position.x *= -1
-			get_node("dead_shape").position.x *= -1
-			get_node("Attackbox/RayCast2D").target_position.x *= -1
-	if !nomove and abs(player.position.x - self.position.x) < 50 and player.position.y > self.position.y and !hypnotized: #if on top of player, move
-		velocity.x = -500
-	if frogtarget != null: 
-		if !nomove and abs(frogtarget.position.x - self.position.x) < 10 and hypnotized: #if on top of frog enemy, move
-			velocity.x = -500
-	if player.camo:
-		velocity.x = 0
-	if hypnotized and frogtarget != null:
-		if frogtarget.nopatience:
-			velocity.x = 0
-			hypnotized = false
-			hypnoimmune = true
-			attack_ready = false
-			chase = false
-	if tutorial_area_2_cutscene_1 == true:
-		velocity.x = 300
-		
-	if velocity.x > speedbase * 3:
-		velocity.x = speedbase
-	move_and_slide()
+func _apply_movement(_delta,_nomove = false): #delta, nomove = true
+	pass
 		
 func _on_playerdetection_body_entered(body): # on player entering detection sphere
 	if body.name == "Player" and !hypnotized:
@@ -221,7 +171,7 @@ func punish(dmgin,patdmgin):
 func hurt(dmg,patiencedmg,DoT,MoT,_punished =false): # when hitbox is shot
 	var crit_dmg = false
 	if dmg > 5 or patiencedmg > 5:
-		var critchance = (rng.randf() + (0.02 * Game.playerstats["Luck"])) + (Game.idealistic_crit_count * 0.02)
+		var critchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
 		if Game.ability_pressed:
 			critchance += (0.03 * Game.player_talents_current["Trickery"])
 		if critchance > 0.99:

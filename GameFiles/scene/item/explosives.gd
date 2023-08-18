@@ -34,12 +34,13 @@ func _on_pop_damage_body_entered(body):
 
 
 func _on_area_2d_body_entered(body):
-	if body.is_in_group("bullets") and (typeof(body.damage) == 2):
-		body.queue_free()
-		#var rise = get_tree().create_tween()
-		#var fade = get_tree().create_tween()
-		#rise.tween_property(self,"position",position - Vector2(0,50), 0.6)
-		#fade.tween_property(self,"modulate:a",0, 0.6)
-		#get_node("confetti").emitting = true
-		get_node("pop_damage").monitoring = true
+	if body.is_in_group("bullets"):
+		if (typeof(body.damage) == 3) or (typeof(body.damage) == 2):
+			body.queue_free()
+			#var rise = get_tree().create_tween()
+			#var fade = get_tree().create_tween()
+			#rise.tween_property(self,"position",position - Vector2(0,50), 0.6)
+			#fade.tween_property(self,"modulate:a",0, 0.6)
+			#get_node("confetti").emitting = true
+			get_node("pop_damage").monitoring = true
 

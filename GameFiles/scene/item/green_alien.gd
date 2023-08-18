@@ -98,16 +98,20 @@ func _on_zap_timer_timeout():
 			
 		var rng = RandomNumberGenerator.new()
 		var levelmodtest = (Game.current_abilities_levels["Summon(Green Aliens)"] / 5.0) + 0.4
-		var zaptime = rng.randf_range(-1.0,0.5)
-		if zaptime > 0:
-			zaptime -= 0.1 * levelmodtest
-		else:
-			zaptime *= levelmodtest
-		if zaptime < 0.1:
+		var zaptime = 3.0 + (rng.randf_range(-1.0,1.0))
+		zaptime -= 0.6 * levelmodtest
+			
+		zaptime -= ((Game.playerstats["Fire Rate"] / 20.0))
+		
+			
+		zaptime -= (abs(zaptime) * 0.20 * player.summon_shoot_RBF)
+			
+			
+		if zaptime <= 0.1:
 			zaptime = 0.1
-		zaptime -= ( 0.0 + (Game.playerstats["Fire Rate"] / 20.0))
-		get_node("zap_timer").wait_time = 1.3 + zaptime
-
+			
+		get_node("zap_timer").wait_time = zaptime
+		
 func _on_lifetime_timeout():
 		var rise = get_tree().create_tween()
 		rise.tween_property(self,"position",position - Vector2(0,1000), 0.6)

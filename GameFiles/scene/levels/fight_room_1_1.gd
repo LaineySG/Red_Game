@@ -33,7 +33,7 @@ func _ready():
 	
 	##check for time trial##
 	timetrialchance = rng.randf()
-	if timetrialchance >= 0.95:
+	if timetrialchance >= (0.95 - (0.15 * Game.player_talents_current["Boon of Fortune"])):
 		get_node("UI/time_trial_timer").combat = true
 		get_node("UI/time_trial_timer").timetrial = true
 		var randtimervar = rng.randi_range(5,12)

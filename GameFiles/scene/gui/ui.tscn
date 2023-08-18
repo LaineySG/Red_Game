@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://ptqmw5bb63iv"]
+[gd_scene load_steps=66 format=3 uid="uid://ptqmw5bb63iv"]
 
 [ext_resource type="Script" path="res://script/ui.gd" id="1_hftp1"]
 [ext_resource type="Texture2D" uid="uid://dd364yc3aikjo" path="res://assets/gui/MainPanel02.png" id="1_vwbhd"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ccwjn7a7uad1t" path="res://assets/gui/SelectPanel02.png" id="10_ioh2k"]
 [ext_resource type="Script" path="res://scene/gui/Stats3.gd" id="11_ldjfj"]
 [ext_resource type="Script" path="res://scene/gui/RichTextLabel.gd" id="11_mp03j"]
+[ext_resource type="Script" path="res://scene/gui/minor1.gd" id="11_snuc8"]
 [ext_resource type="Script" path="res://script/TextureRect.gd" id="11_via7w"]
 [ext_resource type="Script" path="res://script/Matrix.gd" id="12_o3kya"]
 [ext_resource type="Script" path="res://script/Text_BB_Extras.gd" id="12_pyku5"]
@@ -88,7 +89,6 @@ script = ExtResource("1_hftp1")
 metadata/_edit_vertical_guides_ = []
 
 [node name="Tutorial UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="GUI" type="Control" parent="Tutorial UI"]
 layout_mode = 3
@@ -367,6 +367,7 @@ texture = ExtResource("6_m2g0c")
 position = Vector2(15.692, 24.2091)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("7_qfqi4")
+script = ExtResource("11_snuc8")
 
 [node name="minor2" type="Sprite2D" parent="Tutorial UI/GUI/background/Gun_mods"]
 position = Vector2(22.6886, 24.1665)
@@ -1422,13 +1423,13 @@ offset_bottom = 31.3858
 theme_override_font_sizes/font_size = 32
 text = "0"
 
-[node name="Gunomancy" type="Sprite2D" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy"]
+[node name="Gunomancer" type="Sprite2D" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy"]
 position = Vector2(21.0246, 63.709)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_46fcn")
 script = ExtResource("19_dhit3")
 
-[node name="Control" type="Control" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy/Gunomancy"]
+[node name="Control" type="Control" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy/Gunomancer"]
 layout_mode = 3
 anchors_preset = 0
 offset_left = -29.4505
@@ -1438,12 +1439,12 @@ offset_bottom = 17.9058
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="icon" type="Sprite2D" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy/Gunomancy"]
+[node name="icon" type="Sprite2D" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy/Gunomancer"]
 position = Vector2(0.218689, 1.01056)
 scale = Vector2(0.187682, 0.19338)
 texture = ExtResource("39_ibi1h")
 
-[node name="Label" type="Label" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy/Gunomancy"]
+[node name="Label" type="Label" parent="Talents/GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy/Gunomancer"]
 offset_left = 12.6378
 offset_top = 2.38583
 offset_right = 52.6378

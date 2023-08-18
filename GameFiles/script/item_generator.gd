@@ -30,14 +30,26 @@ func _itemgen(x):
 				elif effectlvlnum > 0.85: # 10% chance
 					rolleditem["Level"] = "IV"
 					rarity += 3
+					if Game.player_talents_current["Gunomancer"]:
+						rolleditem["Level"] = "V"
+						rarity += 1
 				elif effectlvlnum > 0.65: #35% chance
 					rolleditem["Level"] = "III"
 					rarity += 2
+					if Game.player_talents_current["Gunomancer"]:
+						rolleditem["Level"] = "IV"
+						rarity += 1
 				elif effectlvlnum > 0.40: # 25% chance
 					rolleditem["Level"] = "II"
 					rarity += 1
+					if Game.player_talents_current["Gunomancer"]:
+						rolleditem["Level"] = "III"
+						rarity += 1
 				else: # 40% chance
 					rolleditem["Level"] = "I"
+					if Game.player_talents_current["Gunomancer"]:
+						rolleditem["Level"] = "II"
+						rarity += 1
 					
 			else:
 				pass #do nothing (No effect only modifications)
@@ -113,14 +125,26 @@ func _itemgen(x):
 			elif effectlvlnum > 0.85: # 10% chance
 				rolleditem["Level"] = "IV"
 				rarity += 3
+				if Game.player_talents_current["Idealistic"] > 0:
+					rolleditem["Level"] = "V"
+					rarity += 1
 			elif effectlvlnum > 0.65: #35% chance
 				rolleditem["Level"] = "III"
 				rarity += 2
+				if Game.player_talents_current["Idealistic"] > 0:
+					rolleditem["Level"] = "IV"
+					rarity += 1
 			elif effectlvlnum > 0.40: # 25% chance
 				rolleditem["Level"] = "II"
 				rarity += 1
+				if Game.player_talents_current["Idealistic"] > 0:
+					rolleditem["Level"] = "III"
+					rarity += 1
 			else: # 40% chance
 				rolleditem["Level"] = "I"	
+				if Game.player_talents_current["Idealistic"] > 0:
+					rolleditem["Level"] = "II"
+					rarity += 1
 			
 			rolleditem["RarityNum"] = rarity
 			rolleditem["Rarity"] = get_rarity(rarity)

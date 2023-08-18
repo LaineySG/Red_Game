@@ -8,11 +8,13 @@ func _ready():
 			childs.has_mouse_focus.connect(_on_talent_focused)
 			childs.refreshall.connect(_on_refresh_all)
 	get_node("reset_button").resetall.connect(_on_refresh_all)
+	_on_refresh_all()
 
 func _on_refresh_all():
 	for childs in get_node("GUI/background/VBoxContainer/HBoxContainer/VBoxContainer2/gunomancy").get_children():
 		if childs.name.left(4) != "Line":
 			childs.refreshnums()
+			childs.refreshbonuses()
 	
 
 func _on_talent_focused(name_of_perk, perk_stats):
@@ -22,6 +24,7 @@ func _on_talent_focused(name_of_perk, perk_stats):
 	get_node("talent_info").text += str(perk_stats["desc"]) + "\n" #perkdescription
 	get_node("talent_info").text += "\n" + str(perk_stats["currentbonus"]) + "\n\n\n\n\n" #perkcurrentbonus
 	get_node("talent_info").text +=   str(perk_stats["requirements"]) #perknextbonus
+	
 	
 	
 	

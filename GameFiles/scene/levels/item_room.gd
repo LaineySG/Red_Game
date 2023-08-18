@@ -64,6 +64,7 @@ func _process(_delta):
 		Variables.inputIsDisabled = false
 		tutorial_finished = true
 		Utils.pausegame()
+		
 
 	
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:

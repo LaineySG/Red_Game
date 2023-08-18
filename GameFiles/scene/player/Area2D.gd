@@ -64,7 +64,20 @@ func setdmg(input_mischief,input_dmg,input_DoT,input_MoT):
 	if Game.current_effects.has("Flintlock (Gun)") and Game.weapon_equipped == "gun":
 		var levelmodtest = (Game.current_effects_levels["Flintlock (Gun)"] / 5.0) + 0.4
 		dmg *= (1.0 + (0.4 * levelmodtest))
-		
+
+	mischief *= (1.0 + (Game.player_talents_current["Power"] * 0.02))
+	dmg *= (1.0 + (Game.player_talents_current["Power"] * 0.02))
+	DoT += (dmg * (Game.player_talents_current["Poison"] * 0.01))
+	MoT += (mischief * (Game.player_talents_current["Poison"] * 0.01))
+	mischief *= (1.0 + (Game.player_talents_current["Promise"] * 0.002 * Game.roomcount))
+	dmg *= (1.0 + (Game.player_talents_current["Promise"] * 0.002 * Game.roomcount))
+	DoT += (DoT * (Game.player_talents_current["Curse of the Ages"] * 0.1))
+	MoT += (MoT * (Game.player_talents_current["Curse of the Ages"] * 0.1))
+	if Game.current_abilities.size() == 0 and Game.player_talents_current["Lone Wolf"]:
+		dmg *= 1.15
+		DoT *= 1.15
+		mischief *= 1.15
+		MoT *= 1.15
 	
 func Chargemod(chargetime):
 	mischief *=  1.0 + ( 0.1 * chargetime)

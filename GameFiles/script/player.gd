@@ -14,15 +14,20 @@ var coyotetime = true
 @export var chargetime = 0.0
 var turning = false
 var prev_wall_dir
+var hyperactivespeedboost = 0
 var shotsfired = false
 var currentDoTs = 0
+var dreadtarget
+var dreadcounter = 0
 var accuracy = 100 # out of 200 
 var dashing = false
 var tping = false
+var boon_of_ages_dmg_mod = 0
 var camo = false
 var shielded = false
 var sprinting = false
 var SPEED = 300.0
+var summon_shoot_RBF = 0
 var iframes = false
 var rng = RandomNumberGenerator.new()
 var wallside_gravity_fall_speed = 0.50
@@ -87,6 +92,8 @@ func _ready():
 	update_health.emit()
 	get_node("Gunarms/GunarmL/gun/GunFlashL").visible = false
 	get_node("Gunarms/GunarmR/gun/GunFlashR").visible = false
+	Game.ability_pressed = false
+	summon_shoot_RBF = 0
 	await get_tree().create_timer(0.2).timeout
 	jumps = maxjumps
 	resetshaders()
@@ -98,6 +105,9 @@ func _ready():
 				
 
 func _process(_delta):
+	var booncounter = get_node("timers/boonofagestimer").booncounter
+	if boon_of_ages_dmg_mod != (1.0 + (Game.player_talents_current["Boon of the Ages"] * booncounter * 0.02)):
+		boon_of_ages_dmg_mod = (1.0 + (Game.player_talents_current["Boon of the Ages"] * booncounter * 0.02))
 	if !iframes:
 		get_node("shoot_body_torso").material.set_shader_parameter("enable_sil",0)
 		get_node("Gunarms/GunarmL/gun").material.set_shader_parameter("enable_sil",0)
@@ -110,22 +120,33 @@ func _process(_delta):
 		get_node("Gunarms/GunarmR").visible = false
 		_hide_gun()
 	if sprinting:	
-		SPEED = 500.0 + (Game.playerstats["Alacrity"] * 5)
+		SPEED = 500.0 + (Game.playerstats["Alacrity"] * 5) + (Game.player_talents_current["Hyperactivity"] * (300.0 * 0.05) * hyperactivespeedboost)
 		JUMP_VELOCITY = -400.0 + (Game.playerstats["Alacrity"] * -5)
 	else:
-		SPEED = 300.0 + (Game.playerstats["Alacrity"] * 5)
+		SPEED = 300.0 + (Game.playerstats["Alacrity"] * 5) + (Game.player_talents_current["Hyperactivity"] * (300.0 * 0.05) * hyperactivespeedboost)
 		JUMP_VELOCITY = -300.0 + (Game.playerstats["Alacrity"] * -5)
 		
-	dash_CD.wait_time = 2.5 - (Game.playerstats["Alacrity"] * 2.5 * 0.03)
-	tele_CD.wait_time = 12.0 - (Game.playerstats["Alacrity"] * 12.0 * 0.03)
-	sprint_CD.wait_time = 30.0 - (Game.playerstats["Alacrity"] * 30.0 * 0.03)
-	shield_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
-	camo_CD.wait_time = 60.0 - (Game.playerstats["Alacrity"] * 60.0 * 0.03)
-	mine_CD.wait_time = 45.0 - (Game.playerstats["Alacrity"] * 45.0 * 0.03)
-	balloon_CD.wait_time = 45.0 - (Game.playerstats["Alacrity"] * 45.0 * 0.03)
-	greenalien_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
-	drone_CD.wait_time = 165.0 - (Game.playerstats["Alacrity"] * 165.0 * 0.03)
-	iframetimer.wait_time = 0.35 + (Game.playerstats["Alacrity"] * 0.01)
+		
+	if dash_CD.is_stopped():	
+		dash_CD.wait_time = 2.5 - (Game.playerstats["Alacrity"] * 2.5 * 0.03)
+	if tele_CD.is_stopped():	
+		tele_CD.wait_time = 12.0 - (Game.playerstats["Alacrity"] * 12.0 * 0.03)
+	if sprint_CD.is_stopped():	
+		sprint_CD.wait_time = 30.0 - (Game.playerstats["Alacrity"] * 30.0 * 0.03)
+	if shield_CD.is_stopped():	
+		shield_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
+	if camo_CD.is_stopped():	
+		camo_CD.wait_time = 60.0 - (Game.playerstats["Alacrity"] * 60.0 * 0.03)
+	if mine_CD.is_stopped():	
+		mine_CD.wait_time = 45.0 - (Game.playerstats["Alacrity"] * 45.0 * 0.03)
+	if balloon_CD.is_stopped():	
+		balloon_CD.wait_time = 45.0 - (Game.playerstats["Alacrity"] * 45.0 * 0.03)
+	if greenalien_CD.is_stopped():	
+		greenalien_CD.wait_time = 180.0 - (Game.playerstats["Alacrity"] * 180.0 * 0.03)
+	if drone_CD.is_stopped():	
+		drone_CD.wait_time = 165.0 - (Game.playerstats["Alacrity"] * 165.0 * 0.03)
+	if iframetimer.is_stopped():	
+		iframetimer.wait_time = 0.35 + (Game.playerstats["Alacrity"] * 0.01)
 	
 	for children in get_node("timers").get_children():
 		if children.name.right(3) == "_CD" and children.time_left >= 1.0:
@@ -137,15 +158,23 @@ func abilitykeys(key_pressed):
 		var keypress = Game.current_abilities[ability]
 		if keypress == "S":
 			if key_pressed == "ui_shift" and !Game.inventorylock:
-				return ability
+				get_node("timers/trickerytimer").start()
+				Game.ability_pressed = true
+				return ability 
 		elif keypress == "R":
 			if key_pressed == "ui_R":
+				get_node("timers/trickerytimer").start()
+				Game.ability_pressed = true
 				return ability
 		elif keypress == "F":
 			if key_pressed == "ui_F":
+				get_node("timers/trickerytimer").start()
+				Game.ability_pressed = true
 				return ability
 		else:
 			if key_pressed == ("ui_" + str(keypress)):
+				get_node("timers/trickerytimer").start()
+				Game.ability_pressed = true
 				return ability
 	return
 	
@@ -398,13 +427,14 @@ func _gun_movement(_delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 func hurt(x,DoT):
+	x -= (x * (Game.player_talents_current["Boon of Shields"] * 0.05))
 	if x >= 1 and !shielded and !iframes and Variables.player_damage_float_toggle:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position
 		dmgnumspawn.position.x += locationmodx
 		dmgnumspawn.position.y -= 50
-		dmgnumspawn.settext(str(round(x)))
+		dmgnumspawn.settext(str(snapped(x,0.1)))
 		dmgnumspawn.modulate = Color.DARK_RED
 		get_parent().add_child(dmgnumspawn)
 		
@@ -431,6 +461,21 @@ func hurt(x,DoT):
 	if DoT > 0 and !iframes and !shielded:
 		afflictDoT(DoT)
 		
+	
+func hittargetspeedboost():
+	hyperactivespeedboost = 1
+	await get_tree().create_timer(2.0).timeout
+	hyperactivespeedboost = 0
+	
+func setdreadtarget(_bullet_in,mob_in):
+	if dreadtarget == mob_in:
+		dreadcounter += 0.02
+	else:
+		dreadcounter = 0
+	if dreadcounter > 0.1:
+		dreadcounter = 0.1
+	dreadtarget = mob_in
+	return dreadcounter
 	
 func afflictDoT(DoT):
 	currentDoTs += 1
@@ -558,13 +603,14 @@ func _shoot(_shootoverride=false):
 							get_node("Gunarms/poison_spray").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
 							var levelmodtest = (Game.current_effects_levels["Poison Spray (Gun)"] / 5.0) + 0.4
-							fetti.setdmg(0,( (5 + (Game.playerstats["Punch"] * 2)) * levelmodtest),(( 0.4 + (Game.playerstats["Punch"] * 0.1) * levelmodtest)),0)
+							fetti.setdmg(0,( (5 + (Game.playerstats["Punch"] * 2)) * levelmodtest * boon_of_ages_dmg_mod),(( 0.4 + (Game.playerstats["Punch"] * 0.1) * levelmodtest * boon_of_ages_dmg_mod)),0)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							fetti.init(self.global_position)
 							fetti.visible = true
 						else:
 							var spawn = bullet.instantiate()
 							get_parent().add_child(spawn)
+							spawn.player = self
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 						var shellspawn = shell.instantiate()
 						shellspawn.position = get_node("Gunarms/GunarmR/gun/RShellSpawn").global_position
@@ -600,8 +646,8 @@ func _shoot(_shootoverride=false):
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmR/gun/confetti_dmg").duplicate()
 							var levelmodtest = (Game.current_effects_levels["Confetti Cannon (Toygun)"] / 5.0) + 0.4
-							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3.0)) * levelmodtest
-							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest
+							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3.0)) * levelmodtest * boon_of_ages_dmg_mod
+							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest * boon_of_ages_dmg_mod
 							fetti.setdmg(fettidmg,0,0,fettidot)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
@@ -612,6 +658,7 @@ func _shoot(_shootoverride=false):
 							fetti.visible = true
 						elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
 							var spawn = hypnoray.instantiate()
+							spawn.player = self
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
@@ -621,6 +668,7 @@ func _shoot(_shootoverride=false):
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 						elif Game.current_effects.has("Heart-Shot (Toygun)"):
 							var spawn = heartshot.instantiate()
+							spawn.player = self
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
@@ -629,6 +677,7 @@ func _shoot(_shootoverride=false):
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 						else:
 							var spawn = toybullet.instantiate()
+							spawn.player = self
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
@@ -668,6 +717,7 @@ func _shoot(_shootoverride=false):
 						else:
 							var spawn = bullet.instantiate()
 							get_parent().add_child(spawn)
+							spawn.player = self
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
 						var shellspawn = shell.instantiate()
 						shellspawn.position = get_node("Gunarms/GunarmL/gun/LShellSpawn").global_position
@@ -703,8 +753,8 @@ func _shoot(_shootoverride=false):
 							get_node("Gunarms/confetti_cannon").emitall(self.global_position)
 							var fetti = get_node("Gunarms/GunarmL/gun/confetti_dmg").duplicate()
 							var levelmodtest = (Game.current_effects_levels["Confetti Cannon (Toygun)"] / 5.0) + 0.4
-							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3.0)) * levelmodtest
-							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest
+							var fettidmg = (2.0 + (Game.playerstats["Punch"] * 3.0)) * levelmodtest * boon_of_ages_dmg_mod
+							var fettidot = (0.2 + (Game.playerstats["Punch"] * 0.2)) * levelmodtest * boon_of_ages_dmg_mod
 							fetti.setdmg(fettidmg,0,0,fettidot)
 							get_node("Gunarms/Confettichildren").add_child(fetti)
 							if Game.current_effects.has("Pump-action (Toygun)"):
@@ -714,6 +764,7 @@ func _shoot(_shootoverride=false):
 							fetti.visible = true
 						elif Game.current_effects.has("Hypno-Ray (Toygun)") and rand > cutoff2:
 							var spawn = hypnoray.instantiate()
+							spawn.player = self
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
@@ -722,6 +773,7 @@ func _shoot(_shootoverride=false):
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmL/gun/LBulletSpawn").global_position,accuracy)
 						elif Game.current_effects.has("Heart-Shot (Toygun)"):
 							var spawn = heartshot.instantiate()
+							spawn.player = self
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
@@ -730,6 +782,7 @@ func _shoot(_shootoverride=false):
 							spawn.shoot_at_mouse(get_node("Gunarms/GunarmR/gun/RBulletSpawn").global_position,accuracy)
 						else:
 							var spawn = toybullet.instantiate()
+							spawn.player = self
 							get_parent().add_child(spawn)
 							if Game.current_effects.has("Pump-action (Toygun)"):
 								var levelmodtest = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
@@ -740,7 +793,20 @@ func _shoot(_shootoverride=false):
 					await anim.animation_finished
 					anim.play("toygun_idle")
 			
+		if Game.player_talents_current["Red's Best Friend"] > 0:
+			var x = Game.player_talents_current["Red's Best Friend"]
+			rbf_talent_shoot(x)
 		
+func rbf_talent_shoot(stackmax):
+	summon_shoot_RBF += 1
+	if summon_shoot_RBF > stackmax:
+		summon_shoot_RBF = stackmax
+	else:
+		await get_tree().create_timer(10.0).timeout
+		summon_shoot_RBF -= 1
+		if summon_shoot_RBF < 0:
+			summon_shoot_RBF = 0
+
 func switchgun(_input):
 	if Game.weapon_equipped == null:
 		return
@@ -812,3 +878,7 @@ func resetshaders():
 	for i in nodes:
 		for j in parameters:
 			get_node(i).material.set_shader_parameter(j,0)
+
+
+func _on_trickerytimer_timeout():
+	Game.ability_pressed = false

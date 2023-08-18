@@ -232,10 +232,12 @@ func freeze():
 	frozen = true
 	
 	
-func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
+func hurt(dmg,patiencedmg,DoT,MoT,_punished=false): # when hitbox is shot
 	var crit_dmg = false
 	if dmg > 5 or patiencedmg > 5:
-		var critchance = (rng.randf() + (0.02 * Game.playerstats["Luck"]))
+		var critchance = (rng.randf() + (0.02 * Game.playerstats["Luck"])) + (Game.idealistic_crit_count * 0.02)
+		if Game.ability_pressed:
+			critchance += (0.03 * Game.player_talents_current["Trickery"])
 		if critchance > 0.99:
 			crit_dmg = true
 			dmg *= 2
@@ -246,20 +248,20 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 		await get_tree().create_timer(0.14).timeout
 		get_node("AnimatedSprite2D").material.set_shader_parameter("enable_sil", false)
 	
-	if dmg >= 1 and Variables.enemy_damage_float_toggle:
+	if dmg > 0.05 and Variables.enemy_damage_float_toggle:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position
 		dmgnumspawn.position.x += locationmodx
 		dmgnumspawn.position.y -= 50
-		dmgnumspawn.settext(str(round(dmg)))		
+		dmgnumspawn.settext(str(snapped(dmg,0.1)))		
 		if crit_dmg:
 			dmgnumspawn.scale = Vector2(1.5,1.5)
 			dmgnumspawn.setcolor(Color.GOLD)
 		else:
 			dmgnumspawn.modulate = Color.DARK_RED
 		get_parent().add_child(dmgnumspawn)
-	if patiencedmg >= 1 and Variables.enemy_damage_float_toggle:
+	if patiencedmg > 0.05 and Variables.enemy_damage_float_toggle:
 		var dmgnumspawn = wtf.instantiate()
 		var locationmodx = rng.randi_range(-50,50)
 		dmgnumspawn.position = global_position
@@ -268,13 +270,16 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 		if berserk:
 			dmgnumspawn.settext("0")
 		else:
-			dmgnumspawn.settext(str(round(patiencedmg)))		
+			dmgnumspawn.settext(str(snapped(patiencedmg,0.1)))		
 		if crit_dmg:
 			dmgnumspawn.scale = Vector2(1.5,1.5)
 			dmgnumspawn.setcolor(Color.GOLD)
 		else:
 			dmgnumspawn.modulate = Color.DARK_CYAN
 		get_parent().add_child(dmgnumspawn)
+		
+	if Game.player_talents_current["Punish"] > 0 and !_punished:
+		punish(dmg,patiencedmg)
 	
 	
 	if !dying and !dead and direction != null:	
@@ -379,6 +384,8 @@ func hurt(dmg,patiencedmg,DoT,MoT): # when hitbox is shot
 		if Game.current_effects.has("Vampire (Gun)"):
 			var levelmodtest = (Game.current_effects_levels["Vampire (Gun)"] / 5.0) + 0.4
 			player.heal(ceil(0.1 * dmg * levelmodtest))
+	if Game.player_talents_current["Vampire's Curse"] > 0 and !nopatience and !dying and !dead and (dmg > 3 or patiencedmg > 3):
+		player.heal(int(Game.player_talents_current["Vampire's Curse"]))
 		
 func hypno():
 	if !hypnoimmune:
@@ -437,7 +444,11 @@ func pierce():
 	set_collision_layer_value(7,true) # makes it interactible withable.
 	set_collision_layer_value(10,false) # makes it interactible withable.
 		
-
+	
+func punish(dmgin,patdmgin):
+	await get_tree().create_timer(3.0).timeout
+	hurt((dmgin * 0.03 * Game.player_talents_current["Punish"]),(patdmgin * 0.03 * Game.player_talents_current["Punish"]),0,0,true)
+	
 
 func _on_hp_value_changed(value):
 	if value <=0:

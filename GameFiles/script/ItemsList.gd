@@ -106,7 +106,7 @@ func _process(_delta):
 		elif Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_shift") and get_item_metadata(get_selected_items()[0]).get("Ability") == null:
 			var breakout = false
 			for slots in get_node("../../../dragdroplayer").get_children():
-				if slots.name.left(5) == "Major" and !breakout:
+				if (slots.name.left(5) == "Major" or (slots.name == "Minor1" and Game.player_talents_current["Gunomancer"] > 0)) and !breakout:
 					if slots.slotdata["ID"] == 0:
 						breakout = true
 						var data = get_item_metadata(get_selected_items()[0])
@@ -117,7 +117,7 @@ func _process(_delta):
 		elif Input.is_action_just_pressed("ui_left_click") and Input.is_action_pressed("ui_ctrl"):
 			var breakout = false
 			for slots in get_node("../../../dragdroplayer").get_children():
-				if slots.name.left(5) == "Minor" and !breakout:
+				if slots.name.left(5) == "Minor" and !breakout  and !(slots.name == "Minor1" and Game.player_talents_current["Gunomancer"] > 0):
 					if slots.slotdata["ID"] == 0:
 						breakout = true
 						var data = get_item_metadata(get_selected_items()[0])

@@ -16,6 +16,7 @@ var playerDied = false
 var currentammo = 7
 var currenttoyammo = 7
 var berserkshotcount = 0
+var ability_pressed = false
 var tutorial_area2count = 0
 var roomcount = 0
 var playershottimer = 0.4
@@ -56,7 +57,7 @@ var player_talents_current = {
 	"Trickery":0,
 	"Lone Wolf":0,
 	"Red's Best Friend":0,
-	"Gunomancy":0,
+	"Gunomancer":0,
 	}
 var talent_points = 0
 var talent_points_gun = 0
@@ -70,6 +71,8 @@ var items_list = []
 var equipped_items = []
 var current_effects = []
 
+var jill_of_all_trades_stat = [0,1,2,3,4,5,6,7,8,9,10,11]
+var idealistic_crit_count = 0
 
 var current_effects_levels = {}
 var current_abilities_levels = {}
@@ -80,6 +83,14 @@ var eqptracker2 = []
 
 
 func _gamereset():
+	
+	
+	if player_talents_current["Jill of All Trades"] > 0:
+		for i in range(0,player_talents_current["Jill of All Trades"]):
+			var rng = RandomNumberGenerator.new()
+			jill_of_all_trades_stat[i] = rng.randi_range(0,player_talents_current["Jill of All Trades"]-1)
+	
+	
 	playerhp = 100
 	playerhpmax = 100
 	playergold = 0
@@ -147,14 +158,16 @@ func newRoom():
 #	print("toy kills: " + str(toy_kill_counter))
 #	print("gun kills: " + str(gun_kill_counter))
 	
+	
 func refreshEffects():
+		idealistic_crit_count = 0
 		current_effects = []
 		current_effects_levels = {}
 		current_abilities = {}
 		current_abilities_levels = {}
 		for i in equipped_items: # for each equipped item
 			var inspect = str(i["EquipSlot"])
-			if inspect.left(5) == "Major":
+			if inspect.left(5) == "Major" or (inspect == "Minor1" and player_talents_current["Gunomancer"] > 0):
 				if i.get("Effect") != null:
 					var level
 					if i.get("Level") == "I":
@@ -167,6 +180,8 @@ func refreshEffects():
 						level = 4
 					elif i.get("Level") == "V":
 						level = 5
+						if player_talents_current["Idealistic"] > 0:
+							idealistic_crit_count += 1
 						
 					current_effects.append(i.get("Effect"))
 					
@@ -205,7 +220,7 @@ func refreshEffects():
 					else:
 						current_abilities_levels[str(i.get("Ability"))] = level
 						
-					
+		
 	
 	
 func refreshstats():
@@ -228,7 +243,18 @@ func refreshstats():
 			if i.get("mod3raw") != null:
 				if i["mod3raw"] == modtocheck:
 					playerstats[modtocheck] += i.get("mod3bonus")
-	
+	if player_talents_current["Boon of Fortune"] > 0:
+		playerstats["Luck"] += 1
+		
+	if player_talents_current["Jill of All Trades"] > 0:
+		for i in range(0,player_talents_current["Jill of All Trades"]):
+			var modindex = jill_of_all_trades_stat[i]
+			var modname = modifications[modindex]
+			playerstats[modname] += 1
+	if player_talents_current["Red of All Trades"] > 0:
+		for i in playerstats:
+			playerstats[i] += 1
+					
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	ammomax = (int(round(playerstats["Magazine Size"] * 14 / 20))) + 7
@@ -257,13 +283,13 @@ func _process(_delta):
 		
 		
 		
-	playerhpmax = 100 + (playerstats["HP"] * 10)
+	playerhpmax = 100 + (playerstats["HP"] * 10) + (player_talents_current["Boon of Vigor"] * 5) + (playerstats["HP"] * 2 * player_talents_current["Boon of Vigor"])
 	if currentammo > ammomax:
 		currentammo = ammomax
 	if currenttoyammo > ammomax:
 		currenttoyammo = ammomax
 		
 		
-	playershottimer = 0.4 - (playerstats["Fire Rate"] * 0.4 / 20)
+	playershottimer = 0.41 - (playerstats["Fire Rate"] * 0.4 / 20)
 
 		

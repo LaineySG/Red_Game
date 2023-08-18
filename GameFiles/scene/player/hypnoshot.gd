@@ -14,6 +14,7 @@ var mischief = 10.0 + (Game.playerstats["Punch"] * 3.0)
 var DoT = 0
 var MoT =   0
 var dmg = 0
+var player
 var damage = true
 var second = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -47,6 +48,17 @@ func shoot_at_mouse(start_pos,accuracy):
 		var levelmodtest = (Game.current_effects_levels["Quad-Shot"] / 5.0) + 0.4
 		mischief *= 0.4 * levelmodtest
 		MoT *= 0.30 * levelmodtest
+	
+	
+	mischief *= (1.0 + (Game.player_talents_current["Power"] * 0.02))
+	MoT += (mischief * (Game.player_talents_current["Poison"] * 0.01))
+	MoT += (MoT * (Game.player_talents_current["Curse of the Ages"] * 0.1))
+	mischief *= (1.0 + (Game.player_talents_current["Promise"] * 0.002 * Game.roomcount))
+	mischief *= player.boon_of_ages_dmg_mod
+	MoT *= player.boon_of_ages_dmg_mod
+	if Game.current_abilities.size() == 0 and Game.player_talents_current["Lone Wolf"]:
+			mischief *= 1.15
+			MoT *= 1.15
 	
 	self.global_position = start_pos
 	direction = (get_global_mouse_position() - start_pos).normalized()
@@ -110,6 +122,13 @@ func _process(delta):
 			spawnbubble()
 		damage = false
 	if collision and collision.get_collider().is_in_group("mob"):
+		player.hittargetspeedboost()
+		
+		
+		if Game.player_talents_current["Curse of Dread"] > 0:
+			var dreadmod = player.setdreadtarget(self,collision.get_collider())
+			mischief += (mischief * dreadmod)
+		
 		#get_node("AnimatedSprite2D").play("hit")
 		first = false
 		second = false

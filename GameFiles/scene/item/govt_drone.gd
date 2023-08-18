@@ -5,6 +5,7 @@ extends CharacterBody2D
 var speed = 130
 var target_bodies = []
 var current_target = null
+var shot_count = 0
 var reached = false
 @onready var player = get_node("../Player")
 var laser = preload("res://scene/player/dronebullet.tscn")
@@ -99,32 +100,29 @@ func _on_zap_timer_timeout():
 		
 		var rng = RandomNumberGenerator.new()
 		var levelmodtest = (Game.current_abilities_levels["Summon(CIA Drone)"] / 5.0) + 0.4
-		var zaptime = rng.randf_range(-1.0,0.5)
-		if zaptime > 0:
-			zaptime -= 0.1 * levelmodtest
-		else:
-			zaptime *= levelmodtest
-		if zaptime < 0.1:
-			zaptime = 0.1
-		zaptime -= ( 0.0 + (Game.playerstats["Fire Rate"] / 20.0))
-		get_node("zap_timer").wait_time = 1.3 + zaptime
+		var zaptime = 3.0 + (rng.randf_range(-1.0,1.0))
+		zaptime -= 0.6 * levelmodtest
+			
+		zaptime -= ((Game.playerstats["Fire Rate"] / 20.0))
 		
-		if Game.current_effects.has("Pump-action (Toygun)"):
-			var levelmodtest2 = (Game.current_effects_levels["Pump-action (Toygun)"] / 5.0) + 0.4
-			get_node("zap_timer").wait_time = 1.3 + (zaptime * levelmodtest2)
 		var levelmodtest2
-		var shotspeed = (1.0 + (Game.playerstats["Fire Rate"] * 0.8 / 20.0))
 		if Game.current_effects.has("Berserk (Gun)"):
 			levelmodtest2 = (Game.current_effects_levels["Berserk (Gun)"] / 5.0) + 0.4
-			shotspeed += Game.berserkshotcount * 0.1 * levelmodtest2
-			zaptime += (0.2 * (levelmodtest2))
+			zaptime -= (Game.berserkshotcount * 0.1 * levelmodtest2)
 			
 		if Game.current_effects.has("Frenzy (Gun)"):
 			levelmodtest2 = (Game.current_effects_levels["Frenzy (Gun)"] / 5.0) + 0.4
-			shotspeed += ((0.15 * (Game.playerhpmax - Game.playerhp) / Game.playerhpmax) * levelmodtest2)
-			zaptime += (0.2 * (levelmodtest2))
-		speed *= shotspeed
-		get_node("zap_timer").wait_time = 1.3 + (zaptime)
+			zaptime -= ((1.3 * (Game.playerhpmax - Game.playerhp) / Game.playerhpmax) * levelmodtest2)
+			
+			
+			
+		zaptime -= (abs(zaptime) * 0.20 * player.summon_shoot_RBF)
+			
+			
+		if zaptime <= 0.1:
+			zaptime = 0.1
+			
+		get_node("zap_timer").wait_time = zaptime
 	
 	
 

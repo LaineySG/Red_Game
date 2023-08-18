@@ -361,7 +361,8 @@ func _enter_state(new, previous):
 			
 			var rng = RandomNumberGenerator.new()
 			var reloadrandom = rng.randf() + (Game.playerstats["Reload Speed"] * 0.20/20)
-			var reloadspeed = 1.0 + (Game.playerstats["Reload Speed"] * 0.5 / 20.0)
+			var reloadspeed = 1.0 + (Game.playerstats["Reload Speed"] * 0.5 / 20.0) 
+			reloadspeed *= (1.0 + (Game.player_talents_current["Hyperactivity"] * 0.05))
 			if reloadrandom > 0.66:
 				if Game.weapon_equipped == "gun":
 					if parent.direction == 0:

@@ -55,6 +55,36 @@ class_name ResourceDataVariables
 @export var current_room_doors = {}
 @export var current_room_enemies = {}
 
+@export var player_talents_current = {
+	"Power":0, 
+	"Poison":0, 
+	"Punish":0, 
+	"Profit":0, 
+	"Promise":0, 
+	"Curse of the Ages":0, 
+	"Curse of Dread":0, 
+	"Boon of Fortune":0, 
+	"Boon of the Ages":0,
+	"Hyperactivity":0,
+	"Boon of Vigor":0,
+	"Boon of Shields":0,
+	"Jill of All Trades":0,
+	"Vampire's Curse":0,
+	"Idealistic":0,
+	"Red of All Trades":0,
+	"Trickery":0,
+	"Lone Wolf":0,
+	"Red's Best Friend":0,
+	"Gunomancer":0,
+	}
+@export var talent_points = 0
+@export var talent_points_gun = 0
+@export var talent_points_magic = 0
+@export var talent_points_pets = 0
+
+@export var jill_of_all_trades_stat = [0,1,2,3,4,5,6,7,8,9,10,11]
+@export var idealistic_crit_count = 0
+
 
 #settings
 @export var enemy_damage_float_toggle = true
@@ -76,6 +106,7 @@ func denitialize():
 	current_room_enemies = Variables.current_room_enemies
 	
 	
+	
 	#settings
 	enemy_damage_float_toggle = Variables.enemy_damage_float_toggle
 	player_damage_float_toggle = Variables.player_damage_float_toggle
@@ -84,6 +115,14 @@ func denitialize():
 	music_volume_slider_value = Variables.music_volume_slider_value
 	#settings
 	
+	
+	jill_of_all_trades_stat = Game.jill_of_all_trades_stat
+	idealistic_crit_count = Game.idealistic_crit_count
+	player_talents_current = Game.player_talents_current
+	talent_points = Game.talent_points
+	talent_points_gun = Game.talent_points_gun
+	talent_points_magic = Game.talent_points_magic
+	talent_points_pets = Game.talent_points_pets
 	
 	playerhp = Game.playerhp
 	playerhpmax = Game.playerhpmax
@@ -137,6 +176,16 @@ func initialize():
 	Variables.sfx_volume_slider_value = sfx_volume_slider_value
 	Variables.music_volume_slider_value = music_volume_slider_value
 	#settings
+	
+	
+	
+	Game.jill_of_all_trades_stat = jill_of_all_trades_stat
+	Game.idealistic_crit_count = idealistic_crit_count
+	Game.player_talents_current = player_talents_current 
+	Game.talent_points = talent_points
+	Game.talent_points_gun = talent_points_gun
+	Game.talent_points_magic = talent_points_magic
+	Game.talent_points_pets = talent_points_pets
 	
 	#initialize settings
 	var master_bus = AudioServer.get_bus_index("Master")

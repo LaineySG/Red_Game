@@ -1,4 +1,4 @@
-[gd_scene load_steps=429 format=3 uid="uid://dk8edw251qj3"]
+[gd_scene load_steps=430 format=3 uid="uid://dk8edw251qj3"]
 
 [ext_resource type="Script" path="res://script/player.gd" id="1_4cvrk"]
 [ext_resource type="Texture2D" uid="uid://bp1hhgod73e7n" path="res://assets/environment/scifi/anims/shootbodyidleupperlayer_sweat.png" id="2_i6r7d"]
@@ -53,6 +53,7 @@
 [ext_resource type="PackedScene" uid="uid://lji5jd3xg87j" path="res://scene/player/Poison_spray.tscn" id="43_hf38b"]
 [ext_resource type="Texture2D" uid="uid://bbwy3j8u5oyxf" path="res://assets/gui/Button06.png" id="45_3p42c"]
 [ext_resource type="AudioStream" uid="uid://dqdgkwisnt6o2" path="res://assets/sounds/landing.mp3" id="49_jakye"]
+[ext_resource type="Script" path="res://scene/player/boonofagestimer.gd" id="52_c0bij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pvyfe"]
 size = Vector2(12, 30)
@@ -7042,6 +7043,15 @@ one_shot = true
 wait_time = 4.2
 one_shot = true
 
+[node name="boonofagestimer" type="Timer" parent="timers"]
+wait_time = 5.0
+autostart = true
+script = ExtResource("52_c0bij")
+
+[node name="trickerytimer" type="Timer" parent="timers"]
+wait_time = 5.0
+one_shot = true
+
 [node name="dustmaker_R" parent="." instance=ExtResource("27_kgcxb")]
 position = Vector2(7, 0)
 rotation = -3.14159
@@ -7110,6 +7120,8 @@ texture_scale = 0.2
 [connection signal="timeout" from="timers/Coyotetime" to="." method="_on_coyotetime_timeout"]
 [connection signal="timeout" from="timers/berserktimer" to="." method="_on_berserktimer_timeout"]
 [connection signal="timeout" from="timers/iframes" to="." method="_on_iframes_timeout"]
+[connection signal="timeout" from="timers/boonofagestimer" to="timers/boonofagestimer" method="_on_timeout"]
+[connection signal="timeout" from="timers/trickerytimer" to="." method="_on_trickerytimer_timeout"]
 [connection signal="area_shape_entered" from="doordetector" to="." method="_on_doordetector_area_shape_entered"]
 [connection signal="area_shape_exited" from="doordetector" to="." method="_on_doordetector_area_shape_exited"]
 

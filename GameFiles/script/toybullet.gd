@@ -10,6 +10,7 @@ var first = true
 var mischief = 15.0 + (Game.playerstats["Punch"] * 5.0)
 var dmg = 0
 var DoT = 0
+var player
 var MoT = 0
 var damage = true
 var rng = RandomNumberGenerator.new()
@@ -52,6 +53,15 @@ func shoot_at_mouse(start_pos,accuracy):
 		DoT *= 0.30 * levelmodtest
 		
 	
+	mischief *= (1.0 + (Game.player_talents_current["Power"] * 0.02))
+	MoT += (mischief * (Game.player_talents_current["Poison"] * 0.01))
+	MoT += (MoT * (Game.player_talents_current["Curse of the Ages"] * 0.1))
+	mischief *= (1.0 + (Game.player_talents_current["Promise"] * 0.002 * Game.roomcount))
+	mischief *= player.boon_of_ages_dmg_mod
+	MoT *= player.boon_of_ages_dmg_mod
+	if Game.current_abilities.size() == 0 and Game.player_talents_current["Lone Wolf"]:
+			mischief *= 1.15
+			MoT *= 1.15
 	
 	self.global_position = start_pos
 	direction = (get_global_mouse_position() - start_pos).normalized()
@@ -113,6 +123,11 @@ func _process(delta):
 		move_and_collide(reflect)
 		damage = false
 	if collision and collision.get_collider().is_in_group("mob"):
+		player.hittargetspeedboost()
+	
+		if Game.player_talents_current["Curse of Dread"] > 0:
+			var dreadmod = player.setdreadtarget(self,collision.get_collider())
+			mischief += (mischief * dreadmod)
 		first = false
 		second = false
 		if Game.current_effects.has("Rainbubble Blaster (Toygun)"):
