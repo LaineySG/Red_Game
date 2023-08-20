@@ -70,24 +70,32 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:
 		$UI/pause_modulation.visible = true
 		Utils.pausegame()
-	if Input.is_action_just_pressed("ui_cancel") and get_node("UI/Inventory/Tutorial UI").visible:
+		
+		
+		
+	if Input.is_action_just_pressed("ui_cancel") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
 		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
 		Game.inventorylock = false
 		
-	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
+	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible and !get_node("UI/Inventory/Stats").visible and !get_node("UI/Inventory/Talents").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true
 		if Game.weapon_equipped == "gun":
 			ammobar.value = Game.currentammo
 		elif Game.weapon_equipped == "toygun":
 			ammobar.value = Game.currenttoyammo
-	elif Input.is_action_just_pressed("ui_I") and get_node("UI/Inventory/Tutorial UI").visible:
+	elif Input.is_action_just_pressed("ui_I") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
 		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
 		Game.inventorylock = false
 		if Game.weapon_equipped == "gun":
 			ammobar.value = Game.currentammo
 		elif Game.weapon_equipped == "toygun":
 			ammobar.value = Game.currenttoyammo
+		
 	
 	var mouse_offset = (get_viewport().get_mouse_position() - Vector2(get_viewport().size / 2))
 	$Player/Camera2D.position = lerp(Vector2(), mouse_offset.normalized() * 50, mouse_offset.length() / 1000)

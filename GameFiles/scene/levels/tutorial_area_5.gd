@@ -51,24 +51,31 @@ func _process(_delta):
 		$UI/pause_modulation.visible = true
 		Utils.pausegame()
 		
+	
 		
-	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
+	if Input.is_action_just_pressed("ui_cancel") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
+		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
+		Game.inventorylock = false
+		
+	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible and !get_node("UI/Inventory/Stats").visible and !get_node("UI/Inventory/Talents").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true
-		ammobar.value = Game.currentammo
-	elif Input.is_action_just_pressed("ui_I") and get_node("UI/Inventory/Tutorial UI").visible:
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
+	elif Input.is_action_just_pressed("ui_I") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
 		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
 		Game.inventorylock = false
-		ammobar.value = Game.currentammo
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
 		
-		#remove later - testing purposes
-	if Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == false:
-		get_node("testbox").visible = true
-		Game.inventorylock = true
-	elif Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == true:
-		get_node("testbox").visible = false
-		Game.inventorylock = false
-		#remove later - testing purposes 
 	
 	var mouse_offset = (get_viewport().get_mouse_position() - Vector2(get_viewport().size / 2))
 	$Player/Camera2D.position = lerp(Vector2(), mouse_offset.normalized() * 50, mouse_offset.length() / 1000)

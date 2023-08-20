@@ -17,15 +17,26 @@ func randomroom():
 	
 func get_room():
 	var randfloat = rng.randf()
+	print(randfloat)
+	print(Game.runs)
+	print(Variables.grimm_conversation_tracker)
+	print(Variables.bob_conversation_tracker)
 	if Game.roomcount >= 10 and !Variables.grimm_conversation_tracker.has("grimm_1") and randfloat < 0.10 + ((Game.roomcount - 10) / 10.0):
 		return "meeting"
 	elif Game.roomcount >= 20 and !Variables.grimm_conversation_tracker.has("grimm_2") and randfloat < 0.10 + ((Game.roomcount - 20) / 10.0):
 		return "meeting"
+	elif (Game.runs > 4 or Variables.grimm_conversation_tracker.has("grimm_boss_1")) and !Variables.bob_conversation_tracker.has("bob_3") and randfloat > 0.55:
+		return "cyberpub"
 		
 	if randfloat < 0.25 + ( + (Game.playerstats["Luck"] * 0.005)):
 		return "item"
 	elif randfloat < 0.85 - ( + (Game.playerstats["Luck"] * 0.005)):
-		return "fight"
+		var skullchance = rng.randf() + (Game.playerstats["Luck"] * 0.005)
+		if skullchance > 0.9:
+			return "skull"
+		else:
+			return "fight"
+		
 	else:
 		return "shop"
 
@@ -37,7 +48,9 @@ func changeroom(type):
 			get_tree().change_scene_to_file("res://scene/levels/item_room.tscn")
 		else:
 			get_tree().change_scene_to_file("res://scene/levels/item_choice_room.tscn")
-	elif type == "fight":
+	elif type == "fight" or type == "skull":
+		if type == "skull":
+			Variables.skull_room = true
 		var randfloat = rng.randf()
 		if randfloat < 0.25:
 			if randfloat < 0.8:
@@ -73,7 +86,8 @@ func changeroom(type):
 			get_tree().change_scene_to_file("res://scene/levels/meeting_room.tscn")
 		elif Game.roomcount >= 20 and  !Variables.grimm_conversation_tracker.has("grimm_2"):
 			get_tree().change_scene_to_file("res://scene/levels/boss_fight_1.tscn")
-		
+	elif type == "cyberpub":
+		get_tree().change_scene_to_file("res://scene/levels/pub_NPC_room.tscn")
 	else: #shop
 		get_tree().change_scene_to_file("res://scene/levels/shop_room.tscn")
 		

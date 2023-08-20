@@ -16,9 +16,12 @@ func _ready():
 	pass
 
 func instantiate(level,floornum):
+	var currentroom = Game.roomcount
+	if Variables.skull_room:
+		currentroom += 5 # adds 5 effective room levels
 	if floornum == 1:
 		if level == 1:
-			var mobspawnnummax = min(ceil(Game.roomcount / 3.0), 6.0)
+			var mobspawnnummax = min(ceil(currentroom / 3.0), 6.0)
 			if mobspawnnummax > get_child_count():
 				mobspawnnummax = get_child_count()
 			var spawn_position
@@ -38,31 +41,31 @@ func instantiate(level,floornum):
 					spawn_position = get_children()[i].global_position
 					var mob = frog.instantiate()
 					mob.global_position = spawn_position
-					mob.health = frog_base[0] + (Game.roomcount * rng.randf_range(3.0,5.0))
-					mob.patience = frog_base[1] + (Game.roomcount * rng.randf_range(2.0,4.0))
-					mob.speed = frog_base[2] + (Game.roomcount * rng.randf_range(2.0,4.0))
-					mob.damage = frog_base[3] + (Game.roomcount * rng.randf_range(0.7,1.50))
-					mob.level = frog_base[4] + floor(Game.roomcount/20.0)
+					mob.health = frog_base[0] + (currentroom * rng.randf_range(3.0,5.0))
+					mob.patience = frog_base[1] + (currentroom * rng.randf_range(2.0,4.0))
+					mob.speed = frog_base[2] + (currentroom * rng.randf_range(2.0,4.0))
+					mob.damage = frog_base[3] + (currentroom * rng.randf_range(0.7,1.50))
+					mob.level = frog_base[4] + floor(currentroom/20.0)
 					get_parent().call_deferred("add_child", mob)
 				elif which_enemy < 0.8:
 					spawn_position = get_children()[i].global_position
 					var mob = fluzar.instantiate()
 					mob.global_position = spawn_position
-					mob.health = fluzar_base[0] + (Game.roomcount * rng.randf_range(2.0,4.0))
-					mob.patience = fluzar_base[1] + (Game.roomcount * rng.randf_range(4.0,6.0))
-					mob.speed = fluzar_base[2] + (Game.roomcount * rng.randf_range(3.0,5.0))
-					mob.damage = fluzar_base[3] + (Game.roomcount * rng.randf_range(0.75,1.25))
-					mob.level = fluzar_base[4] + floor(Game.roomcount/10.0)
+					mob.health = fluzar_base[0] + (currentroom * rng.randf_range(2.0,4.0))
+					mob.patience = fluzar_base[1] + (currentroom * rng.randf_range(4.0,6.0))
+					mob.speed = fluzar_base[2] + (currentroom * rng.randf_range(3.0,5.0))
+					mob.damage = fluzar_base[3] + (currentroom * rng.randf_range(0.75,1.25))
+					mob.level = fluzar_base[4] + floor(currentroom/10.0)
 					get_parent().call_deferred("add_child", mob)
 				else:
 					spawn_position = get_children()[i].global_position
 					var mob = boo.instantiate()
 					mob.global_position = spawn_position
-					mob.health = boo_base[0] + (Game.roomcount * rng.randf_range(7.0,9.0))
-					mob.patience = boo_base[1] + (Game.roomcount * rng.randf_range(3.0,5.0))
-					mob.speed = boo_base[2] + (Game.roomcount * rng.randf_range(4.0,6.0))
-					mob.damage = boo_base[3] + (Game.roomcount * rng.randf_range(0.75,1.75))
-					mob.level = boo_base[4] + floor(Game.roomcount/10.0)
+					mob.health = boo_base[0] + (currentroom * rng.randf_range(7.0,9.0))
+					mob.patience = boo_base[1] + (currentroom * rng.randf_range(3.0,5.0))
+					mob.speed = boo_base[2] + (currentroom * rng.randf_range(4.0,6.0))
+					mob.damage = boo_base[3] + (currentroom * rng.randf_range(0.75,1.75))
+					mob.level = boo_base[4] + floor(currentroom/10.0)
 					get_parent().call_deferred("add_child", mob)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

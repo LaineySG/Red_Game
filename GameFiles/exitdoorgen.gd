@@ -13,6 +13,7 @@ func _ready():
 	get_node("Coinroom").visible = false
 	get_node("Fightroom").visible = false
 	get_node("Meetingroom").visible = false
+	get_node("Fightroom_Skull").visible = false
 	if Variables.current_room_doors.has(self.name):
 		roomtype = Variables.current_room_doors[self.name]
 	else:
@@ -35,13 +36,16 @@ func _ready():
 		get_node("Fightroom").visible = true
 	elif roomtype == "shop":
 		get_node("Coinroom").visible = true
-	elif roomtype == "meeting":
+	elif roomtype == "meeting" or roomtype == "cyberpub":
 		get_node("Meetingroom").visible = true
+	elif roomtype == "skull":
+		get_node("Fightroom_Skull").visible = true
 	if mystery:
 		get_node("Mysteryroom").visible = true
 		get_node("Itemroom").visible = false
 		get_node("Coinroom").visible = false
 		get_node("Fightroom").visible = false
+		get_node("Fightroom_Skull").visible = false
 		get_node("Meetingroom").visible = false
 		
 	
@@ -53,6 +57,7 @@ func img_refresh():
 	get_node("Itemroom").visible = false
 	get_node("Coinroom").visible = false
 	get_node("Fightroom").visible = false
+	get_node("Fightroom_Skull").visible = false
 	get_node("Meetingroom").visible = false
 	
 	if roomtype == "item":
@@ -61,6 +66,8 @@ func img_refresh():
 		get_node("Fightroom").visible = true
 	elif roomtype == "shop":
 		get_node("Coinroom").visible = true
+	elif roomtype == "skull":
+		get_node("Fightroom_Skull").visible = true
 	elif roomtype == "meeting":
 		get_node("Meetingroom").visible = true
 
@@ -71,6 +78,8 @@ func open():
 		play("open_white")
 	elif door_theme == "gradient_1":
 		play("open_gradient")
+	elif door_theme == "cyberbar":
+		play("open_cyberbar")
 		
 	get_node("door_light/Shadow").color = Color.LIGHT_BLUE
 	get_node("door_light/TextureLight").color = Color.LIGHT_BLUE
@@ -83,6 +92,8 @@ func _process(_delta):
 		play("closed_white")
 	elif door_theme == "gradient_1" and !opened:
 		play("closed_gradient")
+	elif door_theme == "cyberbar" and !opened:
+		play("closed_cyberbar")		
 		
 	if get_node("Area2D").open and !opened:
 		opened = true

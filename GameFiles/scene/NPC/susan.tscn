@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=3 uid="uid://dojggd5y8e0pi"]
+
+[ext_resource type="Script" path="res://scene/NPC/blue.gd" id="1_8xskt"]
+[ext_resource type="Texture2D" uid="uid://bv4t81brshe3q" path="res://assets/NPCs/susan.png" id="2_q3qbi"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="3_eu2m6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqib4"]
+atlas = ExtResource("2_q3qbi")
+region = Rect2(0, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss3dv"]
+atlas = ExtResource("2_q3qbi")
+region = Rect2(80, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wblid"]
+atlas = ExtResource("2_q3qbi")
+region = Rect2(160, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yj30q"]
+atlas = ExtResource("2_q3qbi")
+region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsnie"]
+atlas = ExtResource("2_q3qbi")
+region = Rect2(320, 0, 80, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_140fj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqib4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss3dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wblid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yj30q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsnie")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_218gg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt557"]
+resource_local_to_scene = true
+shader = ExtResource("3_eu2m6")
+shader_parameter/enable_outline = true
+shader_parameter/new = null
+shader_parameter/origin = null
+shader_parameter/outline_width = 0.7
+shader_parameter/outline_color = null
+
+[node name="Susan" type="CharacterBody2D"]
+collision_mask = 16
+script = ExtResource("1_8xskt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_140fj")
+animation = &"idle"
+frame_progress = 0.034545
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_218gg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_218gg")
+
+[node name="!" type="RichTextLabel" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_bt557")
+offset_left = -7.0
+offset_top = -47.0
+offset_right = 23.0
+offset_bottom = 8.0
+theme_override_colors/default_color = Color(1, 0.764706, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "!"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

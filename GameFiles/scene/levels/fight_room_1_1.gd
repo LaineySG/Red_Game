@@ -5,8 +5,10 @@ extends Node2D
 @onready var player = get_node("Player")
 @onready var ammobar = get_node("UI/Ammo")
 var wtf = preload("res://scene/mob/wtf.tscn")
+var meringue = preload("res://scene/item/pie.tscn")
 var brokemessage = false
 var introstep = 0
+var meringue_given
 var hasmobs=false
 var rng = RandomNumberGenerator.new()
 var timetrialchance = 0
@@ -20,6 +22,8 @@ var doorchosen
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.newRoom()
+	if meringue_given != true:
+		meringue_given = false
 	get_node("mobs/Mobgenerator").instantiate(1,1) # level, floor
 	player.update_ammo.connect(_on_player_update_ammo)
 	player.update_gun.connect(_on_player_update_gun)
@@ -32,8 +36,8 @@ func _ready():
 	_on_update_health()
 	
 	##check for time trial##
-	timetrialchance = rng.randf()
-	if timetrialchance >= (0.95 - (0.15 * Game.player_talents_current["Boon of Fortune"])):
+	timetrialchance = rng.randf() + ( + (Game.playerstats["Luck"] * 0.005)) + (0.15 * Game.player_talents_current["Boon of Fortune"])
+	if timetrialchance >= (0.95):
 		get_node("UI/time_trial_timer").combat = true
 		get_node("UI/time_trial_timer").timetrial = true
 		var randtimervar = rng.randi_range(5,12)
@@ -90,6 +94,12 @@ func _process(_delta):
 		for i in get_node("mobs").get_children():
 			if i.is_in_group("mob"):
 				i.setcombatinteractions(true)
+		if Variables.skull_room and !meringue_given:
+			meringue_given = true
+			var piespawn = meringue.instantiate()
+			piespawn.position = player.global_position
+			add_child(piespawn)
+			
 		if !hpregenerated:
 			hpregenerated = true
 			player.heal(ceil((Game.playerstats["Regeneration"] / 4.0 * Game.playerhpmax * 0.04))) # heal 2% of player health * 1-5 depending on regeneration stat
@@ -126,37 +136,36 @@ func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel") and !$UI/pause_modulation.visible:
 		$UI/pause_modulation.visible = true
 		Utils.pausegame()
-	if Input.is_action_just_pressed("ui_cancel") and get_node("UI/Inventory/Tutorial UI").visible:
-		get_node("UI/Inventory/Tutorial UI").visible = false
-		Game.inventorylock = false
-	
+		
 	if Game.playerDied and !death_screen_playing:
 		get_node("death_screen").playerdied()
 		death_screen_playing = true
 		
-	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
+		
+		
+	if Input.is_action_just_pressed("ui_cancel") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
+		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
+		Game.inventorylock = false
+		
+	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible and !get_node("UI/Inventory/Stats").visible and !get_node("UI/Inventory/Talents").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true
 		if Game.weapon_equipped == "gun":
 			ammobar.value = Game.currentammo
 		elif Game.weapon_equipped == "toygun":
 			ammobar.value = Game.currenttoyammo
-	elif Input.is_action_just_pressed("ui_I") and get_node("UI/Inventory/Tutorial UI").visible:
+	elif Input.is_action_just_pressed("ui_I") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
 		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
 		Game.inventorylock = false
 		if Game.weapon_equipped == "gun":
 			ammobar.value = Game.currentammo
 		elif Game.weapon_equipped == "toygun":
 			ammobar.value = Game.currenttoyammo
 		
-		#remove later - testing purposes
-	if Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == false:
-		get_node("testbox").visible = true
-		Game.inventorylock = true
-	elif Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == true:
-		get_node("testbox").visible = false
-		Game.inventorylock = false
-		#remove later - testing purposes 
 	
 	var mouse_offset = (get_viewport().get_mouse_position() - Vector2(get_viewport().size / 2))
 	$Player/Camera2D.position = lerp(Vector2(), mouse_offset.normalized() * 50, mouse_offset.length() / 1000)
@@ -391,6 +400,8 @@ func _on_transition_screen_transitioned():
 	for children in get_node("mobs").get_children():
 		if children.is_in_group("coins"):
 			children.add_on_exit()
+	if Variables.skull_room:
+		Variables.skull_room = false
 	doorchosen.changeroom()
 		
 	#get_tree().change_scene_to_file("res://scene/levels/spaceship_hub.tscn")

@@ -1,11 +1,10 @@
-[gd_scene load_steps=44 format=3 uid="uid://c2qahwhwvx3st"]
+[gd_scene load_steps=43 format=3 uid="uid://c2qahwhwvx3st"]
 
 [ext_resource type="Script" path="res://scene/levels/fight_room_1_1.gd" id="1_npike"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_htr4o"]
 [ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="4_1vugj"]
 [ext_resource type="Texture2D" uid="uid://duuifkqgq4m4t" path="res://assets/environment/light.png" id="4_gwshe"]
 [ext_resource type="Texture2D" uid="uid://c2jqkinnqjfus" path="res://assets/environment/background_tiles/Level_1/test_3_2.png" id="6_0bytf"]
-[ext_resource type="Texture2D" uid="uid://biqbvu7tpbjro" path="res://assets/environment/scifi/scifi_4g1a.png" id="6_78ku7"]
 [ext_resource type="Texture2D" uid="uid://dqv0uic5fcids" path="res://assets/environment/background_tiles/Level_1/test_6_2.png" id="7_nhh3q"]
 [ext_resource type="Texture2D" uid="uid://vgdrqfrlrahu" path="res://assets/environment/background_tiles/Level_1/test_7_2.png" id="8_4jo81"]
 [ext_resource type="Texture2D" uid="uid://b7sw1nfilvmij" path="res://assets/environment/background_tiles/Level_1/test_1_2.png" id="9_qifne"]
@@ -209,9 +208,9 @@ texture = ExtResource("11_kmfiv")
 position = Vector2(743, -105)
 texture = ExtResource("11_kmfiv")
 
-[node name="Scifi4g1a4" type="Sprite2D" parent="fight_room"]
+[node name="Scifi4h1a4" type="Sprite2D" parent="fight_room"]
 position = Vector2(807, -105)
-texture = ExtResource("6_78ku7")
+texture = ExtResource("11_kmfiv")
 
 [node name="Scifi3a2a" type="Sprite2D" parent="fight_room"]
 position = Vector2(-217, -169)

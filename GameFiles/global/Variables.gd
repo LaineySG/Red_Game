@@ -6,9 +6,11 @@ var blue_conversation_tracker = []
 var prof_conversation_tracker = []
 var grimm_conversation_tracker = []
 var shop_conversation_tracker = []
+var bob_conversation_tracker = []
 var current_room_items = {}
 var current_room_doors = {}
 var current_room_enemies = {}
+var skull_room = false
 
 #settings
 var enemy_damage_float_toggle = true

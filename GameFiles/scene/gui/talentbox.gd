@@ -179,12 +179,12 @@ func _ready():
 	
 func _on_gui_input(e):
 	if e.button_mask == 1:
-		if Game.talent_points > 0 and buyable:
+		if Game.talent_points_gun_unspent > 0 and buyable:
 			if Game.player_talents_current[self.name] == gunomancy_talent_tree_info[self.name]["maxlvl"]:
 				pass
 			else:
 				Game.player_talents_current[self.name] +=1
-				Game.talent_points -= 1
+				Game.talent_points_gun_unspent -= 1
 				Game.talent_points_gun += 1
 				refreshbonuses()
 				refreshall.emit()

@@ -1,0 +1,128 @@
+[gd_scene load_steps=14 format=3 uid="uid://caaa6nl5bov1n"]
+
+[ext_resource type="Script" path="res://scene/NPC/bob.gd" id="1_pajml"]
+[ext_resource type="Texture2D" uid="uid://cm1iet7eyfjj7" path="res://assets/NPCs/bob.png" id="2_nx86p"]
+[ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="3_bdci4"]
+[ext_resource type="Texture2D" uid="uid://bb0gra7lqdmer" path="res://assets/environment/Smoke/FX001/FX001_01.png" id="4_prqyy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnabs"]
+atlas = ExtResource("2_nx86p")
+region = Rect2(0, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g08a"]
+atlas = ExtResource("2_nx86p")
+region = Rect2(32, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eurca"]
+atlas = ExtResource("2_nx86p")
+region = Rect2(64, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bs32"]
+atlas = ExtResource("2_nx86p")
+region = Rect2(96, 0, 32, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snjuc"]
+atlas = ExtResource("2_nx86p")
+region = Rect2(128, 0, 32, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_140fj"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_gnabs")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_5g08a")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_eurca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bs32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snjuc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_218gg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bt557"]
+resource_local_to_scene = true
+shader = ExtResource("3_bdci4")
+shader_parameter/enable_outline = true
+shader_parameter/new = null
+shader_parameter/origin = null
+shader_parameter/outline_width = 0.7
+shader_parameter/outline_color = null
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_l6vlt"]
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, -15, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 15.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.3
+color = Color(1, 1, 1, 0.486275)
+
+[node name="Bob" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 16
+script = ExtResource("1_pajml")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_140fj")
+animation = &"idle"
+frame_progress = 0.731836
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_218gg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 16
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 4)
+shape = SubResource("CapsuleShape2D_218gg")
+
+[node name="!" type="RichTextLabel" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_bt557")
+offset_left = -7.0
+offset_top = -47.0
+offset_right = 23.0
+offset_bottom = 8.0
+theme_override_colors/default_color = Color(1, 0.764706, 0, 1)
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "!"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+z_index = 3
+position = Vector2(5, -12)
+emitting = false
+amount = 10
+process_material = SubResource("ParticleProcessMaterial_l6vlt")
+texture = ExtResource("4_prqyy")
+lifetime = 2.2
+one_shot = true
+explosiveness = 0.85
+randomness = 0.13
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -89,6 +89,7 @@ script = ExtResource("1_hftp1")
 metadata/_edit_vertical_guides_ = []
 
 [node name="Tutorial UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="GUI" type="Control" parent="Tutorial UI"]
 layout_mode = 3
@@ -1527,12 +1528,12 @@ bbcode_enabled = true
 
 [node name="points" type="RichTextLabel" parent="Talents"]
 offset_left = 267.0
-offset_top = 451.0
+offset_top = 454.15
 offset_right = 767.0
-offset_bottom = 483.0
+offset_bottom = 486.15
 theme_override_font_sizes/normal_font_size = 32
 bbcode_enabled = true
-text = "[img width=\"30\" height=\"30\"]res://assets/gui/icons/electric.png[/img]0"
+text = "[img width=\"30\" height=\"30\"]res://assets/item/pie-slice.png[/img] 0 [img width=\"30\" height=\"30\"]res://assets/gui/icons/bullseye.png[/img] 0 [img width=\"30\" height=\"30\"]res://assets/gui/icons/sitting-dog.png[/img] 0 [img width=\"30\" height=\"30\"]res://assets/gui/icons/twirly-flower.png[/img] 0"
 
 [node name="reset_label" type="RichTextLabel" parent="Talents"]
 offset_left = 608.661

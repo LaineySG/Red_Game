@@ -48,6 +48,8 @@ func change_text(speech, speaker):
 			icon = load("res://assets/NPCs/grimmportrait.png")
 		elif speaker == "agent":
 			icon = load("res://assets/NPCs/agentportrait.png")
+		elif speaker == "bob":
+			icon = load("res://assets/NPCs/bobportrait.png")
 			
 			
 		cursor = 0

@@ -9,8 +9,10 @@ func _ready():
 func _pressed():
 	for items in Game.player_talents_current:
 		if Game.player_talents_current[items] != 0:
-			Game.talent_points += Game.player_talents_current[items]
+			Game.talent_points_gun_unspent += Game.player_talents_current[items]
+			# add to gun pool
 			Game.talent_points_gun -= Game.player_talents_current[items]
+			#remove from spent
 			Game.player_talents_current[items] = 0
 	resetall.emit()
 	

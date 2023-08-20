@@ -9,6 +9,7 @@ var brokemessage = false
 var helpcounter = 0
 var current_blue_convo = ""
 var current_prof_convo = ""
+var current_bob_convo = ""
 var morality_tracker
 var currentconversation
 var conversation_step = 1
@@ -26,6 +27,8 @@ func conversationselector():
 		current_prof_convo = "prof_1"
 	elif Game.runs >= 2 and !Variables.prof_conversation_tracker.has("prof_2") and Variables.grimm_conversation_tracker.has("grimm_1"):
 		current_prof_convo = "prof_2"
+	elif Variables.bob_conversation_tracker.has("bob_3"):
+		current_prof_convo = "prof_6"
 		
 	if Variables.grimm_conversation_tracker.has("Grimm_Dead_1") and !Variables.blue_conversation_tracker.has("blue_3"):
 		current_blue_convo = "blue_3" # killed grimm
@@ -37,6 +40,11 @@ func conversationselector():
 		current_blue_convo = "blue_1"
 	elif Game.runs >= 2 and !Variables.blue_conversation_tracker.has("blue_2"):
 		current_blue_convo = "blue_2"
+	elif Variables.bob_conversation_tracker.has("bob_3"):
+		current_blue_convo = "blue_6"
+		
+	if Variables.bob_conversation_tracker.has("bob_3") and !Variables.bob_conversation_tracker.has("bob_4") and Game.meringues > 0:
+		current_bob_convo = "bob_4"
 
 	
 	if current_prof_convo != "":	
@@ -48,6 +56,11 @@ func conversationselector():
 		get_node("Blue").has_conversation = true
 	else:
 		get_node("Blue").has_conversation = false
+	
+	if current_bob_convo != "":
+		get_node("Bob").has_conversation = true
+	else:
+		get_node("Bob").has_conversation = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -61,6 +74,12 @@ func _ready():
 	get_node("UI/Textbox").changetext.connect(_on_textbox_changetext)
 	get_node("UI").visible = true
 	get_node("UI/Textbox").visible = true
+	
+	
+	if !Variables.bob_conversation_tracker.has("bob_3"):
+		get_node("Bob").visible = false
+	else:
+		get_node("Bob").visible = true
 	
 	if Game.toy_kill_counter > Game.gun_kill_counter or (Game.toy_kill_counter == 0 and Game.gun_kill_counter == 0):
 		morality_tracker = "good"
@@ -118,23 +137,30 @@ func _process(_delta):
 		$UI/pause_modulation.visible = true
 		Utils.pausegame()
 		
-	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible:
+		
+		
+	if Input.is_action_just_pressed("ui_cancel") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
+		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
+		Game.inventorylock = false
+		
+	if Input.is_action_just_pressed("ui_I") and !get_node("UI/Inventory/Tutorial UI").visible and !get_node("UI/Inventory/Stats").visible and !get_node("UI/Inventory/Talents").visible:
 		get_node("UI/Inventory/Tutorial UI").visible = true
 		Game.inventorylock = true
-		ammobar.value = Game.currentammo
-	elif Input.is_action_just_pressed("ui_I") and get_node("UI/Inventory/Tutorial UI").visible:
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
+	elif Input.is_action_just_pressed("ui_I") and (get_node("UI/Inventory/Tutorial UI").visible or get_node("UI/Inventory/Talents").visible or get_node("UI/Inventory/Stats").visible):
 		get_node("UI/Inventory/Tutorial UI").visible = false
+		get_node("UI/Inventory/Stats").visible = false
+		get_node("UI/Inventory/Talents").visible = false
 		Game.inventorylock = false
-		ammobar.value = Game.currentammo
-		
-		#remove later - testing purposes
-	if Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == false:
-		get_node("testbox").visible = true
-		Game.inventorylock = true
-	elif Input.is_action_just_pressed("ui_home") and get_node("testbox").visible == true:
-		get_node("testbox").visible = false
-		Game.inventorylock = false
-		#remove later - testing purposes 
+		if Game.weapon_equipped == "gun":
+			ammobar.value = Game.currentammo
+		elif Game.weapon_equipped == "toygun":
+			ammobar.value = Game.currenttoyammo
 	
 	var mouse_offset = (get_viewport().get_mouse_position() - Vector2(get_viewport().size / 2))
 	$Player/Camera2D.position = lerp(Vector2(), mouse_offset.normalized() * 50, mouse_offset.length() / 1000)
@@ -489,6 +515,57 @@ func _on_textbox_changetext():
 				get_node("UI/Textboxanims").play_backwards("textboxappears")
 				get_node("UI/Textbox").disabletext = true
 				
+		elif currentconversation == "bob_4":
+			if conversation_step == 1:
+				conversation_step += 1
+				textbox.change_text("Thanks for the invite. I've been thinking, it'd sure be nice if I could pay you back somehow.","bob")
+			elif conversation_step == 2:
+				conversation_step += 1
+				textbox.change_text("And I know just the way. Remember how I said I was the sheep's knees when it comes to shootin'?", "bob")
+			elif conversation_step == 3:
+				conversation_step += 1
+				textbox.change_text("Not with those exact words, no...", "red")
+			elif conversation_step == 4:
+				conversation_step += 1
+				textbox.change_text("Well, I've decided I can teach you a thing or two about the ol'... Gun.", "bob")
+			elif conversation_step == 5:
+				conversation_step += 1
+				textbox.change_text("Not for free of course, no, I'll definitely need payment of some kind...", "bob")
+			elif conversation_step == 6:
+				conversation_step += 1
+				textbox.change_text("What? I thought you said this was payment for me letting you stay on the ship!", "red")
+			elif conversation_step == 7:
+				conversation_step += 1
+				textbox.change_text("'Course not Snooch. Or, not entirely anywho. My company alone's enough to pay you back for that.", "bob")
+			elif conversation_step == 8:
+				conversation_step += 1
+				textbox.change_text("Anyway, what're you willing to trade me for my time?", "bob")
+			elif conversation_step == 9:
+				conversation_step += 1
+				textbox.change_text("Hmmm... All I've got are these lemon meringue pies.", "red")
+			elif conversation_step == 10:
+				conversation_step += 1
+				textbox.change_text("What a wacky and unpredictable coincidence! I love lemon meringue pies! You got yourself a deal, Snooch. Bring me 1 lemon meringue pie, and I'll train you in gunomancy.", "bob")
+			elif conversation_step == 11:
+				conversation_step += 1
+				textbox.change_text("Gunomancy? That sounds super made-up.", "red")
+			elif conversation_step == 12:
+				conversation_step += 1
+				textbox.change_text("'Course it's not made up. Bob don't make up nothing.", "bob")
+			elif conversation_step == 13:
+				conversation_step = 1
+				Variables.inputIsDisabled = false
+				currentconversation = ""
+				Game.inventorylock = false
+				get_node("Player/AnimatedSprite2D").flip_h = false
+				get_node("UI/Textboxanims").play_backwards("textboxappears")
+				get_node("UI/Textbox").disabletext = true
+				get_node("UI").visible = true
+				get_node("talents_tutorial").visible = true
+				Utils.pausegame()
+				
+			
+			
 		elif currentconversation == "exitconvo":
 			conversation_step = 1
 			Variables.inputIsDisabled = false
@@ -686,6 +763,20 @@ func _on_prof_conversation_prof():
 		get_node("UI/Textbox").change_text("Well, better luck next time I suppose. There is something sinister about that creature...", "prof")
 		currentconversation = "exitconvo"
 		Variables.prof_conversation_tracker.append("prof_5")
+	if current_prof_convo == "prof_6":
+		get_node("UI/Textbox").change_text( "I see you've made friends. I hope he'll make himself useful, there is no room for freeloaders on this ship.", "prof")
+		currentconversation = "exitconvo"
+		Variables.prof_conversation_tracker.append("prof_6")
+		
+
+func _on_bob_conversation_bob():
+	get_node("UI/Textbox").disabletext = false
+	Variables.inputIsDisabled = true
+	get_node("UI/Textboxanims").play("textboxappears")
+	if current_bob_convo == "bob_4":
+		get_node("UI/Textbox").change_text("This is a real nice ship you got here. Almost as nice as ol' bessie, my favorite horse. Almost.", "bob")
+		currentconversation = "bob_4"
+		Variables.bob_conversation_tracker.append("bob_4")
 
 func _on_blue_conversation_blue():
 	get_node("UI/Textbox").disabletext = false
@@ -711,3 +802,14 @@ func _on_blue_conversation_blue():
 		get_node("UI/Textbox").change_text("Ah, shoot. Well, there's always next time. if it makes you feel any better, we got you out of there before he bloodied you up too bad!", "blue")
 		currentconversation = "exitconvo"
 		Variables.blue_conversation_tracker.append("blue_5")
+	if current_blue_convo == "blue_6":
+		get_node("UI/Textbox").change_text( "That Bob guy sure is nice! I think he likes it here. You should keep inviting more people, me and The Professor get pretty lonely here when you're gone!", "blue")
+		currentconversation = "exitconvo"
+		Variables.prof_conversation_tracker.append("prof_6")
+
+
+func _on_bob_gun_training(training_bool):
+	if training_bool:
+		get_node("UI/train_popup_gun").visible = true
+	else:
+		get_node("UI/train_popup_gun").visible = false

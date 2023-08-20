@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://cisefm4ywllc3"]
+[gd_scene load_steps=110 format=3 uid="uid://cisefm4ywllc3"]
 
 [ext_resource type="Script" path="res://scene/levels/spaceship_hub.gd" id="1_hmuj2"]
 [ext_resource type="Script" path="res://scene/levels/tutorial_area_1_room1.gd" id="2_nojr4"]
@@ -30,10 +30,13 @@
 [ext_resource type="Script" path="res://scene/levels/jump_thru_wall.gd" id="32_dto2g"]
 [ext_resource type="Texture2D" uid="uid://roopucwl8dda" path="res://assets/environment/background_tiles/Level_1/center2_upper.png" id="33_uq6li"]
 [ext_resource type="Texture2D" uid="uid://dgixorhhbxou4" path="res://assets/environment/background_tiles/Level_1/right_upper.png" id="34_d40au"]
+[ext_resource type="PackedScene" uid="uid://caaa6nl5bov1n" path="res://scene/NPC/bob.tscn" id="35_elff0"]
 [ext_resource type="PackedScene" uid="uid://up4ihseinsod" path="res://scene/item/item_generator.tscn" id="36_jwlsg"]
 [ext_resource type="PackedScene" uid="uid://dk8edw251qj3" path="res://scene/player/player.tscn" id="37_62ekj"]
 [ext_resource type="PackedScene" uid="uid://dyfvp0de3dvf1" path="res://scene/levels/transition_screen.tscn" id="38_y78br"]
 [ext_resource type="PackedScene" uid="uid://dp87hqbaj8bx8" path="res://scene/NPC/blue.tscn" id="39_bvsmw"]
+[ext_resource type="Script" path="res://scene/levels/tutorial_info_script.gd" id="39_h6xy1"]
+[ext_resource type="Texture2D" uid="uid://db4qqg75epk8" path="res://assets/gui/MainPanel03.png" id="40_cfdk3"]
 [ext_resource type="Texture2D" uid="uid://vrgjmca025h2" path="res://assets/environment/scifi/scifi_7a2b.png" id="43_nhehx"]
 [ext_resource type="Texture2D" uid="uid://duvwslurkdwit" path="res://assets/environment/scifi/scifi_7a2a.png" id="44_q3jgd"]
 [ext_resource type="PackedScene" uid="uid://dq1dw0mjc1phe" path="res://scene/NPC/prof.tscn" id="48_yuovb"]
@@ -4050,6 +4053,10 @@ position = Vector2(207, 341)
 scale = Vector2(-1, 1)
 collision_layer = 0
 
+[node name="Bob" parent="." instance=ExtResource("35_elff0")]
+position = Vector2(674, 337)
+scale = Vector2(-1, 1)
+
 [node name="portal" type="Area2D" parent="." groups=["interact"]]
 collision_mask = 17
 
@@ -4069,8 +4076,52 @@ visible = false
 [node name="Textbox" parent="UI" index="8"]
 visible = false
 
+[node name="talents_tutorial" type="CanvasLayer" parent="."]
+process_mode = 2
+visible = false
+script = ExtResource("39_h6xy1")
+
+[node name="page1" type="CanvasGroup" parent="talents_tutorial"]
+
+[node name="TextureRect" type="TextureRect" parent="talents_tutorial/page1"]
+offset_right = 960.0
+offset_bottom = 537.0
+texture = ExtResource("40_cfdk3")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="talents_tutorial/page1"]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 958.0
+offset_bottom = 518.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+bbcode_enabled = true
+text = "Some NPCs can train Red, offering her [u]talent points[/u] in exchange for [u]meringues[/u]. Bob is one such NPC. 
+
+Speak to him to trade meringues for \"gunomancy talent points\". These talent points can only be spent on \"gunomancy talents\". There are also \"magicianship talent points\" and \"petology talent points\", which will be unlocked later in the game. 
+
+Your talent tree offers various upgrades to Red, which can be tailored to fit your playstyle. Talent points can only be exchanged in the spaceship hub. 
+
+To access your talent tree, press tab and click the \"Talents\" button at the top. Meringues must be exchanged for talent point training prior to being spent."
+
+[node name="Label" type="Label" parent="talents_tutorial/page1"]
+modulate = Color(1, 1, 1, 0.607843)
+offset_top = 475.0
+offset_right = 960.0
+offset_bottom = 533.0
+theme_override_font_sizes/font_size = 32
+text = "
+[Esc] Close Window"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="conversation_prof" from="prof" to="." method="_on_prof_conversation_prof"]
 [connection signal="conversation_blue" from="Blue" to="." method="_on_blue_conversation_blue"]
+[connection signal="conversation_bob" from="Bob" to="." method="_on_bob_conversation_bob"]
+[connection signal="gun_training" from="Bob" to="." method="_on_bob_gun_training"]
 [connection signal="body_entered" from="portal" to="." method="_on_portal_body_entered"]
 [connection signal="body_exited" from="portal" to="." method="_on_portal_body_exited"]
 [connection signal="transitioned" from="TransitionScreen" to="." method="_on_transition_screen_transitioned"]

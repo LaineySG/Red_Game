@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cixidhrb5q1qo"]
+[gd_scene load_steps=80 format=3 uid="uid://cixidhrb5q1qo"]
 
 [ext_resource type="Script" path="res://scene/gui/Player_UI.gd" id="1_phh03"]
 [ext_resource type="Shader" path="res://assets/shaders/outline.gdshader" id="1_tkis7"]
@@ -40,6 +40,10 @@
 [ext_resource type="Script" path="res://scene/gui/returnmenubtn.gd" id="38_bmvnr"]
 [ext_resource type="Script" path="res://scene/gui/settings_modulation.gd" id="38_snqd4"]
 [ext_resource type="Script" path="res://scene/gui/time_trial_timer.gd" id="40_wtpvd"]
+[ext_resource type="Texture2D" uid="uid://vsotbfjdf4ie" path="res://assets/gui/Button11.png" id="41_getln"]
+[ext_resource type="Script" path="res://scene/gui/train_popup.gd" id="41_pw7ql"]
+[ext_resource type="Texture2D" uid="uid://cmgs2u1s7b0c2" path="res://assets/gui/Button14.png" id="42_wmlc3"]
+[ext_resource type="Texture2D" uid="uid://cg4rs8l57it5b" path="res://assets/gui/Button13.png" id="43_3luu1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hclwf"]
 shader = ExtResource("1_tkis7")
@@ -1224,6 +1228,85 @@ script = ExtResource("40_wtpvd")
 
 [node name="Timer" type="Timer" parent="time_trial_timer"]
 
+[node name="train_popup_gun" type="CanvasLayer" parent="."]
+script = ExtResource("41_pw7ql")
+
+[node name="mini_popup" type="Sprite2D" parent="train_popup_gun"]
+position = Vector2(465, 248)
+scale = Vector2(3, 8)
+texture = ExtResource("41_getln")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="train_popup_gun"]
+offset_left = 315.0
+offset_top = 170.0
+offset_right = 615.0
+offset_bottom = 290.0
+theme_override_font_sizes/normal_font_size = 32
+text = "Trade:"
+
+[node name="SpinBox" type="SpinBox" parent="train_popup_gun"]
+offset_left = 327.0
+offset_top = 203.0
+offset_right = 375.0
+offset_bottom = 224.0
+max_value = 1.0
+
+[node name="Label" type="Label" parent="train_popup_gun"]
+offset_left = 380.0
+offset_top = 206.0
+offset_right = 500.0
+offset_bottom = 222.0
+text = "meringues (total: 0)"
+
+[node name="Label2" type="Label" parent="train_popup_gun"]
+offset_left = 320.0
+offset_top = 231.0
+offset_right = 506.0
+offset_bottom = 247.0
+text = "For 0 gunomancy training points"
+
+[node name="Label3" type="Label" parent="train_popup_gun"]
+offset_left = 394.0
+offset_top = 283.0
+offset_right = 610.0
+offset_bottom = 315.0
+text = "Resets all gunomancy training points
+back to meringues. Cannot be undone."
+
+[node name="TextureButton" type="TextureButton" parent="train_popup_gun"]
+offset_left = 324.0
+offset_top = 251.0
+offset_right = 429.0
+offset_bottom = 309.0
+texture_normal = ExtResource("42_wmlc3")
+
+[node name="Label" type="Label" parent="train_popup_gun/TextureButton"]
+layout_mode = 0
+offset_top = -5.0
+offset_right = 105.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 32
+text = "Accept"
+horizontal_alignment = 1
+
+[node name="TextureButton2" type="TextureButton" parent="train_popup_gun"]
+offset_left = 325.0
+offset_top = 291.0
+offset_right = 430.0
+offset_bottom = 349.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("43_3luu1")
+
+[node name="Label" type="Label" parent="train_popup_gun/TextureButton2"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = -5.0
+offset_right = 113.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 32
+text = "Reset "
+horizontal_alignment = 1
+
 [connection signal="timeout" from="Textbox/textscrolltimer" to="Textbox" method="_on_textscrolltimer_timeout"]
 [connection signal="opensettings" from="pause_modulation/Settings" to="." method="_on_settings_opensettings"]
 [connection signal="returntomenu" from="settings_modulation/Main Menu" to="." method="_on_main_menu_returntomenu"]
@@ -1233,3 +1316,5 @@ script = ExtResource("40_wtpvd")
 [connection signal="toggled" from="settings_modulation/Panel/enemydamagetoggle" to="settings_modulation" method="_on_enemydamagetoggle_toggled"]
 [connection signal="toggled" from="settings_modulation/Panel/playerdamagetoggle" to="settings_modulation" method="_on_playerdamagetoggle_toggled"]
 [connection signal="timeout" from="time_trial_timer/Timer" to="time_trial_timer" method="_on_timer_timeout"]
+[connection signal="pressed" from="train_popup_gun/TextureButton" to="train_popup_gun" method="_on_texture_button_pressed"]
+[connection signal="pressed" from="train_popup_gun/TextureButton2" to="train_popup_gun" method="_on_texture_button_2_pressed"]

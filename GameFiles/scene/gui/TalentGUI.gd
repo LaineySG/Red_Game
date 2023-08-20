@@ -38,5 +38,4 @@ func _on_talent_focused(name_of_perk, perk_stats):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if get_node("points").text != ('[img width="30" height="30"]res://assets/gui/icons/electric.png[/img]' + " " + str(Game.talent_points)):
-		get_node("points").text = '[img width="30" height="30"]res://assets/gui/icons/electric.png[/img]' + " " + str(Game.talent_points)
+		get_node("points").text = '[img width="30" height="30"]res://assets/item/pie-slice.png[/img] ' + str(Game.meringues) + ' [img width="30" height="30"]res://assets/gui/icons/bullseye.png[/img] ' + str(Game.talent_points_gun_unspent) + ' [img width="30" height="30"]res://assets/gui/icons/sitting-dog.png[/img] ' + str(Game.talent_points_pets_unspent) + ' [img width="30" height="30"]res://assets/gui/icons/twirly-flower.png[/img] ' + str(Game.talent_points_magic_unspent)

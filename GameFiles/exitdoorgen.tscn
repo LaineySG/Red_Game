@@ -1,6 +1,7 @@
-[gd_scene load_steps=44 format=3 uid="uid://5o6wuyan4l24"]
+[gd_scene load_steps=56 format=3 uid="uid://5o6wuyan4l24"]
 
 [ext_resource type="Texture2D" uid="uid://bih1jdljf5ut3" path="res://assets/environment/background_tiles/Level_1/closed_door_blue.png" id="1_ucey7"]
+[ext_resource type="Texture2D" uid="uid://c7t6doy5eu5sk" path="res://assets/environment/background_tiles/Level_1/door_opening_cyberbar.png" id="2_dqvpn"]
 [ext_resource type="Texture2D" uid="uid://bivc7v2od0dld" path="res://assets/environment/background_tiles/Level_1/closed_door_W.png" id="2_qcxyy"]
 [ext_resource type="Texture2D" uid="uid://cp0dbk7e80nwj" path="res://assets/environment/background_tiles/Level_1/closed_door_blue_gradient.png" id="2_xuvx4"]
 [ext_resource type="Script" path="res://exitdoorgen.gd" id="3_6r4ce"]
@@ -15,6 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://c4rb7j1gw3ae5" path="res://assets/environment/scifi/anims/fightroom.png" id="9_1cl3e"]
 [ext_resource type="PackedScene" uid="uid://tx0k8w40l0k3" path="res://roomdeterminator.tscn" id="10_18ww2"]
 [ext_resource type="Texture2D" uid="uid://cmiwbcivicski" path="res://assets/environment/scifi/anims/meeting_room.png" id="10_rikax"]
+[ext_resource type="Texture2D" uid="uid://c481tt4pt6ccy" path="res://assets/environment/scifi/anims/fightroom_skull.png" id="14_uc1ix"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_javoi"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5egek"]
 atlas = ExtResource("3_yqaws")
@@ -47,6 +53,42 @@ region = Rect2(384, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_gbssa"]
 atlas = ExtResource("3_yqaws")
 region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khv0g"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1572"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx612"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_les5g"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lri6m"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_darw3"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5cyy"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doqlg"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2fbt"]
+atlas = ExtResource("2_dqvpn")
+region = Rect2(512, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wrfrk"]
 atlas = ExtResource("5_0mnpl")
@@ -132,6 +174,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_javoi")
+}],
+"loop": true,
+"name": &"closed_cyberbar",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_xuvx4")
 }],
 "loop": true,
@@ -173,6 +223,38 @@ animations = [{
 }],
 "loop": false,
 "name": &"open",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khv0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1572")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx612")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_les5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lri6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_darw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5cyy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_doqlg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2fbt")
+}],
+"loop": false,
+"name": &"open_cyberbar",
 "speed": 15.0
 }, {
 "frames": [{
@@ -246,7 +328,7 @@ size = Vector2(41, 57)
 [node name="exitdoor" type="AnimatedSprite2D" groups=["interact"]]
 position = Vector2(808, -105)
 sprite_frames = SubResource("SpriteFrames_tcadn")
-animation = &"open_gradient"
+animation = &"open_cyberbar"
 script = ExtResource("3_6r4ce")
 
 [node name="door_light" type="Node2D" parent="."]
@@ -312,6 +394,13 @@ modulate = Color(1, 1, 1, 0.709804)
 position = Vector2(0.343506, -38.7691)
 scale = Vector2(0.22, 0.22)
 texture = ExtResource("9_1cl3e")
+
+[node name="Fightroom_Skull" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.709804)
+position = Vector2(0.343506, -38.7691)
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("14_uc1ix")
 
 [node name="Meetingroom" type="Sprite2D" parent="."]
 visible = false

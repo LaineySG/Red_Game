@@ -16,6 +16,9 @@ class_name ResourceDataVariables
 @export var playerDied = false
 @export var currentammo = 7
 @export var berserkshotcount = 0
+@export var talent_points_gun_unspent = 0
+@export var talent_points_magic_unspent = 0
+@export var talent_points_pets_unspent = 0
 @export var tutorial_area2count = 0
 @export var roomcount = 0
 @export var playershottimer = 0.4
@@ -40,6 +43,7 @@ class_name ResourceDataVariables
 @export var equipped_items = []
 @export var current_effects = []
 @export var eqptracker = 0
+@export var meringues = 0
 @export var eqptracker2 = []
 @export var abilityCDs = {}
 @export var current_effects_levels = {}
@@ -49,6 +53,7 @@ class_name ResourceDataVariables
 @export var tutorial_tooltip_1 = true
 @export var blue_conversation_tracker = []
 @export var prof_conversation_tracker = []
+@export var bob_conversation_tracker = []
 @export var grimm_conversation_tracker = []
 @export var shop_conversation_tracker = []
 @export var current_room_items = {}
@@ -100,6 +105,7 @@ func denitialize():
 	blue_conversation_tracker = Variables.blue_conversation_tracker
 	prof_conversation_tracker = Variables.prof_conversation_tracker
 	grimm_conversation_tracker = Variables.grimm_conversation_tracker
+	bob_conversation_tracker = Variables.bob_conversation_tracker
 	shop_conversation_tracker = Variables.shop_conversation_tracker
 	current_room_items = Variables.current_room_items
 	current_room_doors = Variables.current_room_doors
@@ -128,6 +134,7 @@ func denitialize():
 	playerhpmax = Game.playerhpmax
 	playergold = Game.playergold
 	has_gun = Game.has_gun 
+	meringues = Game.meringues
 	toy_kill_counter = Game.toy_kill_counter
 	givenabilities = Game.givenabilities
 	gun_kill_counter = Game.gun_kill_counter
@@ -135,6 +142,10 @@ func denitialize():
 	grimm_toy_kill_counter = Game.grimm_toy_kill_counter
 	ammomax = Game.ammomax
 	runs = Game.runs
+	
+	talent_points_gun_unspent = Game.talent_points_gun_unspent
+	talent_points_magic_unspent = Game.talent_points_magic_unspent
+	talent_points_pets_unspent = Game.talent_points_pets_unspent
 	has_toy_gun = Game.has_toy_gun
 	playerDied = Game.playerDied
 	currentammo = Game.currentammo
@@ -163,6 +174,7 @@ func initialize():
 	Variables.blue_conversation_tracker = blue_conversation_tracker
 	Variables.prof_conversation_tracker = prof_conversation_tracker
 	Variables.grimm_conversation_tracker = grimm_conversation_tracker
+	Variables.bob_conversation_tracker = bob_conversation_tracker
 	Variables.shop_conversation_tracker = shop_conversation_tracker
 	Variables.current_room_items = current_room_items
 	Variables.current_room_doors = current_room_doors
@@ -211,6 +223,7 @@ func initialize():
 	Game.has_toy_gun=has_toy_gun
 	Game.playerDied=playerDied
 	Game.currentammo=currentammo
+	Game.meringues = meringues
 	Game.berserkshotcount=berserkshotcount
 	Game.tutorial_area2count=tutorial_area2count
 	Game.roomcount=roomcount
@@ -219,6 +232,11 @@ func initialize():
 	Game.modifications=modifications
 	Game.playerstats =playerstats
 	Game.current_abilities =current_abilities
+	
+	
+	Game.talent_points_gun_unspent = talent_points_gun_unspent
+	Game.talent_points_magic_unspent = talent_points_magic_unspent
+	Game.talent_points_pets_unspent = talent_points_pets_unspent
 	Game.gun_list=gun_list
 	Game.weapon_equipped=weapon_equipped
 	Game.items_list=items_list

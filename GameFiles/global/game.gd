@@ -10,6 +10,7 @@ var gun_kill_counter = 0
 var grimm_gun_kill_counter = 0
 var grimm_toy_kill_counter = 0
 var ammomax
+var meringues = 0
 var runs = 0
 var has_toy_gun = 1
 var playerDied = false
@@ -63,6 +64,9 @@ var talent_points = 0
 var talent_points_gun = 0
 var talent_points_magic = 0
 var talent_points_pets = 0
+var talent_points_gun_unspent = 0
+var talent_points_magic_unspent = 0
+var talent_points_pets_unspent = 0
 
 var current_abilities = {}
 var gun_list = ["gun", "toygun"]
